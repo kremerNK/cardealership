@@ -19,7 +19,7 @@ class Vehicle(Page):
     carType = models.CharField(max_length=200, null=True, choices=vehicleType.choices)
     type = models.CharField(max_length=200, null=True, default='')
     bodyColor = models.CharField(max_length=200, null=True, default='')
-    mileage = models.IntegerField(null=True, default=0)
+    mileage = models.CharField(max_length=200, null=True, default=0)
     mpg = models.CharField(max_length=200, default='22')
     engine = models.CharField(max_length=200, default='5.3L V-6')
     transmission = models.CharField(max_length=200, default='4-Speed auto')

@@ -181,7 +181,7 @@ function filterVehicles(){
             //get data from vehicle cards
             let priceFiltered = parseInt(vehicleCards[i].querySelector('.vehicle-price').innerHTML.replace('$','').replace(',',''));
             let makeFiltered = vehicleCards[i].querySelector('#make').getAttribute('value');
-            let mileageFiltered = parseInt(vehicleCards[i].querySelector('#mileageId').innerHTML);
+            let mileageFiltered = parseInt(vehicleCards[i].querySelector('#mileageId').innerHTML.replace(',',''));
             let yearFiltered = parseInt(vehicleCards[i].querySelector('.vehicleYear').innerHTML);
             let mpgFiltered = parseInt(vehicleCards[i].querySelector('#mpg').innerHTML);
             let bodyFiltered = vehicleCards[i].querySelector('.vehicleTitle').getAttribute('value');
