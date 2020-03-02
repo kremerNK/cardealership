@@ -56,10 +56,10 @@
                             <p><i id='leftcaret' class="fas fa-angle-left"></i></p>
                         </div>
                         <div style='display: none;' class='dropDown'>
-                            <select name="" id="makeFilter">
-                                <option value="" selected>Any</option>
+                            <select name="" id="makeFilter" onchange='filterVehicles()'>
+                                <option value="any" selected>Any</option>
                             {% for make in makeList %}
-                                <option value="testvalue">{{ make }}</option>
+                                <option value="{{ make }}">{{ make }}</option>
                             {% endfor %}
                             </select>
                         </div>
@@ -351,7 +351,7 @@
                             <div class='year'>
                                 <p class='vehicleYear' style='margin-right: 5px;'>{{ attribute.year }}</p>
                                 
-                                <p id='make' value='{{ attribute.make }}'> {{ attribute.title }}</p>
+                                <p id='make' value='{{ attribute.make }}'>{{attribute.make }} {{ attribute.title }}</p>
                             </div>
                             <!-- <p>{{ attribute.carType }}</p> -->
                             <p name='vehicle-price' class='vehicle-price' >{{ attribute.price }}</p>

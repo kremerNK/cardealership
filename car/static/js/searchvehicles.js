@@ -1,3 +1,5 @@
+
+//reset search bar values on refresh
 let yearMinSearch = document.querySelector('#selectYearMin');
 let yearMaxSearch = document.querySelector('#selectYearMax');
 yearMinSearch.value = '1995';
@@ -6,16 +8,15 @@ let mpgSearch = document.querySelector('#fuelEfficiencyFilter');
 let bodyTypeSearch = document.querySelector('#bodyStyleFilter'); 
 mpgSearch.value = 'any';
 bodyTypeSearch.value = 'any';
+let resetMakeSearch = document.querySelector('#makeFilter');
+resetMakeSearch.value = 'any';
 
 
-
-
+//reset drop downs on refresh
 let test = document.querySelectorAll('.dropDown');
 for (i = 0; i < test.length; i ++){
     test[i].style.display = '';
 }
-
-
 
 
 let regularSlider = document.querySelector('.regular-slider');
@@ -184,10 +185,12 @@ function filterVehicles(){
             let yearFiltered = parseInt(vehicleCards[i].querySelector('.vehicleYear').innerHTML);
             let mpgFiltered = parseInt(vehicleCards[i].querySelector('#mpg').innerHTML);
             let bodyFiltered = vehicleCards[i].querySelector('.vehicleTitle').getAttribute('value');
-
+            console.log(makeFiltered);
+            
             // get data from search bar
             let pricemintooltip = parseInt(tooltip[0].innerHTML.replace('$','').replace(',',''));
             let pricemaxtooltip = parseInt(tooltip[1].innerHTML.replace('$','').replace(',',''));
+            let makeSearch = document.querySelector('#makeFilter').value;
             let mileagemintooltip = parseInt(tooltip[2].innerHTML.replace('$','').replace(',',''));
             let mileagemaxtooltip = parseInt(tooltip[3].innerHTML.replace('$','').replace(',',''));
             let yearMinSearch = document.querySelector('#selectYearMin').value; //can get year from select dom with value
@@ -199,13 +202,16 @@ function filterVehicles(){
  
             //filtration expressions
             let priceEval = (priceFiltered > pricemaxtooltip || priceFiltered < pricemintooltip);
+            let makeEval = (makeFiltered != makeSearch && makeSearch != 'any');
             let mileageEval = (mileageFiltered > mileagemaxtooltip || mileageFiltered < mileagemintooltip);
             let yearEval = (yearFiltered > yearMaxSearch || yearFiltered < yearMinSearch)
             let mpgEval = (mpgSearch != 'any' && mpgFiltered < mpgSearch);
             let bodyEval = (bodyTypeSearch != 'any' && bodyTypeSearch != bodyFiltered);
-            console.log(priceEval, mileageEval, yearEval, mpgEval, bodyEval);
+            // console.log(priceEval, makeEval, mileageEval, yearEval, mpgEval, bodyEval);
+            
+            
 
-            if (priceEval || 
+            if (priceEval || makeEval ||
             mileageEval || yearEval || mpgEval || bodyEval)  { //try just removing an operand
                 console.log('at least 1 is out of range, do not display');
                 vehicleCards[i].style.display = 'none';    
