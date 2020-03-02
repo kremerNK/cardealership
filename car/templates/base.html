@@ -1,0 +1,151 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title>
+            {% block title %}
+                {% if self.seo_title %}{{ self.seo_title }}{% else %}{{ self.title }}{% endif %}
+            {% endblock %}
+            {% block title_suffix %}
+                {% with self.get_site.site_name as site_name %}
+                    {% if site_name %}- {{ site_name }}{% endif %}
+                {% endwith %}
+            {% endblock %}
+        </title>
+        <meta name="description" content="" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css">
+        <script src="https://kit.fontawesome.com/f19908a36f.js" crossorigin="anonymous"></script>
+        {# Global stylesheets #}
+        <link rel="stylesheet" type="text/css" href="{% static 'css/base.css' %}">
+
+        {% block extra_css %}
+            {# Override this in templates to add extra stylesheets #}
+        {% endblock %}
+    </head>
+
+    <body>
+
+        <!-- <div class='rightbanner'>
+            <h5 id='phonenumber'><i height='10px' class="fas fa-phone fa-xs"></i> 920-111-1111</h5>
+            <h5 id='address'><i class="fas fa-map-marker-alt fa-sm"></i> 10:00 AM - 6:00 PM New Franken Street</h5>
+        </div> -->
+
+
+        <!-- <div class='top'> 
+            <div class='topbanner'>
+                <div class='leftbanner'>
+                    <h4 id='leftbannerh4'>Servicing the greater Green Bay area for over 15 years</h5>
+                </div> 
+                <div class='rightbanner'>
+                    <h5 id='phonenumber'><i height='10px' class="fas fa-phone fa-xs"></i> 920-111-1111</h5>
+                    <h5 id='address'><i class="fas fa-map-marker-alt fa-sm"></i> 10:00 AM - 6:00 PM New Franken Street</h5>
+                </div>
+            </div> 
+        </div> -->
+        
+        <div class='top-banner'>
+            <span class="navbar-toggle" id="js-navbar-toggle">
+                <i class="fas fa-bars"></i>
+            </span>
+            <div class='leftbanner'>
+                <h3>New Franken Automotive</h3>
+            </div>
+            <div class='rightbanner'> 
+                <p style='margin-bottom: 5px' id='address'><i class="fas fa-map-marker-alt fa-sm"></i> 123 New Franken Street</p>
+                <p id='phonenumber'><i height='10px' class="fas fa-phone fa-xs"></i> 920-111-1111</p>
+                
+            </div>
+            <ul class='main-nav' id='js-menu'>
+                <li><a href="/" class='nav-links'>Home</a></li>
+                <li><a href="/search-vehicles" class='nav-links'>Search Inventory</a></li>
+                <li><a href="/dealership-hours" class='nav-links'>Hours/Location</a></li>
+                <li><a href="/contact" class='nav-links'>Contact</a></li>
+            </ul>
+            <div class='mobile-phone'>
+                <p><i height='15px' class="fas fa-phone fa-xs"></i> 920-111-1111</p>
+            </div>
+        </div>
+        
+        <!-- <div class='nav'> -->
+            <nav>
+                <!-- <div class='navleft'> -->
+                    <ul class='navleft'>
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/search-vehicles">Search Inventory</a></li>
+                        <li><a href="/dealership-hours">Hours/Location</a></li>
+                        <li><a href="/contact">Contact</a></li>
+                    </ul>
+                <!-- </div> -->
+                
+            </nav>
+        <!-- </div> -->
+        
+        
+        
+        <!-- </div>  -->
+        
+        
+        
+
+        {% block content %}
+        {% endblock %}
+        
+
+        
+        <footer class='footer'>
+            <div class='footerlocation'>
+                <p class='locationp'>LOCATION</p>
+                <p>123 New Franken Street</p>
+                <p>New Franken, WI 54303</p>
+            </div>
+            <div class='footerhours'> 
+                <p>HOURS</p>
+                <table>
+                    <tbody>
+                        <tr>
+                            <th>Monday</th>
+                            <th class='align-right'>10:00 AM - 6:00 PM</th>
+                        </tr>
+                        <tr>
+                            <th>Tuesday</th>
+                            <th class='align-right'>10:00 AM - 6:00 PM</th>
+                        </tr>
+                        <tr>
+                            <th>Wednesday</th>
+                            <th class='align-right'>10:00 AM - 6:00 PM</th>
+                        </tr>
+                        <tr>
+                            <th>Thursday</th>
+                            <th class='align-right'>10:00 AM - 6:00 PM</th>
+                        </tr>
+                        <tr>
+                            <th>Friday</th>
+                            <th class='align-right'>10:00 AM - 6:00 PM</th>
+                        </tr>
+                        <tr>
+                            <th>Saturday</th>
+                            <th class='align-right'>10:00 AM - 6:00 PM</th>
+                        </tr>
+                        <tr>
+                            <th>Sunday</th>
+                            <th class='align-right'>10:00 AM - 6:00 PM</th>
+                        </tr>
+
+                    </tbody>
+                </table>
+            </div>
+        </footer>
+        
+      
+
+        {# Global javascript #}
+        <script type="text/javascript" src="{% static 'js/base.js' %}"></script>
+
+        {% block extra_js %}
+            {# Override this in templates to add extra javascript #}
+        {% endblock %}
+    </body>
+</html>

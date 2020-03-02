@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% load wagtailcore_tags wagtailimages_tags %}
+{% load static %}
+
+<!-- {% block body_class %}template-blogpage{% endblock %} -->
+
+{% block content %}
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <link rel="stylesheet" type="text/css" href="{% static 'css/vehicle.css' %}">
+    </head>
+    <body>
+        <div class='body'>
+             <p>{{ page.title }}</p>
+            <p>{{ page.mileage }}</p>
+            <p>{{ page.mpg }}</p> 
+            <p>{{ page.engine }}</p>
+            <p>{{ page.transmission }}</p>
+            <p>{{ page.drive_line }}</p>
+            <p>{{ page.exterior_color }}</p>
+            <p>{{ page.picture }}</p>
+            <img width='50' height='50' src="../../media/{{ page.picture }}" alt="">
+        </div>
+        
+        <script type="text/javascript" src="{% static 'js/vehicle.js' %}"></script>
+    </body>
+    </html>
+    
+
+{% endblock %}

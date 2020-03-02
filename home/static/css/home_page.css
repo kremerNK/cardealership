@@ -1,0 +1,94 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.dealerbanner {
+    
+    height: 100%;
+    width: 100%;
+}
+
+.dealerbanner > img {
+    height: 100%;
+    width: 100%;
+    /* filter: blur(1px); */ 
+}
+
+.body {
+    
+    background-color:#ebe9e9;
+    width: 90%;
+ 
+
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+.body > h2 {
+    padding-top: 50px;
+}
+
+/* .introtitle {
+    display: flex;
+    width: 100%;
+    justify-content: flex-start;
+    align-items: center;
+    text-align: center;
+}
+
+.introtitle:before,
+.introtitle:after {
+    content: '';
+    border-top: 2px solid;
+    margin: 0 20px 0 0;
+    flex: 0 0 40px;
+}
+
+.introtitle:after {
+    margin: 0 0 0 20px;
+} */
+
+/* .introtitle { 
+    overflow: hidden;
+    text-align: center;
+    color: #02366C;
+}
+.introtitle:before,
+.introtitle:after {
+    background-color: #02366C;
+    content: "";
+    display: inline-block;
+    height: 1px;
+    position: relative;
+    vertical-align: middle;
+    width: 40%;
+}
+.introtitle:before {
+    right: 0.5em;
+    margin-left: -65%;
+}
+.introtitle:after {
+    left: 0.5em;
+    margin-right: -35%;
+} */
+
+.body > p { 
+    color: #02366C;
+} 
+
+/* .bottom-banner {
+    height: 9vh;
+    width: 100%;
+    background-color: #999999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.bottom-banner h4 {
+    margin-bottom: 0;
+    letter-spacing: 1.5px;
+    font-family: Montserrat,sans-serif;
+    
+} */

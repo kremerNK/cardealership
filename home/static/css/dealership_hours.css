@@ -1,0 +1,151 @@
+* {
+    margin: 0;
+
+}
+
+blockquote, dl, figure, form, ol, p, pre, table, ul {
+    margin: 0;
+}
+
+.direction {
+    height: 100%;
+    width: 100%;
+    padding: 10vh 7% 5% 7%;
+    
+    display: flex;
+    flex-direction: column;
+    /* justify-content: space-between; */
+  
+}
+
+#map {
+    width: 100%;
+    height: 40vh;
+    /* background-color: gray; */
+    margin-bottom: 7vh;
+
+}
+
+.mobiledirections {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    
+    background-color: #fff;
+    height: 180px;
+    /* border: 1px solid rgb(1, 96, 197); */
+    padding: 2vh 2vh 2vh 2vh;
+    box-shadow: 1px 1px rgb(133, 133, 133);
+    border-radius: 5px;
+    margin-bottom: 5vh;
+    margin-top: 5vh;
+ 
+}
+
+#mobiledirectionsform {
+    margin-bottom: 0px;
+}
+
+
+
+
+
+#map iframe {
+    height: 100%;
+    width: 100%;
+}
+
+.formcard {
+    display: none;
+
+}
+
+#directionform{
+    margin-bottom: 0px;
+    width: 300px;
+
+}
+
+.directioncards{
+    display: flex;
+    flex-direction: column;
+
+  
+}
+
+.contactcard {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    
+    background-color: #fff;
+    height: 180px;
+    /* border: 1px solid rgb(1, 96, 197); */
+    padding: 15px;
+    box-shadow: 1px 1px rgb(133, 133, 133);
+    border-radius: 5px;
+
+    margin-top: 15px;
+    margin-bottom: 2vh;
+}
+
+.contactcard > p {
+    margin-bottom: 0px;
+}
+
+.hourscard {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: #fff;
+    height: 160px;
+    padding: 15px;
+    box-shadow: 1px 1px rgb(133, 133, 133);
+    border-radius: 5px;
+    margin-top: 15px;
+    padding-top: 30px;
+    margin-bottom: 2vh;
+}
+
+.formcard:hover, .contactcard:hover, .hourscard:hover {
+    background-color: rgb(240, 247, 255);
+}
+
+@media screen and (min-width: 700px) {
+    .direction {
+        height: 100%;
+        width: 100%;
+        padding: 35vh 13% 5% 5%;
+        
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+      
+    }
+
+    .mobiledirections {
+        display: none;
+    }
+
+    #map {
+        width: 100%;
+        height: 100%;
+    }
+
+    #map iframe {
+        width: 100%;
+        height: 100%;
+    }
+    .formcard {
+        background-color: #fff;
+        height: 125px;
+        /* border: 1px solid rgb(1, 96, 197); */
+        padding: 15px;
+        box-shadow: 1px 1px rgb(133, 133, 133);
+        display: flex;
+        align-items: center;
+        border-radius: 5px;
+    
+    }
+}
+

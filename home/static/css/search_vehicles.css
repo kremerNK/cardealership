@@ -1,0 +1,420 @@
+.body {
+    height: 100%;
+    width: 100%;
+    padding: 15vh 0 5% 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+   
+
+} 
+
+p {
+    margin-bottom: 0;
+}
+
+.searchbar {
+    /* position: absolute; */
+    width: 80%;
+    background-color: #2f75a318;
+
+    z-index: 0;
+    display: none;
+    border: 1px solid black;
+    flex-direction: column;
+    margin: 0 auto;
+}
+ 
+.searchbar > p {
+    margin-bottom: 100px;
+}
+
+.searchBarTop {
+    display: flex;
+    flex-direction: row;
+}
+
+.fas.fa-window-close{
+    font-size: 30px;
+    color: #2f74a3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 2vh;
+    cursor: pointer;
+}
+
+.searchresults {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  
+}
+
+
+
+.regular-slider {
+    height: 100px;
+    /* z-index: -1; */
+    
+}
+
+.price-input {
+    text-align: center;
+    width: 100%;
+
+}
+
+.mileageSpan {
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+}
+
+.mileageSpan p {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    font-size: 15px !important;
+    padding: 0 5px 0 5px;
+}
+
+.yearDropDown {
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+    margin-bottom: 3rem;
+}
+
+.yearDropDown p {
+    display: flex;
+    flex-direction: row !important;
+    align-items: center !important;
+    font-size: 15px !important;
+    padding: 0 8px 0 8px;
+}
+
+.textbox {
+
+
+    line-height:20px;
+    height:20px;
+    padding:3px;
+    border: none;
+    font-size:13pt;
+}
+    
+.textbox > input {
+    border: 0px;
+    width: 80px;
+    background-color: #FFF;
+  }
+
+.mileage-slider {
+    height: 100px;
+    
+}
+
+#selectYearMin, #selectYearMax {
+    margin-bottom: 0;
+}
+
+.yearFilter > select {
+    width: 44%;
+}
+
+
+
+#bodyStyleFilter, #fuelEfficiencyFilter  {
+    margin: 1.5rem 0 3rem 0;
+    width: 80%;
+}
+
+.vehicleCard {
+    border: 1px solid #929292;
+    background-color: #2f75a318;
+    display: flex; /* change to flex */
+    flex-direction: row;
+    width: 90%;
+    height: 25vh;
+    
+
+}
+
+.vehicleInfo{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.vehicleImg {
+    width: 70%;
+    height: 100%;
+    margin-right: 15px;
+}
+
+.vehicleImg > img {
+    width: 100%;
+    height: 100%;
+}
+.vehicleTitle {
+    width: 100%;
+    margin-bottom: 8%;
+    font-family: "Times New Roman", Times, serif;
+    height: 30%;
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.year {
+    display: flex;
+    flex-direction: row;
+    color: #595959;
+    font-size: 3rem;
+}
+
+.vehicle-price {
+    font-size: 2rem;
+    text-align: left;
+    /* border: 1px solid black; */
+    background-color: #2f74a3;
+    color: white;
+   width: 8rem;
+   text-align: center;
+
+   /* font-family: "Times New Roman", Times, serif; */
+}
+
+.vehicleDetails {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 60%;
+    color: black;
+}
+
+.vehicleTable1, .vehicleTable2{
+    color: black;
+    width: 45%;
+    display: none;
+}
+
+
+
+.vehicleTable1 > table, .vehicleTable2 > table {
+    color: black;
+    width: 95%;
+    border-collapse: collapse;
+}
+
+th {
+    border-bottom: 2px solid black;
+    margin: 0;
+    padding: 0;
+}
+
+.align-right {
+    text-align: right;
+}
+
+.dropDownContainer {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+ 
+}
+
+.dropDownContainer > div {
+    border-top: 1px solid black;
+    width: 100%;
+    display: flex;
+    /* justify-content: space-between; */
+    font-size: 15px;
+    padding: 10px;
+}
+
+
+
+.dropDownContainer > div > p{
+    font-size: 22px;
+}
+
+#leftarrow{
+    color: black;
+   cursor: pointer;
+}
+.dropDownContainer > div:last-child {
+ 
+   
+    border-bottom: 1px solid black;
+    margin-bottom: 25px;
+}
+
+.search {
+    width: 100%;
+    flex-direction: column;
+}
+.search  p{
+    font-size: 22px;
+}
+.search > div:first-child {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.dropDown {
+    align-items: center;
+    height: 100%;
+    display: none;
+}
+
+.price-input > span > input {
+    width: 30%;
+
+}
+
+#makeFilter {
+    width: 80%;
+    margin: 25px;
+}
+
+.mileageSpan {
+    display: flex;
+    flex-direction: row !important;
+    margin-bottom: 3rem;
+}
+
+.yearDropDown{
+    display: flex;
+    flex-direction: row !important;
+    margin-top: 2rem;
+}
+
+.mobileMileageDisplay {
+    margin-top: 3rem;
+}
+
+.moreInfo {
+    width: 90%;
+    background-color: #999999c2;
+    text-align: right;
+    margin-bottom: 2rem;
+    display: flex;
+    justify-content: flex-end;
+    /* border: 1px solid #929292; */
+    border-top: none;
+}
+
+.moreInfo button {
+    width: 35%;
+    font-size: 11px;
+    text-align: right;
+    background-color: #2f74a3;
+    margin: 1rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    border-radius: 0;
+    color: white;
+    border: none;
+
+}
+
+.moreInfo > button > p {
+    width: 100%;
+}
+
+.displayFilter {
+    width: 90%;
+    text-align: right;
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 3rem;
+}
+
+.displayFilter button {
+    width: 35%;
+    background-color: #2f74a3;
+    color: white;
+    display: flex;
+    justify-content: center;
+    margin: 0;
+}
+
+@media screen and (min-width: 1000px) {
+    .searchbar {
+        margin: 0;
+        width: 20%;
+        height: ;
+        /* margin-right: 50px; */
+        z-index: 0;
+        display: flex;
+        flex-direction: column;
+        /* align-items: baseline; */
+      
+    }
+
+    .searchresults {
+        width: 70%;
+       flex-shrink: 0;
+    }
+
+    .body {
+        /* width: 90%; */
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+      
+    
+    }
+    
+    .vehicleTable1, .vehicleTable2{
+        color: black;
+        width: 45%;
+        display: block;
+    }
+
+    .vehicleCard {
+        height: 250px;
+        width: 100%;
+    }
+    .mobileMileageDisplay {
+        display: none;
+    }
+
+    .displayFilter {
+        display: none;
+    }
+
+    #hideFilter {
+        display: none;
+    }
+
+    .searchBarTop {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        padding: 15px 10px 15px 10px;
+        
+    }
+
+    .searchBarTop > p {
+        width: 100%;
+
+    }
+
+    .moreInfo {
+        width: 100%;
+    }
+
+    .moreInfo button {
+        width: 25%;
+      
+    }
+}

@@ -1,0 +1,87 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title>
+            {% block title %}
+                {% if self.seo_title %}{{ self.seo_title }}{% else %}{{ self.title }}{% endif %}
+            {% endblock %}
+            {% block title_suffix %}
+                {% with self.get_site.site_name as site_name %}
+                    {% if site_name %}- {{ site_name }}{% endif %}
+                {% endwith %}
+            {% endblock %}
+        </title>
+        <meta name="description" content="" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css">
+        <script src="https://kit.fontawesome.com/f19908a36f.js" crossorigin="anonymous"></script>
+        {# Global stylesheets #}
+        <link rel="stylesheet" type="text/css" href="{% static 'css/base.css' %}">
+
+        {% block extra_css %}
+            {# Override this in templates to add extra stylesheets #}
+        {% endblock %}
+    </head>
+
+    <body>
+        <!-- <div class='top'>
+            <div class='topbanner'>
+                <div class='leftbanner'>
+                    <h4 id='leftbannerh4'>Servicing the greater Green Bay area for over 15 years</h5>
+                </div> 
+                <div class='rightbanner'>
+                    <h5 id='phonenumber'><i height='10px' class="fas fa-phone fa-xs"></i> 920-111-1111</h5>
+                    <h5 id='address'><i class="fas fa-map-marker-alt fa-sm"></i> 123 New Franken Street</h5>
+                </div>
+            </div>  -->
+            <nav>
+                <div class='navtitle'>
+                    <h3>New Franken Automotive</h3>
+                </div>
+                <div class='navleft'>
+                    <ul>
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/search-vehicles">Search Inventory</a></li>
+                        <li><a href="/dealership-hours">Hours/Location</a></li>
+                        <li><a href="/contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class='navright'>
+    
+                </div>
+            </nav>
+        <!-- </div>  -->
+        
+        
+        
+
+        {% block content %}
+        {% endblock %}
+        <footer class='footer'>
+            <div class='footerleft'>
+                <!-- <h4>New Franken Used Cars</h4> -->
+                <p><i height='10px' class="fas fa-phone fa-xs"></i> 920-111-1111</p>
+                <p><i class="fas fa-map-marker-alt fa-sm"></i> 123 New Franken Street</p>
+
+            </div>
+             <div class='footerright'> <!--look at williamsonvelp.com for footer hours influence -->
+                <ul>Hours
+                    <li>M-F 8AM - 8PM</li>
+                    <li>SAT 8AM - 6PM</li>
+                    <li>SUN 8AM - 4PM</li>
+                </ul>
+            </div>
+        </footer>
+      
+
+        {# Global javascript #}
+        <script type="text/javascript" src="{% static 'js/base.js' %}"></script>
+
+        {% block extra_js %}
+            {# Override this in templates to add extra javascript #}
+        {% endblock %}
+    </body>
+</html>

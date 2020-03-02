@@ -1,0 +1,434 @@
+{% extends "base.html" %}
+
+{% load wagtailcore_tags %}
+{% load static wagtailuserbar %}
+{% block body_class %}template-homepage{% endblock %}
+
+{% block content %}
+    <!DOCTYPE html>
+    <html lang="en">
+    <head> 
+        <meta charset="UTF-8">
+        <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+        <title>Document</title> 
+        <link rel="stylesheet" type="text/css" href="{% static 'css/search_vehicles.css' %}">
+        <link rel="stylesheet" href="https://unpkg.com/nouislider@10.0.0/distribute/nouislider.min.css">
+        <script src="https://kit.fontawesome.com/f19908a36f.js" crossorigin="anonymous"></script>
+    </head>
+    <body>
+       <div class='body'>
+            <div class='searchbar'>
+                <div class='searchBarTop'>
+                    <p style='text-align: center; color: #595959; font-size: 3rem; width: 90%;'>Filter Results</p>
+                    <i style='width: 10%;' id='hideFilter' class="fas fa-window-close"></i>
+                </div>
+                
+                <div class='dropDownContainer'>
+                    <div class='search'>
+                        <div>
+                            <p>Price Range</p>
+                            <p><i id='leftcaret' class="fas fa-angle-left"></i></p>
+                        </div>
+                        <div style='display: none;' class='dropDown'> 
+                            <!-- add display:none to dropdown -->
+                            <div style='width: 80%; margin: 4.5rem; margin-top: 7rem;' class='regular-slider'>
+                    
+                            </div>
+
+                            <div class='price-input'>
+                                <span class="textbox"> 
+                                    $
+                                    <input type="text" id="min" oninput='sliderChange(this)'/>
+                                </span>
+                                -
+                                <!-- <input id='min' type='text'> -->
+                                <span class='textbox'>
+                                    $
+                                    <input id='max' type='text' oninput='sliderChange(this)'>
+                                </span>
+                            </div>
+                        </div>
+                        <!-- <p><i id='downcaret' class="fas fa-angle-down"></i></p> -->
+                    </div>
+                    <div class='search'>
+                        <div>
+                            <p>Make</p> 
+                            <p><i id='leftcaret' class="fas fa-angle-left"></i></p>
+                        </div>
+                        <div style='display: none;' class='dropDown'>
+                            <select name="" id="makeFilter">
+                                <option value="" selected>Any</option>
+                            {% for make in makeList %}
+                                <option value="testvalue">{{ make }}</option>
+                            {% endfor %}
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class='search'>
+                        <div>
+                            <p>Mileage</p>
+                            <p><i id='leftcaret' class="fas fa-angle-left"></i></p>
+                        </div>
+                        <div style='display: none;' class='dropDown'>
+                            <div style='width: 80%;margin: 4rem;margin-top: 7rem;' class='mileage-slider'>
+                            
+                            </div>
+                            <div class='mileageSpan'>
+                                <span class="textbox"> 
+                                
+                                    <input type="text" id="mileageMin" oninput='mileageSliderChange(this)'/>
+                                </span>
+                                <p>-</p>
+                                <!-- <input id='min' type='text'> -->
+                                <span class='textbox'>
+                                    
+                                    <input id='mileageMax' type='text' oninput='mileageSliderChange(this)'>
+                                </span>
+                            </div>
+                            
+                        </div>
+                    </div>
+                    <div class='search'>
+                        <div>
+                            <p>Year</p>
+                            <p><i id='leftcaret' class="fas fa-angle-left"></i></p>
+                        </div>
+                        <div style='display: none;' class='dropDown'>
+                            <div class='yearDropDown'>
+                                <select name="selectyear" id="selectYearMin" oninput='filterVehicles()'>
+                            
+                                    <option value="1995" selected>1995</option>
+                                    <option value="1996">1996</option>
+                                    <option value="1997">1997</option>
+                                    <option value="1998">1998</option>
+                                    <option value="1999">1999</option>
+                                    <option value="2000">2000</option>
+                                    <option value="2001">2001</option>
+                                    <option value="2002">2002</option>
+                                    <option value="2003">2003</option>
+                                    <option value="2004">2004</option>
+                                    <option value="2005">2005</option>
+                                    <option value="2006">2006</option>
+                                    <option value="2007">2007</option>
+                                    <option value="2008">2008</option>
+                                    <option value="2009">2009</option>
+                                    <option value="2010">2010</option>
+                                    <option value="2011">2011</option>
+                                    <option value="2012">2012</option>
+                                    <option value="2013">2013</option>
+                                    <option value="2014">2014</option>
+                                    <option value="2015">2015</option>
+                                    <option value="2016">2016</option>
+                                    <option value="2017">2017</option>
+                                    <option value="2018">2018</option>
+                                    <option value="2019">2019</option>
+                                    <option value="2020">2020</option>
+                                </select>
+                            <p style='font-size: 14px'> - </p>
+                                <select name="selectyear2" id="selectYearMax" oninput='filterVehicles()'>
+                                    <option value="1995">1995</option>
+                                    <option value="1996">1996</option>
+                                    <option value="1997">1997</option>
+                                    <option value="1998">1998</option>
+                                    <option value="1999">1999</option>
+                                    <option value="2000">2000</option>
+                                    <option value="2001">2001</option>
+                                    <option value="2002">2002</option>
+                                    <option value="2003">2003</option>
+                                    <option value="2004">2004</option>
+                                    <option value="2005">2005</option>
+                                    <option value="2006">2006</option>
+                                    <option value="2007">2007</option>
+                                    <option value="2008">2008</option>
+                                    <option value="2009">2009</option>
+                                    <option value="2010">2010</option>
+                                    <option value="2011">2011</option>
+                                    <option value="2012">2012</option>
+                                    <option value="2013">2013</option>
+                                    <option value="2014">2014</option>
+                                    <option value="2015">2015</option>
+                                    <option value="2016">2016</option>
+                                    <option value="2017">2017</option>
+                                    <option value="2018">2018</option>
+                                    <option value='2019'>2019</option>
+                                    <option value="2020" selected>2020</option>
+                                </select>
+                            <!-- <input id='min' type='text'> -->
+                                <span class='textbox'>
+                            </div>
+                            
+                        </div>
+                    </div>
+                    <div class='search'>
+                        <div>
+                            <p>Fuel Efficiency</p>
+                            <p><i id='leftcaret' class="fas fa-angle-left"></i></p>
+                        </div>
+                        <div style='display: none;' class='dropDown'>
+                            <select name="" id="fuelEfficiencyFilter" oninput='filterVehicles()'>
+                                <option value="any" selected>Any</option>
+                                <option value="15">15+ MPG</option>
+                                <option value="20">20+ MPG</option>
+                                <option value="25">25+ MPG</option>
+                                <option value="30">30+ MPG</option>
+                            
+                            </select>
+                        </div>
+                    </div>
+                    <div class='search'>
+                        <div>
+                            <p>Body Style</p>
+                            <p><i id='leftcaret' class="fas fa-angle-left"></i></p>
+                        </div>
+                        <div style='display: none;' class='dropDown'>
+                            <select name="" id="bodyStyleFilter" oninput='filterVehicles()'>
+                                <option value="any" selected>Any</option>
+                                <option value="Sedan">Sedan</option>
+                                <option value="Truck">Truck</option>
+                                <option value="SUV">SUV</option>
+                                <option value="Van">Van</option>
+                            
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                
+
+                <p>Price Range</p>
+                <!-- <div style='margin-left: 10%;margin-bottom: 25%; width: 50%' class='regular-slider'>
+                    
+                </div> -->
+                <!-- <div class='price-input'> -->
+                    
+                    <!-- <span class="textbox"> 
+                        $
+                        <input type="text" id="min" oninput='sliderChange(this)'/>
+                    </span>
+             
+                    <span class='textbox'>
+                        $
+                        <input id='max' type='text' oninput='sliderChange(this)'>
+                    </span> -->
+                    
+                <!-- </div> -->
+                <div class='make-filter'>
+                    <p>Make</p>
+                    <!-- <select name="" id="makeFilter">
+                                <option value="" selected>Any</option>
+                            {% for make in makeList %}
+                                <option value="testvalue">{{ make }}</option>
+                            {% endfor %}
+                    </select> -->
+                </div>
+                <div class='mileageFilter'>
+                    <p>Mileage</p>
+                    <!-- <div style='margin: 4rem' class='mileage-slider'></div>
+                    <span class="textbox"> 
+                        
+                        <input type="text" id="mileageMin" oninput='mileageSliderChange(this)'/>
+                    </span>
+                    -
+                   
+                    <span class='textbox'>
+                        
+                        <input id='mileageMax' type='text' oninput='mileageSliderChange(this)'>
+                    </span> -->
+                </div>
+                <div class='yearFilter'>
+                    <p>Year</p>
+                   
+                        
+                        <!-- <select name="selectyear" id="selectYearMin" oninput='filterVehicles()'>
+                            
+                            <option value="1995" selected>1995</option>
+                            <option value="1996">1996</option>
+                            <option value="1997">1997</option>
+                            <option value="1998">1998</option>
+                            <option value="1999">1999</option>
+                            <option value="2000">2000</option>
+                            <option value="2001">2001</option>
+                            <option value="2002">2002</option>
+                            <option value="2003">2003</option>
+                            <option value="2004">2004</option>
+                            <option value="2005">2005</option>
+                            <option value="2006">2006</option>
+                            <option value="2007">2007</option>
+                            <option value="2008">2008</option>
+                            <option value="2009">2009</option>
+                            <option value="2010">2010</option>
+                            <option value="2011">2011</option>
+                            <option value="2012">2012</option>
+                            <option value="2013">2013</option>
+                            <option value="2014">2014</option>
+                            <option value="2015">2015</option>
+                            <option value="2016">2016</option>
+                            <option value="2017">2017</option>
+                            <option value="2018">2018</option>
+                            <option value="2019">2019</option>
+                            <option value="2020">2020</option>
+
+                        
+                        </select>
+                   
+                    -
+                  
+                        
+                        <select name="selectyear2" id="selectYearMax" oninput='filterVehicles()'>
+                            
+                            <option value="1995">1995</option>
+                            <option value="1996">1996</option>
+                            <option value="1997">1997</option>
+                            <option value="1998">1998</option>
+                            <option value="1999">1999</option>
+                            <option value="2000">2000</option>
+                            <option value="2001">2001</option>
+                            <option value="2002">2002</option>
+                            <option value="2003">2003</option>
+                            <option value="2004">2004</option>
+                            <option value="2005">2005</option>
+                            <option value="2006">2006</option>
+                            <option value="2007">2007</option>
+                            <option value="2008">2008</option>
+                            <option value="2009">2009</option>
+                            <option value="2010">2010</option>
+                            <option value="2011">2011</option>
+                            <option value="2012">2012</option>
+                            <option value="2013">2013</option>
+                            <option value="2014">2014</option>
+                            <option value="2015">2015</option>
+                            <option value="2016">2016</option>
+                            <option value="2017">2017</option>
+                            <option value="2018">2018</option>
+                            <option value='2019'>2019</option>
+                            <option value="2020" selected>2020</option>
+
+                        
+                        </select>
+                    
+                    
+                     <input id='min' type='text'> -->
+                    <span class='textbox'> -->
+                </div>
+                <div class='efficiencyFilter'>
+                    <p>Fuel Efficiency</p>
+                    <!-- <select name="" id="fuelEfficiencyFilter" oninput='filterVehicles()'>
+                        <option value="any" selected>Any</option>
+                        <option value="15">15+ MPG</option>
+                        <option value="20">20+ MPG</option>
+                        <option value="25">25+ MPG</option>
+                        <option value="30">30+ MPG</option>
+                    
+                    </select> -->
+                </div>
+                <div class='bodystyleFilter'>
+                    <p>Body style</p>
+                    <!-- <select name="" id="bodyStyleFilter" oninput='filterVehicles()'>
+                        <option value="any" selected>Any</option>
+                        <option value="Sedan">Sedan</option>
+                        <option value="Truck">Truck</option>
+                        <option value="SUV">SUV</option>
+                        <option value="Van">Van</option>
+                    
+                    </select> -->
+                </div>
+
+            </div>
+            <div class='searchresults'>
+                <div class='displayFilter'>
+                    <button class='showFilter'><p><i style='color: white' class="fas fa-filter"></i> Filter</p></button>
+                </div>
+                {% for attribute in vehicle %}
+                
+                <div class='vehicleCard'>
+                    
+                    <div class='vehicleImg'>
+                        <img src="../../media/{{ attribute.picture }}" alt="">
+                    </div>
+                    <div class='vehicleInfo'>
+                        
+                        <div value='{{ attribute.carType }}' class='vehicleTitle'>
+                            <div class='year'>
+                                <p class='vehicleYear' style='margin-right: 5px;'>{{ attribute.year }}</p>
+                                
+                                <p id='make' value='{{ attribute.make }}'> {{ attribute.title }}</p>
+                            </div>
+                            <!-- <p>{{ attribute.carType }}</p> -->
+                            <p name='vehicle-price' class='vehicle-price' >{{ attribute.price }}</p>
+                        </div>
+                        <div class='vehicleDetails'>
+                            <div class='mobileMileageDisplay'>
+                                <p>{{ attribute.mileage }} miles</p>
+                            </div>
+                            <div class='vehicleTable1'>
+                                <table>
+                                    <tr>
+                                        <th>Mileage</th>
+                                        <th name='mileage' id='mileageId' class='align-right'>{{ attribute.mileage }}</th>
+                                    </tr>
+                                    <tr>
+                                        <th>MPG</th>
+                                        <th name='mpg' id='mpg' class='align-right'>{{ attribute.mpg }}</th>
+                                    </tr>
+                                    <tr>
+                                        <th>Exterior Color</th>
+                                        <th name='exterior_color' class='align-right'>{{ attribute.exterior_color }}</th>
+                                    </tr>
+                                    <tr>
+                                        <th>Interior Color</th>
+                                        <th name='interior_color' class='align-right'>{{ attribute.interior_color }}</th>
+                                    </tr>
+                                </table>
+                            </div>
+                            <div class='vehicleTable2'>
+                                <table>
+                                    <tr>
+                                        <th>Transmission</th>
+                                        <th name='transmission' class='align-right'>{{ attribute.transmission }}</th>
+                                    </tr>
+                                    <tr>
+                                        <th>Engine</th>
+                                        <th name='engine' class='align-right'>{{ attribute.engine }}</th>
+                                    </tr>
+                                    <tr>
+                                        <th>Drive Line</th>
+                                        <th name='drive_line' class='align-right'>{{ attribute.drive_line }}</th>
+                                    </tr>
+                                    <tr>
+                                        <th>Stock Number</th>
+                                        <th name='stock_number' class='align-right'>{{ attribute.stock_number }}</th>
+                                    </tr>
+                                </table>
+
+                            </div>
+                            
+                        </div>
+                    </div>
+                    
+                </div>
+                <div class='moreInfo'>
+                    <button>View
+                        </button>
+                </div>
+                {% endfor %}
+            </div>
+
+        
+        <!-- {% for page in self.get_children.specific %}
+            <p>{{ page.make }}</p>
+            <p>{{ page.mpg }}</p>
+            <p>{{ page.title }}</p>
+            <img width='50' height='50' src="../../media/{{ page.picture }}" alt="">
+            <p>{{ page.vehicleName }}</p>
+            
+        {% endfor %} -->
+       </div>
+       <script src="https://unpkg.com/nouislider@10.0.0/distribute/nouislider.min.js"></script>
+       <script src="https://unpkg.com/wnumb@1.1.0"></script>
+       <script type="text/javascript" src="{% static 'js/searchvehicles.js' %}"></script>
+       
+    
+        
+    </body>
+    </html>
+{% endblock %}    
