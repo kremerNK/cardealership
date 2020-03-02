@@ -6,9 +6,10 @@
 
 }
 
-body {
-    background-color: #ebe9e9;
 
+body {
+    background-color: #cecece;
+    margin: 0;
     
     
 }
@@ -16,6 +17,7 @@ body {
 .body {
     display: flex;
     flex-direction: column;
+    background-color: #cecece; 
 }
 
 .top {
@@ -29,7 +31,7 @@ nav {
      display: flex;
 
     width: 100%;
-    background-image: linear-gradient(rgb(1, 96, 197),#02366C);
+    /* background-image: linear-gradient(rgb(1, 96, 197),#02366C); */
     color: #ebe9e9;  
     height: 10%;
 
@@ -123,6 +125,8 @@ nav {
     font-size: 19px;
     color: #ebe9e9;
 }
+
+
 
 .main-nav {
     /* position: fixed; */
@@ -310,7 +314,7 @@ table {
     }
     
     body {
-        background-color: #ebe9e9;
+        background-color: #cecece;
         display: flex;
         flex-direction: column;
     }
@@ -379,7 +383,7 @@ table {
         height: 8vh;
         width: 100%;
         background-color: #F0F0F0;
-    
+        overflow: hidden;
     }
     
     .navtitle {
@@ -467,6 +471,17 @@ table {
 
     .navbar-toggle {
         display: none;
+    }
+
+    .sticky {
+        position: fixed;
+        top: 0;
+        width: 100%;
+    }
+    
+    .sticky + .pagebody {
+        padding-top: 60px;
+
     }
 
     .bottom-banner {

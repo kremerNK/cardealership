@@ -177,7 +177,7 @@ function filterVehicles(){
         // let vehicleMileage = document.getElementsByName('mileage');
         let vehicleMake =  document.getElementById('makeFilter');
         for (i=0; i < vehicleCards.length; i++){
-            
+             
             //get data from vehicle cards
             let priceFiltered = parseInt(vehicleCards[i].querySelector('.vehicle-price').innerHTML.replace('$','').replace(',',''));
             let makeFiltered = vehicleCards[i].querySelector('#make').getAttribute('value');

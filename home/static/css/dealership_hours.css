@@ -8,72 +8,81 @@ blockquote, dl, figure, form, ol, p, pre, table, ul {
 }
 
 .direction {
-    height: 100%;
-    width: 100%;
-    padding: 10vh 7% 5% 7%;
-    
-    display: flex;
-    flex-direction: column;
-    /* justify-content: space-between; */
-  
-}
 
-#map {
-    width: 100%;
-    height: 40vh;
-    /* background-color: gray; */
-    margin-bottom: 7vh;
+    /* width: 100%;
+    height: 100%; */
+    /* display: flex;
+    flex-direction: column; */
+    /* padding: 10vh 7% 5% 7%; */
 
 }
+
+
 
 .mobiledirections {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    
-    background-color: #fff;
-    height: 180px;
-    /* border: 1px solid rgb(1, 96, 197); */
-    padding: 2vh 2vh 2vh 2vh;
+
+    background-color: #fff;   
+    margin: 0 auto;
+    /* padding: 2vh 2vh 2vh 2vh; */
     box-shadow: 1px 1px rgb(133, 133, 133);
     border-radius: 5px;
     margin-bottom: 5vh;
-    margin-top: 5vh;
+    margin-top: 15vh;
  
 }
 
-#mobiledirectionsform {
-    margin-bottom: 0px;
+.mobiledirectionsformdiv {
+    margin: 0 auto;
+    margin-top: 15vh;
+    background-color: #fff;  
+    /* display: flex;
+    justify-content: center; */
+    text-align: center;
+    width: 90%;
+    padding: 1rem 0 1rem 0;
+    margin-bottom: 3rem;
+    box-shadow: 1px 1px rgb(133, 133, 133);
+    border-radius: 5px;
 }
 
-
-
-
-
-#map iframe {
-    height: 100%;
+#map{
     width: 100%;
+    text-align: center;
+    height: 70vh;
 }
+
+#map > iframe {
+    height: 100%;
+    width: 95%;
+}
+
+.mobiledirectionsdiv {
+    display: flex;
+    justify-content: center;
+}
+
+#mobiledirectionform {
+    display: flex;
+    justify-content: center;
+}
+
 
 .formcard {
     display: none;
 
 }
 
-#directionform{
-    margin-bottom: 0px;
-    width: 300px;
-
-}
-
 .directioncards{
     display: flex;
     flex-direction: column;
-
+    width: 100%;
   
 }
 
 .contactcard {
+    width: 90%;
+    margin: 0 auto;
+    /* text-align: center; */
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
@@ -94,6 +103,8 @@ blockquote, dl, figure, form, ol, p, pre, table, ul {
 }
 
 .hourscard {
+    width: 90%;
+    margin: 0 auto;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -107,45 +118,87 @@ blockquote, dl, figure, form, ol, p, pre, table, ul {
     margin-bottom: 2vh;
 }
 
+.largemap {
+    display: none;
+}
+
 .formcard:hover, .contactcard:hover, .hourscard:hover {
     background-color: rgb(240, 247, 255);
 }
 
 @media screen and (min-width: 700px) {
     .direction {
-        height: 100%;
+        display: flex;
+        flex-direction: row;
         width: 100%;
-        padding: 35vh 13% 5% 5%;
+        height: 100%;
+        justify-content: center;
+        padding: 15vh 5% 20vh 5%;
+        /* height: 100%;
+        width: 100%;
+        
         
         display: flex;
         flex-direction: row;
-        justify-content: space-between;
+        justify-content: space-between; */
       
     }
 
-    .mobiledirections {
+    .mobiledirectionsformdiv {
         display: none;
     }
 
-    #map {
-        width: 100%;
-        height: 100%;
+    .mobilemap {
+        display: none;
     }
 
-    #map iframe {
+    .largemap {
+        height: 100%;
+        width: 100%;
+        display: inline;
+
+    }
+    #map {
+        width: 100%;
+        height: auto;
+       margin-right: 8rem;
+    }
+
+    /* #map iframe {
         width: 100%;
         height: 100%;
-    }
+    } */
     .formcard {
         background-color: #fff;
-        height: 125px;
+        width: 100%;
+        /* height: 125px; */
         /* border: 1px solid rgb(1, 96, 197); */
-        padding: 15px;
+        padding: 5px;
         box-shadow: 1px 1px rgb(133, 133, 133);
         display: flex;
         align-items: center;
         border-radius: 5px;
-    
+        padding: 15px;
+    }
+
+    .contactcard {
+        width: 100%;
+    }
+
+    .hourscard {
+        width: 100%;
+    }
+
+    .directioncards {
+        width: 30%;
+    }
+
+    .formcard > form {
+        
+    }
+
+    #directionform {
+      
     }
 }
 
