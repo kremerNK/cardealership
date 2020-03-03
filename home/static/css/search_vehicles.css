@@ -180,6 +180,7 @@ p {
     justify-content: flex-start;
     color: #595959;
     font-size: 2rem;
+    line-height: 1.1;
     /* margin-bottom: 1.25rem; */
 }
 
@@ -192,7 +193,7 @@ p {
     color: white;
    width: 8rem;
    text-align: center;
-
+    margin-top: 0.2rem;
 
    /* font-family: "Times New Roman", Times, serif; */
 }
@@ -305,7 +306,7 @@ th {
 
 .mobileMileageDisplay {
     /* margin-top: 1.5rem; */
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.1rem;
 }
 
 .moreInfo {
