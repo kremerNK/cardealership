@@ -180,7 +180,7 @@ p {
     justify-content: flex-start;
     color: #595959;
     font-size: 2rem;
-    margin-bottom: 1rem;
+    margin-bottom: 1.25rem;
 }
 
 
@@ -195,6 +195,10 @@ p {
    margin-top: 1rem;
 
    /* font-family: "Times New Roman", Times, serif; */
+}
+
+.showFilter > p {
+    color: #595959;
 }
 
 .vehicleDetails {
