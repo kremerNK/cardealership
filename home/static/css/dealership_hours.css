@@ -49,6 +49,7 @@ blockquote, dl, figure, form, ol, p, pre, table, ul {
     width: 100%;
     text-align: center;
     height: 70vh;
+    margin-bottom: 2vh;
 }
 
 #map > iframe {
@@ -113,9 +114,9 @@ blockquote, dl, figure, form, ol, p, pre, table, ul {
     padding: 15px;
     box-shadow: 1px 1px rgb(133, 133, 133);
     border-radius: 5px;
-    margin-top: 15px;
+    margin-top: 2vh;
     padding-top: 30px;
-    margin-bottom: 2vh;
+    margin-bottom: 8rem;
 }
 
 .largemap {
@@ -124,6 +125,14 @@ blockquote, dl, figure, form, ol, p, pre, table, ul {
 
 .formcard:hover, .contactcard:hover, .hourscard:hover {
     background-color: rgb(240, 247, 255);
+}
+
+.footerlocation {
+    display: none;
+}
+
+.footerhours {
+    display: none;
 }
 
 @media screen and (min-width: 700px) {

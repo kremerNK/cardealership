@@ -17,9 +17,9 @@ p {
     /* position: absolute; */
     width: 80%;
 
-    background-color: #cecece;;
 
-
+    background-color: #cecece;
+    
     display: none;
     border: 1px solid black;
     flex-direction: column;
@@ -151,7 +151,7 @@ p {
 }
 
 .vehicleImg {
-    width: 70%;
+    width: 40%;
     height: 80%;
     margin-right: 15px;
     display: flex;
