@@ -179,8 +179,9 @@ p {
     flex-direction: row;
     justify-content: flex-start;
     color: #595959;
-    font-size: 2.2rem;
+    font-size: 2rem;
 }
+
 
 .vehicle-price {
     font-size: 2rem;
