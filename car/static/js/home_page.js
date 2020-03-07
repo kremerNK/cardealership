@@ -8,7 +8,7 @@
 $(document).ready(function(){
     $('#slideshowcontainer .slides').slick({
         slidesToShow: 3,
-        slidesToScroll: 1,
+        slidesToScroll: 1, 
         autoplay: false,
         adaptiveHeight: true,
         autoplaySpeed: 2000, 
