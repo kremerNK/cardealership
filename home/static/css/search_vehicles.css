@@ -193,7 +193,7 @@ p {
     color: white;
    width: 8rem;
    text-align: center;
-    margin-top: 0.2rem;
+    margin-top: 0.3rem;
 
    /* font-family: "Times New Roman", Times, serif; */
 }
@@ -432,5 +432,10 @@ th {
     .moreInfo button {
         width: 25%;
       
+    }
+
+    .year {
+        line-height: normal;
+        font-size: 3.5rem;
     }
 }

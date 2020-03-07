@@ -3,6 +3,10 @@
     padding: 0;
 }
 
+p {
+    margin-bottom: 0;
+}
+
 .dealerbanner {
     
     height: 100%;
@@ -29,66 +33,52 @@
     padding-top: 50px;
 }
 
-/* .introtitle {
-    display: flex;
-    width: 100%;
-    justify-content: flex-start;
-    align-items: center;
-    text-align: center;
-}
-
-.introtitle:before,
-.introtitle:after {
-    content: '';
-    border-top: 2px solid;
-    margin: 0 20px 0 0;
-    flex: 0 0 40px;
-}
-
-.introtitle:after {
-    margin: 0 0 0 20px;
-} */
-
-/* .introtitle { 
-    overflow: hidden;
-    text-align: center;
-    color: #02366C;
-}
-.introtitle:before,
-.introtitle:after {
-    background-color: #02366C;
-    content: "";
-    display: inline-block;
-    height: 1px;
-    position: relative;
-    vertical-align: middle;
-    width: 40%;
-}
-.introtitle:before {
-    right: 0.5em;
-    margin-left: -65%;
-}
-.introtitle:after {
-    left: 0.5em;
-    margin-right: -35%;
-} */
-
-.body > p { 
-    color: #02366C;
-} 
-
-/* .bottom-banner {
-    height: 9vh;
-    width: 100%;
-    background-color: #999999;
+#slideshowcontainer {
     display: flex;
     justify-content: center;
-    align-items: center;
+    width: 100%;
+    margin: 15vh 0 15vh 0;
+   background-color: #2f74a3;
+
 }
 
-.bottom-banner h4 {
-    margin-bottom: 0;
-    letter-spacing: 1.5px;
-    font-family: Montserrat,sans-serif;
-    
-} */
+.slides {
+    width: 70%;
+    height: 100% !important;
+    display: flex !important;
+    background-color: #2f74a3;
+    padding: 25px;
+}
+
+.slide {
+    height: 100%!important;
+    margin: 0 10px 0 10px;
+}
+
+
+@media screen and (min-width: 1024px) {
+
+    #slideshowcontainer {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        margin: 15vh 0 15vh 0;
+       background-color: #2f74a3;
+
+    }
+
+    .slides {
+        width: 70%;
+        height: 100% !important;
+        display: flex !important;
+        background-color: #2f74a3;
+        padding: 25px;
+    }
+
+    .slide {
+        height: 100%!important;
+        margin: 0 10px 0 10px;
+    }
+
+
+} 

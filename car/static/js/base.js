@@ -28,7 +28,7 @@ navBarToggle.addEventListener('click', function () {
 //         document.getElementById('phonenumber').style.paddingRight = '0px';
 //         document.getElementsByClassName('rightbanner')[0].style.alignItems = 'flex-end';
 //     }
-// };
+// }; 
 
 
 window.onscroll = function () {myFunction()};
