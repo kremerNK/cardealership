@@ -6,7 +6,11 @@ from .models import Vehicle
 
 
 def home(request):
-    return render(request, 'home_page.html')
+    randomVehicles = Vehicle.objects.all().order_by('?')[:5]
+    print(randomVehicles)
+    print('test')
+    context = {'randomVehicles':randomVehicles}
+    return render(request, 'home_page.html', context)
 
 @csrf_exempt
 def searchVehicle(request):
@@ -18,11 +22,20 @@ def searchVehicle(request):
     context = {'makeList':makeList, 'vehicle':allVehicles}
     return render(request, 'searchvehicles.html', context)
 
+def vehiclePage(request):
+    vehicle = Vehicle.objects.all()[8]
+    for i in vehicle._meta.get_fields():
+        print(i)
+
+    print(getattr(vehicle, 'slug'))
+    print(getattr(vehicle, 'id'))
+    # page = get_object_or_404()
+    context = {}
+    return render(request, 'vehicle_page.html', context)
+
 def hours(request):
     return render(request, 'dealership_hours.html')
 
 def contact(request):
     return render(request, 'contact.html')
 
-def basetest(request):
-    return render(request, 'basetest.html')

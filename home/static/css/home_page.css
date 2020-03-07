@@ -38,7 +38,7 @@ p {
     justify-content: center;
     width: 100%;
     margin: 15vh 0 15vh 0;
-   background-color: #2f74a3;
+   /* background-color: #2f74a3; */
 
 }
 
@@ -46,13 +46,54 @@ p {
     width: 70%;
     height: 100% !important;
     display: flex !important;
-    background-color: #2f74a3;
+    /* background-color: #2f74a3; */
     padding: 25px;
 }
 
 .slide {
     height: 100%!important;
     margin: 0 10px 0 10px;
+}
+
+.slide-price{
+    background-color: #2f74a3;
+    color: white;
+    padding: 6px 6px 6px 12px;
+    font-weight: bolder;
+}
+
+.dealership-image {
+    border-bottom-left-radius: 50% 10%;
+    border-bottom-right-radius: 50% 10%;
+}
+
+.titlemiles {
+    background-color: #333333;
+    color: white;
+    padding: 12px; 
+    
+
+ 
+}
+
+.titlemiles > p:first-child {
+    max-width: 98%;
+    text-transform: uppercase;
+    overflow: hidden; 
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-weight: lighter;
+    font-size: 17px;
+    letter-spacing: 1px;
+    margin-bottom: 3vh;
+}
+
+.titlemiles > p:last-child {
+    font-weight: lighter;
+}
+.dealership-image {
+    border-bottom-left-radius: 50% 10%;
+    border-bottom-right-radius: 50% 10%;
 }
 
 
@@ -63,16 +104,16 @@ p {
         justify-content: center;
         width: 100%;
         margin: 15vh 0 15vh 0;
-        background-color: #2f74a3;
+        /* background-color: #2f74a3; */
        
   
     }
 
     .slides {
-        width: 70%;
+        width: 95%;
         height: 100% !important;
         display: flex !important;
-        background-color: #2f74a3;
+        /* background-color: #2f74a3; */
         padding: 25px;
         
     }
@@ -82,5 +123,36 @@ p {
         margin: 0 10px 0 10px;
     }
 
+    .slide-price{
+        background-color: #2f74a3;
+        color: white;
+        padding: 6px 6px 6px 12px;
+        font-weight: bolder;
+    }
 
+    .titlemiles {
+        background-color: #333333;
+        color: white;
+        padding: 12px; 
+        
+
+     
+    }
+
+    .titlemiles > p:first-child {
+        max-width: 98%;
+        text-transform: uppercase;
+        overflow: hidden; 
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        font-weight: lighter;
+        font-size: 17px;
+        letter-spacing: 1px;
+        margin-bottom: 3vh;
+    }
+    .dealership-image {
+        border-bottom-left-radius: 50% 10%;
+        border-bottom-right-radius: 50% 10%;
+    }
+ 
 } 
