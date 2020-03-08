@@ -14,6 +14,11 @@ body {
     
 }
 
+.pagebody {
+    min-height: 95vh;
+    /* min height to maintain footer on bottom */
+}
+
 .body {
     display: flex;
     flex-direction: column;
@@ -188,7 +193,8 @@ nav {
 
 .top-banner {
     background-color: #2f74a3;
-    height: 3em;
+    height: 5%;
+    /* previous height was 3em, increase something breaks /*
     /* padding: 10px; */
     width: 100%;
     position: fixed;
@@ -238,10 +244,12 @@ nav {
 
     display: flex;
     flex-direction: column;
+    justify-content: center;
   }
 
 .footer p {
     text-align: center;
+    margin: 0;
 }
 
 .footerhours {
@@ -484,6 +492,11 @@ table {
     .sticky + .pagebody {
         padding-top: 60px;
 
+    }
+
+    .pagebody {
+        min-height: 70vh; 
+        /* min height to maintain footer on bottom */
     }
 
     .bottom-banner {

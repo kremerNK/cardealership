@@ -1,0 +1,48 @@
+
+
+@media screen and (min-width: 1000px) {
+
+    .vehicle-page {
+        width: 80%;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        margin-left: 10%;
+        margin-right: 10%;
+   
+    }
+    .vehicle-title {
+        width: 80%;
+        display: flex;
+        flex-direction: center;
+        font-size: 32px;
+        
+    }
+
+    .image {
+        
+        display: flex;
+        
+
+        padding: 5vh;
+        background-color: #999999;
+    }
+
+    .image > img {
+        
+        
+        
+    }
+
+    .details {
+        display: flex;
+        flex-direction: row;
+        
+        width: 80%;
+    }
+    .cardetails {
+        
+    }
+
+    
+}

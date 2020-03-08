@@ -268,8 +268,9 @@
                     
                 </div>
                 <div class='moreInfo'>
-                    <button>View
-                        </button>
+                    <!-- {% url 'home' %}user/{{i.author.username}} -->
+                   
+                     <a href="{{attribute.slug}}-{{attribute.pk}}/"><button>View</button></a>
                 </div>
                 {% endfor %}
             </div>

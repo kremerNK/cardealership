@@ -66,6 +66,9 @@
                             <p class='slide-title' >{{ i.title }}</p>
                             <p class='slide-miles' >{{ i.mileage }} miles</p>
                         </div>
+                        <div class='slide-vehicle-redirect'>
+                            <a href="search-vehicles/{{i.slug}}-{{i.pk}}"><button>View</button></a>
+                        </div>
                         
                     </div>
                 </div>
@@ -105,4 +108,4 @@
     </html>
     
     
-{% endblock %}  
+{% endblock %}   

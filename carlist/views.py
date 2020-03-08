@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.views.decorators.csrf import csrf_exempt
 from .models import Vehicle
 
@@ -20,17 +20,22 @@ def searchVehicle(request):
         print('ajax hit')
 
     context = {'makeList':makeList, 'vehicle':allVehicles}
-    return render(request, 'searchvehicles.html', context)
 
-def vehiclePage(request):
-    vehicle = Vehicle.objects.all()[8]
-    for i in vehicle._meta.get_fields():
+    test = Vehicle.objects.all()[1]
+    for i in test._meta.get_fields():
         print(i)
 
-    print(getattr(vehicle, 'slug'))
-    print(getattr(vehicle, 'id'))
-    # page = get_object_or_404()
-    context = {}
+    # print(getattr(vehicle, 'slug'))
+    print(getattr(test, 'id')) 
+    return render(request, 'searchvehicles.html', context)
+
+def vehiclePage(request, slug, pk):
+    obj = get_object_or_404(Vehicle, pk=int(pk), slug=str(slug))
+    # obj = get_object_or_404(Vehicle, pk=int(pk))
+    vehicle = Vehicle.objects.all()[2]
+    
+
+    context = {'vehicle': obj}
     return render(request, 'vehicle_page.html', context)
 
 def hours(request):

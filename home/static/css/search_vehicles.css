@@ -181,7 +181,7 @@ p {
     color: #595959;
     font-size: 2rem;
     line-height: 1.1;
-    /* margin-bottom: 1.25rem; */
+    margin-bottom: 1.25rem;
 }
 
 
@@ -335,7 +335,24 @@ th {
 
 }
 
-.moreInfo > button > p {
+.moreInfo > a {
+    width: 100%;
+    height: 100%;
+    text-align: right;
+
+
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    border-radius: 0;
+    text-decoration: none;
+    border: none;
+
+}
+
+
+
+.moreInfo > a > button > p {
     width: 100%;
 }
 
@@ -430,12 +447,27 @@ th {
     }
 
     .moreInfo button {
+        width: 100%;
+        height: 100%;
+    }
+    .moreInfo > a {
         width: 25%;
-      
+        height: 100%;
+        text-align: right;
+
+        /* margin: 1rem; */
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        border-radius: 0;
+        text-decoration: none;
+        border: none;
+    
     }
 
     .year {
         line-height: normal;
         font-size: 3.5rem;
+        margin-bottom: 2vh;
     }
 }

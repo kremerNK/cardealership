@@ -24,6 +24,16 @@ $(document).ready(function(){
                 }
             },
             {
+                breakpoint: 950, 
+                settings: {
+                    slidesToShow: 3,
+                    slidesToScroll: 1, 
+                    autoplay: true,
+                    autoplaySpeed: 2000,
+                    infinite: true,
+                }
+            },
+            {
                 breakpoint: 600,
                 settings: {
                     slidesToShow: 2,

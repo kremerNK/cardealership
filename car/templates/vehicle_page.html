@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+
+<!-- {% load wagtailcore_tags %}
+{% load static wagtailuserbar %}
+{% block body_class %}template-homepage{% endblock %} -->
+
+{% block content %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/vehicle_page.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'slick/slick/slick.css' %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'slick/slick/slick-theme.css' %}"/>
+    <title>Document</title>
+</head>
+<body>
+    <div class='vehicle-page'>
+        <div class='vehicle-title'>
+            <p>{{ vehicle.title }}</p>
+        </div>
+        <div class='image'>
+            <img src="../../media/{{ vehicle.picture }}" alt="">
+            
+        </div>
+        <div class='details'>
+            <div class='cardetails'>
+                <div class='vehicleattributes'>
+                    <p>table here</p>
+                </div>
+                <div class='description'>
+                    description tab
+                </div>
+            </div>
+            <div class='dealercontact'>
+                <p>contact</p>
+            </div>
+        </div>
+    </div>
+    
+    <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+    <script type="text/javascript" src="{% static 'js/vehicle_page.js' %}"></script>
+    <script type="text/javascript" src="{% static 'slick/slick/slick.min.js' %}"></script>
+</body>
+</html>
+{% endblock %} 

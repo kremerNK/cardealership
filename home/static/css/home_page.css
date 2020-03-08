@@ -43,11 +43,11 @@ p {
 }
 
 .slides {
-    width: 70%;
+    width: 85%;
     height: 100% !important;
     display: flex !important;
     /* background-color: #2f74a3; */
-    padding: 25px;
+    padding: 10px;
 }
 
 .slide {
@@ -94,6 +94,20 @@ p {
 .dealership-image {
     border-bottom-left-radius: 50% 10%;
     border-bottom-right-radius: 50% 10%;
+}
+
+.slide-vehicle-redirect {
+    text-align: center;
+    
+    background-color: #333333;
+}
+
+.slide-vehicle-redirect > a > button {
+    background-color: #2f74a3;
+    margin: 1em;
+    color: white;
+    border: none;
+    border-radius: 0px;
 }
 
 
