@@ -18,26 +18,77 @@
 </head>
 <body>
     <div class='vehicle-page'>
-        <div class='vehicle-title'>
-            <p>{{ vehicle.title }}</p>
-        </div>
-        <div class='image'>
-            <img src="../../media/{{ vehicle.picture }}" alt="">
+        
+        <div class='image-details'>
+            <div class='image'>
+                <!-- <div class='vehicle-title'> -->
+                    <p>{{ vehicle.title }}</p>
+                <!-- </div> -->
+                <img src="../../media/{{ vehicle.picture }}" alt="">
+            </div>
+            <div class='details'>
+                <div class='price'>
+                    <div>
+                        <p>Price</p>
+                        <p>{{vehicle.price}}</p>
+                    </div>
+                    <div>
+                        <p>Mileage</p>
+                        <p>{{vehicle.mileage}}</p>
+                    </div>
+                </div>
+                <div class='cardetails'>
+                    <div class='tables'>
+                        <div class='table1'>
+                            <table>
+                                <tr>
+                                    <th>MPG</th>
+                                    <th>{{vehicle.mpg}}</th>
+                                </tr>
+                                <tr>
+                                    <th>Exterior Color</th>
+                                    <th>{{vehicle.exterior_color}}</th>
+                                </tr>
+                                <tr>
+                                    <th>Interior Color</th>
+                                    <th>{{vehicle.interior_color}}</th>
+                                </tr>
+                                <tr>
+                                    <th>Transmission</th>
+                                    <th>{{vehicle.transmission}}</th>
+                                </tr>
+                                <tr>
+                                    <th>Engine</th>
+                                    <th>{{vehicle.engine}}</th>
+                                </tr>
+                                <tr>
+                                    <th>Drive Line</th>
+                                    <th>{{vehicle.drive_line}}</th>
+                                </tr>
+                                <tr>
+                                    <th>Stock Number</th>
+                                    <th>{{vehicle.stock_number}}</th>
+                                </tr>
+                                <tr>
+                                    <th>VIN</th>
+                                    <th>1M8GDM9A_KP042788</th>
+                                </tr>
+                                
+                            </table>
+                        </div>
+            
+                    </div>
+                    <div class='description'>
+                        description tab
+                    </div>
+                </div>
+                <div class='dealercontact'>
+                    <p>contact</p>
+                </div>
+            </div>
             
         </div>
-        <div class='details'>
-            <div class='cardetails'>
-                <div class='vehicleattributes'>
-                    <p>table here</p>
-                </div>
-                <div class='description'>
-                    description tab
-                </div>
-            </div>
-            <div class='dealercontact'>
-                <p>contact</p>
-            </div>
-        </div>
+    
     </div>
     
     <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>

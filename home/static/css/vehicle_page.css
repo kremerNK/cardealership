@@ -1,45 +1,121 @@
-
+p {
+    margin-bottom: 0;
+}
 
 @media screen and (min-width: 1000px) {
 
     .vehicle-page {
-        width: 80%;
+        width: 100%;
         display: flex;
         flex-direction: column;
         align-items: flex-start;
-        margin-left: 10%;
-        margin-right: 10%;
+        /* margin-left: 5%;
+        margin-right: 5%; */
+        margin: 5% 0 5% 0;
+       
    
     }
     .vehicle-title {
-        width: 80%;
+        width: 100%;
         display: flex;
         flex-direction: center;
         font-size: 32px;
         
     }
 
-    .image {
+    .image-details {
         
         display: flex;
-        
+        width: 100%;
 
-        padding: 5vh;
-        background-color: #999999;
+        padding: 1% 5% 1% 5%;
+        /* background-color: #999999c2; */
+
+        
+    }
+
+    .image {
+        width: 100%;
+ 
+    }
+
+    .image > p {
+        color: black;
+        font-size: 26px;
+        margin-left: 3vh; 
     }
 
     .image > img {
-        
-        
-        
-    }
+        margin: 3vh 5vh 3vh 3vh;
 
+    }
     .details {
         display: flex;
-        flex-direction: row;
+        flex-direction: column; 
         
-        width: 80%;
+        width: 100%;
     }
+
+    .price {
+        display: flex;
+        justify-content: space-evenly;
+        font-size: 26px;
+        margin-bottom: 5vh;
+        margin-top: 3vh;
+    }
+
+    .price > div > p:first-child {
+        font-size: 16px;
+    }
+
+    .price > div > p {
+        padding: 0vh 0 0vh 3vh;
+        color: black;
+    }
+
+    .price > div {
+        width: 100%;
+        border-top: 1px solid #757575;
+        border-bottom: 1px solid #757575;
+
+    }
+    .price > div:first-child{
+        border-right: 1px solid #757575;
+    }
+
+    .tables {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .table1 {
+        margin-right: 5%;
+    }
+
+    .table1, .table2 {
+        width: 95%;
+    }
+
+  
+
+    .table1 table tr  th:last-child, .table2 table tr  th:last-child {
+        text-align: right;
+    }
+
+    th {
+        color: black;
+    }
+
+   table, tr, th {
+       border-bottom: 1px solid black;
+   }
+
+   tr > th:first-child {
+       font-weight: bold;
+   }
+   tr > th:last-child {
+    color: black;
+}
     .cardetails {
         
     }

@@ -311,7 +311,8 @@ th {
 
 .moreInfo {
     width: 90%;
-    background-color: #999999c2;
+    background-color: #333;
+    /* background-color: #999999c2; original color */
     text-align: right;
     margin-bottom: 2rem;
     display: flex;

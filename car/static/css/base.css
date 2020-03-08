@@ -333,7 +333,7 @@ table {
         width: 100%;
         position: static;
         background-color: #2f74a3;
-        height: 22vh;
+        height: 13vh;
         
         display: flex;
         justify-content: space-between;
@@ -390,7 +390,7 @@ table {
     
     
     nav {
-        height: 8vh;
+        height: 6vh;
         width: 100%;
         background-color: #F0F0F0;
         overflow: hidden;

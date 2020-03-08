@@ -27,6 +27,7 @@ class Vehicle(Page):
     exterior_color = models.CharField(max_length=200, default='red')
     interior_color = models.CharField(max_length=200, default='black')
     stock_number = models.CharField(max_length=200, default='V220031')
+    vin = models.CharField(max_length=200, default='')
     picture = models.ImageField(default='')
 
     def child_pages(self):
