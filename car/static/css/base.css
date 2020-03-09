@@ -249,7 +249,8 @@ nav {
 
 .footer p {
     text-align: center;
-    margin: 0;
+    margin: 0 auto;
+    width: 90%;
 }
 
 .footerhours {
@@ -419,7 +420,7 @@ table {
         display: flex;
         justify-content: center;
         align-items: center;
-        background-color: #F0F0F0;
+     
         margin: 0;
         padding: 0;
         
@@ -435,14 +436,14 @@ table {
     } */
     
     .navleft > li {
-        display: flex;
+        display: inline-block;
         align-items: center;
         justify-content: center;
         list-style: none;
         margin-bottom: 0;
         font-size: 19px;
         height: 100%;
-        padding: 0 3% 0 3%;
+        /* padding: 0 3% 0 3%; */
     
        
     
@@ -457,21 +458,28 @@ table {
         display: flex;
         align-items: center;
         height: 100%;
-        padding-left: 15px;
-        padding-right: 15px;
+        width: 100%;
+        padding-left: 3em;
+        padding-right: 3em;
+        
         text-decoration: none;
-        color: #575757;
+        /* color: #575757; */
+        color: #333;
         
     }
     
     .navleft > li:hover {
-        /* background-color: #ebe9e9; */
-        /* color: #02366c; */
+        background-color: #2f75a338; 
+        color: white;
     
+    }
+
+    .navleft > li:hover a {
+        color: inherit;
     }
     
     .navleft > li > a:hover {
-        color: #2f74a3;
+        color: black;
         /* background-color: #ebe9e9; */
         /* height: 100%;
         width: 100%;
@@ -495,7 +503,7 @@ table {
     }
 
     .pagebody {
-        min-height: 70vh; 
+        min-height: 100vh; 
         /* min height to maintain footer on bottom */
     }
 

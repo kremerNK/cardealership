@@ -2,6 +2,80 @@ p {
     margin-bottom: 0;
 }
 
+.vehicle-page {
+    width: 90%;
+    margin-top: 15vh;
+    margin-left: 5%;
+} 
+
+ .vehicletitle {
+    color: black;
+    font-size: 26px;
+    /* margin-left: 3vh;  */
+    margin-bottom: 5vh;
+    width: 90%;
+    border-top: 1px solid #757575;
+    border-left: 1px solid #757575;
+    padding-top: 1vh;
+    padding-left: 2vh;
+}
+
+
+
+.image > img {
+    width: 100%;
+    margin-bottom: 5vh;
+}
+
+.price {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    font-size: 26px;
+    margin-bottom: 5vh;
+    margin-top: 0vh;
+}
+
+.price > div > p {
+    padding: 0vh 0 0vh 3vh;
+    color: black;
+}
+
+.price > div > p:first-child {
+    font-size: 16px;
+}
+
+.price > div {
+    width: 100%;
+    border-top: 1px solid #757575;
+    border-bottom: 1px solid #757575;
+
+}
+.price > div:first-child{
+    border-right: 1px solid #757575;
+}
+
+.table1 table tr  th:last-child, .table2 table tr  th:last-child {
+    text-align: right;
+}
+
+
+
+th {
+    color: black;
+}
+
+table, tr, th {
+   border-bottom: 1px solid black;
+}
+
+tr > th:first-child {
+   font-weight: bold;
+}
+tr > th:last-child {
+color: black;
+}
+
 @media screen and (min-width: 1000px) {
 
     .vehicle-page {
@@ -35,8 +109,9 @@ p {
     }
 
     .image {
-        width: 100%;
- 
+        /* width: 100%; */
+        /* border-top: 1px solid #757575; */
+        border-bottom: 1px solid #757575;
     }
 
     .image > p {
@@ -45,14 +120,24 @@ p {
         margin-left: 3vh; 
     }
 
+    .vehicletitle {
+        color: black;
+        font-size: 26px;
+        margin-left: 3vh; 
+        width: 60%;
+        border-top: 1px solid #757575;
+        border-left: 1px solid #757575;
+        padding-top: 1vh;
+        padding-left: 2vh;
+    }
     .image > img {
         margin: 3vh 5vh 3vh 3vh;
-
+        width: auto;
     }
     .details {
         display: flex;
         flex-direction: column; 
-        
+        border-bottom: 1px solid #757575;
         width: 100%;
     }
 
@@ -61,7 +146,7 @@ p {
         justify-content: space-evenly;
         font-size: 26px;
         margin-bottom: 5vh;
-        margin-top: 3vh;
+        margin-top: 0vh;
     }
 
     .price > div > p:first-child {
@@ -115,7 +200,7 @@ p {
    }
    tr > th:last-child {
     color: black;
-}
+    }
     .cardetails {
         
     }
