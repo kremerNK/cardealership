@@ -3,6 +3,18 @@ from wagtail.core.fields import RichTextField
 from wagtail.admin.edit_handlers import FieldPanel
 from django.db import models
 
+###############################################original imports
+
+from modelcluster.fields import ParentalKey
+
+from wagtail.core.models import Page, Orderable
+from wagtail.core.fields import RichTextField
+from wagtail.admin.edit_handlers import FieldPanel, InlinePanel
+from wagtail.images.edit_handlers import ImageChooserPanel
+from wagtail.search import index
+
+    
+
 
 class Vehicle(Page):
     class vehicleType(models.TextChoices):
@@ -27,7 +39,7 @@ class Vehicle(Page):
     exterior_color = models.CharField(max_length=200, default='red')
     interior_color = models.CharField(max_length=200, default='black')
     stock_number = models.CharField(max_length=200, default='V220031')
-    vin = models.CharField(max_length=200, default='')
+    vin = models.CharField(max_length=200, default='1')
     picture = models.ImageField(default='')
 
     def child_pages(self):
@@ -50,5 +62,19 @@ class Vehicle(Page):
         FieldPanel('interior_color'),
         FieldPanel('stock_number'),
         FieldPanel('picture'),
+        FieldPanel('vin'),
+        InlinePanel('gallery_images', label="Gallery images")
     ]
+
+
+class VehicleGallery(Orderable):
+    page = ParentalKey(Vehicle, related_name='gallery_images')
+    image = models.ForeignKey(
+        'wagtailimages.Image', on_delete=models.CASCADE, related_name='+'
+    )
     
+
+    panels = [
+        ImageChooserPanel('image'),
+   
+    ]

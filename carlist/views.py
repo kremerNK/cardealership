@@ -2,6 +2,8 @@ from django.shortcuts import render, get_object_or_404
 from django.views.decorators.csrf import csrf_exempt
 from .models import Vehicle
 
+
+
 # Create your views here.
 
 
@@ -34,7 +36,7 @@ def vehiclePage(request, slug, pk):
     # obj = get_object_or_404(Vehicle, pk=int(pk))
     vehicle = Vehicle.objects.all()[2]
     
-
+    print(vehicle._meta.get_fields())
     context = {'vehicle': obj}
     return render(request, 'vehicle_page.html', context)
 

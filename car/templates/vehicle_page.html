@@ -1,8 +1,13 @@
 {% extends "base.html" %}
 
-<!-- {% load wagtailcore_tags %}
+{#<!-- {% load wagtailcore_tags %}
 {% load static wagtailuserbar %}
 {% block body_class %}template-homepage{% endblock %} -->
+#}
+
+{% load wagtailcore_tags wagtailimages_tags %}
+
+
 
 {% block content %}
 
@@ -24,17 +29,29 @@
                 <div class='vehicletitle'>
                     <p>{{ vehicle.title }}</p>
                 </div>
+                <!-- <img class='slides' src="../../media/{{ vehicle.picture }}" alt=""> -->
                 <!-- <div class='vehicle-title'> -->
-                    
+                 
                 <!-- </div> -->
-                <div class='slides'>
-                    <img class='slides' src="../../media/{{ vehicle.picture }}" alt="">
-                    <img class='slides' src="../../media/{{ vehicle.picture }}" alt="">
-                    <img class='slides' src="../../media/{{ vehicle.picture }}" alt="">
+                <div class='carousel-container'>
+                    <div class='slides'>
+                        <img class='slide-images' src="../../media/{{ vehicle.picture }}" alt="">
+                        {% for item in vehicle.gallery_images.all %}
+         
+                                {% image item.image width-400 height-400 class='slide-images' %} 
+                            
+   
+                        {% endfor %}
+                        <!-- <img class='slide-images' src="../../media/{{ vehicle.picture }}" alt="">
+                        <img class='slide-images' src="../../media/{{ vehicle.picture }}" alt="">
+                        <img class='slide-images' src="../../media/{{ vehicle.picture }}" alt="">
+                        <img class='slide-images' src="../../media/{{ vehicle.picture }}" alt=""> -->
+                    </div>
+                    <div class='image-index' style='text-align: center; display: flex; justify-content: center;'>
+                        <p style='margin-right: 0.2em'>Image <p class='current-image'>1 </p>/<p class='total-images'>3</p></p>
+                    </div>
+                    
                 </div>
-                <!-- <img class='slides' src="../../media/{{ vehicle.picture }}" alt="">
-                <img class='slides' src="../../media/{{ vehicle.picture }}" alt="">
-                <img class='slides' src="../../media/{{ vehicle.picture }}" alt=""> -->
             </div>
             <div class='details'>
                 <div class='price'>
@@ -98,8 +115,10 @@
             </div>
             
         </div>
-    
     </div>
+
+    
+    
     
     <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
     <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
