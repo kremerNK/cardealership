@@ -422,7 +422,7 @@ th {
 
     .stickBar {
         position: fixed;
-        top: 1px;
+        /* top: 1px; */
         height: auto;
     }
 
