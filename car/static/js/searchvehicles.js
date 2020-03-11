@@ -54,12 +54,12 @@ let max = document.getElementById('max');
 regularSlider.noUiSlider.on('update', function(){
     max.value = topslider.innerText.substring(1, topslider.innerText.length);
     min.value = bottomslider.innerText.substring(1, bottomslider.innerText.length);
-    console.log('price slider hit');
+
     filterVehicles()
 })
 
 function sliderChange(val){
-    console.log('price sliderChange hit');
+
     if (val.id == 'max'){
         if (parseInt(val.value) > parseInt(min.value)) {
             regularSlider.noUiSlider.set([null, parseInt(val.value)])
@@ -109,7 +109,7 @@ for (i=0; i < uiConnect.length; i++){
 mileageSlider.noUiSlider.on('update', function(){
     mileageMax.value = topSliderMileage.innerText;
     mileageMin.value = bottomSliderMileage.innerText;
-    console.log('mileage update hit');
+ 
     
     filterVehicles();
     let parseMMax = parseInt(mileageMax.value);
@@ -129,14 +129,14 @@ mileageSlider.noUiSlider.on('update', function(){
 function mileageSliderChange(val){
     //put filter function here also
     if (val.id == 'mileageMax'){
-        console.log(val.value);
+      
         
         if (parseInt(val.value) > parseInt(mileageMin.value)) {
             mileageSlider.noUiSlider.set([null, parseInt(val.value)])
             
         } 
     } else if (val.id == 'mileageMin'){
-        console.log(val.value);
+   
         
         if (parseInt(val.value) < parseInt(mileageMax.value)){
             mileageSlider.noUiSlider.set([parseInt(val.value), null])
@@ -164,7 +164,7 @@ function filterVehicles(){
     }
     
     //specified elements to filter with
-    console.log('filter hit');
+
     
     let tooltip = document.querySelectorAll('.noUi-tooltip');
     if (tooltip.length === 4){
@@ -185,7 +185,7 @@ function filterVehicles(){
             let yearFiltered = parseInt(vehicleCards[i].querySelector('.vehicleYear').innerHTML);
             let mpgFiltered = parseInt(vehicleCards[i].querySelector('#mpg').innerHTML);
             let bodyFiltered = vehicleCards[i].querySelector('.vehicleTitle').getAttribute('value');
-            console.log(makeFiltered);
+       
             
             // get data from search bar
             let pricemintooltip = parseInt(tooltip[0].innerHTML.replace('$','').replace(',',''));
@@ -207,19 +207,20 @@ function filterVehicles(){
             let yearEval = (yearFiltered > yearMaxSearch || yearFiltered < yearMinSearch)
             let mpgEval = (mpgSearch != 'any' && mpgFiltered < mpgSearch);
             let bodyEval = (bodyTypeSearch != 'any' && bodyTypeSearch != bodyFiltered);
-            // console.log(priceEval, makeEval, mileageEval, yearEval, mpgEval, bodyEval);
+       
             
             
 
             if (priceEval || makeEval ||
             mileageEval || yearEval || mpgEval || bodyEval)  { //try just removing an operand
-                console.log('at least 1 is out of range, do not display');
+           
+
                 vehicleCards[i].style.display = 'none';    
                 let parentElement = vehicleCards[i].parentElement;
                 let moreInfo = parentElement.getElementsByClassName('moreInfo')[i];
                 moreInfo.style.display = 'none';
             } else {
-                console.log('both in range, display');
+       
                 let parentElement = vehicleCards[i].parentElement;
                 let moreInfo = parentElement.getElementsByClassName('moreInfo')[i];
                 vehicleCards[i].style.display = '';
@@ -237,9 +238,8 @@ function findAncestor(e1, findClass){
     while (e1.parentNode) {
         e1 = e1.parentNode;
         if (e1.classList.contains('search')){
-            console.log(e1);
-            console.log('success');
-            return e1
+
+            return e1 
         }
     } 
 }
@@ -247,7 +247,7 @@ function findAncestor(e1, findClass){
 caret.forEach(e1 => e1.addEventListener('click', function() {
     let cls = '.search';
     let ancestor = findAncestor(e1, cls);
-    console.log(ancestor);
+
     let dropDown = ancestor.querySelector('.dropDown');
     
 
@@ -276,3 +276,43 @@ hideFilter.addEventListener('click', function(){
     searchResults.style.display = 'flex';
     searchBar.style.display = 'none';
 })
+
+///sticky side search bar
+
+let searchBarSticky = document.getElementsByClassName('searchbar')[0];
+let navheight = document.querySelector('#navbar').offsetHeight;
+let stickBar = searchBarSticky.offsetTop - navheight;
+let searchResultsLeft = searchResults.offsetLeft;
+let testing = stickBar + navheight;
+window.addEventListener('scroll', stickSearch);
+
+function stickSearch(){
+    if (window.pageYOffset >= stickBar){
+        searchResults.style.marginLeft = searchResultsLeft.toString().concat('px')
+        searchBarSticky.classList.add('stickBar');
+        searchBarSticky.style.top = (navheight + 0).toString().concat('px');
+    } else {
+        searchResults.style.marginLeft = '3%';
+        searchBarSticky.classList.remove('stickBar');
+    }
+}
+
+
+function cardHighlightIn(card){
+    let moreInfo = card.querySelector('.moreInfo');
+    let topVehicleCard = card.querySelector('.topVehicleCard');
+    moreInfo.style.transition = "background-color 0.1s ease";
+    topVehicleCard.style.transition = "background-color 0.1s ease";
+    moreInfo.style.backgroundColor = '#dee9f0';
+    topVehicleCard.style.backgroundColor = '#dee9f0';
+  
+}
+
+function cardHighlightOut(card){
+    let moreInfo = card.querySelector('.moreInfo');
+    let topVehicleCard = card.querySelector('.topVehicleCard');
+    moreInfo.style.transition = "background-color 0.2s ease";
+    topVehicleCard.style.transition = "background-color 0.2s ease";
+    moreInfo.style.backgroundColor = '#999999c2';
+    topVehicleCard.style.backgroundColor = '#cecece';
+}

@@ -80,6 +80,19 @@ color: black;
     font-size: 12px;
 }
 
+.search-more  {
+    margin-top: 9vh;
+    margin-bottom: 9vh;
+}
+
+
+.search-more > a > button {
+    background-color: #2f74a3;
+    color: white;
+    width: 100%;
+
+}
+
 @media screen and (min-width: 1000px) {
 
      .vehicle-page {
@@ -138,7 +151,7 @@ color: black;
         color: black;
         font-size: 26px;
         margin-left: 3vh; 
-    }
+    } 
 
     .vehicletitle {
         color: black;
@@ -235,6 +248,16 @@ color: black;
 
     .image-index p {
         font-size: 12px;
+    }
+
+    .search-more {
+        margin: 0;
+    }
+
+    .search-more > a > button {
+        background-color: #2f74a3;
+        color: white;
+        width: auto;
     }
 
     

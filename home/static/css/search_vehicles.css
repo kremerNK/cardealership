@@ -2,10 +2,10 @@
     /* height: 100%; */
     width: 100%;
     padding: 15vh 0 5% 0;
-    display: flex;
+    /* display: flex;
     flex-direction: row;
     justify-content: center;
-   
+    */
 
 } 
 
@@ -46,6 +46,7 @@ p {
 }
 
 .searchresults {
+
     height: 100%;
     width: 100%;
     display: flex;
@@ -122,6 +123,13 @@ p {
     margin-bottom: 0;
 }
 
+.topVehicleCard {
+    display: flex;
+    flex-direction: row;
+ 
+    height: 100%;
+}
+
 .yearFilter > select {
     width: 44%;
 }
@@ -137,8 +145,9 @@ p {
     border: 1px solid #929292;
     /* background-color: #2f75a318; */
     display: flex; /* change to flex */
-    flex-direction: row;
+    flex-direction: column;
     width: 90%;
+    margin-bottom: 4vh;
     height: 25vh;
     
 
@@ -148,6 +157,7 @@ p {
     display: flex;
     flex-direction: column;
     width: 100%;
+    height: 100%;
 }
 
 .vehicleImg {
@@ -236,7 +246,7 @@ th {
     width: 100%;
     display: flex;
     flex-direction: column;
- 
+    
 }
 
 .dropDownContainer > div {
@@ -310,44 +320,47 @@ th {
 }
 
 .moreInfo {
-    width: 90%;
+    width: 100%;
+    height: 27%;
     background-color: #999999c2;
     /* background-color: #999999c2; original color */
     text-align: right;
-    margin-bottom: 2rem;
+    /* margin-bottom: 2rem; */
     display: flex;
     justify-content: flex-end;
+    /* align-items: center; */
     /* border: 1px solid #929292; */
     border-top: none;
 }
 
 .moreInfo button {
-    width: 35%;
+    width: 100%;
+    height: 75%;
     font-size: 11px;
     text-align: right;
     background-color: #2f74a3;
-    margin: 1rem;
+    /* margin: 1rem; */
     display: flex;
     flex-direction: row;
     justify-content: center;
+    align-items: center;
     border-radius: 0;
     color: white;
     border: none;
+    margin: 0;
 
 }
 
 .moreInfo > a {
-    width: 100%;
-    height: 100%;
-    text-align: right;
-
 
     display: flex;
     flex-direction: row;
     justify-content: flex-end;
+    align-items: center;
     border-radius: 0;
     text-decoration: none;
     border: none;
+    margin-right: 1vh;
 
 }
 
@@ -375,30 +388,62 @@ th {
 }
 
 @media screen and (min-width: 1000px) {
+      /* filter results scroll bar */
+
+      .searchbar::-webkit-scrollbar {
+        width: 8px;
+      }
+
+      ::-webkit-scrollbar-track {
+        background: #999999c2;
+      }
+      ::-webkit-scrollbar-thumb {
+        background-color: #2f75a38e ;
+        border-radius: 15px;
+
+      }
+
+
+
     .searchbar {
         margin: 0;
-        width: 20%;
+        width: 25%;
         height: 100%;
-        
+        overflow-y: scroll;
         /* margin-right: 50px; */
-
+        max-height: 94vh;
         display: block;
-        flex-direction: column;
         /* align-items: baseline; */
+        border-right: none;
+        scrollbar-color: #2f75a38e #999999c2;
+       
       
+    }
+
+    .stickBar {
+        position: fixed;
+        top: 1px;
+        height: auto;
+    }
+
+    .dropDownContainer {
+        padding-right: -15px;
     }
 
     .searchresults {
         width: 70%;
        flex-shrink: 0;
+       margin-left: 3%;
+       margin-bottom: 400px;
+     
     }
 
     .body {
         /* width: 90%; */
         display: flex;
-        flex-direction: row;
-        justify-content: space-around;
-      
+        flex-direction: row; 
+
+    
     
     }
     
@@ -409,9 +454,27 @@ th {
     }
 
     .vehicleCard {
-        height: 250px;
+        height: auto;
         width: 100%;
+        /* border-bottom: none; */
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        margin-bottom: 4vh;
+     
         /* background-color: #cecece; */
+    }
+
+
+
+    /* .vehicleCard:hover {
+        background-color: rgba(255, 255, 255, 0.596);
+        transition: background-color 0.5s ease;
+    } */
+
+    .topVehicleCard {
+        display: flex;
+        flex-direction: row;
     }
 
     .vehicle-price {
@@ -445,6 +508,8 @@ th {
 
     .moreInfo {
         width: 100%;
+        height: 100%;
+        margin-bottom: 0;
     }
 
     .moreInfo button {
@@ -463,8 +528,12 @@ th {
         border-radius: 0;
         text-decoration: none;
         border: none;
+        margin-right: 0;
+        padding: 1vh;
     
     }
+
+ 
 
     .year {
         line-height: normal;
@@ -475,4 +544,5 @@ th {
     .year > p{
         color: #333;
     }
+
 }

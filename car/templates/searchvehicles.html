@@ -202,76 +202,83 @@
                 </div>
                 {% for attribute in vehicle %}
                 
-                <div class='vehicleCard'>
-                    
-                    <div class='vehicleImg'>
+                <div value='{{attribute.pk}}' class='vehicleCard' onmouseover='cardHighlightIn(this)'; onmouseout="cardHighlightOut(this)">
+                    <div class='topVehicleCard'>
+                        <div class='vehicleImg'>
                        
-                        <img src="../../media/{{ attribute.picture }}" alt="">
-                    </div>
-                    <div class='vehicleInfo'>
-                        
-                        <div value='{{ attribute.carType }}' class='vehicleTitle'>
-                            <div class='year'>
-                                <p class='vehicleYear' id='make' value = '{{attribute.make}}'> {{ attribute.title }}</p>
-                            </div>
-                            <!-- <p>{{ attribute.carType }}</p> -->
-                            <p name='vehicle-price' class='vehicle-price' >{{ attribute.price }}</p>
+                            <img src="../../media/{{ attribute.picture }}" alt="">
                         </div>
-                        <div class='vehicleDetails'>
-                            <div class='mobileMileageDisplay'>
-                                <p>{{ attribute.mileage }} miles</p>
-                            </div>
-                            <div class='vehicleTable1'>
-                                <table>
-                                    <tr>
-                                        <th>Mileage</th> 
-                                        <th name='mileage' id='mileageId' class='align-right'>{{ attribute.mileage }}</th>
-                                    </tr>
-                                    <tr>
-                                        <th>MPG</th>
-                                        <th name='mpg' id='mpg' class='align-right'>{{ attribute.mpg }}</th>
-                                    </tr>
-                                    <tr>
-                                        <th>Exterior Color</th>
-                                        <th name='exterior_color' class='align-right'>{{ attribute.exterior_color }}</th>
-                                    </tr>
-                                    <tr>
-                                        <th>Interior Color</th>
-                                        <th name='interior_color' class='align-right'>{{ attribute.interior_color }}</th>
-                                    </tr>
-                                </table>
-                            </div>
-                            <div class='vehicleTable2'>
-                                <table>
-                                    <tr>
-                                        <th>Transmission</th>
-                                        <th name='transmission' class='align-right'>{{ attribute.transmission }}</th>
-                                    </tr>
-                                    <tr>
-                                        <th>Engine</th>
-                                        <th name='engine' class='align-right'>{{ attribute.engine }}</th>
-                                    </tr>
-                                    <tr>
-                                        <th>Drive Line</th>
-                                        <th name='drive_line' class='align-right'>{{ attribute.drive_line }}</th>
-                                    </tr>
-                                    <tr>
-                                        <th>Stock Number</th>
-                                        <th name='stock_number' class='align-right'>{{ attribute.stock_number }}</th>
-                                    </tr>
-                                </table>
-
-                            </div>
+                        <div class='vehicleInfo'>
                             
+                            <div value='{{ attribute.carType }}' class='vehicleTitle'>
+                                <div class='year'>
+                                    <p class='vehicleYear' id='make' value = '{{attribute.make}}'> {{ attribute.title }}</p>
+                                </div>
+                                <!-- <p>{{ attribute.carType }}</p> -->
+                                <p name='vehicle-price' class='vehicle-price' >{{ attribute.price }}</p>
+                            </div>
+                            <div class='vehicleDetails'>
+                                <div class='mobileMileageDisplay'>
+                                    <p>{{ attribute.mileage }} miles</p>
+                                </div>
+                                <div class='vehicleTable1'> 
+                                    <table>
+                                        <tr>
+                                            <th>Mileage</th> 
+                                            <th name='mileage' id='mileageId' class='align-right'>{{ attribute.mileage }}</th>
+                                        </tr>
+                                        <tr>
+                                            <th>MPG</th>
+                                            <th name='mpg' id='mpg' class='align-right'>{{ attribute.mpg }}</th>
+                                        </tr>
+                                        <tr>
+                                            <th>Exterior Color</th>
+                                            <th name='exterior_color' class='align-right'>{{ attribute.exterior_color }}</th>
+                                        </tr>
+                                        <tr>
+                                            <th>Interior Color</th>
+                                            <th name='interior_color' class='align-right'>{{ attribute.interior_color }}</th>
+                                        </tr>
+                                    </table>
+                                </div>
+                                <div class='vehicleTable2'>
+                                    <table>
+                                        <tr>
+                                            <th>Transmission</th>
+                                            <th name='transmission' class='align-right'>{{ attribute.transmission }}</th>
+                                        </tr>
+                                        <tr>
+                                            <th>Engine</th>
+                                            <th name='engine' class='align-right'>{{ attribute.engine }}</th>
+                                        </tr>
+                                        <tr>
+                                            <th>Drive Line</th>
+                                            <th name='drive_line' class='align-right'>{{ attribute.drive_line }}</th>
+                                        </tr>
+                                        <tr>
+                                            <th>Stock Number</th>
+                                            <th name='stock_number' class='align-right'>{{ attribute.stock_number }}</th>
+                                        </tr>
+                                    </table>
+    
+                                </div>
+                                
+                            </div>
                         </div>
                     </div>
+                    <div value='{{attribute.pk}}' class='moreInfo'>
+            
+                   
+                        <a href="{{attribute.slug}}-{{attribute.pk}}/"><button>View</button></a>
+                   </div>
+                    
                     
                 </div>
-                <div class='moreInfo'>
-                    <!-- {% url 'home' %}user/{{i.author.username}} -->
+                <!-- <div value='{{attribute.pk}}' class='moreInfo'>
+            
                    
                      <a href="{{attribute.slug}}-{{attribute.pk}}/"><button>View</button></a>
-                </div>
+                </div> -->
                 {% endfor %}
             </div>
 
