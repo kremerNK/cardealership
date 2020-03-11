@@ -200,98 +200,115 @@
                 <div class='displayFilter'>
                     <button class='showFilter'><p><i style='color: white' class="fas fa-filter"></i> Filter</p></button>
                 </div>
-                {% for attribute in vehicle %}
                 
-                <div value='{{attribute.pk}}' class='vehicleCard' onmouseover='cardHighlightIn(this)'; onmouseout="cardHighlightOut(this)">
-                    <div class='topVehicleCard'>
-                        <div class='vehicleImg'>
-                       
-                            <img src="../../media/{{ attribute.picture }}" alt="">
-                        </div>
-                        <div class='vehicleInfo'>
-                            
-                            <div value='{{ attribute.carType }}' class='vehicleTitle'>
-                                <div class='year'>
-                                    <p class='vehicleYear' id='make' value = '{{attribute.make}}'> {{ attribute.title }}</p>
-                                </div>
-                                <!-- <p>{{ attribute.carType }}</p> -->
-                                <p name='vehicle-price' class='vehicle-price' >{{ attribute.price }}</p>
-                            </div>
-                            <div class='vehicleDetails'>
-                                <div class='mobileMileageDisplay'>
-                                    <p>{{ attribute.mileage }} miles</p>
-                                </div>
-                                <div class='vehicleTable1'> 
-                                    <table>
-                                        <tr>
-                                            <th>Mileage</th> 
-                                            <th name='mileage' id='mileageId' class='align-right'>{{ attribute.mileage }}</th>
-                                        </tr>
-                                        <tr>
-                                            <th>MPG</th>
-                                            <th name='mpg' id='mpg' class='align-right'>{{ attribute.mpg }}</th>
-                                        </tr>
-                                        <tr>
-                                            <th>Exterior Color</th>
-                                            <th name='exterior_color' class='align-right'>{{ attribute.exterior_color }}</th>
-                                        </tr>
-                                        <tr>
-                                            <th>Interior Color</th>
-                                            <th name='interior_color' class='align-right'>{{ attribute.interior_color }}</th>
-                                        </tr>
-                                    </table>
-                                </div>
-                                <div class='vehicleTable2'>
-                                    <table>
-                                        <tr>
-                                            <th>Transmission</th>
-                                            <th name='transmission' class='align-right'>{{ attribute.transmission }}</th>
-                                        </tr>
-                                        <tr>
-                                            <th>Engine</th>
-                                            <th name='engine' class='align-right'>{{ attribute.engine }}</th>
-                                        </tr>
-                                        <tr>
-                                            <th>Drive Line</th>
-                                            <th name='drive_line' class='align-right'>{{ attribute.drive_line }}</th>
-                                        </tr>
-                                        <tr>
-                                            <th>Stock Number</th>
-                                            <th name='stock_number' class='align-right'>{{ attribute.stock_number }}</th>
-                                        </tr>
-                                    </table>
-    
-                                </div>
-                                
-                            </div>
-                        </div>
-                    </div>
-                    <div value='{{attribute.pk}}' class='moreInfo'>
-            
-                   
-                        <a href="{{attribute.slug}}-{{attribute.pk}}/"><button>View</button></a>
-                   </div>
-                    
-                    
-                </div>
-                <!-- <div value='{{attribute.pk}}' class='moreInfo'>
-            
-                   
-                     <a href="{{attribute.slug}}-{{attribute.pk}}/"><button>View</button></a>
-                </div> -->
-                {% endfor %}
-            </div>
 
-        
-        <!-- {% for page in self.get_children.specific %}
-            <p>{{ page.make }}</p>
-            <p>{{ page.mpg }}</p>
-            <p>{{ page.title }}</p>
-            <img width='50' height='50' src="../../media/{{ page.picture }}" alt="">
-            <p>{{ page.vehicleName }}</p>
+                {% for attribute in page_obj %}
+                    {# Each "contact" is a Contact model object. #}
+                    <div value='{{attribute.pk}}' class='vehicleCard' onmouseover='cardHighlightIn(this)'; onmouseout="cardHighlightOut(this)">
+                        <div class='topVehicleCard'>
+                            <div class='vehicleImg'>
+                        
+                                <img src="../../media/{{ attribute.picture }}" alt="">
+                            </div>
+                            <div class='vehicleInfo'>
+                                
+                                <div value='{{ attribute.carType }}' class='vehicleTitle'>
+                                    <div class='year'>
+                                        <p class='vehicleYear' id='make' value = '{{attribute.make}}'> {{ attribute.title }}</p>
+                                    </div>
+                                    <!-- <p>{{ attribute.carType }}</p> -->
+                                    <p name='vehicle-price' class='vehicle-price' >{{ attribute.price }}</p>
+                                </div>
+                                <div class='vehicleDetails'>
+                                    <div class='mobileMileageDisplay'>
+                                        <p>{{ attribute.mileage }} miles</p>
+                                    </div>
+                                    <div class='vehicleTable1'> 
+                                        <table>
+                                            <tr>
+                                                <th>Mileage</th> 
+                                                <th name='mileage' id='mileageId' class='align-right'>{{ attribute.mileage }}</th>
+                                            </tr>
+                                            <tr>
+                                                <th>MPG</th>
+                                                <th name='mpg' id='mpg' class='align-right'>{{ attribute.mpg }}</th>
+                                            </tr>
+                                            <tr>
+                                                <th>Exterior Color</th>
+                                                <th name='exterior_color' class='align-right'>{{ attribute.exterior_color }}</th>
+                                            </tr>
+                                            <tr>
+                                                <th>Interior Color</th>
+                                                <th name='interior_color' class='align-right'>{{ attribute.interior_color }}</th>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                    <div class='vehicleTable2'>
+                                        <table>
+                                            <tr>
+                                                <th>Transmission</th>
+                                                <th name='transmission' class='align-right'>{{ attribute.transmission }}</th>
+                                            </tr>
+                                            <tr>
+                                                <th>Engine</th>
+                                                <th name='engine' class='align-right'>{{ attribute.engine }}</th>
+                                            </tr>
+                                            <tr>
+                                                <th>Drive Line</th>
+                                                <th name='drive_line' class='align-right'>{{ attribute.drive_line }}</th>
+                                            </tr>
+                                            <tr>
+                                                <th>Stock Number</th>
+                                                <th name='stock_number' class='align-right'>{{ attribute.stock_number }}</th>
+                                            </tr>
+                                        </table>
+
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                        <div value='{{attribute.pk}}' class='moreInfo'>
+                        
+                    
+                            <a href="{{attribute.slug}}-{{attribute.pk}}/"><button>View</button></a>
+                    </div>
+                        
+                    
+                    </div>
+            {% endfor %}
+            <div class="pagination">
+                {% if page_obj.has_previous %}
+                    <a class="pagination-action" href="?page=1">
+                        <i class="fa fa-angle-double-left" aria-hidden="true"></i> </a>
+                    <a class="pagination-action" href="?page={{ page_obj.previous_page_number }}">
+                        <i class="fa fa-angle-left" aria-hidden="true"></i>
+                    </a>
+                {% endif %}
+                {% for num in page_obj.paginator.page_range %}
+                    {% if page_obj.number == num %}
+                        <span class="pagination-number pagination-current">{{ num }}</span>
+                    {% elif num > page_obj.number|add:'-3' and num < page_obj.number|add:'3' %}
+                        <a class="pagination-number" href="?page={{ num }}">{{ num }}</a>
+                    {% endif %}
+                {% endfor %}
+                {% if page_obj.has_next %}
+                    <a class="pagination-action" href="?page={{ page_obj.next_page_number }}">
+                        <i class="fa fa-angle-right" aria-hidden="true"></i>
+                    </a>
+                    <a class="pagination-action" href="?page={{ page_obj.paginator.num_pages }}">
+                        <i class="fa fa-angle-double-right" aria-hidden="true"></i>
+                    </a>
+                {% endif %}
+            </div>
             
-        {% endfor %} -->
+            
+        
+ 
        </div>
+
+   
+       
        <script src="https://unpkg.com/nouislider@10.0.0/distribute/nouislider.min.js"></script>
        <script src="https://unpkg.com/wnumb@1.1.0"></script>
        <script type="text/javascript" src="{% static 'js/searchvehicles.js' %}"></script>

@@ -286,16 +286,16 @@ let searchResultsLeft = searchResults.offsetLeft;
 let testing = stickBar + navheight;
 window.addEventListener('scroll', stickSearch);
 
-function stickSearch(){
-    if (window.pageYOffset >= stickBar){
-        searchResults.style.marginLeft = searchResultsLeft.toString().concat('px')
-        searchBarSticky.classList.add('stickBar');
-        searchBarSticky.style.top = (navheight + 0).toString().concat('px');
-    } else {
-        searchResults.style.marginLeft = '3%';
-        searchBarSticky.classList.remove('stickBar');
-    }
-}
+// function stickSearch(){
+//     if (window.pageYOffset >= stickBar){
+//         searchResults.style.marginLeft = searchResultsLeft.toString().concat('px')
+//         searchBarSticky.classList.add('stickBar');
+//         searchBarSticky.style.top = (navheight + 0).toString().concat('px');
+//     } else {
+//         searchResults.style.marginLeft = '3%';
+//         searchBarSticky.classList.remove('stickBar');
+//     }
+// }
 
 
 function cardHighlightIn(card){
@@ -307,7 +307,7 @@ function cardHighlightIn(card){
     topVehicleCard.style.backgroundColor = '#dee9f0';
   
 }
-
+ 
 function cardHighlightOut(card){
     let moreInfo = card.querySelector('.moreInfo');
     let topVehicleCard = card.querySelector('.topVehicleCard');
@@ -315,4 +315,4 @@ function cardHighlightOut(card){
     topVehicleCard.style.transition = "background-color 0.2s ease";
     moreInfo.style.backgroundColor = '#999999c2';
     topVehicleCard.style.backgroundColor = '#cecece';
-}
+} 

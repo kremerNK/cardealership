@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404
 from django.views.decorators.csrf import csrf_exempt
 from .models import Vehicle
+from django.core.paginator import Paginator
 
 
 
@@ -18,17 +19,12 @@ def home(request):
 def searchVehicle(request):
     makeList = [x for x in set(Vehicle.objects.values_list('make', flat=True)) if x != '']
     allVehicles = Vehicle.objects.all()
-    if request.method == 'POST' and request.is_ajax():
-        print('ajax hit')
+    paginator = Paginator(allVehicles, 5)
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
 
-    context = {'makeList':makeList, 'vehicle':allVehicles}
 
-    test = Vehicle.objects.all()[1]
-    for i in test._meta.get_fields():
-        print(i)
-
-    # print(getattr(vehicle, 'slug'))
-    print(getattr(test, 'id')) 
+    context = {'makeList':makeList, 'vehicle':allVehicles, 'page_obj': page_obj}
     return render(request, 'searchvehicles.html', context)
 
 def vehiclePage(request, slug, pk):
@@ -36,7 +32,7 @@ def vehiclePage(request, slug, pk):
     # obj = get_object_or_404(Vehicle, pk=int(pk))
     vehicle = Vehicle.objects.all()[2]
     
-    print(vehicle._meta.get_fields())
+
     context = {'vehicle': obj}
     return render(request, 'vehicle_page.html', context)
 

@@ -347,7 +347,7 @@ th {
     border-radius: 0;
     color: white;
     border: none;
-    margin: 0;
+    margin: 0 auto;
 
 }
 
@@ -360,6 +360,7 @@ th {
     border-radius: 0;
     text-decoration: none;
     border: none;
+    margin: 0 auto;
     margin-right: 1vh;
 
 }
@@ -385,6 +386,62 @@ th {
     display: flex;
     justify-content: center;
     margin: 0;
+}
+
+/* pagination */
+
+.pagination {
+    text-align: center;
+    margin-top: -3vh;
+    width: 90%;
+    text-align: right;
+}
+
+.pagination a {
+    text-decoration: none;
+}
+
+.pagination-number {
+    padding: 0.5em 0.8em;
+    border-radius: 2px;
+    color: #fff;
+    background-color:  #6d9ebf;
+}
+
+
+.pagination-current {
+    background-color: #2f74a3;
+}
+
+
+
+.pagination-number:hover{
+    color:  #acc7da ;
+    background-color: #5990b5;
+}
+
+.pagination-action {
+    margin: 0 0.1em;
+    display: inline-block;
+    padding: 0.5em 0.5em;
+    color:  #666666 ;
+    font-size: 1.3em;
+}
+
+
+.pagination-previous,
+.pagination-next {
+    color: red;
+
+}
+
+.pagination-action:hover{
+    color: #2f74a3;
+}
+
+.pagination-current:hover {
+    background-color: #2f74a3;
+    color: white;
 }
 
 @media screen and (min-width: 1000px) {
@@ -438,6 +495,7 @@ th {
      
     }
 
+
     .body {
         /* width: 90%; */
         display: flex;
@@ -456,22 +514,15 @@ th {
     .vehicleCard {
         height: auto;
         width: 100%;
-        /* border-bottom: none; */
+ 
         display: flex;
         flex-direction: column;
         justify-content: space-around;
         margin-bottom: 4vh;
-     
-        /* background-color: #cecece; */
+ 
     }
 
-
-
-    /* .vehicleCard:hover {
-        background-color: rgba(255, 255, 255, 0.596);
-        transition: background-color 0.5s ease;
-    } */
-
+    
     .topVehicleCard {
         display: flex;
         flex-direction: row;
@@ -479,6 +530,7 @@ th {
 
     .vehicle-price {
         width: 8rem;
+        margin-bottom: 2vh;
     }
     .mobileMileageDisplay {
         display: none;
@@ -543,6 +595,60 @@ th {
 
     .year > p{
         color: #333;
+    }
+
+    .pagination {
+        text-align: center;
+        margin-top: -3vh;
+        width: 100%;
+        text-align: right;
+    }
+    
+    .pagination a {
+        text-decoration: none;
+    }
+    
+    .pagination-number {
+        padding: 0.5em 0.8em;
+        border-radius: 2px;
+        color: #fff;
+        background-color:  #6d9ebf;
+    }
+    
+
+    .pagination-current {
+        background-color: #2f74a3;
+    }
+
+   
+
+    .pagination-number:hover{
+        color:  #acc7da ;
+        background-color: #5990b5;
+    }
+    
+    .pagination-action {
+        margin: 0 0.1em;
+        display: inline-block;
+        padding: 0.5em 0.5em;
+        color:  #666666 ;
+        font-size: 1.3em;
+    }
+    
+    
+    .pagination-previous,
+    .pagination-next {
+        color: red;
+    
+    }
+
+    .pagination-action:hover{
+        color: #2f74a3;
+    }
+
+    .pagination-current:hover {
+        background-color: #2f74a3;
+        color: white;
     }
 
 }
