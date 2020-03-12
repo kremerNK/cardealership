@@ -10,9 +10,10 @@ import json
 
 def home(request):
     randomVehicles = Vehicle.objects.all().order_by('?')[:5]
+    allVehicles = Vehicle.objects.all()
     print(randomVehicles)
     print('test')
-    context = {'randomVehicles':randomVehicles}
+    context = {'randomVehicles':randomVehicles, 'vehicles':allVehicles}
     return render(request, 'home_page.html', context)
 
 @csrf_exempt
