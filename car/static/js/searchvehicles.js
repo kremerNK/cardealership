@@ -1,15 +1,17 @@
 
+
+
 //reset search bar values on refresh
-let yearMinSearch = document.querySelector('#selectYearMin');
-let yearMaxSearch = document.querySelector('#selectYearMax');
-yearMinSearch.value = '1995';
-yearMaxSearch.value = '2020';
-let mpgSearch = document.querySelector('#fuelEfficiencyFilter');
-let bodyTypeSearch = document.querySelector('#bodyStyleFilter'); 
-mpgSearch.value = 'any';
-bodyTypeSearch.value = 'any';
-let resetMakeSearch = document.querySelector('#makeFilter');
-resetMakeSearch.value = 'any';
+// let yearMinSearch = document.querySelector('#selectYearMin');
+// let yearMaxSearch = document.querySelector('#selectYearMax');
+// yearMinSearch.value = '1995';
+// yearMaxSearch.value = '2020';
+// let mpgSearch = document.querySelector('#fuelEfficiencyFilter');
+// let bodyTypeSearch = document.querySelector('#bodyStyleFilter'); 
+// mpgSearch.value = 'any';
+// bodyTypeSearch.value = 'any';
+// let resetMakeSearch = document.querySelector('#makeFilter');
+// resetMakeSearch.value = 'any';
 
 
 //reset drop downs on refresh
@@ -18,13 +20,88 @@ for (i = 0; i < test.length; i ++){
     test[i].style.display = '';
 }
 
+///propagates search to next page///////
+function priceMaxHandle(){
+    if (sessionStorage.getItem('maxPrice')){
+        console.log(sessionStorage.getItem('maxPrice'));
+        return parseInt(sessionStorage.getItem('maxPrice'));
+    } else {
+        console.log('15000');
+        return 15000;
+    }
+}
+let slideMaxValue = priceMaxHandle()
+
+function priceMinHandle(){
+    if (sessionStorage.getItem('minPrice')){
+        return parseInt(sessionStorage.getItem('minPrice'));
+    } else {
+        return 2000;
+    }
+}
+let slideMinValue = priceMinHandle()
+
+
+function makeSession(){
+    console.log('maksession runs');
+    
+    if (sessionStorage.getItem('make')){
+        sessionStorage.setItem('make', document.querySelector('#makeFilter').value)
+        console.log(sessionStorage.getItem('make'))
+        console.log('if executed');
+        
+        return sessionStorage.getItem('make')
+    } else {
+        sessionStorage.setItem('make', document.querySelector('#makeFilter').value)
+        console.log(sessionStorage.getItem('make'))
+        console.log('else executed');
+        
+        return sessionStorage.getItem('make');
+    }
+ 
+}
+
+function makeFilterPageLoad(){
+    console.log('test');
+    
+    if (!sessionStorage.getItem('make')){
+        return 'any';
+    } else {
+        return sessionStorage.getItem('make');
+    }
+    
+}
+document.querySelector('#makeFilter').value = makeFilterPageLoad()
+
+function mileageSessionMin(){
+    if (sessionStorage.getItem('minMileage')){
+        return parseInt(sessionStorage.getItem('minMileage'));
+    } else {
+        return 5000;
+    }
+}
+let mileageSessionValueMin = mileageSessionMin()
+
+function mileageSessionMax(){
+    if (sessionStorage.getItem('maxMileage')){
+        return parseInt(sessionStorage.getItem('maxMileage'));
+    } else {
+        return 250000;
+    }
+}
+let mileageSessionValueMax = mileageSessionMax()
 
 let regularSlider = document.querySelector('.regular-slider');
 // wNumb is their tool to format the number. We us it to format the numbers that appear in the handles
 let dollarPrefixFormat = wNumb({prefix: '$', decimals: 0})
+
+
+
 let slider = noUiSlider.create(regularSlider, {
+
+    
     // two handles
-    start: [2000, 15000],
+    start: [slideMinValue, slideMaxValue],
     // they are connected
     connect: true,
     // their minimal difference is 5 - this makes sense, because we want the user to always find items
@@ -41,6 +118,9 @@ let slider = noUiSlider.create(regularSlider, {
     
 })
 
+
+
+
 let uiConnect = document.querySelectorAll('.noUi-connect');
 for (i=0; i < uiConnect.length; i++){
     uiConnect[i].style.backgroundColor = '#2f74a3';
@@ -50,16 +130,38 @@ var bottomslider = document.getElementsByClassName('noUi-tooltip')[0];
 var topslider = document.getElementsByClassName('noUi-tooltip')[1];
 let min = document.getElementById('min');
 let max = document.getElementById('max');
+min.value = bottomslider.innerText.substring(1, bottomslider.innerText.length);
+max.value = topslider.innerText.substring(1, topslider.innerText.length)
 
-regularSlider.noUiSlider.on('update', function(){
+regularSlider.noUiSlider.on('change', function(){
     max.value = topslider.innerText.substring(1, topslider.innerText.length);
     min.value = bottomslider.innerText.substring(1, bottomslider.innerText.length);
+ 
+    
+    sessionStorage.setItem("maxPrice", max.value);
+    sessionStorage.setItem("minPrice", min.value);
+
+    let sendPriceRange = new XMLHttpRequest()
+    sendPriceRange.onload = function(){
+        if (sendPriceRange.status == 200){
+            console.log('success');
+            
+        } else {
+            console.log('request failed');
+            
+        }
+    }
+
+    sendPriceRange.open('POST', '', true);
+    sendPriceRange.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
+    sendPriceRange.send(JSON.stringify({'min':'like', 'max':'heartint'})); 
 
     filterVehicles()
 })
 
 function sliderChange(val){
-
+    console.log('slide change');
+    
     if (val.id == 'max'){
         if (parseInt(val.value) > parseInt(min.value)) {
             regularSlider.noUiSlider.set([null, parseInt(val.value)])
@@ -79,7 +181,7 @@ let mileageSlider = document.querySelector('.mileage-slider');
 let mileagePrefixFormat = wNumb({prefix: '', decimals: 0})
 let mileage = noUiSlider.create(mileageSlider, {
     // two handles
-    start: [5000, 250000],
+    start: [mileageSessionValueMin, mileageSessionValueMax],
     // they are connected
     connect: true,
     // their minimal difference is 5 - this makes sense, because we want the user to always find items
@@ -109,7 +211,8 @@ for (i=0; i < uiConnect.length; i++){
 mileageSlider.noUiSlider.on('update', function(){
     mileageMax.value = topSliderMileage.innerText;
     mileageMin.value = bottomSliderMileage.innerText;
- 
+    
+    
     
     filterVehicles();
     let parseMMax = parseInt(mileageMax.value);
@@ -128,6 +231,8 @@ mileageSlider.noUiSlider.on('update', function(){
 
 function mileageSliderChange(val){
     //put filter function here also
+    console.log('mileage input change slider');
+    
     if (val.id == 'mileageMax'){
       
         
@@ -286,16 +391,16 @@ let searchResultsLeft = searchResults.offsetLeft;
 let testing = stickBar + navheight;
 window.addEventListener('scroll', stickSearch);
 
-// function stickSearch(){
-//     if (window.pageYOffset >= stickBar){
-//         searchResults.style.marginLeft = searchResultsLeft.toString().concat('px')
-//         searchBarSticky.classList.add('stickBar');
-//         searchBarSticky.style.top = (navheight + 0).toString().concat('px');
-//     } else {
-//         searchResults.style.marginLeft = '3%';
-//         searchBarSticky.classList.remove('stickBar');
-//     }
-// }
+function stickSearch(){
+    if (window.pageYOffset >= stickBar){
+        searchResults.style.marginLeft = searchResultsLeft.toString().concat('px')
+        searchBarSticky.classList.add('stickBar');
+        searchBarSticky.style.top = (navheight + 0).toString().concat('px');
+    } else {
+        searchResults.style.marginLeft = '3%';
+        searchBarSticky.classList.remove('stickBar');
+    }
+}
 
 
 function cardHighlightIn(card){
@@ -316,3 +421,42 @@ function cardHighlightOut(card){
     moreInfo.style.backgroundColor = '#999999c2';
     topVehicleCard.style.backgroundColor = '#cecece';
 } 
+
+///post request for filtering all paginated model objects
+
+// let sendPriceRange = new XMLHttpRequest()
+// sendPriceRange.onload = function(){
+//     if (sendPriceRange.status == 200){
+//         console.log('success');
+        
+       
+//     } else {
+//         console.log('request failed');
+        
+//     }
+// }
+
+// sendPriceRange.open('POST', '', true);
+// sendPriceRange.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
+// sendPriceRange.send(JSON.stringify({'min':'like', 'max':'heartint'})); 
+
+const pageNumber = document.querySelectorAll('.pagination-number');
+
+
+pageNumber.forEach(e1 => e1.addEventListener('click', function(){
+    // let xhr = new XMLHttpRequest();
+    // xhr.onload = function(){
+    //     if (xhr.status == 200){
+    //         console.log('success');
+ 
+    //     } else {
+    //         console.log('fail');
+            
+    //     }
+    // }
+    // xhr.open('GET', '', true);
+    // xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
+    // xhr.send(JSON.stringify({'min':'like', 'max':'heartint'}));
+    
+    
+}))

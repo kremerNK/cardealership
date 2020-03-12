@@ -3,7 +3,7 @@ from django.views.decorators.csrf import csrf_exempt
 from .models import Vehicle
 from django.core.paginator import Paginator
 
-
+import json
 
 # Create your views here.
 
@@ -19,11 +19,22 @@ def home(request):
 def searchVehicle(request):
     makeList = [x for x in set(Vehicle.objects.values_list('make', flat=True)) if x != '']
     allVehicles = Vehicle.objects.all()
-    paginator = Paginator(allVehicles, 5)
+    paginator = Paginator(allVehicles, len(allVehicles))
     page_number = request.GET.get('page')
-    page_obj = paginator.get_page(page_number)
+    page_obj = paginator.get_page(page_number) 
 
+    
+    testvar1 = 1
+    if request.method=="POST" or request.method=="GET" and request.is_ajax():
+        print('ajax') 
+        print(json.loads(request.body))
+        allVehicles = Vehicle.objects.all()
+        context = {'vehicles':allVehicles[0]}
 
+        testvar1 += 1
+        return render(request, 'searchvehicles.html', context)
+
+    print(testvar1)
     context = {'makeList':makeList, 'vehicle':allVehicles, 'page_obj': page_obj}
     return render(request, 'searchvehicles.html', context)
 

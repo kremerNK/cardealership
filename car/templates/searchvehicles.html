@@ -44,7 +44,7 @@
                                 <!-- <input id='min' type='text'> -->
                                 <span class='textbox'>
                                     $
-                                    <input id='max' type='text' oninput='sliderChange(this)'>
+                                    <input id='max' type='text' oninput='sliderChange(this)'/>
                                 </span>
                             </div>
                         </div>
@@ -56,8 +56,8 @@
                             <p><i id='leftcaret' class="fas fa-angle-left"></i></p>
                         </div>
                         <div style='display: none;' class='dropDown'>
-                            <select name="" id="makeFilter" onchange='filterVehicles()'>
-                                <option value="any" selected>Any</option>
+                            <select name="" id="makeFilter" onchange='filterVehicles(); makeSession()'>
+                                <option value="any">Any</option>
                             {% for make in makeList %}
                                 <option value="{{ make }}">{{ make }}</option>
                             {% endfor %}
@@ -203,7 +203,7 @@
                 
 
                 {% for attribute in page_obj %}
-                    {# Each "contact" is a Contact model object. #}
+              
                     <div value='{{attribute.pk}}' class='vehicleCard' onmouseover='cardHighlightIn(this)'; onmouseout="cardHighlightOut(this)">
                         <div class='topVehicleCard'>
                             <div class='vehicleImg'>
@@ -306,7 +306,7 @@
         
  
        </div>
-
+       <input type="hidden" id='hiddenfilter' value='1'>
    
        
        <script src="https://unpkg.com/nouislider@10.0.0/distribute/nouislider.min.js"></script>
