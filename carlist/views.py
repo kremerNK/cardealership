@@ -9,10 +9,10 @@ import json
 
  
 def home(request):
-    randomVehicles = Vehicle.objects.all().order_by('?')[:5]
+    randomVehicles = Vehicle.objects.all().order_by('?')[:5] 
     allVehicles = Vehicle.objects.all()
     makeOptions = [x for x in set(Vehicle.objects.values_list('carType', flat=True)) if x != '']
- 
+    print(makeOptions)
 
     context = {'randomVehicles':randomVehicles, 'vehicles':allVehicles, 'makeOptions':makeOptions}
     return render(request, 'home_page.html', context)
@@ -21,8 +21,11 @@ def home(request):
 def searchVehicle(request):
     makeList = [x for x in set(Vehicle.objects.values_list('make', flat=True)) if x != '']
     allVehicles = Vehicle.objects.all()
-    paginator = Paginator(allVehicles, len(allVehicles))
-    page_number = request.GET.get('page')
+    makeOptions = [x for x in set(Vehicle.objects.values_list('carType', flat=True)) if x != '']
+    print(makeOptions)
+    print(allVehicles)
+    paginator = Paginator(allVehicles, 2)
+    page_number = request.GET.get('page', )
     page_obj = paginator.get_page(page_number) 
 
     
@@ -37,7 +40,7 @@ def searchVehicle(request):
         return render(request, 'searchvehicles.html', context)
 
     print(testvar1)
-    context = {'makeList':makeList, 'vehicle':allVehicles, 'page_obj': page_obj}
+    context = {'makeList':makeList, 'vehicle':allVehicles, 'page_obj': page_obj, 'makeOptions':makeOptions}
     return render(request, 'searchvehicles.html', context)
 
 def vehiclePage(request, slug, pk):

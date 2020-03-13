@@ -1,17 +1,7 @@
 
 
 
-//reset search bar values on refresh
-// let yearMinSearch = document.querySelector('#selectYearMin');
-// let yearMaxSearch = document.querySelector('#selectYearMax');
-// yearMinSearch.value = '1995';
-// yearMaxSearch.value = '2020';
-// let mpgSearch = document.querySelector('#fuelEfficiencyFilter');
-// let bodyTypeSearch = document.querySelector('#bodyStyleFilter'); 
-// mpgSearch.value = 'any';
-// bodyTypeSearch.value = 'any';
-// let resetMakeSearch = document.querySelector('#makeFilter');
-// resetMakeSearch.value = 'any';
+
 
 
 //reset drop downs on refresh
@@ -20,14 +10,21 @@ for (i = 0; i < test.length; i ++){
     test[i].style.display = '';
 }
 
-///propagates search to next page///////
+///price min max propagate search to next page///////
+
 function priceMaxHandle(){
+    console.log('priceMaxHandle');
+    
     if (sessionStorage.getItem('maxPrice')){
-        console.log(sessionStorage.getItem('maxPrice'));
-        return parseInt(sessionStorage.getItem('maxPrice'));
+        if (sessionStorage.getItem('maxPrice') == 'any'){
+            return 40000;
+        } else {
+            return parseInt(sessionStorage.getItem('maxPrice'));
+        }
+        
     } else {
-        console.log('15000');
-        return 15000;
+    
+        return 40000;
     }
 }
 let slideMaxValue = priceMaxHandle()
@@ -36,51 +33,44 @@ function priceMinHandle(){
     if (sessionStorage.getItem('minPrice')){
         return parseInt(sessionStorage.getItem('minPrice'));
     } else {
-        return 2000;
+        return 1;
     }
 }
 let slideMinValue = priceMinHandle()
 
-
+////////////////make filter propagate search to next page///////////////////////////////////
 function makeSession(){
-    console.log('maksession runs');
-    
     if (sessionStorage.getItem('make')){
         sessionStorage.setItem('make', document.querySelector('#makeFilter').value)
-        console.log(sessionStorage.getItem('make'))
-        console.log('if executed');
-        
         return sessionStorage.getItem('make')
     } else {
         sessionStorage.setItem('make', document.querySelector('#makeFilter').value)
-        console.log(sessionStorage.getItem('make'))
-        console.log('else executed');
-        
         return sessionStorage.getItem('make');
     }
- 
 }
 
 function makeFilterPageLoad(){
-    console.log('test');
-    
     if (!sessionStorage.getItem('make')){
         return 'any';
     } else {
         return sessionStorage.getItem('make');
     }
-    
-}
+};
 document.querySelector('#makeFilter').value = makeFilterPageLoad()
 
+////////////////mileage min max propagate search to next page/////////////////////
+
 function mileageSessionMin(){
+ 
+    
     if (sessionStorage.getItem('minMileage')){
         return parseInt(sessionStorage.getItem('minMileage'));
     } else {
-        return 5000;
+        return 1;
     }
 }
 let mileageSessionValueMin = mileageSessionMin()
+
 
 function mileageSessionMax(){
     if (sessionStorage.getItem('maxMileage')){
@@ -89,7 +79,113 @@ function mileageSessionMax(){
         return 250000;
     }
 }
-let mileageSessionValueMax = mileageSessionMax()
+let mileageSessionValueMax = mileageSessionMax();
+
+
+////////////////year min and max propagate search to next page/////////////////////
+
+function yearSessionMin(){
+    sessionStorage.setItem('yearMin', document.querySelector('#selectYearMin').value)
+
+    if (parseInt(sessionStorage.getItem('yearMin')) > parseInt(document.querySelector('#selectYearMax').value)){
+        sessionStorage.setItem('yearMin', document.querySelector('#selectYearMax').value)
+        document.querySelector('#selectYearMin').value = sessionStorage.getItem('yearMin')
+    } 
+}
+
+function yearMinPageLoad(){
+    if (sessionStorage.getItem('yearMin')){
+        return sessionStorage.getItem('yearMin')
+    } else {
+        document.querySelector('#selectYearMin').value = '1995';
+        return '1995';
+    }
+}
+document.querySelector('#selectYearMin').value = yearMinPageLoad();
+
+function yearSessionMax(){
+    console.log('yearsessionMax()');
+    console.log(document.querySelector('#selectYearMin').value);
+    
+    sessionStorage.setItem('yearMax', document.querySelector('#selectYearMax').value)
+
+    console.log(sessionStorage.getItem('yearMax'));
+    console.log(document.querySelector('#selectYearMin').value);
+    
+    if (parseInt(sessionStorage.getItem('yearMax')) < parseInt(document.querySelector('#selectYearMin').value)){
+        sessionStorage.setItem('yearMax', document.querySelector('#selectYearMin').value)
+        document.querySelector('#selectYearMax').value = sessionStorage.getItem('yearMax')
+    } 
+}
+
+function yearMaxPageLoad(){
+  
+    
+    if (sessionStorage.getItem('yearMax')){
+        return sessionStorage.getItem('yearMax')
+    } else {
+        document.querySelector('#selectYearMax').value = '2020';
+        return '2020';
+    }
+}
+document.querySelector('#selectYearMax').value  = yearMaxPageLoad();
+
+////////////////fuel efficiency propagate search to next page/////////////////////
+
+function fuelSession(){
+    console.log('fuelsession()');
+    
+    if (sessionStorage.getItem('fuel')){
+        console.log('fuel session exists');
+        
+        sessionStorage.setItem('fuel', document.querySelector('#fuelEfficiencyFilter').value)
+        return sessionStorage.getItem('fuel')
+    } else {
+        console.log('fuel session does not exist');
+        
+        sessionStorage.setItem('fuel', document.querySelector('#fuelEfficiencyFilter').value)
+        return sessionStorage.getItem('fuel');
+    }
+}
+
+function fuelFilterPageLoad(){
+  
+    
+    if (!sessionStorage.getItem('fuel')){
+        return 'any';
+    } else {
+        return sessionStorage.getItem('fuel');
+    }
+};
+document.querySelector('#fuelEfficiencyFilter').value = fuelFilterPageLoad()
+
+////////////////body style propagate search to next page/////////////////////
+
+function bodySession(){
+    console.log('bodysession()');
+    
+    if (sessionStorage.getItem('body')){
+        console.log('body session exists');
+        
+        sessionStorage.setItem('body', document.querySelector('#bodyStyleFilter').value)
+        return sessionStorage.getItem('body')
+    } else {
+        console.log('body session does not exist');
+        
+        sessionStorage.setItem('body', document.querySelector('#bodyStyleFilter').value)
+        return sessionStorage.getItem('body');
+    }
+}
+
+function bodyPageLoad(){
+    
+    if (!sessionStorage.getItem('body')){
+        return 'any';
+    } else {
+        return sessionStorage.getItem('body');
+    }
+};
+document.querySelector('#bodyStyleFilter').value = bodyPageLoad()
 
 let regularSlider = document.querySelector('.regular-slider');
 // wNumb is their tool to format the number. We us it to format the numbers that appear in the handles
@@ -114,7 +210,7 @@ let slider = noUiSlider.create(regularSlider, {
         format: dollarPrefixFormat
     },
     // start and end point of the slider - we are going to calculate that later based on a set of items
-    range: {min: 1, max: 15000}
+    range: {min: 1, max: 40000}
     
 })
 
@@ -227,6 +323,8 @@ mileageSlider.noUiSlider.on('update', function(){
 
         }
     }
+    sessionStorage.setItem('maxMileage', parseInt(mileageMax.value));
+    sessionStorage.setItem('minMileage', parseInt(mileageMin.value));
 })
 
 function mileageSliderChange(val){
@@ -238,14 +336,19 @@ function mileageSliderChange(val){
         
         if (parseInt(val.value) > parseInt(mileageMin.value)) {
             mileageSlider.noUiSlider.set([null, parseInt(val.value)])
-            
         } 
+        sessionStorage.setItem('maxMileage', parseInt(val.value));
+        
     } else if (val.id == 'mileageMin'){
    
+        console.log('mileageset');
         
         if (parseInt(val.value) < parseInt(mileageMax.value)){
             mileageSlider.noUiSlider.set([parseInt(val.value), null])
         }
+        sessionStorage.setItem('minMileage', parseInt(val.value));
+     
+        
     }
     filterVehicles();
 }; 

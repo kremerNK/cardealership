@@ -55,11 +55,22 @@ $(document).ready(function(){
 
 sessionStorage.setItem('make', document.querySelector('#makes').value);
 sessionStorage.setItem('model', document.querySelector('#models').value);
-sessionStorage.setItem('price', parseInt(document.querySelector('#maxPrice').value));
+sessionStorage.setItem('price', document.querySelector('#maxPrice').value);
 sessionStorage.setItem('type', document.querySelector('#type').value);
   
 
-function test(){
-    console.log('test');
-    
+function makeOnChange(){
+    sessionStorage.setItem('make', document.querySelector('#makes').value);
+}
+
+function modelOnChange(){
+    sessionStorage.setItem('model', document.querySelector('#models').value);
+}
+
+function priceOnChange(){
+    sessionStorage.setItem('price', parseInt(document.querySelector('#maxPrice').value));
+}
+
+function typeOnChange(){
+    sessionStorage.setItem('type', document.querySelector('#type').value);
 }

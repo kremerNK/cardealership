@@ -96,7 +96,7 @@
                         </div>
                         <div style='display: none;' class='dropDown'>
                             <div class='yearDropDown'>
-                                <select name="selectyear" id="selectYearMin" oninput='filterVehicles()'>
+                                <select name="selectyear" id="selectYearMin" onchange='yearSessionMin()' oninput='filterVehicles()'>
                             
                                     <option value="1995" selected>1995</option>
                                     <option value="1996">1996</option>
@@ -126,7 +126,7 @@
                                     <option value="2020">2020</option>
                                 </select>
                             <p style='font-size: 14px'> - </p>
-                                <select name="selectyear2" id="selectYearMax" oninput='filterVehicles()'>
+                                <select name="selectyear2" id="selectYearMax" onchange = yearSessionMax() oninput='filterVehicles()'>
                                     <option value="1995">1995</option>
                                     <option value="1996">1996</option>
                                     <option value="1997">1997</option>
@@ -166,7 +166,7 @@
                             <p><i id='leftcaret' class="fas fa-angle-left"></i></p>
                         </div>
                         <div style='display: none;' class='dropDown'>
-                            <select name="" id="fuelEfficiencyFilter" oninput='filterVehicles()'>
+                            <select onchange='fuelSession()' name="" id="fuelEfficiencyFilter" oninput='filterVehicles()'>
                                 <option value="any" selected>Any</option>
                                 <option value="15">15+ MPG</option>
                                 <option value="20">20+ MPG</option>
@@ -182,12 +182,12 @@
                             <p><i id='leftcaret' class="fas fa-angle-left"></i></p>
                         </div>
                         <div style='display: none;' class='dropDown'>
-                            <select name="" id="bodyStyleFilter" oninput='filterVehicles()'>
+                            <select onchange='bodySession()' name="" id="bodyStyleFilter" oninput='filterVehicles()'>
                                 <option value="any" selected>Any</option>
-                                <option value="Sedan">Sedan</option>
-                                <option value="Truck">Truck</option>
-                                <option value="SUV">SUV</option>
-                                <option value="Van">Van</option>
+                                {% for make in makeOptions %}
+                                    <option value="{{make}}">{{make}}</option>
+                                {% endfor %}
+                               
                             
                             </select>
                         </div>
