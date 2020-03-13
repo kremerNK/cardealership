@@ -7,13 +7,14 @@ import json
 
 # Create your views here.
 
-
+ 
 def home(request):
     randomVehicles = Vehicle.objects.all().order_by('?')[:5]
     allVehicles = Vehicle.objects.all()
-    print(randomVehicles)
-    print('test')
-    context = {'randomVehicles':randomVehicles, 'vehicles':allVehicles}
+    makeOptions = [x for x in set(Vehicle.objects.values_list('carType', flat=True)) if x != '']
+ 
+
+    context = {'randomVehicles':randomVehicles, 'vehicles':allVehicles, 'makeOptions':makeOptions}
     return render(request, 'home_page.html', context)
 
 @csrf_exempt

@@ -1,9 +1,4 @@
-// let slidePics = document.querySelectorAll('.slides');
-// slidePics.forEach(e1 => e1.style.display = 'none');
-// for (i = 0; i < 3; i++){
-//     slidePics[i].style.display = '';
-// }
-// let slideCount = -1;
+//carousel//
 
 $(document).ready(function(){
     $('#slideshowcontainer .slides').slick({
@@ -57,3 +52,14 @@ $(document).ready(function(){
         
     })
 });
+
+sessionStorage.setItem('make', document.querySelector('#makes').value);
+sessionStorage.setItem('model', document.querySelector('#models').value);
+sessionStorage.setItem('price', parseInt(document.querySelector('#maxPrice').value));
+sessionStorage.setItem('type', document.querySelector('#type').value);
+  
+
+function test(){
+    console.log('test');
+    
+}
