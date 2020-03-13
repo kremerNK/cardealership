@@ -166,13 +166,22 @@ p {
 
 .form {
     width: 100%;
+    /* text-align: center; */
 }
 
 .form > form{
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
+    margin: 0 auto;
     color: white;
+}
+
+.form > form > div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 1vh;
 }
 
 .form > form > div > select {
@@ -187,7 +196,7 @@ p {
 
 .submit {
     text-align: center;
-    
+    margin-top: 2vh;
 }
 
 .submit > a > button {
@@ -370,4 +379,4 @@ p {
         width: 200px;
     }
 
-}
+} 
