@@ -218,7 +218,7 @@ p {
     width: 90%;
     margin-left: 5%;
     margin-bottom: 10vh;
-    text-indent: 40px;
+  
 }
 .intro > h2 {
     margin-left: 5%;
@@ -227,6 +227,60 @@ p {
 
 #carsale {
     display: none;
+}
+
+.introtitle {
+    width: auto;
+    text-align: center;
+    margin-left: -1%;
+    margin-right: -1%;
+    /* margin: 1vh auto; */
+    margin-bottom: 5vh;
+    padding: 3%;
+}
+
+#content {
+    position: relative;
+
+    width:90%;
+    height:25vh;
+    left:5vw;
+    display: flex;
+
+    justify-content: center;
+}  
+
+#content:before, 
+#content:after, 
+#content>:last-child:before, 
+#content>:last-child:after {
+
+    width: 60px; 
+    height: 10%;
+
+    border-color: #757575; 
+    border-style: solid;
+    content: ' ';
+}
+
+#content:before {
+    /* top: 10px;
+    left: 10px; */
+    border-width: 1px 0 0 1px
+}
+
+#content:after {
+    /* top: 10px;
+    right: 10px; */
+    border-width: 1px 1px 0 0
+}
+
+#content>:last-child:before {
+    border-width: 0 0px 0px 0
+}
+
+#content>:last-child:after {
+    border-width: 0 0 0 0
 }
 
 
@@ -377,6 +431,7 @@ p {
         margin-left: 5%;
         margin-bottom: 10vh;
         margin-right: 3%;
+        text-indent: 40px;
     }
     .intro > h2 {
         margin-left: 5%;
@@ -407,19 +462,6 @@ p {
         padding: 3%;
   
     }
-
-    /* .box3{
-        width: auto;
-        margin: 0 auto;
-        text-align: center;
-        background: 
-            linear-gradient(red , red)bottom left/ 60% 2px,
-            linear-gradient(blue, blue) 100% 0 / 20% 2px,
-            linear-gradient(brown, brown) left/ 3px 100%,
-            linear-gradient(orange, orange) right / 3px 40%, 
-            #ccc;
-        background-repeat:no-repeat;
-      } */
 
 	
     #content {
