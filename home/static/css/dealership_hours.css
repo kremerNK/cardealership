@@ -120,7 +120,7 @@ blockquote, dl, figure, form, ol, p, pre, table, ul {
 }
 
 .largemap {
-    display: none;
+    display: none; 
 }
 
 .formcard:hover, .contactcard:hover, .hourscard:hover {
@@ -188,18 +188,28 @@ blockquote, dl, figure, form, ol, p, pre, table, ul {
         align-items: center;
         border-radius: 5px;
         padding: 15px;
+        margin-bottom: 5vh;
+        /* background-color: #333;
+        color: white; */
     }
 
-    .contactcard {
+    .contactcard { 
         width: 100%;
+        margin-bottom: 5vh;
+        /* background-color: #333;
+        color: white; */
     }
 
     .hourscard {
         width: 100%;
+        margin: 0;
+        /* background-color: #333;
+        color: white; */
     }
 
     .directioncards {
-        width: 30%;
+        width: 50%;
+
     }
 
     .formcard > form {

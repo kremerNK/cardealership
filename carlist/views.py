@@ -24,7 +24,7 @@ def searchVehicle(request):
     makeOptions = [x for x in set(Vehicle.objects.values_list('carType', flat=True)) if x != '']
     print(makeOptions)
     print(allVehicles)
-    paginator = Paginator(allVehicles, 2)
+    paginator = Paginator(allVehicles, len(allVehicles))
     page_number = request.GET.get('page', )
     page_obj = paginator.get_page(page_number) 
 

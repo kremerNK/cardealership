@@ -18,7 +18,7 @@ p {
     border-top: 1px solid #757575;
     text-align: center;
 }
-
+ 
 .image {
     width: 95%;
     margin: 0 auto;
@@ -81,7 +81,8 @@ color: black;
 }
 
 .search-more  {
-    margin-top: 9vh;
+    padding-top: 3vh;
+    padding-bottom: 3vh;
     margin-bottom: 9vh;
 }
 
@@ -105,7 +106,7 @@ color: black;
 
     .vehicle-title {
         width: 100%;
-        /* width: 100vh; */
+
         display: flex;
         flex-direction: center;
         font-size: 32px;
@@ -116,14 +117,14 @@ color: black;
         width: 100%;
         display: flex;
         padding: 1% 5% 1% 5%;
-        /* border-bottom: 1px solid #757575; */
+      
     } 
 
     .image {
         width: 40%;
         margin: 0;
         padding-bottom: 5vh;
-        /* border-top: 1px solid #757575; */
+   
         border-bottom: 1px solid #757575;
     }
 
@@ -211,7 +212,7 @@ color: black;
     }
 
     .table1 {
-        /* margin-right: 5%; */
+   
     }
 
     .table1, .table2 {
@@ -252,13 +253,67 @@ color: black;
 
     .search-more {
         margin: 0;
+        display: flex;
+        justify-content: space-around;
+        padding-bottom: 5%;
+        padding-top: 5%;
+    }
+
+
+    .search-more > a {
+        width: 35%
     }
 
     .search-more > a > button {
         background-color: #2f74a3;
         color: white;
-        width: auto;
+        width: 100%;
+    }
+    .search-more > button {
+        background-color: #2f74a3;
+        color: white;
+        width: 35%;
+    } 
+
+    .contact-form {
+        margin-left: 5vh;
+
+        display: none;
+  
     }
 
+  
+    .contact-form > form {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .contact-form > form > ul {
+        width: 100%;
+    }
+    .contact-form > form > ul > li {
+        width: 49%;
+        display: inline-block;
+    }
     
-}
+    .contact-form > form > ul > li > * {
+        width: 100%;
+    }
+
+    .contact-form > form > textarea {
+        height: 25vh;
+        text-align: left;
+    }
+
+    .contact-form > form > button {
+        background-color: #2f74a3;
+        color: white;
+
+    }
+
+    textarea {
+    
+        
+    }
+    
+} 
