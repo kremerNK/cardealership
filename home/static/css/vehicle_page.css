@@ -83,7 +83,7 @@ color: black;
 .search-more  {
     padding-top: 3vh;
     padding-bottom: 3vh;
-    margin-bottom: 9vh;
+    margin-bottom: 2vh;
 }
 
 
@@ -92,6 +92,46 @@ color: black;
     color: white;
     width: 100%;
 
+}
+
+.search-more > button {
+    background-color: #2f74a3;
+    color: white;
+    width: 100%;
+    margin-top: 4vh;
+}
+
+.contact-form {
+    display: none;
+}
+
+
+.contact-form > form {
+    display: flex;
+    flex-direction: column;
+}
+
+.contact-form > form > ul {
+    width: 100%;
+}
+.contact-form > form > ul > li {
+    width: 49%;
+    display: inline-block;
+}
+
+.contact-form > form > ul > li > * {
+    width: 100%;
+}
+
+.contact-form > form > textarea {
+    height: 25vh;
+    text-align: left;
+}
+
+.contact-form > form > button {
+    background-color: #2f74a3;
+    color: white;
+    width: 100%;
 }
 
 @media screen and (min-width: 1000px) {
@@ -311,9 +351,6 @@ color: black;
 
     }
 
-    textarea {
-    
-        
-    }
+  
     
 } 
