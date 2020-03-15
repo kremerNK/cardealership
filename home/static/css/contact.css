@@ -118,10 +118,14 @@ h2 {
     display: none;
 }
 
-.hours-tbody > tr > th {
+.hours-tbody > tr  th {
     color: black;
     border-bottom: 1px dotted black;
     font-size: 1.5rem;
+}
+
+.hours-tbody tr {
+    color: black;
 }
 
 
