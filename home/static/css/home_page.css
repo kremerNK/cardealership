@@ -44,7 +44,7 @@ p {
     justify-content: center;
     align-items: center;
     width: 100%;
-    margin: 15vh 0 15vh 0;
+    margin: 10% 0 15vh 0;
    /* background-color: #2f74a3; */ 
 
 }
@@ -311,7 +311,7 @@ p {
         display: flex;
         justify-content: center;
         width: 100%;
-        margin: 15vh 0 5vh 0;
+        margin: 5% 0 5vh 0;
         /* background-color: #2f74a3; */
        
   
@@ -389,13 +389,15 @@ p {
     
     .view-all-button > a {
         height: 100%;
+        font-size: 22px;
     }
     
     .view-all-button > a > button {
         background-color: #2f74a3;
         color: white;
-        height: 80%;
-        width: auto;
+        height: 90%;
+        width: 15%;
+        font-size: 1.5rem;
     }
 
     .search-form {

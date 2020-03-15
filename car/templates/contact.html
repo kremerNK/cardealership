@@ -14,11 +14,127 @@
         <link rel="stylesheet" type="text/css" href="{% static 'css/contact.css' %}">
     </head>
     <body>
-       <div class='contactbody'>
-        <p>Contact New Franken Automotive (div bottom border line, font aligned left)</p>
-       </div>
-       <textarea placeholder='testing testing testing testing testing testing testing testing testing testing testing testing testing testing testing testing testing testing testing testing testing testing testing 
-       testing testing testing testing testing testing testing ' name="" id="" cols="30" rows="10"></textarea>
+     
+        <!-- <div class='title'>
+            <h2>Contact New Franken Automotive</h2>
+        </div> -->
+        <section class='mobile-margin'>
+            
+        </section>
+        <div class='body'>
+            <div class='contact-form'>
+                <h2>Contact New Franken Automotive</h2>
+                <form action="">
+                    <ul>
+                        <li>
+                            <label>First Name*</label>
+                            <input  type="text" />
+                        </li>
+                         <li>
+                            <label >Last Name*</label>
+                            <input  type="text" />
+                        </li>
+                         <li>
+                            <label >Email*</label>
+                            <input  type="text" />
+                        </li>
+                         <li> 
+                            <label>Phone*</label>
+                            <input type="text" />
+                        </li> 
+                        <li>
+                            <label>Contact me by</label>
+                            <select name="" id="">
+    
+                                <option value="phone">Phone</option>
+                                <option value="email">Email</option> 
+                            </select>
+                        </li>
+                    </ul>
+                    <textarea placeholder='Enter your message here and click submit below. Please verify that your contact information is accurate to ensure a response. Fields marked with * are required.' name="" id="" cols="30" rows="10"></textarea>
+                    <button>Submit</button>
+        
+                </form>
+            </div> 
+            <div class='cards'>
+                <div class='related-links'>
+                    <div class='phone'>
+                        <p><i class="fas fa-phone"></i> 920-111-1111</p>
+                    </div>
+                    <div class='address'>
+                        <p><i class="fas fa-map-marker-alt"></i> 123 New Franken Street</p>
+                    </div>
+                    
+                    <div class='directions'>
+                        <iframe class='mobilemap' src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2844.2577823252313!2d-88.06657844946585!3d44.53035410318387!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8802fa76eab7666b%3A0xc3d1722cc4ac5a6b!2s1659%20Christiana%20St%2C%20Green%20Bay%2C%20WI%2054303!5e0!3m2!1sen!2sus!4v1582054206480!5m2!1sen!2sus" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
+                        
+                            <form id='directionform' action="http://maps.google.com/maps" method="get" target="_blank">
+                                <label for="saddr">Enter your location</label>
+                                <input id='userinput' type="text" name="saddr" />
+                                <input type="hidden" name="daddr" value="1659 Christiana Street, Green Bay, WI" />
+                                <input id='get-directions-button' type="submit" value="Get directions" />
+                             </form>
+                        
+                    </div>
+                    
+                    <div class='hours'>
+                        
+                        <table>
+                            <tbody class='hours-tbody'>
+                                <tr>
+                                    <th>Monday</th>
+                                    <th class='align-right'>10:00 AM - 6:00 PM</th>
+                                </tr>
+                                <tr>
+                                    <th>Tuesday</th>
+                                    <th class='align-right'>10:00 AM - 6:00 PM</th>
+                                </tr>
+                                <tr>
+                                    <th>Wednesday</th>
+                                    <th class='align-right'>10:00 AM - 6:00 PM</th>
+                                </tr>
+                                <tr>
+                                    <th>Thursday</th>
+                                    <th class='align-right'>10:00 AM - 6:00 PM</th>
+                                </tr>
+                                <tr>
+                                    <th>Friday</th>
+                                    <th class='align-right'>10:00 AM - 6:00 PM</th>
+                                </tr>
+                                <tr>
+                                    <th>Saturday</th>
+                                    <th class='align-right'>10:00 AM - 4:00 PM</th>
+                                </tr>
+                                <tr>
+                                    <th>Sunday</th>
+                                    <th class='align-right'>CLOSED</th>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    
+                </div>
+
+            </div>
+        </div>
+        
+        <div>
+ 
+        </div>
+        <!-- 6LfwcuEUAAAAAI5Rjo-t_2tB69haUO7eN-Y48u13 -->
+    
+        <script type="text/javascript" src="{% static 'js/contact.js' %}"></script>
+        <script src="https://www.google.com/recaptcha/api.js?render=6LfwcuEUAAAAAEKWHrFmgj0PAmrXrg8xcmRP0XOs"></script>
+        <script>
+            grecaptcha.ready(function() {
+            grecaptcha.execute('6LfwcuEUAAAAAEKWHrFmgj0PAmrXrg8xcmRP0XOs', {action: 'validate_captcha'}).then(function(token) {
+                    document.getElementById('g-recaptcha-response').value = token;
+                    
+                    
+                });
+            });
+        </script>
+
     </body>
     </html>
-{% endblock %} 
+{% endblock %}  

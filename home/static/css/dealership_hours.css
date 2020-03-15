@@ -103,6 +103,14 @@ blockquote, dl, figure, form, ol, p, pre, table, ul {
     margin-bottom: 0px;
 }
 
+.contactcard > p {
+    border-bottom: 1px dotted black;
+}
+
+.contactcard > p:first-child {
+    border-bottom: none;
+}
+
 .hourscard {
     width: 90%;
     margin: 0 auto;
@@ -189,7 +197,7 @@ blockquote, dl, figure, form, ol, p, pre, table, ul {
         height: 100%;
     } */
     .formcard {
-        background-color: #fff;
+        background-color: #fff; 
         width: 100%;
         /* height: 125px; */
         /* border: 1px solid rgb(1, 96, 197); */
@@ -220,7 +228,7 @@ blockquote, dl, figure, form, ol, p, pre, table, ul {
         /* background-color: #333;
         color: white; */
     }
-
+ 
     .hours-tbody > tr > th {
         color: black;
         border-bottom: 1px dotted black;
