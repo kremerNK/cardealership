@@ -14,14 +14,14 @@
         <link rel="stylesheet" type="text/css" href="{% static 'css/dealership_hours.css' %}">
     </head>
     <body>
-       <div class='direction'>
+       <div class='direction'>  
           
                 <div class='mobiledirectionsformdiv'>
                     <form id='mobledirectionform' action="http://maps.google.com/maps" method="get" target="_blank">
                         <label for="saddr">Enter your location</label>
                         <input id='userinput' type="text" name="saddr" />
                         <input type="hidden" name="daddr" value="1659 Christiana Street, Green Bay, WI" />
-                        <input type="submit" value="Get directions" />
+                        <input id='directions-submit' type="submit" value="Get directions" />
                     </form>
                 </div>
           
@@ -46,17 +46,42 @@
                 </div>
                 <div class='hourscard'>
                     <p style='font-weight: bold; font-size:20px; margin-top:-15px;'>Hours</p>
-                    <ul>
-                        <li>M-F 8AM - 8PM</li>
-                        <li>SAT 8AM - 6PM</li>
-                        <li>SUN 8AM - 4PM</li>
-                    </ul>
+                    <table>
+                        <tbody class='hours-tbody'>
+                            <tr>
+                                <th>Monday</th>
+                                <th class='align-right'>10:00 AM - 6:00 PM</th>
+                            </tr>
+                            <tr>
+                                <th>Tuesday</th>
+                                <th class='align-right'>10:00 AM - 6:00 PM</th>
+                            </tr>
+                            <tr>
+                                <th>Wednesday</th>
+                                <th class='align-right'>10:00 AM - 6:00 PM</th>
+                            </tr>
+                            <tr>
+                                <th>Thursday</th>
+                                <th class='align-right'>10:00 AM - 6:00 PM</th>
+                            </tr>
+                            <tr>
+                                <th>Friday</th>
+                                <th class='align-right'>10:00 AM - 6:00 PM</th>
+                            </tr>
+                            <tr>
+                                <th>Saturday</th>
+                                <th class='align-right'>10:00 AM - 4:00 PM</th>
+                            </tr>
+                            <tr>
+                                <th>Sunday</th>
+                                <th class='align-right'>CLOSED</th>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
                 
             </div>
        </div>
-        
-        
         <script type="text/javascript" src="{% static 'js/dealership_hours.js' %}"></script>
         
 

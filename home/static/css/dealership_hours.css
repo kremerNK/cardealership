@@ -8,7 +8,7 @@ blockquote, dl, figure, form, ol, p, pre, table, ul {
 }
 
 .direction {
-
+    height: auto;
     /* width: 100%;
     height: 100%; */
     /* display: flex;
@@ -106,17 +106,18 @@ blockquote, dl, figure, form, ol, p, pre, table, ul {
 .hourscard {
     width: 90%;
     margin: 0 auto;
+    height: auto;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     background-color: #fff;
-    height: 160px;
+
     padding: 15px;
     box-shadow: 1px 1px rgb(133, 133, 133);
     border-radius: 5px;
     margin-top: 2vh;
     padding-top: 30px;
-    margin-bottom: 8rem;
+    margin-bottom: 8%;
 }
 
 .largemap {
@@ -135,14 +136,24 @@ blockquote, dl, figure, form, ol, p, pre, table, ul {
     display: none;
 }
 
-@media screen and (min-width: 700px) {
+.mobiledirectionsformdiv > form > input:last-child {
+    background-color: #2f74a3;
+    color: white;
+}
+
+.hours-tbody > tr > th {
+    color: black;
+    border-bottom: 1px dotted black;
+}
+
+@media screen and (min-width: 700px) { 
     .direction {
         display: flex;
         flex-direction: row;
         width: 100%;
         height: 100%;
         justify-content: center;
-        padding: 15vh 5% 20vh 5%;
+        padding: 8% 5% 5% 5%;
         /* height: 100%;
         width: 100%;
         
@@ -164,13 +175,13 @@ blockquote, dl, figure, form, ol, p, pre, table, ul {
     .largemap {
         height: 100%;
         width: 100%;
-        display: inline;
+        display: inline; 
 
     }
     #map {
         width: 100%;
         height: auto;
-       margin-right: 8rem;
+       margin-right: 4%;
     }
 
     /* #map iframe {
@@ -198,13 +209,21 @@ blockquote, dl, figure, form, ol, p, pre, table, ul {
         margin-bottom: 5vh;
         /* background-color: #333;
         color: white; */
+        margin-top: 0;
     }
-
+ 
     .hourscard {
         width: 100%;
+        height: auto;
         margin: 0;
+    
         /* background-color: #333;
         color: white; */
+    }
+
+    .hours-tbody > tr > th {
+        color: black;
+        border-bottom: 1px dotted black;
     }
 
     .directioncards {
@@ -216,8 +235,9 @@ blockquote, dl, figure, form, ol, p, pre, table, ul {
         
     }
 
-    #directionform {
-      
+    #directionform> input:last-child {
+        background-color: #2f74a3;
+        color: white;
     }
 }
 
