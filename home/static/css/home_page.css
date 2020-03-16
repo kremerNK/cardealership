@@ -13,7 +13,7 @@ p {
     width: 100%;
 }
 
-.dealerbanner > img {
+.dealerbanner > img { 
     height: 100%;
     width: 100%;
     /* filter: blur(1px); */ 
@@ -303,7 +303,7 @@ p {
 @media screen and (min-width: 1024px) {
 
     .body {
-        margin: 0;
+        margin: 0; 
    
     }
 
@@ -383,20 +383,21 @@ p {
     .view-all-button {
         margin-top: 8vh;
         height: 8vh;
-        width: 100%;
+        width: auto;
         text-align: center;
     }
     
     .view-all-button > a {
         height: 100%;
         font-size: 22px;
+        width: 100%;
     }
     
     .view-all-button > a > button {
         background-color: #2f74a3;
         color: white;
         height: 90%;
-        width: 15%;
+        width: 100%;
         font-size: 1.5rem;
     }
 

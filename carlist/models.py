@@ -25,6 +25,7 @@ class Vehicle(Page):
         van = 'Van'
    
     model = models.CharField(max_length=200, null=True, default='1')
+   
     year = models.CharField(max_length=200, null=True, default='')
     make = models.CharField(max_length=200, null=True, default='toyota')
     price = models.CharField(max_length=200, null=True, default='$')
@@ -42,10 +43,15 @@ class Vehicle(Page):
     vin = models.CharField(max_length=200, default='1')
     picture = models.ImageField(default='')
 
+    @property
+    def testname(self):
+        return '{} {}'.format(self.mileage, '+++1')
+
     def child_pages(self):
         return ItemPage.objects.live().child_of(self)
 
     content_panels = Page.content_panels + [
+        
         FieldPanel('year'),
         FieldPanel('model'), 
         FieldPanel('price'),

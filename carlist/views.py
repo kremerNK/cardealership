@@ -22,6 +22,7 @@ def searchVehicle(request):
     makeList = [x for x in set(Vehicle.objects.values_list('make', flat=True)) if x != '']
     allVehicles = Vehicle.objects.all()
     makeOptions = [x for x in set(Vehicle.objects.values_list('carType', flat=True)) if x != '']
+    modelList = [x for x in set(Vehicle.objects.values_list('model', flat=True)) if x != '']
     print(makeOptions)
     print(allVehicles)
     paginator = Paginator(allVehicles, len(allVehicles))
@@ -40,7 +41,7 @@ def searchVehicle(request):
         return render(request, 'searchvehicles.html', context)
 
     print(testvar1)
-    context = {'makeList':makeList, 'vehicle':allVehicles, 'page_obj': page_obj, 'makeOptions':makeOptions}
+    context = {'makeList':makeList, 'vehicle':allVehicles, 'page_obj': page_obj, 'makeOptions':makeOptions, 'modelList':modelList}
     return render(request, 'searchvehicles.html', context)
 
 def vehiclePage(request, slug, pk):

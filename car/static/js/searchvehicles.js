@@ -5,12 +5,33 @@
 
 
 //reset drop downs on refresh
-let test = document.querySelectorAll('.dropDown');
-for (i = 0; i < test.length; i ++){
-    test[i].style.display = '';
+// let test = document.querySelectorAll('.dropDown');
+// for (i = 0; i < test.length; i ++){
+//     test[i].style.display = ''; 
+// }
+
+//////////////////////////model filter with session value from home page////////////////////////////////////
+
+function modelSelectChange(){
+    console.log('hit model select change');
+    
+    sessionStorage.setItem('model', document.querySelector('#modelFilter').value);
+    filterVehicles();
 }
 
-///price min max propagate search to next page///////
+function modelSession(){
+
+        if (sessionStorage.getItem('model')){
+            return sessionStorage.getItem('model')
+        } else {
+            return 'any'
+        };
+};
+
+let modelSelection = document.querySelector('#modelFilter');
+modelSelection.value = modelSession()
+
+/////////////////////////////////price min max propagate search to next page//////////////////////////////////////////////////////////////
 
 function priceMaxHandle(){
     console.log('priceMaxHandle');
@@ -164,32 +185,63 @@ document.querySelector('#fuelEfficiencyFilter').value = fuelFilterPageLoad()
 function bodySession(){
     console.log('bodysession()');
     
-    if (sessionStorage.getItem('body')){
+    if (sessionStorage.getItem('type')){
         console.log('body session exists');
         
-        sessionStorage.setItem('body', document.querySelector('#bodyStyleFilter').value)
-        return sessionStorage.getItem('body')
+        sessionStorage.setItem('type', document.querySelector('#bodyStyleFilter').value)
+        return sessionStorage.getItem('type')
     } else {
         console.log('body session does not exist');
         
-        sessionStorage.setItem('body', document.querySelector('#bodyStyleFilter').value)
-        return sessionStorage.getItem('body');
+        sessionStorage.setItem('type', document.querySelector('#bodyStyleFilter').value)
+        return sessionStorage.getItem('type');
     }
 }
 
 function bodyPageLoad(){
     
-    if (!sessionStorage.getItem('body')){
+    if (!sessionStorage.getItem('type')){
         return 'any';
     } else {
-        return sessionStorage.getItem('body');
+        return sessionStorage.getItem('type');
     }
 };
 document.querySelector('#bodyStyleFilter').value = bodyPageLoad()
 
-let regularSlider = document.querySelector('.regular-slider');
+// //////////////////type style propagate search to next page/////////////////////
+
+// function TypeSession(){
+//     console.log('bodysession()');
+    
+//     if (sessionStorage.getItem('body')){
+//         console.log('body session exists');
+        
+//         sessionStorage.setItem('body', document.querySelector('#bodyStyleFilter').value)
+//         return sessionStorage.getItem('body')
+//     } else {
+//         console.log('body session does not exist');
+        
+//         sessionStorage.setItem('body', document.querySelector('#bodyStyleFilter').value)
+//         return sessionStorage.getItem('body');
+//     }
+// }
+
+// function bodyStylePageLoad(){
+    
+//     if (!sessionStorage.getItem('body')){
+//         return 'any';
+//     } else {
+//         return sessionStorage.getItem('body');
+//     }
+// };
+
+
+// document.querySelector('#bodyStyleFilter').value = bodyStylePageLoad()
+
+
 // wNumb is their tool to format the number. We us it to format the numbers that appear in the handles
 let dollarPrefixFormat = wNumb({prefix: '$', decimals: 0})
+let regularSlider = document.querySelector('.regular-slider');
 
 
 
@@ -229,7 +281,7 @@ let max = document.getElementById('max');
 min.value = bottomslider.innerText.substring(1, bottomslider.innerText.length);
 max.value = topslider.innerText.substring(1, topslider.innerText.length)
 
-regularSlider.noUiSlider.on('change', function(){
+regularSlider.noUiSlider.on('update', function(){
     max.value = topslider.innerText.substring(1, topslider.innerText.length);
     min.value = bottomslider.innerText.substring(1, bottomslider.innerText.length);
  
@@ -237,20 +289,20 @@ regularSlider.noUiSlider.on('change', function(){
     sessionStorage.setItem("maxPrice", max.value);
     sessionStorage.setItem("minPrice", min.value);
 
-    let sendPriceRange = new XMLHttpRequest()
-    sendPriceRange.onload = function(){
-        if (sendPriceRange.status == 200){
-            console.log('success');
+    // let sendPriceRange = new XMLHttpRequest()
+    // sendPriceRange.onload = function(){
+    //     if (sendPriceRange.status == 200){
+    //         console.log('success');
             
-        } else {
-            console.log('request failed');
+    //     } else {
+    //         console.log('request failed');
             
-        }
-    }
+    //     }
+    // }
 
-    sendPriceRange.open('POST', '', true);
-    sendPriceRange.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
-    sendPriceRange.send(JSON.stringify({'min':'like', 'max':'heartint'})); 
+    // sendPriceRange.open('POST', '', true);
+    // sendPriceRange.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
+    // sendPriceRange.send(JSON.stringify({'min':'like', 'max':'heartint'})); 
 
     filterVehicles()
 })
@@ -393,7 +445,7 @@ function filterVehicles(){
             let yearFiltered = parseInt(vehicleCards[i].querySelector('.vehicleYear').innerHTML);
             let mpgFiltered = parseInt(vehicleCards[i].querySelector('#mpg').innerHTML);
             let bodyFiltered = vehicleCards[i].querySelector('.vehicleTitle').getAttribute('value');
-       
+            let modelFiltered = vehicleCards[i].querySelector('#model').getAttribute('name')
             
             // get data from search bar
             let pricemintooltip = parseInt(tooltip[0].innerHTML.replace('$','').replace(',',''));
@@ -405,6 +457,7 @@ function filterVehicles(){
             let yearMaxSearch = document.querySelector('#selectYearMax').value;
             let mpgSearch = document.querySelector('#fuelEfficiencyFilter').value; //will have to replcae substrings
             let bodyTypeSearch = document.querySelector('#bodyStyleFilter').value;
+            let modelSearch = document.querySelector('#modelFilter').value
                 
                 
  
@@ -415,12 +468,12 @@ function filterVehicles(){
             let yearEval = (yearFiltered > yearMaxSearch || yearFiltered < yearMinSearch)
             let mpgEval = (mpgSearch != 'any' && mpgFiltered < mpgSearch);
             let bodyEval = (bodyTypeSearch != 'any' && bodyTypeSearch != bodyFiltered);
-       
+            let modelEval = (modelSearch != 'any' && modelSearch != modelFiltered)
             
             
 
             if (priceEval || makeEval ||
-            mileageEval || yearEval || mpgEval || bodyEval)  { //try just removing an operand
+            mileageEval || yearEval || mpgEval || bodyEval || modelEval)  { //try just removing an operand
            
 
                 vehicleCards[i].style.display = 'none';    
@@ -499,6 +552,8 @@ function stickSearch(){
         searchResults.style.marginLeft = searchResultsLeft.toString().concat('px')
         searchBarSticky.classList.add('stickBar');
         searchBarSticky.style.top = (navheight + 0).toString().concat('px');
+
+
     } else {
         searchResults.style.marginLeft = '3%';
         searchBarSticky.classList.remove('stickBar');

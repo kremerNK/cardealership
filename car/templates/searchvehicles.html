@@ -89,6 +89,21 @@
                             
                         </div>
                     </div>
+                    <div class='search'> 
+                        <div>
+                            <p>Model</p> 
+                            <p><i id='leftcaret' class="fas fa-angle-left"></i></p>
+                        </div>
+                        <div style='display: none;' class='dropDown'>
+                            <select name="" id="modelFilter" onchange='modelSelectChange()'>
+                                <option value="any">Any</option>
+                            {% for model in modelList %}
+                                <option value="{{ model }}">{{ model }}</option>
+                            {% endfor %}
+                            </select>
+                        </div>
+                    </div>
+                    
                     <div class='search'>
                         <div>
                             <p>Year</p>
@@ -192,6 +207,7 @@
                             </select>
                         </div>
                     </div>
+                    
                 </div>
             </div>
  
@@ -214,7 +230,9 @@
                                 
                                 <div value='{{ attribute.carType }}' class='vehicleTitle'>
                                     <div class='year'>
-                                        <p class='vehicleYear' id='make' value = '{{attribute.make}}'> {{ attribute.title }}</p>
+                                        <p class='vehicleYear' id='make' value = '{{attribute.make}}'> {{attribute.year}} </p>
+                                        <p style='text-indent: 1rem;' id={{attribute.make}}> {{ attribute.make }}</p> 
+                                        <p name='{{attribute.model}}' id='model' style='text-indent: 1rem'>  {{attribute.model }}</p>
                                     </div>
                                     <!-- <p>{{ attribute.carType }}</p> -->
                                     <p name='vehicle-price' class='vehicle-price' >{{ attribute.price }}</p>
