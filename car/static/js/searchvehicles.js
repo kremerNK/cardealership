@@ -1,8 +1,7 @@
 
 
 
-
-
+allVehicleCards = document.querySelectorAll('.vehicleCard');
 
 //reset drop downs on refresh
 // let test = document.querySelectorAll('.dropDown');
@@ -16,7 +15,7 @@ function modelSelectChange(){
     console.log('hit model select change');
     
     sessionStorage.setItem('model', document.querySelector('#modelFilter').value);
-    filterVehicles();
+    // filterVehicles();
 }
 
 function modelSession(){
@@ -34,7 +33,7 @@ modelSelection.value = modelSession()
 /////////////////////////////////price min max propagate search to next page//////////////////////////////////////////////////////////////
 
 function priceMaxHandle(){
-    console.log('priceMaxHandle');
+    // console.log('priceMaxHandle');
     
     if (sessionStorage.getItem('maxPrice')){
         if (sessionStorage.getItem('maxPrice') == 'any'){
@@ -281,7 +280,7 @@ let max = document.getElementById('max');
 min.value = bottomslider.innerText.substring(1, bottomslider.innerText.length);
 max.value = topslider.innerText.substring(1, topslider.innerText.length)
 
-regularSlider.noUiSlider.on('update', function(){
+regularSlider.noUiSlider.on('change', function(){
     max.value = topslider.innerText.substring(1, topslider.innerText.length);
     min.value = bottomslider.innerText.substring(1, bottomslider.innerText.length);
  
@@ -303,8 +302,10 @@ regularSlider.noUiSlider.on('update', function(){
     // sendPriceRange.open('POST', '', true);
     // sendPriceRange.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
     // sendPriceRange.send(JSON.stringify({'min':'like', 'max':'heartint'})); 
-
-    filterVehicles()
+  
+    // filterVehicles()
+    changePage(1, 'currentPageAdjust');
+    changePage(1, 'currentPageAdjust');
 })
 
 function sliderChange(val){
@@ -319,7 +320,8 @@ function sliderChange(val){
             regularSlider.noUiSlider.set([parseInt(val.value), null])
         }
     }
-    filterVehicles();
+    // filterVehicles();
+    // filter();
 }; 
 ////////////////////////////////////////////////////////////////////////////////////////
 
@@ -356,13 +358,13 @@ for (i=0; i < uiConnect.length; i++){
 }
 
 //update input boxes
-mileageSlider.noUiSlider.on('update', function(){
+mileageSlider.noUiSlider.on('change', function(){
     mileageMax.value = topSliderMileage.innerText;
     mileageMin.value = bottomSliderMileage.innerText;
     
     
     
-    filterVehicles();
+    // filterVehicles();
     let parseMMax = parseInt(mileageMax.value);
     let parseMMin = parseInt(mileageMin.value);
     
@@ -377,6 +379,8 @@ mileageSlider.noUiSlider.on('update', function(){
     }
     sessionStorage.setItem('maxMileage', parseInt(mileageMax.value));
     sessionStorage.setItem('minMileage', parseInt(mileageMin.value));
+    changePage(1, 'currentPageAdjust');
+    changePage(1, 'currentPageAdjust');
 })
 
 function mileageSliderChange(val){
@@ -402,7 +406,7 @@ function mileageSliderChange(val){
      
         
     }
-    filterVehicles();
+    // filterVehicles();
 }; 
 
 
@@ -415,10 +419,18 @@ for (i=0; i < hidePips.length; i++){
     hidePips[i].style.display = 'none';
 }
 
-//filter function
+//////////////////////////filter function//////////////////////////////////////
 
 function filterVehicles(){
+    // console.log('filterVehicles()');
+    //i replaced vehicleCards with allVehicleCards in filterVehicles()
     let vehicleCard = document.getElementsByClassName('vehicleCard');
+    let searchCards = document.querySelector('.searchresults');
+    filteredVehicleCards = document.createElement('div');
+
+
+    
+    
     for (i=0; i < vehicleCard.length; i++){
         vehicleCard[i].style.display = '';
     }
@@ -436,16 +448,21 @@ function filterVehicles(){
         let vehiclePrice = document.querySelectorAll('.vehicle-price');
         // let vehicleMileage = document.getElementsByName('mileage');
         let vehicleMake =  document.getElementById('makeFilter');
-        for (i=0; i < vehicleCards.length; i++){
+      
+        
+        for (i=0; i < allVehicleCards.length; i++){
+             
+  
+             
              
             //get data from vehicle cards
-            let priceFiltered = parseInt(vehicleCards[i].querySelector('.vehicle-price').innerHTML.replace('$','').replace(',',''));
-            let makeFiltered = vehicleCards[i].querySelector('#make').getAttribute('value');
-            let mileageFiltered = parseInt(vehicleCards[i].querySelector('#mileageId').innerHTML.replace(',',''));
-            let yearFiltered = parseInt(vehicleCards[i].querySelector('.vehicleYear').innerHTML);
-            let mpgFiltered = parseInt(vehicleCards[i].querySelector('#mpg').innerHTML);
-            let bodyFiltered = vehicleCards[i].querySelector('.vehicleTitle').getAttribute('value');
-            let modelFiltered = vehicleCards[i].querySelector('#model').getAttribute('name')
+            let priceFiltered = parseInt(allVehicleCards[i].querySelector('.vehicle-price').innerHTML.replace('$','').replace(',',''));
+            let makeFiltered = allVehicleCards[i].querySelector('#make').getAttribute('value');
+            let mileageFiltered = parseInt(allVehicleCards[i].querySelector('#mileageId').innerHTML.replace(',',''));
+            let yearFiltered = parseInt(allVehicleCards[i].querySelector('.vehicleYear').innerHTML);
+            let mpgFiltered = parseInt(allVehicleCards[i].querySelector('#mpg').innerHTML);
+            let bodyFiltered = allVehicleCards[i].querySelector('.vehicleTitle').getAttribute('value');
+            let modelFiltered = allVehicleCards[i].querySelector('#make').getAttribute('name')
             
             // get data from search bar
             let pricemintooltip = parseInt(tooltip[0].innerHTML.replace('$','').replace(',',''));
@@ -474,24 +491,18 @@ function filterVehicles(){
 
             if (priceEval || makeEval ||
             mileageEval || yearEval || mpgEval || bodyEval || modelEval)  { //try just removing an operand
-           
-
-                vehicleCards[i].style.display = 'none';    
-                let parentElement = vehicleCards[i].parentElement;
-                let moreInfo = parentElement.getElementsByClassName('moreInfo')[i];
-                moreInfo.style.display = 'none';
+                allVehicleCards[i].style.display = 'none';    
             } else {
-       
-                let parentElement = vehicleCards[i].parentElement;
-                let moreInfo = parentElement.getElementsByClassName('moreInfo')[i];
-                vehicleCards[i].style.display = '';
-                moreInfo.style.display = '';
+                let clone = allVehicleCards[i].cloneNode(true);
+                filteredVehicleCards.appendChild(clone)
+                allVehicleCards[i].style.display = '';
             }
         }
-    }
+    }   
+    return [...filteredVehicleCards.children]
 }
 
-//js for search carets
+//js for search carets/////////////////////
 
 let caret = document.querySelectorAll('#leftcaret');
 
@@ -499,7 +510,6 @@ function findAncestor(e1, findClass){
     while (e1.parentNode) {
         e1 = e1.parentNode;
         if (e1.classList.contains('search')){
-
             return e1 
         }
     } 
@@ -508,10 +518,7 @@ function findAncestor(e1, findClass){
 caret.forEach(e1 => e1.addEventListener('click', function() {
     let cls = '.search';
     let ancestor = findAncestor(e1, cls);
-
     let dropDown = ancestor.querySelector('.dropDown');
-    
-
     if (e1.classList.contains('fa-angle-left')) {
         e1.classList.remove('fa-angle-left');
         e1.classList.add('fa-angle-down');
@@ -523,37 +530,36 @@ caret.forEach(e1 => e1.addEventListener('click', function() {
     }
 }));  
 
+//////////////////////////filter vehicle cards on mobile////////////////
 
-let showFilter = document.querySelector('.showFilter');
-let searchBar = document.querySelector('.searchbar');
+// let showFilter = document.querySelector('.showFilter');
+// let searchBar = document.querySelector('.searchbar');
 let searchResults = document.querySelector('.searchresults');
-showFilter.addEventListener('click', function(){
-    searchResults.style.display = 'none';
-    searchBar.style.display = 'flex';
-})
+// showFilter.addEventListener('click', function(){
+//     searchResults.style.display = 'none';
+//     searchBar.style.display = 'flex';
+// })
 
-let hideFilter = document.querySelector('#hideFilter');
-hideFilter.addEventListener('click', function(){
-    searchResults.style.display = 'flex';
-    searchBar.style.display = 'none';
-})
+// let hideFilter = document.querySelector('#hideFilter');
+// hideFilter.addEventListener('click', function(){
+//     searchResults.style.display = 'flex';
+//     searchBar.style.display = 'none';
+// })
 
-///sticky side search bar
+//////sticky side search bar////////////////////
 
 let searchBarSticky = document.getElementsByClassName('searchbar')[0];
 let navheight = document.querySelector('#navbar').offsetHeight;
 let stickBar = searchBarSticky.offsetTop - navheight;
 let searchResultsLeft = searchResults.offsetLeft;
 let testing = stickBar + navheight;
-window.addEventListener('scroll', stickSearch);
+// window.addEventListener('scroll', stickSearch);
 
 function stickSearch(){
     if (window.pageYOffset >= stickBar){
         searchResults.style.marginLeft = searchResultsLeft.toString().concat('px')
         searchBarSticky.classList.add('stickBar');
         searchBarSticky.style.top = (navheight + 0).toString().concat('px');
-
-
     } else {
         searchResults.style.marginLeft = '3%';
         searchBarSticky.classList.remove('stickBar');
@@ -580,41 +586,133 @@ function cardHighlightOut(card){
     topVehicleCard.style.backgroundColor = '#cecece';
 } 
 
-///post request for filtering all paginated model objects
+///////////////////////////////vehicle results pagination///////////////////////////////////////////////////////////////
+var current_page = 1;
+var records_per_page = 3;
 
-// let sendPriceRange = new XMLHttpRequest()
-// sendPriceRange.onload = function(){
-//     if (sendPriceRange.status == 200){
-//         console.log('success');
-        
-       
-//     } else {
-//         console.log('request failed');
-        
-//     }
+var allCards = document.querySelectorAll('.vehicleCard');
+filteredCards = document.querySelector('.searchresults');
+
+
+
+// function filter(){
+//     // console.log('filter()');
+
+//     // console.log(allCards);
+//     // console.log(filteredCards.children);
+//     // filteredCards.innerHTML = '';
+//     // for (i=0; i < allCards.length; i++){
+//     //     if (allCards[i].id != 'hide'){
+//     //         let clone = allCards[i].cloneNode(true);
+//     //         filteredCards.appendChild(clone);
+//     //     }
+//     // }
+//     // allCards = [...filteredCards.children];
+//     // current_page = 1;
+//     // console.log(allCards);
+//     console.log('filter executed');
+    
+//     changePage(1, 'changePageAdjust');
 // }
 
-// sendPriceRange.open('POST', '', true);
-// sendPriceRange.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
-// sendPriceRange.send(JSON.stringify({'min':'like', 'max':'heartint'})); 
 
-const pageNumber = document.querySelectorAll('.pagination-number');
+function prevPage()
+{
+    if (current_page > 1) {
+        current_page--;
+        changePage(current_page, '');
+    } else {
+        console.log('broken prev page');
+        
+    }
 
+}
 
-pageNumber.forEach(e1 => e1.addEventListener('click', function(){
-    // let xhr = new XMLHttpRequest();
-    // xhr.onload = function(){
-    //     if (xhr.status == 200){
-    //         console.log('success');
- 
-    //     } else {
-    //         console.log('fail');
+function nextPage()
+{
+    if (current_page < numPages()) {
+        current_page++;
+        changePage(current_page, '');
+    } else {
+        console.log('broke');
             
-    //     }
-    // }
-    // xhr.open('GET', '', true);
-    // xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
-    // xhr.send(JSON.stringify({'min':'like', 'max':'heartint'}));
+        current_page = 1;
+        page = 1;
+        nextPage();
+        // changePage(current_page, '');
+        
+    }
+   
+}
     
+function changePage(page, boolean)
+{
+    // console.log('chagePage()');
+    console.log(current_page);
     
-}))
+    if (boolean != ''){
+        console.log(boolean);
+        console.log(current_page);
+        console.log(current_page);
+        
+        page = 1;
+        current_page = 1;
+        // nextPage();
+        
+    } else {
+    
+        console.log('changePage executed without onchange', boolean);
+        
+    }
+    
+    var records_per_page = 3;
+    var btn_next = document.getElementById("btn_next");
+    var btn_prev = document.getElementById("btn_prev");
+    var listing_table = document.querySelector('.searchresults');
+    var testEle = document.createElement('div');
+    var page_span = document.getElementById("page");
+    allNodes = filterVehicles();
+
+    // Validate page
+    if (page < 1) page = 1;
+    if (page > numPages()) page = numPages();
+    listing_table.innerHTML = "";
+
+    for (var i = (page-1) * records_per_page; i < (page * records_per_page); i++) {
+        if (typeof allNodes[i] == 'undefined'){
+            // console.log('undefined');
+            
+        } else {
+            clone = allNodes[i].cloneNode(true);
+            listing_table.appendChild(clone);
+            console.log('changePage for called');
+            
+        }
+        
+    }
+    
+    page_span.innerHTML = page;
+  
+    console.log(listing_table.children);
+    
+    if (page == 1) {
+        btn_prev.style.visibility = "hidden";
+    } else {
+        btn_prev.style.visibility = "visible";
+    }
+
+    if (page == numPages()) {
+        btn_next.style.visibility = "hidden";
+    } else {
+        btn_next.style.visibility = "visible";
+    }
+}
+
+function numPages()
+{
+    return Math.ceil(allNodes.length / records_per_page);
+}
+
+window.onload = function() {
+    changePage(1, '');
+};

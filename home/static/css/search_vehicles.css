@@ -670,4 +670,11 @@ th {
         color: white;
     }
 
+    .pages > p {
+        background-color: lightblue;
+    }
+
+    .tp {
+        display: none;
+    }
 }

@@ -15,12 +15,25 @@
         <link rel="stylesheet" href="https://unpkg.com/nouislider@10.0.0/distribute/nouislider.min.css">
         <script src="https://kit.fontawesome.com/f19908a36f.js" crossorigin="anonymous"></script>
     </head>
-    <body>
+    <body> 
+        
        <div class='body'>
             <div class='searchbar'>
                 <div class='searchBarTop'>
+                    <div style='display:flex;justify-content: center;' class='practice'>
+                        <div id="listingTable"></div>
+                            <a href="javascript:prevPage()" id="btn_prev">Prev</a>
+                            <a href="javascript:nextPage()" id="btn_next">Next</a>
+                            page: <span id="page"></span>
+                        <select style='text-align: center;'onchange='changePage(1, this.options[this.selectedIndex].value' name="" id="">
+                            <option value="" selected>default</option>
+                            <option value="hide">hide</option>
+                            <option value="">3</option>
+                        </select>
+                    </div>
                     <p style='text-align: center; color: #595959; font-size: 3rem; width: 90%;'>Filter Results</p>
                     <i style='width: 10%;' id='hideFilter' class="fas fa-window-close"></i>
+                    
                 </div>
                 
                 <div class='dropDownContainer'>
@@ -38,13 +51,13 @@
                             <div class='price-input'> 
                                 <span class="textbox"> 
                                     $
-                                    <input type="text" id="min" oninput='sliderChange(this)'/>
+                                    <input value='test' type="text" id="min" oninput='sliderChange(this);changePage(1, "a"); changePage(1, "b")'/>
                                 </span>
                                 -
                                 <!-- <input id='min' type='text'> -->
                                 <span class='textbox'>
                                     $
-                                    <input id='max' type='text' oninput='sliderChange(this)'/>
+                                    <input value='test' id='max' type='text' oninput='sliderChange(this);changePage(1, "a"); changePage(1, "b")'/>
                                 </span>
                             </div>
                         </div>
@@ -56,7 +69,8 @@
                             <p><i id='leftcaret' class="fas fa-angle-left"></i></p>
                         </div>
                         <div style='display: none;' class='dropDown'>
-                            <select name="" id="makeFilter" onchange='filterVehicles(); makeSession()'>
+                            <select name="" id="makeFilter" onchange='changePage(1, "a"); changePage(1, "b");makeSession()'>
+                                <!-- took out filterVehicles() -->
                                 <option value="any">Any</option>
                             {% for make in makeList %}
                                 <option value="{{ make }}">{{ make }}</option>
@@ -78,7 +92,7 @@
                                 <span class="textbox"> 
                                 
                                     <input type="text" id="mileageMin" oninput='mileageSliderChange(this)'/>
-                                </span>
+                                </span> 
                                 <p>-</p>
                                 <!-- <input id='min' type='text'> -->
                                 <span class='textbox'>
@@ -213,12 +227,14 @@
  
             
             <div class='searchresults'>
+               
+            
                 <div class='displayFilter'>
                     <button class='showFilter'><p><i style='color: white' class="fas fa-filter"></i> Filter</p></button>
                 </div>
                 
 
-                {% for attribute in page_obj %}
+                {% for attribute in vehicle %}
               
                     <div value='{{attribute.pk}}' class='vehicleCard' onmouseover='cardHighlightIn(this)'; onmouseout="cardHighlightOut(this)">
                         <div class='topVehicleCard'>
@@ -230,9 +246,9 @@
                                 
                                 <div value='{{ attribute.carType }}' class='vehicleTitle'>
                                     <div class='year'>
-                                        <p class='vehicleYear' id='make' value = '{{attribute.make}}'> {{attribute.year}} </p>
-                                        <p style='text-indent: 1rem;' id={{attribute.make}}> {{ attribute.make }}</p> 
-                                        <p name='{{attribute.model}}' id='model' style='text-indent: 1rem'>  {{attribute.model }}</p>
+                                        <p class='vehicleYear' id='make' name='{{attribute.model}}' value ='{{attribute.make}}'> {{attribute.title}} </p>
+                                        <!-- <p style='text-indent: 1rem;' id={{attribute.make}}> {{ attribute.make }}</p> 
+                                        <p name='{{attribute.model}}' id='model' style='text-indent: 1rem'>  {{attribute.model }}</p> -->
                                     </div>
                                     <!-- <p>{{ attribute.carType }}</p> -->
                                     <p name='vehicle-price' class='vehicle-price' >{{ attribute.price }}</p>
@@ -293,9 +309,11 @@
                     </div>
                         
                     
-                    </div>
+                </div>
             {% endfor %}
-            <div class="pagination">
+            </div>
+  
+            <!-- <div class="pagination">
                 {% if page_obj.has_previous %}
                     <a class="pagination-action" href="?page=1">
                         <i class="fa fa-angle-double-left" aria-hidden="true"></i> </a>
@@ -318,17 +336,51 @@
                         <i class="fa fa-angle-double-right" aria-hidden="true"></i>
                     </a>
                 {% endif %}
-            </div>
+            </div> -->
+          
+            <!-- <div style='margin-top: 15vh;' id='listingTable'>
+                <a href="">11</a>
             
+                <a href="" id="btn_prev">Prev</a>
+                <a href="" id="btn_next">Next</a>
+               
+                page: <span id="page"></span>
+            </div> -->
+            
+            <!-- <div class='pages'>
+                <button id='previous' onclick=''>Previous</button>
+                <p class='pageCounter'></p>
+                <button id='next' onclick=''>Next</button>
+            </div> -->
             
         
- 
+        
+        </div>
+       <!-- <input type="hidden" id='hiddenfilter' value='1'>
+        <div style='display:flex;justify-content: center;' class='practice'>
+            <div id="listingTable"></div>
+                <a href="javascript:prevPage()" id="btn_prev">Prev</a>
+                <a href="javascript:nextPage()" id="btn_next">Next</a>
+                page: <span id="page"></span>
+            <select style='text-align: center;'onchange='changePage(1, this.options[this.selectedIndex].value' name="" id="">
+                <option value="" selected>default</option>
+                <option value="hide">hide</option>
+                <option value="">3</option>
+            </select>
+        </div>
+     -->
+
+
+
+       
+        
+        
        </div>
-       <input type="hidden" id='hiddenfilter' value='1'>
    
        
        <script src="https://unpkg.com/nouislider@10.0.0/distribute/nouislider.min.js"></script>
        <script src="https://unpkg.com/wnumb@1.1.0"></script>
+       <script src="//cdnjs.cloudflare.com/ajax/libs/list.js/1.5.0/list.min.js"></script>
        <script type="text/javascript" src="{% static 'js/searchvehicles.js' %}"></script>
        
     
