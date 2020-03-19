@@ -21,15 +21,8 @@
             <div class='searchbar'>
                 <div class='searchBarTop'>
                     <div style='display:flex;justify-content: center;' class='practice'>
-                        <div id="listingTable"></div>
-                            <a href="javascript:prevPage()" id="btn_prev">Prev</a>
-                            <a href="javascript:nextPage()" id="btn_next">Next</a>
-                            page: <span id="page"></span>
-                        <select style='text-align: center;'onchange='changePage(1, this.options[this.selectedIndex].value' name="" id="">
-                            <option value="" selected>default</option>
-                            <option value="hide">hide</option>
-                            <option value="">3</option>
-                        </select>
+                   
+                        
                     </div>
                     <p style='text-align: center; color: #595959; font-size: 3rem; width: 90%;'>Filter Results</p>
                     <i style='width: 10%;' id='hideFilter' class="fas fa-window-close"></i>
@@ -69,7 +62,7 @@
                             <p><i id='leftcaret' class="fas fa-angle-left"></i></p>
                         </div>
                         <div style='display: none;' class='dropDown'>
-                            <select name="" id="makeFilter" onchange='changePage(1, "a"); changePage(1, "b");makeSession()'>
+                            <select name="" id="makeFilter" onchange='changePage(1, "a"); changePage(1, "a");makeSession()'>
                                 <!-- took out filterVehicles() -->
                                 <option value="any">Any</option>
                             {% for make in makeList %}
@@ -91,13 +84,13 @@
                             <div class='mileageSpan'>
                                 <span class="textbox"> 
                                 
-                                    <input type="text" id="mileageMin" oninput='mileageSliderChange(this)'/>
+                                    <input type="text" id="mileageMin" oninput='mileageSliderChange(this);changePage(1, "a"); changePage(1, "b")'/>
                                 </span> 
                                 <p>-</p>
                                 <!-- <input id='min' type='text'> -->
                                 <span class='textbox'>
                                     
-                                    <input id='mileageMax' type='text' oninput='mileageSliderChange(this)'>
+                                    <input id='mileageMax' type='text' oninput='mileageSliderChange(this);changePage(1, "a"); changePage(1, "b")'>
                                 </span>
                             </div>
                             
@@ -109,7 +102,7 @@
                             <p><i id='leftcaret' class="fas fa-angle-left"></i></p>
                         </div>
                         <div style='display: none;' class='dropDown'>
-                            <select name="" id="modelFilter" onchange='modelSelectChange()'>
+                            <select name="" id="modelFilter" onchange='modelSelectChange();changePage(1, "a"); changePage(1, "b")'>
                                 <option value="any">Any</option>
                             {% for model in modelList %}
                                 <option value="{{ model }}">{{ model }}</option>
@@ -125,7 +118,7 @@
                         </div>
                         <div style='display: none;' class='dropDown'>
                             <div class='yearDropDown'>
-                                <select name="selectyear" id="selectYearMin" onchange='yearSessionMin()' oninput='filterVehicles()'>
+                                <select name="selectyear" id="selectYearMin" onchange='yearSessionMin();changePage(1, "a"); changePage(1, "b")' oninput='filterVehicles()'>
                             
                                     <option value="1995" selected>1995</option>
                                     <option value="1996">1996</option>
@@ -155,7 +148,7 @@
                                     <option value="2020">2020</option>
                                 </select>
                             <p style='font-size: 14px'> - </p>
-                                <select name="selectyear2" id="selectYearMax" onchange = yearSessionMax() oninput='filterVehicles()'>
+                                <select name="selectyear2" id="selectYearMax" onchange = 'yearSessionMax();changePage(1, "a"); changePage(1, "b")' oninput='filterVehicles()'>
                                     <option value="1995">1995</option>
                                     <option value="1996">1996</option>
                                     <option value="1997">1997</option>
@@ -195,7 +188,7 @@
                             <p><i id='leftcaret' class="fas fa-angle-left"></i></p>
                         </div>
                         <div style='display: none;' class='dropDown'>
-                            <select onchange='fuelSession()' name="" id="fuelEfficiencyFilter" oninput='filterVehicles()'>
+                            <select onchange='fuelSession()' name="" id="fuelEfficiencyFilter" oninput='filterVehicles();changePage(1, "a"); changePage(1, "b")'>
                                 <option value="any" selected>Any</option>
                                 <option value="15">15+ MPG</option>
                                 <option value="20">20+ MPG</option>
@@ -211,7 +204,7 @@
                             <p><i id='leftcaret' class="fas fa-angle-left"></i></p>
                         </div>
                         <div style='display: none;' class='dropDown'>
-                            <select onchange='bodySession()' name="" id="bodyStyleFilter" oninput='filterVehicles()'>
+                            <select onchange='bodySession()' name="" id="bodyStyleFilter" oninput='filterVehicles();changePage(1, "a"); changePage(1, "b")'>
                                 <option value="any" selected>Any</option>
                                 {% for make in makeOptions %}
                                     <option value="{{make}}">{{make}}</option>
@@ -225,94 +218,102 @@
                 </div>
             </div>
  
+       
+
             
-            <div class='searchresults'>
-               
-            
-                <div class='displayFilter'>
-                    <button class='showFilter'><p><i style='color: white' class="fas fa-filter"></i> Filter</p></button>
+                <div class='searchresults'>
+                
+                
+                    <div class='displayFilter'>
+                        <button class='showFilter'><p><i style='color: white' class="fas fa-filter"></i> Filter</p></button>
+                    </div>
+                    
+
+                    {% for attribute in vehicle %}
+                
+                        <div value='{{attribute.pk}}' class='vehicleCard' onmouseover='cardHighlightIn(this)'; onmouseout="cardHighlightOut(this)">
+                            
+                            <div class='topVehicleCard'>
+                                <div class='vehicleImg'>
+                            
+                                    <img src="../../media/{{ attribute.picture }}" alt="">
+                                </div>
+                                <div class='vehicleInfo'>
+                                    
+                                    <div value='{{ attribute.carType }}' class='vehicleTitle'>
+                                        <div class='year'>
+                                            <p class='vehicleYear' id='make' name='{{attribute.model}}' value ='{{attribute.make}}'> {{attribute.title}} </p>
+                                            <!-- <p style='text-indent: 1rem;' id={{attribute.make}}> {{ attribute.make }}</p> 
+                                            <p name='{{attribute.model}}' id='model' style='text-indent: 1rem'>  {{attribute.model }}</p> -->
+                                        </div>
+                                        <!-- <p>{{ attribute.carType }}</p> -->
+                                        <p name='vehicle-price' class='vehicle-price' >{{ attribute.price }}</p>
+                                    </div>
+                                    <div class='vehicleDetails'>
+                                        <div class='mobileMileageDisplay'>
+                                            <p>{{ attribute.mileage }} miles</p>
+                                        </div>
+                                        <div class='vehicleTable1'> 
+                                            <table>
+                                                <tr>
+                                                    <th>Mileage</th> 
+                                                    <th name='mileage' id='mileageId' class='align-right'>{{ attribute.mileage }}</th>
+                                                </tr>
+                                                <tr>
+                                                    <th>MPG</th>
+                                                    <th name='mpg' id='mpg' class='align-right'>{{ attribute.mpg }}</th>
+                                                </tr>
+                                                <tr>
+                                                    <th>Exterior Color</th>
+                                                    <th name='exterior_color' class='align-right'>{{ attribute.exterior_color }}</th>
+                                                </tr>
+                                                <tr>
+                                                    <th>Interior Color</th>
+                                                    <th name='interior_color' class='align-right'>{{ attribute.interior_color }}</th>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                        <div class='vehicleTable2'>
+                                            <table>
+                                                <tr>
+                                                    <th>Transmission</th>
+                                                    <th name='transmission' class='align-right'>{{ attribute.transmission }}</th>
+                                                </tr>
+                                                <tr>
+                                                    <th>Engine</th>
+                                                    <th name='engine' class='align-right'>{{ attribute.engine }}</th>
+                                                </tr>
+                                                <tr>
+                                                    <th>Drive Line</th>
+                                                    <th name='drive_line' class='align-right'>{{ attribute.drive_line }}</th>
+                                                </tr>
+                                                <tr>
+                                                    <th>Stock Number</th>
+                                                    <th name='stock_number' class='align-right'>{{ attribute.stock_number }}</th>
+                                                </tr>
+                                            </table>
+
+                                        </div>
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                            <div value='{{attribute.pk}}' class='moreInfo'>
+                            
+                        
+                                <a href="{{attribute.slug}}-{{attribute.pk}}/"><button>View</button></a>
+                        </div>
+                            
+                        
+                    </div>
+                {% endfor %}
                 </div>
                 
-
-                {% for attribute in vehicle %}
-              
-                    <div value='{{attribute.pk}}' class='vehicleCard' onmouseover='cardHighlightIn(this)'; onmouseout="cardHighlightOut(this)">
-                        <div class='topVehicleCard'>
-                            <div class='vehicleImg'>
-                        
-                                <img src="../../media/{{ attribute.picture }}" alt="">
-                            </div>
-                            <div class='vehicleInfo'>
-                                
-                                <div value='{{ attribute.carType }}' class='vehicleTitle'>
-                                    <div class='year'>
-                                        <p class='vehicleYear' id='make' name='{{attribute.model}}' value ='{{attribute.make}}'> {{attribute.title}} </p>
-                                        <!-- <p style='text-indent: 1rem;' id={{attribute.make}}> {{ attribute.make }}</p> 
-                                        <p name='{{attribute.model}}' id='model' style='text-indent: 1rem'>  {{attribute.model }}</p> -->
-                                    </div>
-                                    <!-- <p>{{ attribute.carType }}</p> -->
-                                    <p name='vehicle-price' class='vehicle-price' >{{ attribute.price }}</p>
-                                </div>
-                                <div class='vehicleDetails'>
-                                    <div class='mobileMileageDisplay'>
-                                        <p>{{ attribute.mileage }} miles</p>
-                                    </div>
-                                    <div class='vehicleTable1'> 
-                                        <table>
-                                            <tr>
-                                                <th>Mileage</th> 
-                                                <th name='mileage' id='mileageId' class='align-right'>{{ attribute.mileage }}</th>
-                                            </tr>
-                                            <tr>
-                                                <th>MPG</th>
-                                                <th name='mpg' id='mpg' class='align-right'>{{ attribute.mpg }}</th>
-                                            </tr>
-                                            <tr>
-                                                <th>Exterior Color</th>
-                                                <th name='exterior_color' class='align-right'>{{ attribute.exterior_color }}</th>
-                                            </tr>
-                                            <tr>
-                                                <th>Interior Color</th>
-                                                <th name='interior_color' class='align-right'>{{ attribute.interior_color }}</th>
-                                            </tr>
-                                        </table>
-                                    </div>
-                                    <div class='vehicleTable2'>
-                                        <table>
-                                            <tr>
-                                                <th>Transmission</th>
-                                                <th name='transmission' class='align-right'>{{ attribute.transmission }}</th>
-                                            </tr>
-                                            <tr>
-                                                <th>Engine</th>
-                                                <th name='engine' class='align-right'>{{ attribute.engine }}</th>
-                                            </tr>
-                                            <tr>
-                                                <th>Drive Line</th>
-                                                <th name='drive_line' class='align-right'>{{ attribute.drive_line }}</th>
-                                            </tr>
-                                            <tr>
-                                                <th>Stock Number</th>
-                                                <th name='stock_number' class='align-right'>{{ attribute.stock_number }}</th>
-                                            </tr>
-                                        </table>
-
-                                    </div>
-                                    
-                                </div>
-                            </div>
-                        </div>
-                        <div value='{{attribute.pk}}' class='moreInfo'>
-                        
-                    
-                            <a href="{{attribute.slug}}-{{attribute.pk}}/"><button>View</button></a>
-                    </div>
-                        
-                    
-                </div>
-            {% endfor %}
-            </div>
-  
+            
+            <!-- <div id="listingTable"></div>
+            <a href="javascript:prevPage()" id="btn_prev">Prev</a>
+            <a href="javascript:nextPage()" id="btn_next">Next</a>
+            page: <span id="page"></span> -->
             <!-- <div class="pagination">
                 {% if page_obj.has_previous %}
                     <a class="pagination-action" href="?page=1">
@@ -354,8 +355,10 @@
             </div> -->
             
         
-        
+            
         </div>
+        
+        
        <!-- <input type="hidden" id='hiddenfilter' value='1'>
         <div style='display:flex;justify-content: center;' class='practice'>
             <div id="listingTable"></div>

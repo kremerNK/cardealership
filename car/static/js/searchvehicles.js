@@ -553,7 +553,7 @@ let navheight = document.querySelector('#navbar').offsetHeight;
 let stickBar = searchBarSticky.offsetTop - navheight;
 let searchResultsLeft = searchResults.offsetLeft;
 let testing = stickBar + navheight;
-// window.addEventListener('scroll', stickSearch);
+window.addEventListener('scroll', stickSearch);
 
 function stickSearch(){
     if (window.pageYOffset >= stickBar){
@@ -647,6 +647,8 @@ function nextPage()
     
 function changePage(page, boolean)
 {
+
+    ///did not need to run this twice in index.html, why need to run twice here? 
     // console.log('chagePage()');
     console.log(current_page);
     
@@ -669,7 +671,7 @@ function changePage(page, boolean)
     var btn_next = document.getElementById("btn_next");
     var btn_prev = document.getElementById("btn_prev");
     var listing_table = document.querySelector('.searchresults');
-    var testEle = document.createElement('div');
+
     var page_span = document.getElementById("page");
     allNodes = filterVehicles();
 
