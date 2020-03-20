@@ -44,16 +44,17 @@ p {
     align-items: center;
     margin-right: 2vh;
     cursor: pointer;
+    
 }
 
 .searchresults {
 
-    height: 100%;
+    height: 100% ;
     width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
-  
+    margin-left:0;
 }
 
 
@@ -463,6 +464,14 @@ th {
     color: white;
 }
 
+
+.stickBar {
+    position: static;
+    width: 0;
+    /* top: 1px; */
+    /* height: auto; */
+}
+
 @media screen and (min-width: 1000px) {
       /* filter results scroll bar */
 
@@ -559,6 +568,8 @@ th {
 
     .displayFilter {
         display: none;
+        height: 0;
+        width: 0;
     }
 
     #hideFilter {

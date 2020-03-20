@@ -17,6 +17,7 @@
     <body> 
         
        <div class='body'>
+        
             <div class='searchbar'>
                 <div class='searchBarTop'>
                     <div style='display:flex;justify-content: center;' class='practice'>
@@ -214,14 +215,13 @@
                     
                 </div>
             </div>
- 
-       
-
+            <div class='displayFilter'>
+                <button class='showFilter'><p><i style='color: white' class="fas fa-filter"></i> Filter</p></button>
+            </div>
                 <div class='pagination-container'>
+                    
                     <div class='searchresults'>
-                        <div class='displayFilter'>
-                            <button class='showFilter'><p><i style='color: white' class="fas fa-filter"></i> Filter</p></button>
-                        </div>
+                        
                         {% for attribute in vehicle %}
                             <div value='{{attribute.pk}}' class='vehicleCard' onmouseover='cardHighlightIn(this)'; onmouseout="cardHighlightOut(this)">
                                 <div class='topVehicleCard'>

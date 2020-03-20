@@ -498,7 +498,7 @@ function filterVehicles(){
             
             if (priceEval || makeEval ||
             mileageEval || yearEval || mpgEval || bodyEval || modelEval)  { //try just removing an operand
-                // allVehicleCards[i].style.display = 'none';   
+       
             } else {
                 let clone = allVehicleCards[i].cloneNode(true);
             
@@ -547,15 +547,20 @@ caret.forEach(e1 => e1.addEventListener('click', function() {
 let showFilter = document.querySelector('.showFilter');
 let searchBar = document.querySelector('.searchbar');
 let searchResults = document.querySelector('.searchresults');
+let hidePagination = document.querySelector('.pagination');
 showFilter.addEventListener('click', function(){
     searchResults.style.display = 'none';
     searchBar.style.display = 'flex';
+    showFilter.style.display = 'none';
+    hidePagination.style.display = 'none';
 })
 
 let hideFilter = document.querySelector('#hideFilter');
 hideFilter.addEventListener('click', function(){
     searchResults.style.display = 'flex';
     searchBar.style.display = 'none';
+    showFilter.style.display = '';
+    hidePagination.style.display = '';
 })
 
 //////sticky side search bar////////////////////
@@ -565,11 +570,17 @@ let navheight = document.querySelector('#navbar').offsetHeight;
 let stickBar = searchBarSticky.offsetTop - navheight;
 let searchResultsLeft = searchResults.offsetLeft;
 let getCardWidth = searchResults.offsetWidth;
+let x = window.matchMedia("(min-width: 1000px)");
 // searchResults.style.marginLeft = (searchResultsLeft - searchBarSticky.offsetWidth).toString().concat('px');
 window.addEventListener('scroll', stickSearch);
 
 function stickSearch(){
-    if (window.pageYOffset >= stickBar){
+    if (window.matchMedia("(min-width: 1000px)").matches == false){
+        console.log('false');
+        
+        
+    }
+    else if (window.pageYOffset >= stickBar){
         // searchResults.style.marginLeft = searchResultsLeft.toString().concat('px')
         searchBarSticky.classList.add('stickBar');
         searchBarSticky.style.top = (navheight + 0).toString().concat('px');
