@@ -1,7 +1,7 @@
 
+let test = document.querySelector('.testing1');
 
 
-allVehicleCards = document.querySelectorAll('.vehicleCard');
 
 //reset drop downs on refresh
 // let test = document.querySelectorAll('.dropDown');
@@ -305,7 +305,7 @@ regularSlider.noUiSlider.on('change', function(){
   
     // filterVehicles()
     changePage(1, 'currentPageAdjust');
-    changePage(1, 'currentPageAdjust');
+    // changePage(1, 'currentPageAdjust');
 })
 
 function sliderChange(val){
@@ -380,7 +380,7 @@ mileageSlider.noUiSlider.on('change', function(){
     sessionStorage.setItem('maxMileage', parseInt(mileageMax.value));
     sessionStorage.setItem('minMileage', parseInt(mileageMin.value));
     changePage(1, 'currentPageAdjust');
-    changePage(1, 'currentPageAdjust');
+    // changePage(1, 'currentPageAdjust');
 })
 
 function mileageSliderChange(val){
@@ -422,39 +422,50 @@ for (i=0; i < hidePips.length; i++){
 //////////////////////////filter function//////////////////////////////////////
 
 function filterVehicles(){
+    // allVehicleCards = document.querySelectorAll('.vehicleCard');
     // console.log('filterVehicles()');
     //i replaced vehicleCards with allVehicleCards in filterVehicles()
-    let vehicleCard = document.getElementsByClassName('vehicleCard');
+    // let vehicleCard = document.getElementsByClassName('vehicleCard');
+
+    
     let searchCards = document.querySelector('.searchresults');
-    filteredVehicleCards = document.createElement('div');
-
 
     
-    
-    for (i=0; i < vehicleCard.length; i++){
-        vehicleCard[i].style.display = '';
+    if (typeof filteredVehicleCards == 'undefined'){
+       
+        allVehicleCards = document.querySelectorAll('.vehicleCard');
+        filteredVehicleCards = document.createElement('div');
+        filteredVehicleCards.classList.add('createddiv');
+        let z = document.querySelector('.searchresults');
+        z.insertBefore(filteredVehicleCards, z.childNodes[1])
+    } else {
+        console.log('filteredVehicleCards exist');
+
+        console.log(filteredVehicleCards.children);
+        filteredVehicleCards.innerHTML = '';
+        console.log(filteredVehicleCards.children);      
     }
+    console.log(filteredVehicleCards);
+    let testdiv = document.querySelector('.extra');
+    
+    let newtest = document.createElement('testdiv');
+    // for (i=0; i < vehicleCard.length; i++){
+    //     vehicleCard[i].style.display = '';
+    // }
     
     //specified elements to filter with
-
-    
     let tooltip = document.querySelectorAll('.noUi-tooltip');
     if (tooltip.length === 4){
-
+        
         let makefilter = document.getElementById('makeFilter');
         let vehicleCards = document.getElementsByClassName('vehicleCard');
-
         //specified elements to filter with above
         let vehiclePrice = document.querySelectorAll('.vehicle-price');
         // let vehicleMileage = document.getElementsByName('mileage');
         let vehicleMake =  document.getElementById('makeFilter');
-      
-        
+
         for (i=0; i < allVehicleCards.length; i++){
-             
-  
-             
-             
+            
             //get data from vehicle cards
             let priceFiltered = parseInt(allVehicleCards[i].querySelector('.vehicle-price').innerHTML.replace('$','').replace(',',''));
             let makeFiltered = allVehicleCards[i].querySelector('#make').getAttribute('value');
@@ -476,8 +487,6 @@ function filterVehicles(){
             let bodyTypeSearch = document.querySelector('#bodyStyleFilter').value;
             let modelSearch = document.querySelector('#modelFilter').value
                 
-                
- 
             //filtration expressions
             let priceEval = (priceFiltered > pricemaxtooltip || priceFiltered < pricemintooltip);
             let makeEval = (makeFiltered != makeSearch && makeSearch != 'any');
@@ -487,18 +496,21 @@ function filterVehicles(){
             let bodyEval = (bodyTypeSearch != 'any' && bodyTypeSearch != bodyFiltered);
             let modelEval = (modelSearch != 'any' && modelSearch != modelFiltered)
             
-            
-
             if (priceEval || makeEval ||
             mileageEval || yearEval || mpgEval || bodyEval || modelEval)  { //try just removing an operand
-                allVehicleCards[i].style.display = 'none';    
+                // allVehicleCards[i].style.display = 'none';   
             } else {
                 let clone = allVehicleCards[i].cloneNode(true);
+            
                 filteredVehicleCards.appendChild(clone)
+             
                 allVehicleCards[i].style.display = '';
             }
         }
     }   
+    
+    console.log(filteredVehicleCards.children);
+    
     return [...filteredVehicleCards.children]
 }
 
@@ -532,19 +544,19 @@ caret.forEach(e1 => e1.addEventListener('click', function() {
 
 //////////////////////////filter vehicle cards on mobile////////////////
 
-// let showFilter = document.querySelector('.showFilter');
-// let searchBar = document.querySelector('.searchbar');
+let showFilter = document.querySelector('.showFilter');
+let searchBar = document.querySelector('.searchbar');
 let searchResults = document.querySelector('.searchresults');
-// showFilter.addEventListener('click', function(){
-//     searchResults.style.display = 'none';
-//     searchBar.style.display = 'flex';
-// })
+showFilter.addEventListener('click', function(){
+    searchResults.style.display = 'none';
+    searchBar.style.display = 'flex';
+})
 
-// let hideFilter = document.querySelector('#hideFilter');
-// hideFilter.addEventListener('click', function(){
-//     searchResults.style.display = 'flex';
-//     searchBar.style.display = 'none';
-// })
+let hideFilter = document.querySelector('#hideFilter');
+hideFilter.addEventListener('click', function(){
+    searchResults.style.display = 'flex';
+    searchBar.style.display = 'none';
+})
 
 //////sticky side search bar////////////////////
 
@@ -552,17 +564,36 @@ let searchBarSticky = document.getElementsByClassName('searchbar')[0];
 let navheight = document.querySelector('#navbar').offsetHeight;
 let stickBar = searchBarSticky.offsetTop - navheight;
 let searchResultsLeft = searchResults.offsetLeft;
-let testing = stickBar + navheight;
+let getCardWidth = searchResults.offsetWidth;
+// searchResults.style.marginLeft = (searchResultsLeft - searchBarSticky.offsetWidth).toString().concat('px');
 window.addEventListener('scroll', stickSearch);
 
 function stickSearch(){
     if (window.pageYOffset >= stickBar){
-        searchResults.style.marginLeft = searchResultsLeft.toString().concat('px')
+        // searchResults.style.marginLeft = searchResultsLeft.toString().concat('px')
         searchBarSticky.classList.add('stickBar');
         searchBarSticky.style.top = (navheight + 0).toString().concat('px');
+        searchResults.style.width =  '70vw';
+        // console.log(searchResults.offsetLeft);
+        // searchResults.style.marginLeft = '5px';
+        console.log('need margin');
+        stickyBarWidth = searchBarSticky.offsetWidth.toString().concat('px');
+        matchingVW = '3vw'
+        searchResults.style.marginLeft = `calc(${stickyBarWidth} + ${matchingVW})`;
+
+        
+    
+        
     } else {
-        searchResults.style.marginLeft = '3%';
+        // console.log(searchResults.offsetLeft);
+
+        
+        // searchResults.style.marginLeft = searchBarSticky.offsetWidth.toString().concat('px');
+        searchResults.style.marginLeft = '3vw';
+        searchResults.style.width = '70vw';
         searchBarSticky.classList.remove('stickBar');
+ 
+        
     }
 }
 
@@ -592,29 +623,6 @@ var records_per_page = 3;
 
 var allCards = document.querySelectorAll('.vehicleCard');
 filteredCards = document.querySelector('.searchresults');
-
-
-
-// function filter(){
-//     // console.log('filter()');
-
-//     // console.log(allCards);
-//     // console.log(filteredCards.children);
-//     // filteredCards.innerHTML = '';
-//     // for (i=0; i < allCards.length; i++){
-//     //     if (allCards[i].id != 'hide'){
-//     //         let clone = allCards[i].cloneNode(true);
-//     //         filteredCards.appendChild(clone);
-//     //     }
-//     // }
-//     // allCards = [...filteredCards.children];
-//     // current_page = 1;
-//     // console.log(allCards);
-//     console.log('filter executed');
-    
-//     changePage(1, 'changePageAdjust');
-// }
-
 
 function prevPage()
 {
@@ -650,7 +658,7 @@ function changePage(page, boolean)
 
     ///did not need to run this twice in index.html, why need to run twice here? 
     // console.log('chagePage()');
-    console.log(current_page);
+ 
     
     if (boolean != ''){
         console.log(boolean);
@@ -661,11 +669,7 @@ function changePage(page, boolean)
         current_page = 1;
         // nextPage();
         
-    } else {
-    
-        console.log('changePage executed without onchange', boolean);
-        
-    }
+    } 
     
     var records_per_page = 3;
     var btn_next = document.getElementById("btn_next");
@@ -674,7 +678,8 @@ function changePage(page, boolean)
 
     var page_span = document.getElementById("page");
     allNodes = filterVehicles();
-
+    console.log(allNodes);
+    
     // Validate page
     if (page < 1) page = 1;
     if (page > numPages()) page = numPages();
@@ -687,15 +692,16 @@ function changePage(page, boolean)
         } else {
             clone = allNodes[i].cloneNode(true);
             listing_table.appendChild(clone);
-            console.log('changePage for called');
+       
             
         }
         
     }
+    console.log(listing_table.children);
     
     page_span.innerHTML = page;
   
-    console.log(listing_table.children);
+
     
     if (page == 1) {
         btn_prev.style.visibility = "hidden";

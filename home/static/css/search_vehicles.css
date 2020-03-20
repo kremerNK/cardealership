@@ -483,7 +483,7 @@ th {
 
     .searchbar {
         margin: 0;
-        width: 25%;
+        width: 25vw;
         height: 100%;
         overflow-y: scroll;
         /* margin-right: 50px; */
@@ -498,8 +498,9 @@ th {
 
     .stickBar {
         position: fixed;
+        width: 25vw;
         /* top: 1px; */
-        height: auto;
+        /* height: auto; */
     }
 
     .dropDownContainer {
@@ -507,10 +508,11 @@ th {
     }
 
     .searchresults {
-        width: 70%;
+        height: auto;
+        width: 70vw;
        flex-shrink: 0;
-       margin-left: 3%;
-       margin-bottom: 400px;
+       margin-left: 3vw;
+       /* margin-bottom: 400px; */
      
     }
 
@@ -677,4 +679,10 @@ th {
     .tp {
         display: none;
     }
+
+    .pagination {
+        width: auto;
+        height: auto;
+    }
+  
 }
