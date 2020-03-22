@@ -79,6 +79,7 @@ h2 {
 .contact-form > form > textarea {
     height: 25vh;
     text-align: left;
+    border: 1px solid black;
 }
 
 .contact-form > form > button {
@@ -204,7 +205,7 @@ h2 {
 
     .body {
         padding-top: 5%;
-        flex-direction: row;
+        flex-direction: row; 
     }
 
     .contact-form {
@@ -219,6 +220,11 @@ h2 {
         border: 1px solid #757575;
         /* box-shadow: 0px 0px 500vh 50px  #757575; */
         margin-top: 0;
+    }
+
+    .contact-form:hover {
+        transition: background-color 0.2s ease 0s;
+        background-color: #2f75a338;
     }
 
     .contact-form > h2 {
@@ -286,6 +292,8 @@ h2 {
         width:35%;
         
     }
+
+ 
 
     .cards p {
         color: black;
@@ -366,5 +374,7 @@ h2 {
         text-align: left;
         display: block;
     }
+
+    
 
 }

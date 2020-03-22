@@ -1,14 +1,4 @@
 
-let test = document.querySelector('.testing1');
-
-
-
-//reset drop downs on refresh
-// let test = document.querySelectorAll('.dropDown');
-// for (i = 0; i < test.length; i ++){
-//     test[i].style.display = ''; 
-// }
-
 //////////////////////////model filter with session value from home page////////////////////////////////////
 
 function modelSelectChange(){
@@ -241,12 +231,7 @@ document.querySelector('#bodyStyleFilter').value = bodyPageLoad()
 // wNumb is their tool to format the number. We us it to format the numbers that appear in the handles
 let dollarPrefixFormat = wNumb({prefix: '$', decimals: 0})
 let regularSlider = document.querySelector('.regular-slider');
-
-
-
 let slider = noUiSlider.create(regularSlider, {
-
-    
     // two handles
     start: [slideMinValue, slideMaxValue],
     // they are connected
@@ -265,9 +250,6 @@ let slider = noUiSlider.create(regularSlider, {
     
 })
 
-
-
-
 let uiConnect = document.querySelectorAll('.noUi-connect');
 for (i=0; i < uiConnect.length; i++){
     uiConnect[i].style.backgroundColor = '#2f74a3';
@@ -283,29 +265,10 @@ max.value = topslider.innerText.substring(1, topslider.innerText.length)
 regularSlider.noUiSlider.on('change', function(){
     max.value = topslider.innerText.substring(1, topslider.innerText.length);
     min.value = bottomslider.innerText.substring(1, bottomslider.innerText.length);
- 
-    
     sessionStorage.setItem("maxPrice", max.value);
     sessionStorage.setItem("minPrice", min.value);
-
-    // let sendPriceRange = new XMLHttpRequest()
-    // sendPriceRange.onload = function(){
-    //     if (sendPriceRange.status == 200){
-    //         console.log('success');
-            
-    //     } else {
-    //         console.log('request failed');
-            
-    //     }
-    // }
-
-    // sendPriceRange.open('POST', '', true);
-    // sendPriceRange.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
-    // sendPriceRange.send(JSON.stringify({'min':'like', 'max':'heartint'})); 
-  
-    // filterVehicles()
     changePage(1, 'currentPageAdjust');
-    // changePage(1, 'currentPageAdjust');
+
 })
 
 function sliderChange(val){
@@ -324,7 +287,6 @@ function sliderChange(val){
     // filter();
 }; 
 ////////////////////////////////////////////////////////////////////////////////////////
-
 
 let mileageSlider = document.querySelector('.mileage-slider');
 // wNumb is their tool to format the number. We us it to format the numbers that appear in the handles
@@ -361,16 +323,12 @@ for (i=0; i < uiConnect.length; i++){
 mileageSlider.noUiSlider.on('change', function(){
     mileageMax.value = topSliderMileage.innerText;
     mileageMin.value = bottomSliderMileage.innerText;
-    
-    
-    
     // filterVehicles();
     let parseMMax = parseInt(mileageMax.value);
     let parseMMin = parseInt(mileageMin.value);
     
     for (i=0; i < mileageDetails.length; i++){
         let parseMileage = parseInt(mileageDetails[i].innerHTML)
-
         if (parseMileage <= parseMMax) {
 
         } else {
@@ -380,7 +338,6 @@ mileageSlider.noUiSlider.on('change', function(){
     sessionStorage.setItem('maxMileage', parseInt(mileageMax.value));
     sessionStorage.setItem('minMileage', parseInt(mileageMin.value));
     changePage(1, 'currentPageAdjust');
-    // changePage(1, 'currentPageAdjust');
 })
 
 function mileageSliderChange(val){
@@ -406,10 +363,7 @@ function mileageSliderChange(val){
      
         
     }
-    // filterVehicles();
 }; 
-
-
 
 let noUiPips = document.getElementsByClassName('noUi-pips noUi-pips-horizontal');
 noUiPips[0].style.height = '0px';
@@ -422,15 +376,7 @@ for (i=0; i < hidePips.length; i++){
 //////////////////////////filter function//////////////////////////////////////
 
 function filterVehicles(){
-    // allVehicleCards = document.querySelectorAll('.vehicleCard');
-    // console.log('filterVehicles()');
-    //i replaced vehicleCards with allVehicleCards in filterVehicles()
-    // let vehicleCard = document.getElementsByClassName('vehicleCard');
-
-    
     let searchCards = document.querySelector('.searchresults');
-
-    
     if (typeof filteredVehicleCards == 'undefined'){
        
         allVehicleCards = document.querySelectorAll('.vehicleCard');
@@ -439,19 +385,13 @@ function filterVehicles(){
         let z = document.querySelector('.searchresults');
         z.insertBefore(filteredVehicleCards, z.childNodes[1])
     } else {
-        console.log('filteredVehicleCards exist');
-
-        console.log(filteredVehicleCards.children);
         filteredVehicleCards.innerHTML = '';
-        console.log(filteredVehicleCards.children);      
     }
-    console.log(filteredVehicleCards);
+
     let testdiv = document.querySelector('.extra');
     
     let newtest = document.createElement('testdiv');
-    // for (i=0; i < vehicleCard.length; i++){
-    //     vehicleCard[i].style.display = '';
-    // }
+
     
     //specified elements to filter with
     let tooltip = document.querySelectorAll('.noUi-tooltip');
@@ -461,7 +401,6 @@ function filterVehicles(){
         let vehicleCards = document.getElementsByClassName('vehicleCard');
         //specified elements to filter with above
         let vehiclePrice = document.querySelectorAll('.vehicle-price');
-        // let vehicleMileage = document.getElementsByName('mileage');
         let vehicleMake =  document.getElementById('makeFilter');
 
         for (i=0; i < allVehicleCards.length; i++){
@@ -508,15 +447,10 @@ function filterVehicles(){
             }
         }
     }   
-    
-    console.log(filteredVehicleCards.children);
-    
     return [...filteredVehicleCards.children]
 }
 
 //js for search carets/////////////////////
-
-let caret = document.querySelectorAll('#leftcaret');
 
 function findAncestor(e1, findClass){
     while (e1.parentNode) {
@@ -526,21 +460,36 @@ function findAncestor(e1, findClass){
         }
     } 
 }
+let caret = document.querySelectorAll('#leftcaret');
+searchSection = document.querySelectorAll('.search')
 
-caret.forEach(e1 => e1.addEventListener('click', function() {
-    let cls = '.search';
-    let ancestor = findAncestor(e1, cls);
-    let dropDown = ancestor.querySelector('.dropDown');
-    if (e1.classList.contains('fa-angle-left')) {
-        e1.classList.remove('fa-angle-left');
-        e1.classList.add('fa-angle-down');
-        dropDown.style.display = 'flex';
-        dropDown.style.flexDirection = 'column';
-    } else {
-        e1.classList.add('fa-angle-left');
-        dropDown.style.display = 'none';
-    }
-}));  
+function hideContent(){
+    console.log(this);
+    let dropDown = findAncestor(this, 'search').querySelector('.dropDown');
+    console.log(dropDown);
+    dropDown.style.display = '';
+    this.classList.remove('fa-angle-down');
+    this.classList.add('fa-angle-left');
+    this.removeEventListener('click', hideContent)
+    setTimeout(startDisplay, 0);
+}
+
+function searchSectionDisplay(){
+        let dropDown = this.querySelector('.dropDown');   
+        let caret = this.querySelector('#leftcaret');
+        dropDown.style.display = 'block';
+        this.style.cursor = 'auto';
+        caret.style.cursor = 'pointer';
+        caret.classList.remove('fa-angle-left');
+        caret.classList.add('fa-angle-down');
+        this.removeEventListener('click', searchSectionDisplay);
+        caret.addEventListener('click', hideContent)
+}
+
+function startDisplay(){
+    searchSection.forEach(e1 => e1.addEventListener('click', searchSectionDisplay));  
+}
+startDisplay();
 
 //////////////////////////filter vehicle cards on mobile////////////////
 
@@ -613,9 +562,11 @@ function cardHighlightIn(card){
     let moreInfo = card.querySelector('.moreInfo');
     let topVehicleCard = card.querySelector('.topVehicleCard');
     moreInfo.style.transition = "background-color 0.1s ease";
-    topVehicleCard.style.transition = "background-color 0.1s ease";
-    moreInfo.style.backgroundColor = '#dee9f0';
-    topVehicleCard.style.backgroundColor = '#dee9f0';
+    topVehicleCard.style.transition = "background-color 0.1s ease, border 0.1s";
+    moreInfo.style.backgroundColor = '#2f75a338';
+    topVehicleCard.style.backgroundColor = '#2f75a338';
+    card.style.transition = "border 0.1s ease";
+    card.style.border = "1px solid black";
   
 }
  
@@ -626,6 +577,8 @@ function cardHighlightOut(card){
     topVehicleCard.style.transition = "background-color 0.2s ease";
     moreInfo.style.backgroundColor = '#999999c2';
     topVehicleCard.style.backgroundColor = '#cecece';
+    card.style.transition = "border 0.1s ease";
+    card.style.border = "";
 } 
 
 ///////////////////////////////vehicle results pagination///////////////////////////////////////////////////////////////
@@ -689,7 +642,7 @@ function changePage(page, boolean)
 
     var page_span = document.getElementById("page");
     allNodes = filterVehicles();
-    console.log(allNodes);
+
     
     // Validate page
     if (page < 1) page = 1;
@@ -708,7 +661,7 @@ function changePage(page, boolean)
         }
         
     }
-    console.log(listing_table.children);
+
     
     page_span.innerHTML = page;
   

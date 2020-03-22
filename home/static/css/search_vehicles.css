@@ -47,6 +47,12 @@ p {
     
 }
 
+/* .fa-angle-left {
+    transition: 0.2s background-color ease;
+    background-color: red;
+} */
+
+
 .searchresults {
 
     height: 100% ;
@@ -277,9 +283,30 @@ th {
 .search {
     width: 100%;
     flex-direction: column;
+    cursor: pointer;
+}
+
+.search > p > i {
+    color: red;
+}
+
+.search:hover {
+    transition: 0.2s background-color ease;
+    background-color: #2f75a338;
+    color: black;
+}
+
+.noUi-pips.noUi-pips-horizontal div  {
+    color: black;
+ 
+}
+
+.noUi-marker.noUi-marker-horizontal.noUi-marker-large{
+    background: black;
 }
 .search  p{
     font-size: 22px;
+    
 }
 .search > div:first-child {
     display: flex;
@@ -434,7 +461,7 @@ th {
 }
 
 
-
+ 
 .pagination-number:hover{
     color:  #acc7da ;
     background-color: #5990b5;
@@ -471,6 +498,8 @@ th {
     /* top: 1px; */
     /* height: auto; */
 }
+
+
 
 @media screen and (min-width: 1000px) {
       /* filter results scroll bar */

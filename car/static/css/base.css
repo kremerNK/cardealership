@@ -470,6 +470,7 @@ table {
     }
     
     .navleft > li:hover {
+        transition: 0.2s background-color ease;
         background-color: #2f75a338; 
         color: white;
     
