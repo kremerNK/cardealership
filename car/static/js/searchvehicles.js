@@ -1,4 +1,4 @@
-
+let test2 = document.querySelector('.footer');
 //////////////////////////model filter with session value from home page////////////////////////////////////
 
 function modelSelectChange(){
@@ -454,43 +454,55 @@ function filterVehicles(){
 
 function findAncestor(e1, findClass){
     while (e1.parentNode) {
-        e1 = e1.parentNode;
-        if (e1.classList.contains('search')){
-            return e1 
+       
+        if (e1.className == 'search'){
+            return e1
         }
+        
+        e1 = e1.parentNode;
+
+        
+        if (e1.classList.contains('search')){
+            return e1
+        } 
+        // if (e1.className == 'search'){
+        //     return e1
+        // }
     } 
 }
+
+let testCard = document.querySelector('.vehicleCard');
+
 let caret = document.querySelectorAll('#leftcaret');
-searchSection = document.querySelectorAll('.search')
+searchSection = document.querySelectorAll('#dropDownTarget')
 
-function hideContent(){
-    console.log(this);
-    let dropDown = findAncestor(this, 'search').querySelector('.dropDown');
-    console.log(dropDown);
-    dropDown.style.display = '';
-    this.classList.remove('fa-angle-down');
-    this.classList.add('fa-angle-left');
-    this.removeEventListener('click', hideContent)
-    setTimeout(startDisplay, 0);
-}
+function displaySection(){
+    let section = findAncestor(this, 'search')
 
-function searchSectionDisplay(){
-        let dropDown = this.querySelector('.dropDown');   
-        let caret = this.querySelector('#leftcaret');
-        dropDown.style.display = 'block';
-        this.style.cursor = 'auto';
-        caret.style.cursor = 'pointer';
+    
+    let dropDown = section.querySelector('.dropDown');
+    let caret = section.querySelector('#leftcaret');
+    console.log(dropDown.classList);
+    
+    if (dropDown.classList.contains('display')){
+        
+        dropDown.classList.toggle('display');
+        dropDown.style.cursor = 'pointer';
+        caret.classList.remove('fa-angle-down');
+        caret.classList.add('fa-angle-left');
+    } else {
+        dropDown.classList.toggle('display')
+        // dropDown.style.display = 'block';
+        dropDown.style.cursor = 'auto';
         caret.classList.remove('fa-angle-left');
         caret.classList.add('fa-angle-down');
-        this.removeEventListener('click', searchSectionDisplay);
-        caret.addEventListener('click', hideContent)
+        
+        // dropDown.style.display = 'none';
+        
+    }
 }
 
-function startDisplay(){
-    searchSection.forEach(e1 => e1.addEventListener('click', searchSectionDisplay));  
-}
-startDisplay();
-
+searchSection.forEach(e1 => e1.addEventListener('click', displaySection));
 //////////////////////////filter vehicle cards on mobile////////////////
 
 let showFilter = document.querySelector('.showFilter');
@@ -524,38 +536,29 @@ let x = window.matchMedia("(min-width: 1000px)");
 window.addEventListener('scroll', stickSearch);
 
 function stickSearch(){
-    if (window.matchMedia("(min-width: 1000px)").matches == false){
-        console.log('false');
-        
-        
-    }
+    if (window.matchMedia("(min-width: 1000px)").matches == false){}
     else if (window.pageYOffset >= stickBar){
-        // searchResults.style.marginLeft = searchResultsLeft.toString().concat('px')
+
         searchBarSticky.classList.add('stickBar');
         searchBarSticky.style.top = (navheight + 0).toString().concat('px');
         searchResults.style.width =  '70vw';
-        // console.log(searchResults.offsetLeft);
-        // searchResults.style.marginLeft = '5px';
-        console.log('need margin');
         stickyBarWidth = searchBarSticky.offsetWidth.toString().concat('px');
         matchingVW = '3vw'
         searchResults.style.marginLeft = `calc(${stickyBarWidth} + ${matchingVW})`;
-
-        
-    
-        
     } else {
-        // console.log(searchResults.offsetLeft);
-
-        
-        // searchResults.style.marginLeft = searchBarSticky.offsetWidth.toString().concat('px');
         searchResults.style.marginLeft = '3vw';
         searchResults.style.width = '70vw';
         searchBarSticky.classList.remove('stickBar');
- 
-        
     }
 }
+
+
+window.addEventListener('load', function(){
+        footer = document.querySelector('.footer');
+    
+})
+
+
 
 
 function cardHighlightIn(card){
@@ -619,28 +622,18 @@ function nextPage()
     
 function changePage(page, boolean)
 {
-
-    ///did not need to run this twice in index.html, why need to run twice here? 
-    // console.log('chagePage()');
- 
     
     if (boolean != ''){
-        console.log(boolean);
-        console.log(current_page);
-        console.log(current_page);
-        
         page = 1;
         current_page = 1;
-        // nextPage();
-        
     } 
     
     var records_per_page = 3;
     var btn_next = document.getElementById("btn_next");
     var btn_prev = document.getElementById("btn_prev");
     var listing_table = document.querySelector('.searchresults');
-
     var page_span = document.getElementById("page");
+    var totalPage = document.getElementById('totalpage')
     allNodes = filterVehicles();
 
     
@@ -656,19 +649,14 @@ function changePage(page, boolean)
         } else {
             clone = allNodes[i].cloneNode(true);
             listing_table.appendChild(clone);
-       
-            
         }
-        
     }
-
-    
+    totalPage.innerHTML = numPages();
     page_span.innerHTML = page;
-  
 
-    
     if (page == 1) {
         btn_prev.style.visibility = "hidden";
+     
     } else {
         btn_prev.style.visibility = "visible";
     }

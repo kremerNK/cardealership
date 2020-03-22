@@ -29,13 +29,13 @@
                 
                 <div class='dropDownContainer'>
                     <div class='search'>
-                        <div>
+                        <div id='dropDownTarget'>
                             <p>Price Range</p>
                             <p><i id='leftcaret' class="fas fa-angle-left"></i></p>
                         </div>
-                        <div style='display: none;' class='dropDown'> 
+                        <div class='dropDown'> 
                             <!-- add display:none to dropdown -->
-                            <div style='width: 80%; margin: 4.5rem; margin-top: 7rem;' class='regular-slider'>
+                            <div style='margin: 4.5rem; margin-top: 7rem;' class='regular-slider'>
                     
                             </div>
 
@@ -55,11 +55,11 @@
                         <!-- <p><i id='downcaret' class="fas fa-angle-down"></i></p> -->
                     </div>
                     <div class='search'>
-                        <div>
+                        <div id='dropDownTarget'>
                             <p>Make</p> 
                             <p><i id='leftcaret' class="fas fa-angle-left"></i></p>
                         </div>
-                        <div style='display: none;' class='dropDown'>
+                        <div class='dropDown'>
                             <select name="" id="makeFilter" onchange='changePage(1, "a"); makeSession()'>
                                 <!-- took out filterVehicles() -->
                                 <option value="any">Any</option>
@@ -71,35 +71,35 @@
                     </div>
                     
                     <div class='search'>
-                        <div>
+                        <div id='dropDownTarget'>
                             <p>Mileage</p>
                             <p><i id='leftcaret' class="fas fa-angle-left"></i></p>
                         </div>
-                        <div style='display: none;' class='dropDown'>
-                            <div style='width: 80%;margin: 4rem;margin-top: 7rem;' class='mileage-slider'>
+                        <div class='dropDown'>
+                            <div style='margin: 4rem;margin-top: 7rem;' class='mileage-slider'>
                             
                             </div>
                             <div class='mileageSpan'>
-                                <span class="textbox"> 
+                                
                                 
                                     <input type="text" id="mileageMin" oninput='mileageSliderChange(this);changePage(1, "a"); '/>
-                                </span> 
-                                <p>-</p>
+                                
+                                -
                                 <!-- <input id='min' type='text'> -->
-                                <span class='textbox'>
+               
                                     
                                     <input id='mileageMax' type='text' oninput='mileageSliderChange(this);changePage(1, "a"); '>
-                                </span>
+                                
                             </div>
                             
                         </div>
                     </div>
                     <div class='search'> 
-                        <div>
+                        <div id='dropDownTarget'>
                             <p>Model</p> 
                             <p><i id='leftcaret' class="fas fa-angle-left"></i></p>
                         </div>
-                        <div style='display: none;' class='dropDown'>
+                        <div class='dropDown'>
                             <select name="" id="modelFilter" onchange='modelSelectChange();changePage(1, "a"); '>
                                 <option value="any">Any</option>
                             {% for model in modelList %}
@@ -110,11 +110,11 @@
                     </div>
                     
                     <div class='search'>
-                        <div>
+                        <div id='dropDownTarget'>
                             <p>Year</p>
                             <p><i id='leftcaret' class="fas fa-angle-left"></i></p>
                         </div>
-                        <div style='display: none;' class='dropDown'>
+                        <div class='dropDown'>
                             <div class='yearDropDown'>
                                 <select name="selectyear" id="selectYearMin" onchange='yearSessionMin();changePage(1, "a"); ' oninput='filterVehicles()'>
                             
@@ -181,11 +181,11 @@
                         </div>
                     </div>
                     <div class='search'>
-                        <div>
+                        <div id='dropDownTarget'>
                             <p>Fuel Efficiency</p>
                             <p><i id='leftcaret' class="fas fa-angle-left"></i></p>
                         </div>
-                        <div style='display: none;' class='dropDown'>
+                        <div class='dropDown'>
                             <select onchange='fuelSession()' name="" id="fuelEfficiencyFilter" oninput='filterVehicles();changePage(1, "a"); '>
                                 <option value="any" selected>Any</option>
                                 <option value="15">15+ MPG</option>
@@ -197,11 +197,11 @@
                         </div>
                     </div>
                     <div class='search'>
-                        <div>
+                        <div id='dropDownTarget'>
                             <p>Body Style</p>
                             <p><i id='leftcaret' class="fas fa-angle-left"></i></p>
                         </div>
-                        <div style='display: none;' class='dropDown'>
+                        <div class='dropDown'>
                             <select onchange='bodySession()' name="" id="bodyStyleFilter" oninput='filterVehicles();changePage(1, "a"); '>
                                 <option value="any" selected>Any</option>
                                 {% for make in makeOptions %}
@@ -294,10 +294,11 @@
                     <div class='pagination'>
 
             
-                        <div id="listingTable"></div>
-                            <a href="javascript:prevPage()" id="btn_prev">Prev</a>
-                            <a href="javascript:nextPage()" id="btn_next">Next</a>
-                            page: <span id="page"></span>
+                        <!-- <div id="listingTable"></div> -->
+                            <a href="javascript:prevPage()" ><button id="btn_prev">&#8249; Prev </button></a>
+                            Page <span id="page"></span> of <span id='totalpage'></span>
+                            <a href="javascript:nextPage()"><button id="btn_next">Next &#8250;</button></a>
+                            
                     </div>
                 </div>
                 

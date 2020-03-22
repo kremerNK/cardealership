@@ -16,7 +16,7 @@ p {
 
 .searchbar {
     /* position: absolute; */
-    width: 80%;
+    /* width: 80%; */
 
 
     background-color: #cecece;
@@ -73,6 +73,7 @@ p {
 
 .price-input {
     text-align: center;
+  
     width: 100%;
 
 }
@@ -80,6 +81,7 @@ p {
 .mileageSpan {
     display: flex;
     flex-direction: row;
+    justify-content: center;
     height: 100%;
 }
 
@@ -87,7 +89,7 @@ p {
     display: flex;
     flex-direction: row;
     align-items: center;
-    font-size: 15px !important;
+    /* font-size: 15px !important; */
     padding: 0 5px 0 5px;
 }
 
@@ -95,7 +97,7 @@ p {
     display: flex;
     flex-direction: row;
     height: 100%;
-    margin-bottom: 3rem;
+    margin-bottom: 1.5rem;
 }
 
 .yearDropDown p {
@@ -122,9 +124,11 @@ p {
     background-color: #FFF;
   }
 
-.mileage-slider {
+.slider {
     height: 100px;
-    
+    width: auto;
+    margin: 0 auto;
+    padding: 0 auto;
 }
 
 #selectYearMin, #selectYearMax {
@@ -142,12 +146,6 @@ p {
     width: 44%;
 }
 
-
-
-#bodyStyleFilter, #fuelEfficiencyFilter  {
-    margin: 1.5rem 0 3rem 0;
-    width: 80%;
-}
 
 .vehicleCard {
     border: 1px solid #929292;
@@ -257,13 +255,18 @@ th {
     
 }
 
+.dropDown > select {
+    margin-top: 2vh;
+    width: 50%;
+}
+
 .dropDownContainer > div {
     border-top: 1px solid black;
     width: 100%;
     display: flex;
     /* justify-content: space-between; */
     font-size: 15px;
-    padding: 10px;
+    /* padding: 10px; */
 }
 
 
@@ -317,8 +320,26 @@ th {
 
 .dropDown {
     align-items: center;
-    height: 100%;
-    display: none;
+    text-align: center;
+    max-height: 0px;
+    width: 100%;
+    /* display: none; */
+    margin: 0 auto;
+    padding: 0 auto;
+    overflow: hidden;
+    transition: all 0.2s ease-in
+    
+}
+
+.dropDown.display {
+    display: block;
+    text-align: center;
+    align-items: center;
+    overflow: hidden;
+
+    max-height: 50vh;
+    transition: all 0.2s ease-in;
+    
 }
 
 .price-input > span > input {
@@ -327,20 +348,31 @@ th {
 }
 
 #makeFilter {
-    width: 80%;
-    margin: 25px;
+    width: 50%;
+    margin-top: 2vh;
+    margin-bottom: 1.5rem;
 }
 
 .mileageSpan {
     display: flex;
     flex-direction: row !important;
-    margin-bottom: 3rem;
+    align-items: center;
+    /* margin-bottom: 3rem; */
+    line-height: 25px;
+    height: auto;
 }
+
+.mileageSpan > input {
+    margin: 2vh 1vh 2vh 1vh;
+    width: 25%;
+}
+
 
 .yearDropDown{
     display: flex;
     flex-direction: row !important;
-    margin-top: 2rem;
+    justify-content: center;
+    margin-top: 2vh;
 }
 
 .mobileMileageDisplay {
@@ -439,7 +471,7 @@ th {
 
 .pagination {
     text-align: center;
-    margin-top: -3vh;
+    /* margin-top: -3vh; */
     width: 90%;
     text-align: right;
 }
@@ -499,6 +531,34 @@ th {
     /* height: auto; */
 }
 
+
+
+.pagination > a {
+    cursor: auto;
+    height: auto;
+}
+
+.pagination > a > button {
+    color: #333;
+    border: 1px solid #333;
+    border-radius: 0;
+    /* background-color: rgba(153, 153, 153, 0.76); */
+    /* height: 25px; */
+    margin-bottom: 0;
+}
+
+.pagination > a > button:hover {
+    transition: all 0.1s ease-in;
+    background-color: rgba(153, 153, 153, 0.76);
+    border: 1px solid #333;
+    color: #333;
+
+}
+
+#dropDownTarget{
+    
+    padding: 15px;
+}
 
 
 @media screen and (min-width: 1000px) {
@@ -660,7 +720,7 @@ th {
 
     .pagination {
         text-align: center;
-        margin-top: -3vh;
+        margin-top: -2vh;
         width: 100%;
         text-align: right;
     }
