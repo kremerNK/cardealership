@@ -101,14 +101,20 @@ color: black;
     margin-top: 4vh;
 }
 
-.contact-form {
+/* .contact-form {
     display: none;
-}
+} */
 
+.active-form {
+    height: auto;
+    display: block;
+    /* transition: all 1s ease-in; */
+    
+}
 
 .contact-form > form {
     display: flex;
-    flex-direction: column;
+    flex-direction: column; 
 }
 
 .contact-form > form > ul {
@@ -119,6 +125,10 @@ color: black;
     display: inline-block;
 }
 
+.contact-form > form > ul > li > input, .contact-form > form > ul > li > select {
+    border: 1px solid #333;
+}
+
 .contact-form > form > ul > li > * {
     width: 100%;
 }
@@ -126,13 +136,21 @@ color: black;
 .contact-form > form > textarea {
     height: 25vh;
     text-align: left;
+    border: 1px solid #333;
+} 
+
+.contact-form > form > input {
+    background-color: #2f74a3;
+    margin: 0 auto;
+    color: white;
+    width: 40%;
 }
 
-.contact-form > form > button {
-    background-color: #2f74a3;
-    color: white;
-    width: 100%;
+.contact-form > form {
+    display: flex;
+    flex-direction: column;
 }
+
 
 @media screen and (min-width: 1000px) {
 
@@ -318,8 +336,10 @@ color: black;
 
     .contact-form {
         margin-left: 5vh;
-
-        display: none;
+        height: 0px;
+        overflow: hidden;
+        transition: all 0.3s ease-in;
+        /* display: none; */
   
     }
 
@@ -354,6 +374,16 @@ color: black;
         color: white;
 
     }
+
+    .active-form {
+        height: 100%;
+        max-height: 200vh;
+        overflow: hidden;
+        /* display: block; */
+        transition: all 0.3s ease-in;
+        
+    }
+    
  
   
     

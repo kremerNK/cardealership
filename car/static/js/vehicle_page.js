@@ -26,10 +26,13 @@ let formDisplayButton = document.querySelector('#form-submit')
 formDisplayButton.addEventListener('click', function(){
     if (form.style.display == ''){
 
-        form.style.display = 'block';
+        console.log('toggle on');
+        
+        form.classList.toggle('active-form');
     } else {
-
-        form.style.display = '';
+        console.log('toggle off');
+        
+        form.classList.toggle('active-form');
     } 
 
     

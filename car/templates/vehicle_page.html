@@ -111,29 +111,35 @@
                     </div>
                 </div>
             <div class='contact-form'>
-                <form action="">
+                <form id='contact-form' action="{% url 'contactSubmit' %}" method='post'>
+                    {% csrf_token %}
                     <ul>
-                        <li>
-                         
-                            <input placeholder='*First Name' type="text" />
+                        <li> 
+                            <label>First Name*</label> 
+                            {{ form.nameFirst }}
                         </li>
                          <li>
-                         
-                            <input placeholder='*Last Name' type="text" />
+                            <label>Last Name*</label>
+                            {{ form.nameLast }}
                         </li>
                          <li>
-                         
-                            <input placeholder='*Email' type="text" />
+                            <label>Email*</label>
+                            {{ form.email }}
                         </li>
-                         <li>
-                    
-                            <input placeholder='Phone' type="text" />
+                         <li> 
+                            <label>Phone*</label> 
+                            {{ form.phone }}
                         </li> 
+                        <li>
+                            <label>Contact me by</label>
+                            {{ form.contactBy }}
+                        </li>
                     </ul>
-                    <textarea placeholder='Enter your message here and click submit below. Please verify that your contact information is accurate to ensure a response. Fields marked with * are required.' name="" id="" cols="30" rows="10"></textarea>
-                    <button>Submit</button>
-                    <p>add captcha</p>
-                </form>
+                    {{ form.message }}
+                    <input type="submit" value='Submit'>
+               
+        
+                </form> 
             </div>    
             </div>
             

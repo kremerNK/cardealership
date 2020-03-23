@@ -24,6 +24,7 @@ urlpatterns = [
     path('dealership-hours/', carlist_views.hours, name='hours'),
     path('contact/', carlist_views.contact, name='contact'),
     path('search-vehicles/<str:slug>-<int:pk>/', carlist_views.vehiclePage, name='vehiclePage'),
+    path('contact-submit', carlist_views.contactSubmit, name='contactSubmit'),
     # path('search-vehicles/test', carlist_views.vehiclePage, name='vehiclePage'),
     # path('search-vehicles/<str:slug>-<int:pk>/', carlist_views.vehicle, name='vehicle'),
 ]

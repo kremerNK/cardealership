@@ -281,7 +281,9 @@ h2 {
         text-align: left;
     }
 
-    .contact-form > form > button {
+    .contact-form > form > input:last-child {
+        margin: 0 auto;
+        width: 50%;
         background-color: #2f74a3;
         color: white;
         border: none;

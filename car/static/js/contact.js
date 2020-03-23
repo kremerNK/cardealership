@@ -5,4 +5,4 @@ let body = document.querySelector('.mobile-margin');
 
 
 
-body.style.marginTop = ((marginTop * 1.1).toString() + 'px');
+body.style.marginTop = ((marginTop * 1.1).toString() + 'px'); 

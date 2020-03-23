@@ -531,7 +531,7 @@ hideFilter.addEventListener('click', function(){
 })
 
 //////sticky side search bar////////////////////
-
+ 
 let searchBarSticky = document.getElementsByClassName('searchbar')[0];
 let navheight = document.querySelector('#navbar').offsetHeight;
 let stickBar = searchBarSticky.offsetTop - navheight;
@@ -551,13 +551,17 @@ function stickSearch(){
         stickyBarWidth = searchBarSticky.offsetWidth.toString().concat('px');
         matchingVW = '3vw'
         searchResults.style.marginLeft = `calc(${stickyBarWidth} + ${matchingVW})`;
+
+
+
+        
     } else {
         searchResults.style.marginLeft = '3vw';
         searchResults.style.width = '70vw';
         searchBarSticky.classList.remove('stickBar');
     }
 }
-
+ 
 
 window.addEventListener('load', function(){
         footer = document.querySelector('.footer');
@@ -568,42 +572,22 @@ window.addEventListener('load', function(){
 
 
 document.onscroll = function(){
-
-
-    
-    
-    
     let searchBound = searchBarSize.getBoundingClientRect();
     let footBound = footer.getBoundingClientRect()
     let height = (window.pageYOffset + window.innerHeight) - footBound.height
     let dropDown = document.querySelector('.dropDownContainer').querySelectorAll('.search');
-    let lastDropDown = dropDown[dropDown.length - 1].querySelector('.dropDown')
-    console.log(lastDropDown);
-    
-   
-    
-    
+    let lastDropDown = dropDown[dropDown.length - 1]
+    // .querySelector('.dropDown')
+ 
     if ((searchBound.bottom) >= footBound.top){
-        lastDropDown.style.paddingBottom = (footBound.height * 1.75).toString().concat('px');
+        console.log('fire');
+        
+        lastDropDown.style.marginBottom = (footBound.height * 1).toString().concat('px');
+        
 
-
-        
-        // console.log(searchBound.height);
-        // console.log(footBound.height)
-        // spacing = searchBound.height - footBound.height
-        // console.log(spacing); 
-        // searchBarSize.style.height = spacing.toString().concat('px');
-        // console.log(searchBound.height);
-        
-        
-        
-    } 
-    // else if ((footBound.top * 1) >= searchBound.bottom){
-    //     searchBarSize.style.height = '100%';
-    // }
-    
-    
-    
+    } else {
+        lastDropDown.style.marginBottom = '0px';
+    }
 }
 
 

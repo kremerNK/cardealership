@@ -1,7 +1,7 @@
 .body {
     /* height: 100%; */
     width: 100%;
-    padding: 15vh 0 5% 0;
+    padding: 8vh 0 5% 0;
     min-height: 100vh;
     /* display: flex;
     flex-direction: row;
@@ -135,7 +135,7 @@ p {
 #selectYearMin, #selectYearMax {
     margin-bottom: 0;
 }
-
+ 
 .topVehicleCard {
     display: flex;
     flex-direction: row;
@@ -282,7 +282,7 @@ th {
    cursor: pointer;
 }
 .dropDownContainer > div:last-child {
-    border-bottom: none;
+    border-bottom: 1px solid #333;
 
 }
 
@@ -603,6 +603,7 @@ th {
         /* align-items: baseline; */
         border-right: none;
         scrollbar-color: #2f75a38e #999999c2;
+        border-bottom: none;
        
       
     }
