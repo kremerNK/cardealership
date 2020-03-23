@@ -74,7 +74,8 @@ p {
 .price-input {
     text-align: center;
   
-    width: 100%;
+    width: 100%;    
+    margin-bottom: 4vh;
 
 }
 
@@ -257,6 +258,7 @@ th {
 
 .dropDown > select {
     margin-top: 2vh;
+    margin-bottom: 4vh;
     width: 50%;
 }
 
@@ -281,6 +283,7 @@ th {
 }
 .dropDownContainer > div:last-child {
     border-bottom: none;
+
 }
 
 .search {
@@ -344,13 +347,13 @@ th {
 
 .price-input > span > input {
     width: 30%;
-
+    margin-bottom: 0;
 }
 
 #makeFilter {
     width: 50%;
     margin-top: 2vh;
-    margin-bottom: 1.5rem;
+    margin-bottom: 4vh;
 }
 
 .mileageSpan {
@@ -363,7 +366,7 @@ th {
 }
 
 .mileageSpan > input {
-    margin: 2vh 1vh 2vh 1vh;
+    margin: 2vh 1vh 4vh 1vh;
     width: 25%;
 }
 
@@ -372,7 +375,16 @@ th {
     display: flex;
     flex-direction: row !important;
     justify-content: center;
-    margin-top: 2vh;
+    align-items: center;
+    /* margin-bottom: 3rem; */
+    line-height: 25px;
+    height: auto;
+    margin-bottom: 4vh;
+}
+
+.yearDropDown > select {
+    margin-left: 1vh;
+    margin-right: 1vh
 }
 
 .mobileMileageDisplay {
@@ -529,6 +541,7 @@ th {
     width: 0;
     /* top: 1px; */
     /* height: auto; */
+  
 }
 
 
@@ -599,6 +612,8 @@ th {
         width: 25vw;
         /* top: 1px; */
         /* height: auto; */
+        margin-bottom: 60px;
+        z-index: 0;
     }
 
     .dropDownContainer {

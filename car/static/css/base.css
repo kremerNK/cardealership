@@ -467,7 +467,7 @@ table {
         /* color: #575757; */
         color: #333;
         
-    }
+    } 
     
     .navleft > li:hover {
         transition: 0.2s background-color ease;
@@ -491,7 +491,7 @@ table {
 
     .navbar-toggle {
         display: none;
-    }
+    } 
 
     .sticky {
         position: fixed;
@@ -530,7 +530,9 @@ table {
         display: none;
     }
 
-   
+   .footer {
+       z-index: 1;
+   }
     
 
 }

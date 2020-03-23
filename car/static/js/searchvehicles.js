@@ -262,7 +262,9 @@ let max = document.getElementById('max');
 min.value = bottomslider.innerText.substring(1, bottomslider.innerText.length);
 max.value = topslider.innerText.substring(1, topslider.innerText.length)
 
-regularSlider.noUiSlider.on('change', function(){
+regularSlider.noUiSlider.on('update', function(){
+
+    
     max.value = topslider.innerText.substring(1, topslider.innerText.length);
     min.value = bottomslider.innerText.substring(1, bottomslider.innerText.length);
     sessionStorage.setItem("maxPrice", max.value);
@@ -314,13 +316,17 @@ let topSliderMileage = document.getElementsByClassName('noUi-tooltip')[3];
 let mileageMin = document.getElementById('mileageMin');
 let mileageMax = document.getElementById('mileageMax');
 let mileageDetails = document.getElementsByName('mileage');
+mileageMax.value = topSliderMileage.innerText;
+mileageMin.value = bottomSliderMileage.innerText;
 uiConnect = document.querySelectorAll('.noUi-connect');
 for (i=0; i < uiConnect.length; i++){
     uiConnect[i].style.backgroundColor = '#2f74a3';
 }
 
 //update input boxes
-mileageSlider.noUiSlider.on('change', function(){
+mileageSlider.noUiSlider.on('update', function(){
+   
+    
     mileageMax.value = topSliderMileage.innerText;
     mileageMin.value = bottomSliderMileage.innerText;
     // filterVehicles();
@@ -482,7 +488,7 @@ function displaySection(){
     
     let dropDown = section.querySelector('.dropDown');
     let caret = section.querySelector('#leftcaret');
-    console.log(dropDown.classList);
+
     
     if (dropDown.classList.contains('display')){
         
@@ -536,7 +542,7 @@ let x = window.matchMedia("(min-width: 1000px)");
 window.addEventListener('scroll', stickSearch);
 
 function stickSearch(){
-    if (window.matchMedia("(min-width: 1000px)").matches == false){}
+    if (window.matchMedia("(min-width: 1000px)").matches == false){console.log('mediamatch')}
     else if (window.pageYOffset >= stickBar){
 
         searchBarSticky.classList.add('stickBar');
@@ -555,9 +561,50 @@ function stickSearch(){
 
 window.addEventListener('load', function(){
         footer = document.querySelector('.footer');
-    
+        searchBarSize = document.querySelector('.searchbar');
+        
+
 })
 
+
+document.onscroll = function(){
+
+
+    
+    
+    
+    let searchBound = searchBarSize.getBoundingClientRect();
+    let footBound = footer.getBoundingClientRect()
+    let height = (window.pageYOffset + window.innerHeight) - footBound.height
+    let dropDown = document.querySelector('.dropDownContainer').querySelectorAll('.search');
+    let lastDropDown = dropDown[dropDown.length - 1].querySelector('.dropDown')
+    console.log(lastDropDown);
+    
+   
+    
+    
+    if ((searchBound.bottom) >= footBound.top){
+        lastDropDown.style.paddingBottom = (footBound.height * 1.75).toString().concat('px');
+
+
+        
+        // console.log(searchBound.height);
+        // console.log(footBound.height)
+        // spacing = searchBound.height - footBound.height
+        // console.log(spacing); 
+        // searchBarSize.style.height = spacing.toString().concat('px');
+        // console.log(searchBound.height);
+        
+        
+        
+    } 
+    // else if ((footBound.top * 1) >= searchBound.bottom){
+    //     searchBarSize.style.height = '100%';
+    // }
+    
+    
+    
+}
 
 
 
