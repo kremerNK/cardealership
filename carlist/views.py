@@ -76,8 +76,6 @@ def contactSubmit(request):
         form = ContactForm(request.POST)
         if form.is_valid():
             ##need to add alert on successful submission
-            server = smtplib.SMTP_SSL('smtp.googlemail.com', 465)
-            server.login('glycine775@gmail.com', '/Forget12')
             subject = 'New Inquiry' 
             
             message = form.cleaned_data['message']
