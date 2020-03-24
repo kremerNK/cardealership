@@ -15,14 +15,38 @@
         <script src="https://kit.fontawesome.com/f19908a36f.js" crossorigin="anonymous"></script>
     </head>
     <body> 
-        
+        <div class='sort'>
+            <p>X matches</p>
+            <div class='card-pp'>
+                <label for="">Vehicles Per Page </label>
+                <select name="" id="vehicle-pp">
+                    <option value="25">Vehicle Per Page</option>
+                    <option value="3" selected>3 vehicles</option>
+                    <option value="25">25 vehicles</option>
+                    <option value="50">50 vehicles</option>
+                    <option value="100">100 vehicles</option>
+                </select>
+            </div>
+            <div class='sortdiv'>
+                <label for="">Sort</label>
+                <select id='sort' name="" id="">
+                    <option value="AZ" selected>Sort By</option>
+                    <option value="HiLo">Price: Hi-Lo</option>
+                    <option value="LoHi">Price: Lo-Hi</option>
+                    <option value="AZ">Make: A-Z</option>
+                    <option value="ZA">Make: Z-A</option>
+                    <option value="ON">Year: Old-New</option>
+                    <option value="NO">Year: New-Old</option>
+                </select>
+            </div>
+        </div>
        <div class='body'>
         
             <div class='searchbar'>
                 <div class='searchBarTop'>
                     <div style='display:flex;justify-content: center;' class='practice'>
                     </div>
-                    <p style='text-align: center; color: #595959; font-size: 3rem; width: 90%;'>Filter Results</p>
+                    <p style='text-align: center; font-size: 3rem; width: 90%;'>Filter Results</p>
                     <i style='width: 10%;' id='hideFilter' class="fas fa-window-close"></i>
                     
                 </div>
@@ -77,7 +101,7 @@
                         </div>
                         <div class='dropDown'>
                             <div style='margin: 4rem;margin-top: 7rem;' class='mileage-slider'>
-                            
+                             
                             </div>
                             <div class='mileageSpan'>
                                 
@@ -295,9 +319,10 @@
 
             
                         <!-- <div id="listingTable"></div> -->
-                            <a href="javascript:prevPage()" ><button id="btn_prev">&#8249; Prev </button></a>
+                            <a onclick='prevPage()' ><button id="btn_prev">&#8249; Prev </button></a>
+                            <!-- <a href="javascript:prevPage()"><button id="btn_prev">&#8249; Prev </button></a> -->
                             Page <span id="page"></span> of <span id='totalpage'></span>
-                            <a href="javascript:nextPage()"><button id="btn_next">Next &#8250;</button></a>
+                            <a onclick='nextPage()'><button id="btn_next">Next &#8250;</button></a>
                             
                     </div>
                 </div>

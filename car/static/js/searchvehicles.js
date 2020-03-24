@@ -580,7 +580,7 @@ document.onscroll = function(){
     // .querySelector('.dropDown')
  
     if ((searchBound.bottom) >= footBound.top){
-        console.log('fire');
+
         
         lastDropDown.style.marginBottom = (footBound.height * 1).toString().concat('px');
         
@@ -615,6 +615,49 @@ function cardHighlightOut(card){
     card.style.border = "";
 } 
 
+////////////////vehicle per page and sort page///////////////
+let vehiclePP = document.querySelector('#vehicle-pp');
+let sort = document.querySelector('#sort');
+vehiclePP.addEventListener('change', function(){
+    changePage(1, '');
+});
+
+sort.addEventListener('change', function(){
+    changePage(1,'');
+});
+
+function sortVehicles(val){
+    
+    if (val.length == 0){
+        return val
+    }
+    console.log(val[1].querySelector('#make').getAttribute('value'));
+    function compare(a,b){
+        var bandA = a.querySelector('#make').getAttribute('value');
+        var bandB = b.querySelector('#make').getAttribute('value');
+
+        let comparison = 0;
+        if (bandA > bandB) {
+            comparison = 1;
+        } else if (bandA < bandB) {
+            comparison = -1;
+        }
+        return comparison
+
+    }
+    return val.sort(compare);
+    console.log(test2);
+    
+
+    
+    return val.sort()
+    
+}
+
+function vehiclePerPage(val){
+
+}
+
 ///////////////////////////////vehicle results pagination///////////////////////////////////////////////////////////////
 var current_page = 1;
 var records_per_page = 3;
@@ -636,37 +679,53 @@ function prevPage()
 
 function nextPage()
 {
+    console.log(numPages(), 'numPages in nextPage()');
+    
     if (current_page < numPages()) {
         current_page++;
         changePage(current_page, '');
-    } else {
-        console.log('broke');
-            
-        current_page = 1;
-        page = 1;
-        nextPage();
-        // changePage(current_page, '');
+    } 
+    // else {
+    //     console.log('broke');
+
+    //     current_page = 1;
+    //     page = 1;
+    //     nextPage();
+    //     // changePage(current_page, '');
         
-    }
+    // }
    
 }
     
 function changePage(page, boolean)
 {
+    console.log('changepage()');
     
     if (boolean != ''){
         page = 1;
         current_page = 1;
     } 
+    allNodes = filterVehicles();
+ 
     
-    var records_per_page = 3;
+    let vehiclePP = parseInt(document.querySelector('#vehicle-pp').value);
+    let sort = document.querySelector('#sort').value;
+    
+    records_per_page = parseInt(document.querySelector('#vehicle-pp').value);
+    // var records_per_page = 3;
+
+    
     var btn_next = document.getElementById("btn_next");
     var btn_prev = document.getElementById("btn_prev");
     var listing_table = document.querySelector('.searchresults');
     var page_span = document.getElementById("page");
-    var totalPage = document.getElementById('totalpage')
-    allNodes = filterVehicles();
-
+    var totalPage = document.getElementById('totalpage');
+    console.log(allNodes);
+    
+    allNodes = sortVehicles(allNodes);
+    console.log(allNodes);
+    
+    
     
     // Validate page
     if (page < 1) page = 1;
@@ -682,12 +741,14 @@ function changePage(page, boolean)
             listing_table.appendChild(clone);
         }
     }
-    totalPage.innerHTML = numPages();
+    totalPage.innerHTML = Math.ceil(allNodes.length / records_per_page);
+    // totalPage.innerHTML = numPages();
+    // console.log(Math.ceil(allNodes.length / records_per_page))
+    
     page_span.innerHTML = page;
 
     if (page == 1) {
-        btn_prev.style.visibility = "hidden";
-     
+        btn_prev.style.visibility = "hidden";     
     } else {
         btn_prev.style.visibility = "visible";
     }
@@ -695,7 +756,7 @@ function changePage(page, boolean)
     if (page == numPages()) {
         btn_next.style.visibility = "hidden";
     } else {
-        btn_next.style.visibility = "visible";
+        btn_next.style.visibility = "visible"; 
     }
 }
 
@@ -704,6 +765,9 @@ function numPages()
     return Math.ceil(allNodes.length / records_per_page);
 }
 
-window.onload = function() {
-    changePage(1, '');
-};
+// window.onload = function() {
+//     changePage(1, '');
+// };
+
+
+

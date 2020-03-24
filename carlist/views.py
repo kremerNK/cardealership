@@ -69,7 +69,7 @@ def contactSubmit(request):
         if form.is_valid():
             ##need to add alert on successful submission
            
-            subject = 'New Inquiry'
+            subject = 'New Inquiry' 
             message = form.cleaned_data['message']
             sender = form.cleaned_data['email']
        

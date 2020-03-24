@@ -1,7 +1,7 @@
 .body {
     /* height: 100%; */
     width: 100%;
-    padding: 8vh 0 5% 0;
+    padding: 0 0 5% 0;
     min-height: 100vh;
     /* display: flex;
     flex-direction: row;
@@ -263,7 +263,7 @@ th {
 }
 
 .dropDownContainer > div {
-    border-top: 1px solid black;
+    border-top: 1px solid #333;
     width: 100%;
     display: flex;
     /* justify-content: space-between; */
@@ -298,7 +298,7 @@ th {
 
 .search:hover {
     transition: 0.2s background-color ease;
-    background-color: #2f75a338;
+    background-color: #2f75a3a8;
     color: black;
 }
 
@@ -524,10 +524,10 @@ th {
 .pagination-next {
     color: red;
 
-}
+} 
 
 .pagination-action:hover{
-    color: #2f74a3;
+    color: #2f74a3; 
 }
 
 .pagination-current:hover {
@@ -573,6 +573,18 @@ th {
     padding: 15px;
 }
 
+.sort {
+    margin: 8vh 3% 0 0;
+
+    display: flex;
+    justify-content: flex-end;
+}
+
+.sort > div {
+    margin: 0 3vh 0 3vh;
+}
+
+
 
 @media screen and (min-width: 1000px) {
       /* filter results scroll bar */
@@ -588,7 +600,7 @@ th {
         background-color: #2f75a38e ;
         border-radius: 15px;
 
-      }
+      } 
 
 
 
@@ -603,6 +615,8 @@ th {
         /* align-items: baseline; */
         border-right: none;
         scrollbar-color: #2f75a38e #999999c2;
+        /* background-color: #2f75a3; */
+        color: black;
         border-bottom: none;
        
       
@@ -679,7 +693,7 @@ th {
 
     #hideFilter {
         display: none;
-    }
+    } 
 
     .searchBarTop {
         display: flex;
@@ -692,7 +706,7 @@ th {
 
     .searchBarTop > p {
         width: 100%;
-
+        color: #333;
     }
 
     .moreInfo {

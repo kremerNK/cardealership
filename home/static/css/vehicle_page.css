@@ -273,6 +273,15 @@ color: black;
    
     }
 
+    .table1 > table > tbody > tr:hover {
+        background-color: #2f75a338;
+    }
+
+    .table1 > table > tbody > tr > th {
+        padding-left: 5px;
+        padding-right: 5px; 
+    }
+
     .table1, .table2 {
         width: 100%;
     }
