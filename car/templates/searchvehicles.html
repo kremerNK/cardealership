@@ -16,11 +16,11 @@
     </head>
     <body> 
         <div class='sort'>
-            <p>X matches</p>
+            <p id='totalMatches'>X matches</p>
             <div class='card-pp'>
-                <label for="">Vehicles Per Page </label>
-                <select name="" id="vehicle-pp">
-                    <option value="25">Vehicle Per Page</option>
+   
+                <select onchange='setVehiclePPSession();' name="" id="vehicle-pp">
+                    <option value="default">Vehicle Per Page</option>
                     <option value="3" selected>3 vehicles</option>
                     <option value="25">25 vehicles</option>
                     <option value="50">50 vehicles</option>
@@ -28,9 +28,9 @@
                 </select>
             </div>
             <div class='sortdiv'>
-                <label for="">Sort</label>
-                <select id='sort' name="" id="">
-                    <option value="AZ" selected>Sort By</option>
+
+                <select onchange='setSortSession()' id='sort' name="" id="">
+                    <option value="default" selected>Sort By</option>
                     <option value="HiLo">Price: Hi-Lo</option>
                     <option value="LoHi">Price: Lo-Hi</option>
                     <option value="AZ">Make: A-Z</option>
