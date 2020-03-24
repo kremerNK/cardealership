@@ -91,13 +91,14 @@ def contactSubmit(request):
             recipients = [sender]
 
             sender = 'glycine775@gmail.com'
+            print(recipients)
             send_mail(subject, message, sender, recipients, fail_silently = False)
             print('everything sent')
             server.quit()
             return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
     else:
         form = ContactForm()
-    server.quit()
+    # server.quit()
     return HttpResponseRedirect('contact')
 
 def contact(request):
