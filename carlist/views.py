@@ -64,7 +64,7 @@ def hours(request):
 def contactSubmit(request):
     print('test')
     username = 'glycine775@gmail.com'
-    password = '/Forget12'
+    password = 'knsjvowvflaoskoj'
     server = smtplib.SMTP('smtp.gmail.com', 587)
     server.ehlo()
     server.starttls()
