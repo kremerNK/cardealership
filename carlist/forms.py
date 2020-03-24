@@ -11,8 +11,8 @@ class ContactForm(forms.Form):
     
     marcas = (
         ('phone', 'Phone'), 
-        ('email', 'Email'),)
-
+        ('email', 'Email'),) 
+ 
     nameFirst = forms.CharField(label='First Name', max_length = 100) #add max lengths to form itself
     nameLast = forms.CharField(label='Last Name', max_length = 100)
     email = forms.CharField(label='Email', max_length = 100)

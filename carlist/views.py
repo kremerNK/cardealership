@@ -9,7 +9,7 @@ from .models import Vehicle
 from .forms import ContactForm
 
 import json
-
+import smtplib
 # Create your views here.
 
  
@@ -31,7 +31,7 @@ def searchVehicle(request):
     modelList = [x for x in set(Vehicle.objects.values_list('model', flat=True)) if x != '']
     
   
-    
+     
     
     if request.method=="POST" or request.method=="GET" and request.is_ajax():
         print('ajax') 
@@ -63,13 +63,23 @@ def hours(request):
 
 def contactSubmit(request):
     print('test')
-    print(request.META.get('HTTP_REFERER'))
+    username = 'glycine775@gmail.com'
+    password = '/Forget12'
+    server = smtplib.SMTP('smtp.gmail.com', 587)
+    server.ehlo()
+    server.starttls()
+    server.ehlo()
+    server.login(username, password)
+
+
     if request.method == 'POST': 
         form = ContactForm(request.POST)
         if form.is_valid():
             ##need to add alert on successful submission
-           
+            server = smtplib.SMTP_SSL('smtp.googlemail.com', 465)
+            server.login('glycine775@gmail.com', '/Forget12')
             subject = 'New Inquiry' 
+            
             message = form.cleaned_data['message']
             sender = form.cleaned_data['email']
        
@@ -85,10 +95,11 @@ def contactSubmit(request):
             sender = 'glycine775@gmail.com'
             send_mail(subject, message, sender, recipients, fail_silently = False)
             print('everything sent')
+            server.quit()
             return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
     else:
         form = ContactForm()
-
+    server.quit()
     return HttpResponseRedirect('contact')
 
 def contact(request):
