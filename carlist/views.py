@@ -4,12 +4,18 @@ from django.http import HttpResponseRedirect
 from django.core.paginator import Paginator
 from django.core import mail
 from django.core.mail import send_mail
+from django.contrib import messages
 
 from .models import Vehicle
 from .forms import ContactForm
 
 import json
 import smtplib
+import urllib
+
+
+
+
 # Create your views here.
 
  
@@ -75,6 +81,26 @@ def contactSubmit(request):
     if request.method == 'POST': 
         form = ContactForm(request.POST)
         if form.is_valid():
+            ###captcha###
+            recaptcha_response = request.POST.get('g-recaptcha-response')
+            url = 'https://www.google.com/recaptcha/api/siteverify'
+            values = {
+                'secret': '6Lehy-MUAAAAAG_NmXp_E-3esjbasnp3Tq2eU0Bn',
+                'response': recaptcha_response
+            }
+            data = urllib.parse.urlencode(values).encode()
+            req =  urllib.request.Request(url, data=data)
+            response = urllib.request.urlopen(req)
+            result = json.loads(response.read().decode())
+            ''' End reCAPTCHA validation '''
+
+            if result['success']:
+                
+                messages.success(request, 'Your message was successfully sent!')
+            else:
+                messages.error(request, 'Invalid reCAPTCHA. Please try again.')
+
+                
             ##need to add alert on successful submission
             subject = 'New Inquiry' 
             
@@ -96,8 +122,9 @@ def contactSubmit(request):
             print('everything sent')
             server.quit()
             return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
-    else:
-        form = ContactForm()
+  
+    form = ContactForm()
+    
     # server.quit()
     return HttpResponseRedirect('contact')
 
