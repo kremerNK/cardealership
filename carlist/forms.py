@@ -29,6 +29,8 @@ class ContactForm(forms.Form):
 class FormWithCaptcha(forms.Form):
     captcha = ReCaptchaField()
     ##remember, theme can be changed. see github
+
+    
 #  captcha = ReCaptchaField(
 #      public_key = '6Lehy-MUAAAAAAE5cMzCz8btbiqfrRHnf_ovTSrb',
 #      private_keys= '6Lehy-MUAAAAAG_NmXp_E-3esjbasnp3Tq2eU0Bn',

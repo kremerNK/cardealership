@@ -28,7 +28,7 @@ urlpatterns = [
     # path('search-vehicles/test', carlist_views.vehiclePage, name='vehiclePage'),
     # path('search-vehicles/<str:slug>-<int:pk>/', carlist_views.vehicle, name='vehicle'),
 ]
-
+ 
 
 if settings.DEBUG:
     from django.conf.urls.static import static
