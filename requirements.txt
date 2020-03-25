@@ -5,3 +5,4 @@ django
 gunicorn
 django-heroku
 wagtail
+django-recaptcha
