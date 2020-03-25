@@ -194,9 +194,17 @@ h2 {
     width: auto;
 }
 
-.mobile-margin{
-   
+.g-recaptcha {
+
+    margin: 0 auto;
+    margin-bottom: 2vh;
 }
+
+.g-recaptcha > div > div > iframe{
+    width: 100% !important;
+}
+
+
 @media screen and (min-width: 1024px) {
     
     .mobile-margin {

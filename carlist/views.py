@@ -7,7 +7,7 @@ from django.core.mail import send_mail
 from django.contrib import messages
 
 from .models import Vehicle
-from .forms import ContactForm
+from .forms import ContactForm, FormWithCaptcha
 
 import json
 import smtplib
@@ -60,11 +60,14 @@ def vehiclePage(request, slug, pk):
     # obj = get_object_or_404(Vehicle, pk=int(pk))
     vehicle = Vehicle.objects.all()[2]
     
-    form = ContactForm()
-    context = {'vehicle': obj, 'form': form}
+    form = ContactForm() 
+    captcha = FormWithCaptcha()
+    
+    context = {'vehicle': obj, 'form': form, 'captcha':captcha}
     return render(request, 'vehicle_page.html', context)
 
 def hours(request):
+ 
     return render(request, 'dealership_hours.html')
 
 def contactSubmit(request):
@@ -129,10 +132,10 @@ def contactSubmit(request):
     return HttpResponseRedirect('contact')
 
 def contact(request):
-    
+    captcha = FormWithCaptcha()
     form = ContactForm()
 
     # context = {'form':form}        
-    return render(request, 'contact.html', {'form':form})
+    return render(request, 'contact.html', {'form':form, 'captcha':captcha})
 
   

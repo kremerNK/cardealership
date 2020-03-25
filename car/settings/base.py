@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
 
+
 PROJECT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 BASE_DIR = os.path.dirname(PROJECT_DIR)
 
@@ -49,6 +50,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'carlist',
+    'captcha',
 ]
 
 MIDDLEWARE = [
@@ -176,16 +178,10 @@ EMAIL_USE_SSL = False
 
 GOOGLE_RECAPTCHA_SECRET_KEY = '6Lehy-MUAAAAAG_NmXp_E-3esjbasnp3Tq2eU0Bn'
 
+# RECAPTCHA_PUBLIC_KEY = '6Lehy-MUAAAAAAE5cMzCz8btbiqfrRHnf_ovTSrb'
+# RECAPTCHA_PRIVATE_KEY = '6Lehy-MUAAAAAG_NmXp_E-3esjbasnp3Tq2eU0Bn'
+SILENCED_SYSTEM_CHECKS = ['captcha.recaptcha_test_key_error']
 #captcha site key 6Lehy-MUAAAAAAE5cMzCz8btbiqfrRHnf_ovTSrb
 #captcha secret key 6Lehy-MUAAAAAG_NmXp_E-3esjbasnp3Tq2eU0Bn
-
-#original settings
-# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-# EMAIL_HOST = 'smtp.gmail.com'
-# EMAIL_HOST_USER = 'glycine775@gmail.com'
-# EMAIL_HOST_PASSWORD = '/Forget12'
-# EMAIL_PORT = 587
-# EMAIL_USE_TLS = True
-# EMAIL_USE_SSL = False
 
 # knsjvowvflaoskoj

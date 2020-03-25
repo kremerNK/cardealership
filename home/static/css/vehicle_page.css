@@ -151,6 +151,12 @@ color: black;
     flex-direction: column;
 }
 
+#id_captcha {
+    text-align: center;
+    margin: 0 auto ;
+    margin-bottom: 2vh;
+}
+
 
 @media screen and (min-width: 1000px) {
 
