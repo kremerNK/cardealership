@@ -12,9 +12,23 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Document</title> 
         <link rel="stylesheet" type="text/css" href="{% static 'css/contact.css' %}">
+        <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+        <script type="text/javascript">
+            var onloadCallback = function() {
+              grecaptcha.render('html_element', {
+                'sitekey' : 'key6Lehy-MUAAAAAAE5cMzCz8btbiqfrRHnf_ovTSrb'
+              });
+            };
+          </script>
+      
     </head>
     <body>
-     
+        <form action="?" method="POST">
+            <div class="g-recaptcha" data-sitekey="key6Lehy-MUAAAAAAE5cMzCz8btbiqfrRHnf_ovTSrb"></div>
+            <br/>
+            <input type="submit" value="Submit">
+        </form>
+      
         <!-- <div class='title'>
             <h2>Contact New Franken Automotive</h2>
         </div> -->
@@ -122,16 +136,7 @@
         <!-- 6LfwcuEUAAAAAI5Rjo-t_2tB69haUO7eN-Y48u13 -->
     
         <script type="text/javascript" src="{% static 'js/contact.js' %}"></script>
-        <!-- <script src="https://www.google.com/recaptcha/api.js?render=6LfwcuEUAAAAAEKWHrFmgj0PAmrXrg8xcmRP0XOs"></script> -->
-        <!-- <script>
-            grecaptcha.ready(function() {
-            grecaptcha.execute('6LfwcuEUAAAAAEKWHrFmgj0PAmrXrg8xcmRP0XOs', {action: 'validate_captcha'}).then(function(token) {
-                    document.getElementById('g-recaptcha-response').value = token;
-                    
-                    
-                });
-            });
-        </script> -->
+        
 
     </body>
     </html>

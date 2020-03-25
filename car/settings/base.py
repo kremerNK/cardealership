@@ -174,7 +174,8 @@ EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_USE_SSL = False 
 
-
+#captcha site key key6Lehy-MUAAAAAAE5cMzCz8btbiqfrRHnf_ovTSrb
+#captcha secret key 6Lehy-MUAAAAAG_NmXp_E-3esjbasnp3Tq2eU0Bn
 
 #original settings
 # EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
