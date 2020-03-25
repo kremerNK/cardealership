@@ -95,12 +95,12 @@ def contactSubmit(request):
             ''' End reCAPTCHA validation '''
 
             if result['success']:
-                
+                print('success')
                 messages.success(request, 'Your message was successfully sent!')
             else:
                 messages.error(request, 'Invalid reCAPTCHA. Please try again.')
 
-                
+
             ##need to add alert on successful submission
             subject = 'New Inquiry' 
             
