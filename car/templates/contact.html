@@ -12,28 +12,13 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Document</title> 
         <link rel="stylesheet" type="text/css" href="{% static 'css/contact.css' %}">
-        <script src="https://www.google.com/recaptcha/api.js" async defer></script>
-        <script type="text/javascript">
-            var onloadCallback = function() {
-              alert("grecaptcha is ready!");
-            };
-          </script>
+        
           
       
       
     </head>
     <body>
-        <form action="?" method="POST">
-            <div class="g-recaptcha" data-sitekey="key6Lehy-MUAAAAAAE5cMzCz8btbiqfrRHnf_ovTSrb"></div>
-            <br/>
-            <input type="submit" value="Submit">
-          </form>
-      
-       
-         
-      
-       
-      
+        
         <!-- <div class='title'>
             <h2>Contact New Franken Automotive</h2>
         </div> -->
@@ -68,8 +53,10 @@
                         </li>
                     </ul>
                     {{ form.message }}
-                    <input type="submit" value='Submit'>
-               
+                    
+                    <script src='https://www.google.com/recaptcha/api.js'></script>
+                <div class="g-recaptcha" data-sitekey="6Lehy-MUAAAAAAE5cMzCz8btbiqfrRHnf_ovTSrb"></div>
+                <input type="submit" value='Submit'>
         
                 </form>
             </div> 
@@ -141,14 +128,7 @@
         <!-- 6LfwcuEUAAAAAI5Rjo-t_2tB69haUO7eN-Y48u13 -->
     
         <script type="text/javascript" src="{% static 'js/contact.js' %}"></script>
-        <script type="text/javascript">
-            var onloadCallback = function() {
-              alert("grecaptcha is ready!");
-            };
-          </script>
-          <script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit"
-          async defer>
-        </script>
+        
       
 
     </body>

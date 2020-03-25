@@ -174,7 +174,9 @@ EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_USE_SSL = False 
 
-#captcha site key key6Lehy-MUAAAAAAE5cMzCz8btbiqfrRHnf_ovTSrb
+GOOGLE_RECAPTCHA_SECRET_KEY = '6Lehy-MUAAAAAG_NmXp_E-3esjbasnp3Tq2eU0Bn'
+
+#captcha site key 6Lehy-MUAAAAAAE5cMzCz8btbiqfrRHnf_ovTSrb
 #captcha secret key 6Lehy-MUAAAAAG_NmXp_E-3esjbasnp3Tq2eU0Bn
 
 #original settings
