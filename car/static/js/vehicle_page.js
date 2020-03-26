@@ -37,3 +37,8 @@ formDisplayButton.addEventListener('click', function(){
 
     
 })
+
+let slide = document.querySelector('.slides');
+let slideWidth = (slide.getBoundingClientRect().width * 0.95);
+slide.style.width = slideWidth.toString().concat('px');
+slide.style.margin = '0 auto';
