@@ -10,10 +10,18 @@ navBarToggle.addEventListener('click', function () {
 window.onscroll = function () {myFunction()};
 
 const navbar = document.getElementById('navbar');
-const sticky = navbar.offsetTop;
+const sticky = navbar.offsetTop; 
+const test1 = navbar.getBoundingClientRect();
+const topbanner = document.querySelector('.top-banner');
+console.log(topbanner.getBoundingClientRect());
+
+console.log(sticky);
+console.log(test1);
+
+
 
 function myFunction(){
-    if (window.pageYOffset >= sticky){
+    if (window.pageYOffset >= topbanner.offsetHeight){
         navbar.classList.add('sticky');
     } else {
         navbar.classList.remove('sticky');
