@@ -323,7 +323,7 @@ table {
         position: static;
         background-color: #2f74a3;
       
-        height: 20vh;
+        height: 25vh;
  
         display: flex;
         justify-content: space-between;
@@ -365,10 +365,10 @@ table {
     .leftbanner > img {
         width: 60%;
         /* height: 100%; */
-        padding: 5% 0 5% 0;
+        padding: 10% 0 10% 0;
         
     }
-    
+     
     .rightbanner {
         display: flex;
         flex-direction: column;

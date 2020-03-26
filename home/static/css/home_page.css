@@ -394,15 +394,16 @@ p {
     }
     
     .view-all-button > button {
-        height: 100%;
+        height: auto;
         font-size: 22px;
-        width: 100%;
+        width: auto;
     }
     
     .view-all-button > button > a {
         background-color: #2f74a3;
         color: white;
- 
+        height: 100%;
+        width: auto;
         font-size: 1.5rem;
     }
 

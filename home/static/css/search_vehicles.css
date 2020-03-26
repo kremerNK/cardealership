@@ -1,7 +1,7 @@
 .body {
     /* height: 100%; */
     width: 100%;
-    padding: 0 0 5% 0;
+    padding: 2vh 0 5% 0;
     min-height: 100vh;
     /* display: flex;
     flex-direction: row;
@@ -282,7 +282,7 @@ th {
    cursor: pointer;
 }
 .dropDownContainer > div:last-child {
-    border-bottom: 1px solid #333;
+    /* border-bottom: 1px solid #333; */
 
 }
 
@@ -472,11 +472,15 @@ th {
 
 .displayFilter button {
     width: 35%;
-    background-color: #2f74a3;
-    color: white;
+
+    /* background-color: #C23939; */
+    /* border: 1px solid #C23939; */
+    border: 1px solid #333;
+    color: #333;
     display: flex;
     justify-content: center;
     margin: 0;
+    border-radius: 0;
 }
 
 /* pagination */
@@ -658,7 +662,7 @@ th {
         /* width: 90%; */
         display: flex;
         flex-direction: row; 
-
+        padding: 0 0 5% 0;
     
     
     }
@@ -824,4 +828,8 @@ th {
         height: auto;
     }
   
+    .dropDownContainer > div:last-child {
+        border-bottom: 1px solid #333;
+    
+    }
 }
