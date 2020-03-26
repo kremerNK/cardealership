@@ -29,20 +29,18 @@ blockquote, dl, figure, form, ol, p, pre, table, ul {
     margin-bottom: 5vh;
     margin-top: 15vh;
  
-}
+} 
 
 .mobiledirectionsformdiv {
     margin: 0 auto;
-    margin-top: 15vh;
-    background-color: #fff;  
-    /* display: flex;
-    justify-content: center; */
+    margin-top: 18vh;
     text-align: center;
     width: 90%;
     padding: 1rem 0 1rem 0;
-    margin-bottom: 3rem;
+    margin-bottom: 2vh;
     box-shadow: 1px 1px rgb(133, 133, 133);
     border-radius: 5px;
+    border: 1px solid #333;
 }
 
 #map{

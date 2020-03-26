@@ -52,7 +52,7 @@ def searchVehicle(request):
     context = {'makeList':makeList, 'vehicle':allVehicles, 'makeOptions':makeOptions, 'modelList':modelList}
     
     
-
+ 
     return render(request, 'searchvehicles.html', context)
 
 def vehiclePage(request, slug, pk):

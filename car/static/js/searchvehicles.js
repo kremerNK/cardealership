@@ -849,8 +849,9 @@ function changePage(page, boolean)
     if (page > numPages()) page = numPages();
     allNodes = sortVehicles();
     listing_table.innerHTML = "";
-    let totalMatches = document.querySelector('#totalMatches');
-    totalMatches.innerHTML = allNodes.length.toString().concat(' matches')
+    let totalMatches = document.querySelectorAll('#totalMatches');
+    totalMatches[0].innerHTML = allNodes.length.toString().concat(' matches')
+    totalMatches[1].innerHTML = allNodes.length.toString().concat(' matches')
     for (var i = (page-1) * records_per_page; i < (page * records_per_page); i++) {
         if (typeof allNodes[i] == 'undefined'){
        
