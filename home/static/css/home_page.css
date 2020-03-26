@@ -3,6 +3,10 @@
     padding: 0;
 }
 
+.delete-test-div{
+    
+}
+
 p {
     margin-bottom: 0;
 }
@@ -85,7 +89,7 @@ p {
 }
 
 .slides {
-    width: 85%;
+    width: 77vw;
     height: 100% !important;
     display: flex !important;
     /* background-color: #2f74a3; */
