@@ -37,7 +37,7 @@
                     <div class='slides'>
                         <img class='slide-images' src="../../media/{{ vehicle.picture }}" alt="">
                         {% for item in vehicle.gallery_images.all %}
-         
+          
                                 {% image item.image width-456 height-480 class='slide-images' %} 
                             
    
@@ -136,7 +136,7 @@
                         </li>
                     </ul>
                     {{ form.message }}
-                    {{ captcha.captcha }}
+                    {{ captcha.captcha }} 
                     <input type="submit" value='Submit'>
                
         

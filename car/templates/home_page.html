@@ -123,7 +123,7 @@
                         <a href="{% url 'vehiclePage' i.slug i.pk %}"><img src="../media/{{i.picture}}" style='width: 100%;' alt=""> </a>
                         <p class='slide-price' >{{i.price}}</p>
                         <div class='titlemiles'>
-               
+                
                             <a href="{% url 'vehiclePage' i.slug i.pk %}" style='text-decoration:none;'><p class='slide-title' >{{ i.title }}</p></a>
                             <p class='slide-miles' >{{ i.mileage }} miles</p>
                         </div> 
@@ -159,7 +159,8 @@
 
             </div>
             <div class='view-all-button'>
-                <a href="{% url 'searchVehicle' %}"><button>View All</button></a>
+        
+                <button><a href='{% url 'searchVehicle' %}'>View All</a></button>
             </div>
         </section>
          

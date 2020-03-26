@@ -4,7 +4,7 @@ p {
 
 .vehicle-page {
     width: 90%;
-    margin-top: 15vh;
+    margin-top: 20vh;
     margin-left: 5%;
 } 
 
@@ -101,9 +101,9 @@ color: black;
     margin-top: 4vh;
 }
 
-/* .contact-form {
+.contact-form {
     display: none;
-} */
+}
 
 .active-form {
     height: auto;
