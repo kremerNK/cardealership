@@ -1,4 +1,7 @@
 let sortDiv = document.querySelector('.sort');
+let displayFilter = document.querySelector('.displayFilter');
+let topHeight = document.querySelector('.top-banner').getBoundingClientRect().height + document.querySelector('.mobile-phone').getBoundingClientRect().height
+displayFilter.style.marginTop = (topHeight * 1.15).toString().concat('px');
 sortDiv.style.width = document.querySelector('.vehicleCard').getBoundingClientRect().width.toString().concat('px');
 sortDiv.style.marginRight = (document.querySelector('.sort').getBoundingClientRect().left - 
     document.querySelector('.vehicleCard').getBoundingClientRect().left).toString().concat('px');
@@ -556,7 +559,7 @@ showFilter.addEventListener('click', function(){
     searchResults.style.display = 'none';
     searchBar.style.display = 'flex';
     showFilter.style.display = 'none';
-    hidePagination.style.display = 'none';
+    hidePagination.style.display = 'none'; 
 })
 
 let hideFilter = document.querySelector('#hideFilter');
@@ -841,7 +844,7 @@ function changePage(page, boolean)
     var page_span = document.getElementById("page");
     var totalPage = document.getElementById('totalpage');
     current_page = page
-    // Validate page
+    // Validate page 
     if (page < 1) page = 1;
     if (page > numPages()) page = numPages();
     allNodes = sortVehicles();

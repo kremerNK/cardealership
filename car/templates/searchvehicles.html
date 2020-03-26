@@ -15,7 +15,7 @@
         <script src="https://kit.fontawesome.com/f19908a36f.js" crossorigin="anonymous"></script>
     </head>
     <body> 
-        <div class='sort'>
+        <!-- <div class='sort'>
             <p id='totalMatches'>X matches</p>
             <div class='card-pp'>
    
@@ -39,7 +39,7 @@
                     <option value="NO">Year: New-Old</option>
                 </select>
             </div>
-        </div>
+        </div> -->
        <div class='body'>
         
             <div class='searchbar'>
@@ -240,7 +240,36 @@
                 </div>
             </div>
             <div class='displayFilter'>
-                <button class='showFilter'><p><i class="fas fa-filter"></i> Filter</p></button>
+              
+                    <button class='showFilter'><p><i class="fas fa-filter"></i> Filter</p></button>
+               
+                <div class='mobile-sort-div'>
+                    <div class='sort'>
+                        <p id='totalMatches'>X matches</p>
+                        <div class='card-pp'>
+            
+                            <select onchange='setVehiclePPSession();' name="" id="vehicle-pp">
+                                <option value="default">Vehicles Per Page</option>
+                                <option value="3" selected>3 vehicles</option>
+                                <option value="25">25 vehicles</option>
+                                <option value="50">50 vehicles</option>
+                                <option value="100">100 vehicles</option>
+                            </select>
+                        </div>
+                        <div class='sortdiv'>
+        
+                            <select onchange='setSortSession()' id='sort' name="" id="">
+                                <option value="default" selected>Sort By</option>
+                                <option value="HiLo">Price: Hi-Lo</option>
+                                <option value="LoHi">Price: Lo-Hi</option>
+                                <option value="AZ">Make: A-Z</option>
+                                <option value="ZA">Make: Z-A</option>
+                                <option value="ON">Year: Old-New</option>
+                                <option value="NO">Year: New-Old</option>
+                            </select>
+                        </div>
+                </div>
+            </div>
             </div>
                 <div class='pagination-container'>
                     
