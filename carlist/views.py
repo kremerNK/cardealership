@@ -9,6 +9,7 @@ from django.contrib import messages
 from .models import Vehicle
 from .forms import ContactForm, FormWithCaptcha
 
+
 import json
 import smtplib
 import urllib
@@ -63,6 +64,7 @@ def vehiclePage(request, slug, pk):
     form = ContactForm() 
     captcha = FormWithCaptcha()
     
+    
     context = {'vehicle': obj, 'form': form, 'captcha':captcha}
     return render(request, 'vehicle_page.html', context)
 
@@ -85,23 +87,23 @@ def contactSubmit(request):
         form = ContactForm(request.POST)
         if form.is_valid():
             ###captcha###
-            recaptcha_response = request.POST.get('g-recaptcha-response')
-            url = 'https://www.google.com/recaptcha/api/siteverify'
-            values = {
-                'secret': '6Lehy-MUAAAAAG_NmXp_E-3esjbasnp3Tq2eU0Bn',
-                'response': recaptcha_response
-            }
-            data = urllib.parse.urlencode(values).encode()
-            req =  urllib.request.Request(url, data=data)
-            response = urllib.request.urlopen(req)
-            result = json.loads(response.read().decode())
-            ''' End reCAPTCHA validation '''
+            # recaptcha_response = request.POST.get('g-recaptcha-response')
+            # url = 'https://www.google.com/recaptcha/api/siteverify'
+            # values = {
+            #     'secret': '6Lehy-MUAAAAAG_NmXp_E-3esjbasnp3Tq2eU0Bn',
+            #     'response': recaptcha_response
+            # }
+            # data = urllib.parse.urlencode(values).encode()
+            # req =  urllib.request.Request(url, data=data)
+            # response = urllib.request.urlopen(req)
+            # result = json.loads(response.read().decode())
+            # ''' End reCAPTCHA validation '''
 
-            if result['success']:
-                print('success')
-                messages.success(request, 'Your message was successfully sent!')
-            else:
-                messages.error(request, 'Invalid reCAPTCHA. Please try again.')
+            # if result['success']:
+            #     print('success')
+            #     messages.success(request, 'Your message was successfully sent!')
+            # else:
+            #     messages.error(request, 'Invalid reCAPTCHA. Please try again.')
 
 
             ##need to add alert on successful submission
@@ -133,6 +135,7 @@ def contactSubmit(request):
 
 def contact(request):
     captcha = FormWithCaptcha()
+
     form = ContactForm()
 
     # context = {'form':form}        

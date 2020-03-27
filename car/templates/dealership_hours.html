@@ -12,7 +12,16 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Document</title> 
         <link rel="stylesheet" type="text/css" href="{% static 'css/dealership_hours.css' %}">
-
+        <!-- <meta http-equiv='Content-Security-Policy' content="script-src 'self' https://www.google.com/maps*;"> -->
+        <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self'; 
+        img-src 'self' https://*; 
+        frame-src 'self';  
+        
+        script-src 'self' https://www.google.com/maps*; 
+        "> -->
+        <!-- <meta http-equiv="Content-Security-Policy" content="default-src *; style-src * 'unsafe-inline'; script-src * 'unsafe-inline' 'unsafe-eval'; 
+        img-src * data: 'unsafe-inline'; connect-src * 'unsafe-inline'; frame-src *;"> -->
+        <!-- <meta http-equiv="Content-Security-Policy" conent="default-src 'self'; script-src 'nonce-{NONCE}' https://www.google.com/*; img-src www.gstatic.com; frame-src www.google.com; object-src 'none'; base-uri 'none';"> -->
 
     </head>
     <body>
@@ -28,8 +37,9 @@
                 </div>
           
             <div id='map'>
-                <iframe class='mobilemap' src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2844.2577823252313!2d-88.06657844946585!3d44.53035410318387!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8802fa76eab7666b%3A0xc3d1722cc4ac5a6b!2s1659%20Christiana%20St%2C%20Green%20Bay%2C%20WI%2054303!5e0!3m2!1sen!2sus!4v1582054206480!5m2!1sen!2sus" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
-                <iframe class='largemap' src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2844.2577823252245!2d-88.06657844946587!3d44.53035410318387!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8802fa76eab7666b%3A0xc3d1722cc4ac5a6b!2s1659%20Christiana%20St%2C%20Green%20Bay%2C%20WI%2054303!5e0!3m2!1sen!2sus!4v1583176809686!5m2!1sen!2sus" width="800" height="600" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
+               <iframe class='largemap'src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2844.257969072203!2d-88.06657308413875!3d44.530350279101064!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8802fa76eab7666b%3A0xc3d1722cc4ac5a6b!2s1659%20Christiana%20St%2C%20Green%20Bay%2C%20WI%2054303!5e0!3m2!1sen!2sus!4v1585266460996!5m2!1sen!2sus" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+                <!--<iframe class='mobilemap' src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2844.2577823252313!2d-88.06657844946585!3d44.53035410318387!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8802fa76eab7666b%3A0xc3d1722cc4ac5a6b!2s1659%20Christiana%20St%2C%20Green%20Bay%2C%20WI%2054303!5e0!3m2!1sen!2sus!4v1582054206480!5m2!1sen!2sus" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
+                <iframe class='largemap' src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2844.2577823252245!2d-88.06657844946587!3d44.53035410318387!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8802fa76eab7666b%3A0xc3d1722cc4ac5a6b!2s1659%20Christiana%20St%2C%20Green%20Bay%2C%20WI%2054303!5e0!3m2!1sen!2sus!4v1583176809686!5m2!1sen!2sus" width="800" height="600" frameborder="0" style="border:0;" allowfullscreen=""></iframe> -->
             </div>
             <div class='directioncards'>
                 <div class='formcard'>

@@ -28,6 +28,8 @@ class ContactForm(forms.Form):
 
 class FormWithCaptcha(forms.Form):
     captcha = ReCaptchaField()
+
+
     ##remember, theme can be changed. see github
 
 
