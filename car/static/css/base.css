@@ -228,13 +228,23 @@ nav {
     left: 0;
     bottom: 0;
     width: 100%;
-
     background-color: #595959;
     color: white;
-
     display: flex;
-    /* flex-direction: row; */
+    flex-direction: column;
     justify-content: center;
+    align-items: center;
+    
+  }
+
+
+
+  .footer > img {
+    text-align: center;
+    width: 50%;
+    height: 6vh;
+    margin: 0 auto;
+    margin-bottom: 1vh;
   }
 
   .footer-logo {
@@ -248,13 +258,7 @@ nav {
     height:75%;
     width: 75%;
 }
-  
 
-.footer p {
-    text-align: center;
-    margin: 0 auto;
-    width: 90%;
-}
 
 .footerhours {
     height: 100%;
@@ -289,7 +293,8 @@ nav {
 }
 
 .footer-logo > img {
-    width: 100%;
+    width: 70%;
+    height: 70%;
 }
 
 .footer-location {
@@ -304,6 +309,41 @@ nav {
     margin: 0 !important;
     /* text-align: left; */
 }
+
+.footer > div:last-child{
+    text-align: center;
+}
+
+#footer-contact {
+    margin: 0 auto;
+    width: 75%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#footer-contact > a, #footer-contact > p {
+    width: auto;
+    margin: 0 auto;
+    /* margin-right: 1rem; */
+    font-size: 0.9em;
+    text-align: center;
+}
+
+.footer > div:last-child > p{
+    font-size: 0.7em;
+}
+#diamond {
+    margin-right: 0 !important;
+    display: none;
+}
+
+#footer-contact > a {
+    white-space: nowrap;
+    width: auto;
+}
+
 
 .footerlocation p {
     margin: 0;
@@ -342,6 +382,8 @@ table {
 .align-right{
     text-align: right;
 }
+
+
 
 @media screen and (min-width: 1000px) {
     * {
@@ -417,9 +459,14 @@ table {
         color: #ebe9e9;
     }
     .rightbanner > p {
-        font-size: 17px;
+        font-size: 14px;
         margin: 0;
         
+    }
+
+    #phonenumber {
+        margin-top: 2vh;
+        font-size: 22px;
     }
     
     .rightbanner > h5 > i {
@@ -569,7 +616,7 @@ table {
    .footer {
         z-index: 1;
         display: flex;
-        flex-direction: row;
+        flex-direction: column;
         justify-content: center;
         width: 100%;
         padding: 5px 0 5px 0;
@@ -579,22 +626,27 @@ table {
 
 
    .footer-location {
-        height: 50%;
+        height: auto;
         width: auto;
         display: flex;
         flex-direction: column;
-        justify-content: center;
-        align-items: flex-start;
+        justify-content: space-between;
+        align-items: stretch;
         margin-left: 6vw;
         white-space: nowrap;
    }
 
+   
+
    .footer-location > p {
        font-size: 12px;
        margin: 0;
-       margin-bottom: 4px !important;
+       /* margin-bottom: 4px !important; */
        text-align: left;
    }
+   .footer-location > p:last-child {
+    margin-bottom: 0;
+}
 
    #address {
        /* margin: 0; */
@@ -602,15 +654,18 @@ table {
    }
 
    .footer-logo {
+       /* height: 100%; */
+       height: auto;
         display: flex;
         justify-content: center;
         align-items: center;
+        width: auto;
     }
 
    .footer-logo > img {
        /* margin: 0 auto; */
-       height:75%;
-       width: 75%;
+       height:85%;
+       width: 85%;
    }
 
    .footer-hours {
@@ -627,8 +682,27 @@ table {
         color: black;
     }
 
-    .footer-map {
+    #diamond {
+        margin: 0 !important;
+        margin-right: 0.5vw !important;
+        margin-left: 0.5vw !important;
+       display: block;
+    }
 
+    .footer > img {
+        text-align: center;
+        width: 15%;
+        height: 7vh;
+        margin: 0 auto;
+        margin-bottom: 1vh;
+      }
+    
+    #footer-contact {
+        flex-direction: row;
+    }
+
+    #footer-contact > a, #footer-contact > p {
+        margin: 0;
     }
 
 }

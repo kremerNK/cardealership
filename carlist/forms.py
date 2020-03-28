@@ -9,7 +9,7 @@ class ContactForm(forms.Form):
         truck = 'Truck'
         suv = 'SUV'
         van = 'Van'
-    
+     
     contactOptions = (
         ('phone', 'Phone'), 
         ('email', 'Email'),) 
