@@ -25,7 +25,7 @@
         <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self'; 
         img-src 'self' https://*; 
         frame-src 'self';  
-        
+         
         script-src 'self' https://www.google.com/maps*; 
         "> -->
         <meta http-equiv="Content-Security-Policy" content="default-src *; style-src * 'unsafe-inline'; script-src * 'unsafe-inline' 'unsafe-eval'; 
@@ -70,22 +70,66 @@
         <div class='pagebody'>
             {% block content %}
             {% endblock %}
-        </div>
+        </div>  
 
         
         <footer class='footer'>
-
-            <p>New Franken Automotive 111 New Franken Street, New Franken, WI 54303 920-327-1111</p>
+            <div class='footer-logo'>
+                <img src="../../media/banner13footer.png" alt="">
+                
+            </div>
+            <div class='footer-location'>
+                <p id='phonenumber'><i height='10px' class="fas fa-phone fa-xs"></i> 920-111-1111</p>
+                <p style='margin-bottom: 5px' id='address'><i class="fas fa-map-marker-alt fa-sm"></i> 123 New Franken Street</p>
+                <p>New Franken, WI 54229</p>
+            </div>
+            <!-- <div class='footer-hours'>
+                <div class='hours'>
+                        
+                    <table>
+                        <tbody class='hours-tbody'>
+                            <tr>
+                                <th>Monday</th>
+                                <th class='align-right'>10:00 AM - 6:00 PM</th>
+                            </tr>
+                            <tr>
+                                <th>Tuesday</th>
+                                <th class='align-right'>10:00 AM - 6:00 PM</th>
+                            </tr>
+                            <tr>
+                                <th>Wednesday</th>
+                                <th class='align-right'>10:00 AM - 6:00 PM</th>
+                            </tr>
+                            <tr>
+                                <th>Thursday</th>
+                                <th class='align-right'>10:00 AM - 6:00 PM</th>
+                            </tr>
+                            <tr>
+                                <th>Friday</th>
+                                <th class='align-right'>10:00 AM - 6:00 PM</th>
+                            </tr>
+                            <tr>
+                                <th>Saturday</th>
+                                <th class='align-right'>10:00 AM - 4:00 PM</th>
+                            </tr>
+                            <tr>
+                                <th>Sunday</th>
+                                <th class='align-right'>CLOSED</th>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class='footer-map'>
+                <iframe class='mobilemap' src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2844.2577823252313!2d-88.06657844946585!3d44.53035410318387!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8802fa76eab7666b%3A0xc3d1722cc4ac5a6b!2s1659%20Christiana%20St%2C%20Green%20Bay%2C%20WI%2054303!5e0!3m2!1sen!2sus!4v1582054206480!5m2!1sen!2sus" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
+            </div>  
+             -->
         </footer>
-        
-      
-
-        {# Global javascript #}
+        <!-- {# Global javascript #} -->
         <script type="text/javascript" src="{% static 'js/base.js' %}"></script>
-       
         <script type='text/javascript' scr='/home/kremer/Documents/slick-1.8.1/slick/click.js'></script>
-        {% block extra_js %}
+        <!-- {% block extra_js %}
             {# Override this in templates to add extra javascript #}
-        {% endblock %}
+        {% endblock %} -->
     </body>
 </html> 

@@ -215,25 +215,40 @@ nav {
     width: 60%;
     height: 250%;
 }
+
+
  
 .bottom-banner {
     display: none;
 }
 
 .footer {
-    
+    height: 100%;
     padding: 15px 0 15px 0;
     left: 0;
     bottom: 0;
     width: 100%;
 
-    background-color: #333333;
+    background-color: #595959;
     color: white;
 
     display: flex;
-    flex-direction: column;
+    /* flex-direction: row; */
     justify-content: center;
   }
+
+  .footer-logo {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+  }
+
+  .footer-logo > img {
+    /* margin: 0 auto; */
+    height:75%;
+    width: 75%;
+}
+  
 
 .footer p {
     text-align: center;
@@ -265,6 +280,29 @@ nav {
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+.footer-logo {
+    width: 40%;
+    display: flex;
+    align-items: center;
+}
+
+.footer-logo > img {
+    width: 100%;
+}
+
+.footer-location {
+    /* margin-left: 2vh; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.footer-location > p {
+    margin: 0 !important;
+    /* text-align: left; */
 }
 
 .footerlocation p {
@@ -529,9 +567,69 @@ table {
     }
 
    .footer {
-       z-index: 1;
+        z-index: 1;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        width: 100%;
+        padding: 5px 0 5px 0;
+        /* margin-bottom: -50px; */
+
    }
+
+
+   .footer-location {
+        height: 50%;
+        width: auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        margin-left: 6vw;
+        white-space: nowrap;
+   }
+
+   .footer-location > p {
+       font-size: 12px;
+       margin: 0;
+       margin-bottom: 4px !important;
+       text-align: left;
+   }
+
+   #address {
+       /* margin: 0; */
+       /* margin-bottom: 4px !important; */
+   }
+
+   .footer-logo {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+   .footer-logo > img {
+       /* margin: 0 auto; */
+       height:75%;
+       width: 75%;
+   }
+
+   .footer-hours {
+       width: 30%;
+   }
+
+   .hours-tbody > tr > th {
+    color: black;
+    border-bottom: 1px dotted black;
+    font-size: 1.5rem;
+    }
     
+    .hours-tbody tr {
+        color: black;
+    }
+
+    .footer-map {
+
+    }
 
 }
  

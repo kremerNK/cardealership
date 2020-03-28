@@ -10,7 +10,7 @@ class ContactForm(forms.Form):
         suv = 'SUV'
         van = 'Van'
     
-    marcas = (
+    contactOptions = (
         ('phone', 'Phone'), 
         ('email', 'Email'),) 
  
@@ -18,10 +18,10 @@ class ContactForm(forms.Form):
     nameLast = forms.CharField(label='Last Name', max_length = 100)
     email = forms.CharField(label='Email', max_length = 100)
     phone = forms.CharField(label='Phone', max_length = 20)
-    contactBy = forms.ChoiceField(label='Contact By', choices=marcas)
+    contactBy = forms.ChoiceField(label='Contact By', choices=contactOptions)
     message = forms.CharField(max_length=4000, widget=forms.Textarea(attrs={'placeholder': 
     'Enter your message here and click submit below. Please verify that your contact \
-    information is accurate to ensure a response. Fields marked with * are required.', 
+information is accurate to ensure a response. Fields marked with * are required.', 
     })) 
  
  

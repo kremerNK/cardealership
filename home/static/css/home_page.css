@@ -48,7 +48,7 @@ p {
     justify-content: center;
     align-items: center;
     width: 100%;
-    margin: 10% 0 15vh 0;
+    margin: 10% 0 10vh 0;
    /* background-color: #2f74a3; */ 
 
 }
@@ -86,7 +86,7 @@ p {
 }
 
 .slides {
-    width: 77vw;
+    width: 75vw;
     height: 100% !important;
     display: flex !important;
     /* background-color: #2f74a3; */
@@ -163,7 +163,8 @@ p {
 }
 
 .search-form {
-    background-color: #2f74a3;
+     background-color: #2f74a3; 
+    /* background-color: #333; */
     width: 100%;
     margin: 10vh 0 10% 0;
     padding: 3vh;
@@ -232,13 +233,10 @@ p {
 
 
 #carsale {
-
+    margin-top: 5vh;
 }
 
 #carsale > img {
- 
-  
-    
     width: 100%;
     height: 100%;
     margin-bottom: 5vh;
@@ -300,6 +298,38 @@ p {
     border-width: 0 0 0 0
 }
 
+.intro-text{
+    margin-bottom: 5vh;
+}
+
+.intro-text > h2 {
+    margin: 0 auto;
+    text-align: center;
+    margin-bottom: 3vh;
+}
+
+.footer-logo {
+    width: 40%;
+    display: flex;
+    align-items: center;
+}
+
+.footer-logo > img {
+    width: 100%;
+}
+
+.footer-location {
+    /* margin-left: 2vh; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.footer-location > p {
+    margin: 0 !important;
+    /* text-align: left; */
+}
 
 @media screen and (min-width: 1024px) {
 
@@ -311,7 +341,7 @@ p {
     #slideshowcontainer {
         display: flex;
         justify-content: center;
-        width: 100%;
+        width: 99%;
         margin: 5% 0 5vh 0;
         /* background-color: #2f74a3; */
        
@@ -344,7 +374,7 @@ p {
     }
 
     .titlemiles {
-        background-color: #333333;
+        background-color: #595959;
         color: white;
         padding: 12px; 
         
@@ -384,23 +414,24 @@ p {
     .view-all-button {
   
         margin-top: 8vh;
-        height: 6vh;
-        width: 15vh;
+        /* height: 100%;
+        width: 100%; */
         
         text-align: center;
         display: flex;
         justify-content: center;
-        margin-bottom: 10vh;
+        margin-bottom: 4vh;
     }
     
     .view-all-button > button {
+        background-color: #2f74a3;
         height: auto;
         font-size: 22px;
         width: auto;
     }
     
     .view-all-button > button > a {
-        background-color: #2f74a3;
+
         color: white;
         height: 100%;
         width: auto;
@@ -409,6 +440,7 @@ p {
 
     .search-form {
         background-color: #2f74a3;
+        /* background-color: #333; */
         width: 100%;
         margin: 10vh 0 10vh 0;
         padding: 3vh;
@@ -437,32 +469,34 @@ p {
     }
 
     .submit > a > button {
-        background-color: #999999c2;
+        background-color: #acacac;
         color: white;
         border: none;
         font-size: 18px;
     }
 
     .intro {
-        width: 97%;
+        width: 95%;
         margin-left: 1.5%;
-        margin-right: 0;
-        padding-bottom: 10vh;
+        margin-right: 1.5%;
+        /* padding-bottom: 4vh; */
         border-bottom: 1px solid black;
         display: flex;
         margin-bottom: 5vh;
     }
 
-    .intro > p {
-        width: 75%;
+    .intro-text {
+        width: 80%;
         margin-left: 5%;
         margin-bottom: 10vh;
         margin-right: 3%;
         text-indent: 40px;
     }
-    .intro > h2 {
-        margin-left: 5%;
-        width: 90%;
+
+    .intro-text > h2 {
+        text-align: center;
+
+        text-indent: 0px;
     }
 
     .form > form > div > select {
@@ -472,11 +506,12 @@ p {
     #carsale {
         display: inline-block;
         margin-left: 3%;
-        width: 55%;
+        width: 50%;
     }
 
     #carsale > img {
         width: 100%;
+        height: 80%;
     }
 
     .introtitle {
