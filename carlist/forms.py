@@ -3,7 +3,7 @@ from django.db import models
 from captcha.fields import ReCaptchaField
 
 class ContactForm(forms.Form):
-    class contactType(models.TextChoices):
+    class contactType(models.TextChoices): 
         ##may need to alter these fields back to suv = '3', 'SUV'. 
         sedan = 'Sedan'
         truck = 'Truck'
@@ -11,13 +11,13 @@ class ContactForm(forms.Form):
         van = 'Van'
      
     contactOptions = (
-        ('phone', 'Phone'), 
-        ('email', 'Email'),) 
+        ('email', 'Email'), 
+        ('phone', 'Phone'),)  
  
     nameFirst = forms.CharField(label='First Name', max_length = 100) #add max lengths to form itself
     nameLast = forms.CharField(label='Last Name', max_length = 100)
     email = forms.CharField(label='Email', max_length = 100)
-    phone = forms.CharField(label='Phone', max_length = 20)
+    phone = forms.CharField(label='Phone', max_length = 12, widget=forms.TextInput(attrs={'placeholder': '(XXX) XXX-XXXX'}))
     contactBy = forms.ChoiceField(label='Contact By', choices=contactOptions)
     message = forms.CharField(max_length=4000, widget=forms.Textarea(attrs={'placeholder': 
     'Enter your message here and click submit below. Please verify that your contact \

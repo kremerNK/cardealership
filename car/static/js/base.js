@@ -13,11 +13,6 @@ const navbar = document.getElementById('navbar');
 const sticky = navbar.offsetTop; 
 const test1 = navbar.getBoundingClientRect();
 const topbanner = document.querySelector('.top-banner');
-console.log(topbanner.getBoundingClientRect());
-
-console.log(sticky);
-console.log(test1);
-
 
 
 function myFunction(){

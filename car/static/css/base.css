@@ -223,8 +223,8 @@ nav {
 }
 
 .footer {
-    height: 100%;
-    padding: 15px 0 15px 0;
+    height: 100%; 
+    padding: 15px 0 4px 0;
     left: 0;
     bottom: 0;
     width: 100%;
@@ -703,7 +703,10 @@ table {
 
     #footer-contact > a, #footer-contact > p {
         margin: 0;
+  
     }
-
+    .footer > div > p {
+        margin-bottom: 0;
+    }
 }
  

@@ -108,9 +108,19 @@ def contactSubmit(request):
 
             ##need to add alert on successful submission
             subject = 'New Inquiry' 
+            sender = 'nickstrauss@yahoo.com'
+            nameFirst = form.cleaned_data['nameFirst']
+            nameLast = form.cleaned_data['nameLast']
+            contactBy = form.cleaned_data['contactBy']
             
-            message = form.cleaned_data['message']
-            sender = form.cleaned_data['email']
+            if contactBy == 'phone':
+                contact = form.cleaned_data['phone']
+            elif contactBy == 'email':
+                contact = form.cleaned_data['email']
+            message = f"You have received a new message from {nameFirst} {nameLast}. \
+                \n \n {form.cleaned_data['message']}\
+                \n\n{nameFirst} has asked to be contacted by {contactBy}. Their {contactBy} is {contact}"
+            
        
             recipients = ['glycine775@gmail.com']
     
@@ -128,7 +138,7 @@ def contactSubmit(request):
             server.quit()
             return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
   
-    form = ContactForm()
+    form = ContactForm() 
     
     # server.quit()
     return HttpResponseRedirect('contact')
