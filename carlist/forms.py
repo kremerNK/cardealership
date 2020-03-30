@@ -17,7 +17,7 @@ class ContactForm(forms.Form):
     nameFirst = forms.CharField(label='First Name', max_length = 100) #add max lengths to form itself
     nameLast = forms.CharField(label='Last Name', max_length = 100)
     email = forms.CharField(label='Email', max_length = 100)
-    phone = forms.CharField(label='Phone', max_length = 12, widget=forms.TextInput(attrs={'placeholder': '(XXX) XXX-XXXX'}))
+    phone = forms.CharField(label='Phone')
     contactBy = forms.ChoiceField(label='Contact By', choices=contactOptions)
     message = forms.CharField(max_length=4000, widget=forms.Textarea(attrs={'placeholder': 
     'Enter your message here and click submit below. Please verify that your contact \

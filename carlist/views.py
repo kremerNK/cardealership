@@ -5,6 +5,7 @@ from django.core.paginator import Paginator
 from django.core import mail
 from django.core.mail import send_mail
 from django.contrib import messages
+from django.urls import reverse
 
 from .models import Vehicle
 from .forms import ContactForm, FormWithCaptcha
@@ -63,6 +64,51 @@ def vehiclePage(request, slug, pk):
     
     form = ContactForm() 
     captcha = FormWithCaptcha()
+
+    if request.method == 'POST':
+        username = 'glycine775@gmail.com'
+        password = 'knsjvowvflaoskoj'
+        server = smtplib.SMTP('smtp.gmail.com', 587)
+        server.ehlo()
+        server.starttls()
+        server.ehlo()
+        server.login(username, password)
+        form = ContactForm(request.POST) 
+        if form.is_valid(): 
+            messages.success(request, 'Message successfully sent')
+            subject = 'New Inquiry' 
+            sender = 'nickstrauss@yahoo.com'
+            nameFirst = form.cleaned_data['nameFirst']
+            nameLast = form.cleaned_data['nameLast']
+            contactBy = form.cleaned_data['contactBy']
+            
+            if contactBy == 'phone':
+                contact = form.cleaned_data['phone']
+            elif contactBy == 'email':
+                contact = form.cleaned_data['email']
+            message = f"You have received a new message from {nameFirst} {nameLast}. \
+                \n\n {form.cleaned_data['message']}\
+                \n\n Phone: {form.cleaned_data['phone']}\
+                \n Email: {form.cleaned_data['email']}\
+                \n\n{nameFirst} {nameLast} has asked to be contacted by {contactBy}."
+            
+        
+            recipients = ['glycine775@gmail.com']
+    
+            send_mail(subject, message, sender, recipients, fail_silently = False)
+
+            subject = 'We received your inquiry'
+            message = 'We will reply as soon as we can'
+       
+            recipients = [sender]
+
+            sender = 'glycine775@gmail.com'
+            print(recipients)
+            send_mail(subject, message, sender, recipients, fail_silently = False)
+            print('everything sent')
+            server.quit()
+   
+            return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
     
     
     context = {'vehicle': obj, 'form': form, 'captcha':captcha}
@@ -86,25 +132,7 @@ def contactSubmit(request):
     if request.method == 'POST': 
         form = ContactForm(request.POST)
         if form.is_valid():
-            ###captcha###
-            # recaptcha_response = request.POST.get('g-recaptcha-response')
-            # url = 'https://www.google.com/recaptcha/api/siteverify'
-            # values = {
-            #     'secret': '6Lehy-MUAAAAAG_NmXp_E-3esjbasnp3Tq2eU0Bn',
-            #     'response': recaptcha_response
-            # }
-            # data = urllib.parse.urlencode(values).encode()
-            # req =  urllib.request.Request(url, data=data)
-            # response = urllib.request.urlopen(req)
-            # result = json.loads(response.read().decode())
-            # ''' End reCAPTCHA validation '''
-
-            # if result['success']:
-            #     print('success')
-            #     messages.success(request, 'Your message was successfully sent!')
-            # else:
-            #     messages.error(request, 'Invalid reCAPTCHA. Please try again.')
-
+            
 
             ##need to add alert on successful submission
             subject = 'New Inquiry' 
@@ -118,8 +146,10 @@ def contactSubmit(request):
             elif contactBy == 'email':
                 contact = form.cleaned_data['email']
             message = f"You have received a new message from {nameFirst} {nameLast}. \
-                \n \n {form.cleaned_data['message']}\
-                \n\n{nameFirst} has asked to be contacted by {contactBy}. Their {contactBy} is {contact}"
+                \n\n {form.cleaned_data['message']}\
+                \n\n Phone: {form.cleaned_data['phone']}\
+                \n Email: {form.cleaned_data['email']}\
+                \n\n{nameFirst} {nameLast} has asked to be contacted by {contactBy}."
             
        
             recipients = ['glycine775@gmail.com']
@@ -136,17 +166,57 @@ def contactSubmit(request):
             send_mail(subject, message, sender, recipients, fail_silently = False)
             print('everything sent')
             server.quit()
-            return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
-  
-    form = ContactForm() 
-    
-    # server.quit()
+            return HttpResponseRedirect(reverse(request.META.get('HTTP_REFERER')))
+         
     return HttpResponseRedirect('contact')
 
 def contact(request):
     captcha = FormWithCaptcha()
-
     form = ContactForm()
+    if request.method == 'POST':
+        username = 'glycine775@gmail.com'
+        password = 'knsjvowvflaoskoj'
+        server = smtplib.SMTP('smtp.gmail.com', 587)
+        server.ehlo()
+        server.starttls()
+        server.ehlo()
+        server.login(username, password)
+        form = ContactForm(request.POST) 
+        if form.is_valid(): 
+            messages.success(request, 'Message successfully sent')
+            subject = 'New Inquiry' 
+            sender = 'nickstrauss@yahoo.com'
+            nameFirst = form.cleaned_data['nameFirst']
+            nameLast = form.cleaned_data['nameLast']
+            contactBy = form.cleaned_data['contactBy']
+            
+            if contactBy == 'phone':
+                contact = form.cleaned_data['phone']
+            elif contactBy == 'email':
+                contact = form.cleaned_data['email']
+            message = f"You have received a new message from {nameFirst} {nameLast}. \
+                \n\n {form.cleaned_data['message']}\
+                \n\n Phone: {form.cleaned_data['phone']}\
+                \n Email: {form.cleaned_data['email']}\
+                \n\n{nameFirst} {nameLast} has asked to be contacted by {contactBy}."
+            
+       
+            recipients = ['glycine775@gmail.com']
+    
+            send_mail(subject, message, sender, recipients, fail_silently = False)
+
+            subject = 'We received your inquiry'
+            message = 'We will reply as soon as we can'
+       
+            recipients = [sender]
+
+            sender = 'glycine775@gmail.com'
+            print(recipients)
+            send_mail(subject, message, sender, recipients, fail_silently = False)
+            print('everything sent')
+            server.quit()
+   
+            return HttpResponseRedirect(reverse('contact'))
 
     # context = {'form':form}        
     return render(request, 'contact.html', {'form':form, 'captcha':captcha})

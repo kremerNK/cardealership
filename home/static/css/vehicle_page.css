@@ -177,6 +177,16 @@ color: black;
     display: inline-block;
 }
 
+#message-success-div {
+    display: none
+}
+
+#message-success-div-mobile > p {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 3vh;
+    color: red;
+}
 
 @media screen and (min-width: 1000px) {
 
@@ -419,7 +429,12 @@ color: black;
         
     }
     
- 
+    #message-success-div > p{
+        display: flex;
+        justify-content: center;
+        margin-bottom: 3vh;
+        color: red;
+    }
   
     
 } 
