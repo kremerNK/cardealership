@@ -606,7 +606,7 @@ th {
     display: flex;
     justify-content: flex-start;
     align-items: flex-end;
-
+    font-weight: bold;
  
 }
 
@@ -915,5 +915,6 @@ th {
     #totalMatches {
         float: left !important;
         width: 100%;
+        font-weight: bold;
     }
 }

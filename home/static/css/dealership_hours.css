@@ -160,7 +160,7 @@ blockquote, dl, figure, form, ol, p, pre, table, ul {
 }
 
 .hours-tbody > tr > th {
-    color: black;
+    color: red;
     border-bottom: 1px dotted black;
 }
 

@@ -118,58 +118,6 @@ def hours(request):
  
     return render(request, 'dealership_hours.html')
 
-def contactSubmit(request):
-    print('test')
-    username = 'glycine775@gmail.com'
-    password = 'knsjvowvflaoskoj'
-    server = smtplib.SMTP('smtp.gmail.com', 587)
-    server.ehlo()
-    server.starttls()
-    server.ehlo()
-    server.login(username, password)
-
-
-    if request.method == 'POST': 
-        form = ContactForm(request.POST)
-        if form.is_valid():
-            
-
-            ##need to add alert on successful submission
-            subject = 'New Inquiry' 
-            sender = 'nickstrauss@yahoo.com'
-            nameFirst = form.cleaned_data['nameFirst']
-            nameLast = form.cleaned_data['nameLast']
-            contactBy = form.cleaned_data['contactBy']
-            
-            if contactBy == 'phone':
-                contact = form.cleaned_data['phone']
-            elif contactBy == 'email':
-                contact = form.cleaned_data['email']
-            message = f"You have received a new message from {nameFirst} {nameLast}. \
-                \n\n {form.cleaned_data['message']}\
-                \n\n Phone: {form.cleaned_data['phone']}\
-                \n Email: {form.cleaned_data['email']}\
-                \n\n{nameFirst} {nameLast} has asked to be contacted by {contactBy}."
-            
-       
-            recipients = ['glycine775@gmail.com']
-    
-            send_mail(subject, message, sender, recipients, fail_silently = False)
-
-            subject = 'We received your inquiry'
-            message = 'We will reply as soon as we can'
-       
-            recipients = [sender]
-
-            sender = 'glycine775@gmail.com'
-            print(recipients)
-            send_mail(subject, message, sender, recipients, fail_silently = False)
-            print('everything sent')
-            server.quit()
-            return HttpResponseRedirect(reverse(request.META.get('HTTP_REFERER')))
-         
-    return HttpResponseRedirect('contact')
-
 def contact(request):
     captcha = FormWithCaptcha()
     form = ContactForm()
