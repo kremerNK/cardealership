@@ -161,7 +161,7 @@ blockquote, dl, figure, form, ol, p, pre, table, ul {
 
 .hours-tbody > tr > th {
     color: red;
-    font-weight: bold;
+    font-weight: normal;
     border-bottom: 1px dotted black;
 }
 
