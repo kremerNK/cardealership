@@ -13,10 +13,6 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
 
-print('base')
-print('base')
-print('base')
-print('base')
 
 PROJECT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 BASE_DIR = os.path.dirname(PROJECT_DIR)
@@ -155,6 +151,7 @@ STATICFILES_DIRS = [
 STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.ManifestStaticFilesStorage'
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+# STATIC_URL = os.path.join(BASE_DIR, 'static/')
 STATIC_URL = '/static/'
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
