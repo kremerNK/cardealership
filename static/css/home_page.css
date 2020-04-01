@@ -1,0 +1,557 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.delete-test-div{
+    
+}
+
+p {
+    margin-bottom: 0;
+}
+
+.dealerbanner {
+    
+    height: 70vh;
+    width: 100%;
+}
+
+.dealerbanner > img { 
+    height: 100%;
+    width: 100%;
+    /* filter: blur(1px); */ 
+}
+
+.body {
+    margin-left: 5%;
+    margin-right: 5%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.body > h2 {
+    /* padding-top: 50px; */
+}
+
+.body > p {
+    padding: 10px;
+    padding-bottom: 4vh;
+    border-bottom: 1px solid black;
+}
+
+#slideshowcontainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin: 10% 0 10vh 0;
+   /* background-color: #2f74a3; */ 
+
+}
+
+.view-all-button {
+    margin-top: 8vh;
+    height: auto;
+    width: 100%;
+    text-align: center;
+ 
+}
+
+.view-all-button > button {
+    height: 100%;
+    width: 100%;
+    margin: 0 auto;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+}
+
+.view-all-button > button {
+    background-color: #2f74a3;
+    color: white;
+    height: 60%;
+    width: 40%;
+}
+
+.view-all-button > button > a {
+    color: white;
+    text-decoration: none;
+}
+
+.slides {
+    width: 75vw;
+    height: 100% !important;
+    display: flex !important;
+    /* background-color: #2f74a3; */
+    padding: 10px;
+}
+
+.slide {
+    height: 100%!important;
+    margin: 0 10px 0 10px;
+}
+
+.slide-price{
+    background-color: #2f74a3;
+    color: white;
+    padding: 6px 6px 6px 12px;
+    font-weight: bolder;
+}
+
+.dealership-image {
+    border-bottom-left-radius: 50% 10%;
+    border-bottom-right-radius: 50% 10%;
+}
+
+.titlemiles {
+    background-color: #333333;
+    color: white;
+    padding: 12px; 
+    
+
+ 
+}
+
+.titlemiles > a:first-child {
+    max-width: 98%;
+    text-transform: uppercase;
+    overflow: hidden; 
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-weight: lighter;
+    font-size: 17px;
+    letter-spacing: 1px;
+    margin-bottom: 3vh;
+    color: white;
+}
+
+.titlemiles > a > p:first-child {
+    max-width: 98%;
+    text-transform: uppercase;
+    overflow: hidden; 
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-weight: lighter;
+    font-size: 17px;
+    letter-spacing: 1px;
+    margin-bottom: 3vh;
+}
+.dealership-image {
+    border-bottom-left-radius: 50% 10%;
+    border-bottom-right-radius: 50% 10%;
+}
+
+.slide-vehicle-redirect {
+    text-align: center;
+    
+    background-color: #333333;
+}
+
+.slide-vehicle-redirect > a > button {
+    background-color: #2f74a3;
+    margin: 1em;
+    color: white;
+    border: none;
+    border-radius: 0px;
+}
+
+.search-form {
+     background-color: #2f74a3; 
+    /* background-color: #333; */
+    width: 100%;
+    margin: 10vh 0 10% 0;
+    padding: 3vh;
+}
+
+.form {
+    width: 100%;
+    /* text-align: center; */
+}
+
+.form > form{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    margin: 0 auto;
+    color: white;
+}
+
+.form > form > div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 1vh;
+}
+
+.form > form > div > select {
+    width: 90%;
+}
+
+.search-form > form {
+    height: auto;
+    width: auto;
+    display: flex;
+}
+
+.submit {
+    text-align: center;
+    margin-top: 2vh;
+}
+
+.submit > a > button {
+    background-color: #999999c2;
+    color: white;
+    border: none;
+    font-size: 18px;
+}
+
+.intro {
+    width: 100%;
+    margin-left: -2%;
+    margin-right: -2%;
+    text-align: left;
+    border-bottom: 1px solid black;
+}
+
+.intro > p {
+    width: 90%;
+    margin-left: 5%;
+    margin-bottom: 10vh;
+  
+}
+.intro > h2 {
+    margin-left: 5%;
+    width: 90%;
+}
+
+
+#carsale {
+    margin-top: 5vh;
+}
+
+#carsale > img {
+    width: 100%;
+    height: 100%;
+    margin-bottom: 5vh;
+}
+
+.introtitle {
+    width: auto;
+
+    text-align: center;
+    margin-left: -1%;
+    margin-right: -1%;
+    /* margin: 1vh auto; */
+    margin-bottom: 1vh;
+    padding: 2%;
+
+}
+
+#content {
+    position: relative;
+
+    width:90%;
+    height:auto;
+    left:0vw;
+    display: flex;
+    margin-bottom: 10%;
+    justify-content: center;
+}  
+
+#content:before, 
+#content:after, 
+#content>:last-child:before, 
+#content>:last-child:after {
+
+    width: 60px; 
+    height: 5vh;
+
+    border-color: #757575; 
+    border-style: solid;
+    content: ' ';
+}
+
+#content:before {
+    /* top: 10px;
+    left: 10px; */
+    border-width: 1px 0 0 1px
+}
+
+#content:after {
+    /* top: 10px;
+    right: 10px; */
+    border-width: 1px 1px 0 0
+}
+
+#content>:last-child:before {
+    border-width: 0 0px 0px 0
+}
+
+#content>:last-child:after {
+    border-width: 0 0 0 0
+}
+
+.intro-text{
+    margin-bottom: 5vh;
+}
+
+.intro-text > h2 {
+    margin: 0 auto;
+    text-align: center;
+    margin-bottom: 3vh;
+}
+
+
+
+@media screen and (min-width: 1024px) {
+
+    .body {
+        margin: 0; 
+   
+    }
+
+    #slideshowcontainer {
+        display: flex;
+        justify-content: center;
+        width: 99%;
+        margin: 5% 0 5vh 0;
+        /* background-color: #2f74a3; */
+       
+  
+    }
+
+    .slides {
+        width: 95%;
+        height: 100% !important;
+        display: flex !important;
+        /* background-color: #2f74a3; */
+        padding: 25px;
+        
+    }
+
+    .slide {
+        height: 100%!important;
+        margin: 0 10px 0 10px;
+    }
+    
+    /* .single-slide:hover{
+        box-shadow: 0px 0px 50px 7px gray;
+    } */
+
+    .slide-price{
+        background-color: #2f74a3;
+        color: white;
+        padding: 6px 6px 6px 12px;
+        font-weight: bolder;
+    }
+
+    .titlemiles {
+        background-color: #595959;
+        color: white;
+        padding: 12px; 
+        
+
+     
+    }
+
+    .titlemiles > a:first-child {
+        max-width: 98%;
+        text-transform: uppercase;
+        overflow: hidden; 
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        font-weight: lighter;
+        font-size: 17px;
+        letter-spacing: 1px;
+        margin-bottom: 3vh;
+        color: white;
+    }
+
+    .titlemiles > a > p:first-child {
+        max-width: 98%;
+        text-transform: uppercase;
+        overflow: hidden; 
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        font-weight: lighter;
+        font-size: 17px;
+        letter-spacing: 1px;
+        margin-bottom: 3vh;
+    }
+    .dealership-image {
+        border-bottom-left-radius: 50% 10%;
+        border-bottom-right-radius: 50% 10%;
+    }
+
+    .view-all-button {
+  
+        margin-top: 8vh;
+        /* height: 100%;
+        width: 100%; */
+        
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        margin-bottom: 4vh;
+    }
+    
+    .view-all-button > button {
+        background-color: #2f74a3;
+        height: auto;
+        font-size: 22px;
+        width: auto;
+    }
+    
+    .view-all-button > button > a {
+
+        color: white;
+        height: 100%;
+        width: auto;
+        font-size: 1.5rem;
+    }
+
+    .search-form {
+        background-color: #2f74a3;
+        /* background-color: #333; */
+        width: 100%;
+        margin: 10vh 0 10vh 0;
+        padding: 3vh;
+    }
+
+    .form {
+        width: 100%;
+    }
+
+    .form > form{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        color: white;
+    }
+
+    .search-form > form {
+        height: auto;
+        width: auto;
+        display: flex;
+    }
+
+    .submit {
+        text-align: center;
+        
+    }
+
+    .submit > a > button {
+        background-color: #acacac;
+        color: white;
+        border: none;
+        font-size: 18px;
+    }
+
+    .intro {
+        width: 95%;
+        margin-left: 1.5%;
+        margin-right: 1.5%;
+        /* padding-bottom: 4vh; */
+        border-bottom: 1px solid black;
+        display: flex;
+        margin-bottom: 5vh;
+    }
+
+    .intro-text {
+        width: 80%;
+        margin-left: 5%;
+        margin-bottom: 10vh;
+        margin-right: 3%;
+        text-indent: 40px;
+    }
+
+    .intro-text > h2 {
+        text-align: center;
+
+        text-indent: 0px;
+    }
+
+    .form > form > div > select {
+        width: 200px;
+    }
+
+    #carsale {
+        display: inline-block;
+        margin-left: 3%;
+        width: 50%;
+    }
+
+    #carsale > img {
+        width: 100%;
+        height: 80%;
+    }
+
+    .introtitle {
+        width: auto;
+        height: 15vh;
+        text-align: center;
+        margin-left: -1%;
+        margin-right: -1%;
+        /* margin: 1vh auto; */
+        /* margin-bottom: 2%; */
+        /* padding: 3%; */
+  
+    }
+
+	
+    #content {
+        position: relative;
+        height: auto;
+        width:75%;
+        /* height:25vh; */
+        /* left:12.5vw; */
+        display: flex;
+        margin-bottom: 7vh;
+        justify-content: center;
+    }
+    #content h2 {
+    
+    }  
+
+      
+
+    #content:before, 
+    #content:after, 
+    #content>:last-child:before, 
+    #content>:last-child:after {
+    
+        width: 60px; 
+        height: 40px;
+
+        border-color: #757575; 
+        border-style: solid;
+        content: ' ';
+    }
+    
+    #content:before {
+        /* top: 10px;
+        left: 10px; */
+        border-width: 1px 0 0 1px
+    }
+    
+    #content:after {
+        /* top: 10px;
+        right: 10px; */
+        border-width: 1px 1px 0 0
+    }
+    
+    #content>:last-child:before {
+        border-width: 0 0px 0px 0
+    }
+    
+    #content>:last-child:after {
+        border-width: 0 0 0 0
+    }
+} 

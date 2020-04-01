@@ -1,0 +1,440 @@
+p {
+    margin-bottom: 0;
+}
+
+.vehicle-page {
+    width: 90%;
+    margin-top: 20vh;
+    margin-left: 5%;
+} 
+
+ .vehicletitle {
+    color: black;
+    font-size: 7vw;
+ 
+    margin-bottom: 5vh;
+    width: 100%;
+    border-bottom: 1px solid #757575;
+    border-top: 1px solid #757575;
+    text-align: center;
+}
+ 
+.image {
+    width: 95%;
+    margin: 0 auto;
+    margin-bottom: 5vh;
+   
+}
+
+
+.price {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    font-size: 26px;
+    margin-bottom: 5vh;
+    margin-top: 0vh;
+}
+
+.price > div > p {
+    padding: 0vh 0 0vh 3vh;
+    color: black;
+}
+
+.price > div > p:first-child {
+    font-size: 16px;
+}
+
+.price > div {
+    width: 100%;
+    border-top: 1px solid #757575;
+    border-bottom: 1px solid #757575;
+
+}
+.price > div:first-child{
+    border-right: 1px solid #757575;
+}
+
+.table1 table tr  th:last-child, .table2 table tr  th:last-child {
+    text-align: right;
+}
+
+
+
+th {
+    color: black;
+}
+
+table, tr, th {
+   border-bottom: 1px solid black;
+}
+
+tr > th:first-child {
+   font-weight: bold;
+}
+tr > th:last-child {
+color: black;
+}
+
+.image-index p {
+    font-size: 12px;
+}
+
+.search-more  {
+    padding-top: 3vh;
+    padding-bottom: 3vh;
+    margin-bottom: 2vh;
+}
+
+
+.search-more > a > button {
+    background-color: #2f74a3;
+    color: white;
+    width: 100%;
+
+}
+
+.search-more > button {
+    background-color: #2f74a3;
+    color: white;
+    width: 100%;
+    margin-top: 4vh;
+}
+
+.contact-form {
+    display: none;
+} 
+
+.active-form {
+    height: auto;
+    display: block;
+    /* transition: all 1s ease-in; */
+    
+}
+
+.contact-form > form {
+    display: flex;
+    flex-direction: column; 
+}
+
+.contact-form > form > ul {
+    width: 100%;
+}
+.contact-form > form > ul > li {
+    width: 49%;
+    display: inline-block;
+}
+
+.contact-form > form > ul > li > input, .contact-form > form > ul > li > select {
+    border: 1px solid #333;
+}
+
+.contact-form > form > ul > li > * {
+    width: 100%;
+}
+
+.contact-form > form > textarea {
+    height: 25vh;
+    text-align: left;
+    border: 1px solid #333;
+} 
+
+.contact-form > form > input {
+    background-color: #2f74a3;
+    margin: 0 auto;
+    color: white;
+    width: 40%;
+}
+
+.contact-form > form {
+    display: flex;
+    flex-direction: column;
+}
+
+#id_captcha {
+    text-align: center;
+    margin: 0 auto ;
+    margin-bottom: 2vh;
+}
+
+.carousel-container {
+    width: 100%;
+    min-height: 0;
+    min-width: 0;
+}
+
+.slides {
+    width: 100%;
+
+    height: 100%;
+    display: inline-block;
+
+}
+
+.slides > img {
+    width: 100%;
+    height: 100%;
+    display: inline-block;
+}
+
+#message-success-div {
+    display: none
+}
+
+#message-success-div-mobile > p {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 3vh;
+    color: red;
+}
+
+@media screen and (min-width: 1000px) {
+
+     .vehicle-page {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        margin: 5% 0 2% 0;
+    }
+
+    .vehicle-title {
+        width: 100%;
+
+        display: flex;
+        flex-direction: center;
+        font-size: 32px;
+        
+    }
+
+    .image-details {
+        width: 100%;
+        display: flex;
+        padding: 1% 5% 1% 5%;
+      
+    } 
+
+    .image {
+        width: 40%;
+        margin: 0;
+        padding-bottom: 5vh;
+   
+        border-bottom: 1px solid #757575;
+    }
+
+    .carousel-container {
+        width: 100%;
+        min-height: 0;
+        min-width: 0;
+    }
+
+    .slides {
+        width: 100%;
+
+        height: 100%;
+        display: inline-block;
+
+    }
+
+    .slides > img {
+        width: 100%;
+        height: 100%;
+        display: inline-block;
+    }
+
+    .image > p {
+        color: black;
+        font-size: 26px;
+        margin-left: 3vh; 
+    } 
+
+    .vehicletitle {
+        color: black;
+        font-size: 26px;
+        margin-left: 0vh; 
+        width: 60%;
+        border-top: 1px solid #757575;
+        border-left: 1px solid #757575;
+        border-bottom: none;
+        padding-top: 1vh;
+        padding-left: 2vh;
+        text-align: left;
+    }
+    .image > img {
+        margin: 3vh 5vh 3vh 3vh;
+        width: auto;
+    }
+    .details {
+        display: flex;
+        flex-direction: column; 
+        border-bottom: 1px solid #757575;
+        width: 60%;
+    }
+
+    .price {
+        display: flex;
+        justify-content: space-evenly;
+        font-size: 26px;
+        margin-bottom: 5vh;
+        margin-left: 5vh;
+        margin-top: 0vh;
+    }
+
+    .price > div > p:first-child {
+        font-size: 16px;
+        padding-top: 2vh;
+    }
+
+    .price > div > p {
+        padding: 0vh 0 0vh 3vh;
+        color: black;
+    }
+
+    .price > div {
+        width: 100%;
+        border-top: 1px solid #757575;
+        border-bottom: 1px solid #757575;
+
+    }
+    .price > div:first-child{
+        border-right: 1px solid #757575;
+    }
+
+    .tables {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .table1 {
+   
+    }
+
+    .table1 > table > tbody > tr:hover {
+        background-color: #2f75a338;
+    }
+
+    .table1 > table > tbody > tr > th {
+        padding-left: 5px;
+        padding-right: 5px; 
+    }
+
+    .table1, .table2 {
+        width: 100%;
+    }
+
+  
+
+    .table1 table tr  th:last-child, .table2 table tr  th:last-child {
+        text-align: right;
+    }
+
+    th {
+        color: black;
+    }
+
+   table, tr, th {
+       border-bottom: 1px solid black;
+   }
+
+   tr > th:first-child {
+       font-weight: bold;
+   }
+   tr > th:last-child {
+    color: black;
+    }
+    .cardetails {
+        margin-left: 5vh;
+    }
+
+    .dealercontact {
+        margin-left: 5vh;
+    }
+
+    .image-index p {
+        font-size: 12px;
+    }
+
+    .search-more {
+        margin: 0;
+        display: flex;
+        justify-content: space-around;
+        padding-bottom: 5%;
+        padding-top: 5%;
+    }
+
+
+    .search-more > a {
+        width: 35%
+    }
+
+    .search-more > a > button {
+        background-color: #2f74a3;
+        color: white;
+        width: 100%;
+    }
+    .search-more > button {
+        background-color: #2f74a3;
+        color: white;
+        width: 35%;
+        margin-top: 0;
+    } 
+
+    .contact-form {
+        margin-left: 5vh;
+        height: 0px;
+        overflow: hidden;
+        transition: all 0.3s ease-in;
+        /* display: none; */
+  
+    }
+
+  
+    .contact-form > form {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .contact-form > form > ul {
+        width: 100%;
+    }
+    .contact-form > form > ul > li {
+        width: 49%;
+        display: inline-block;
+     
+    }
+
+
+    
+    .contact-form > form > ul > li > * {
+        width: 100%;
+    }
+
+    .contact-form > form > textarea {
+        height: 25vh;
+        text-align: left;
+    }
+
+    .contact-form > form > button {
+        background-color: #2f74a3;
+        color: white;
+
+    }
+
+    .active-form {
+        height: 100%;
+        max-height: 200vh;
+        overflow: hidden;
+        /* display: block; */
+        transition: all 0.3s ease-in;
+        
+    }
+    
+    #message-success-div > p{
+        display: flex;
+        justify-content: center;
+        margin-bottom: 3vh;
+        color: red;
+    }
+  
+    
+} 
