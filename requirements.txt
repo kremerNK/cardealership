@@ -2,7 +2,5 @@
 # wagtail>=2.8,<2.9
 
 django
-gunicorn
-django-heroku
 wagtail
 django-recaptcha
