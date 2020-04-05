@@ -3,4 +3,5 @@
 
 django
 wagtail
-django-recaptchapython-dotenv
+django-recaptcha
+python-dotenv
