@@ -8,7 +8,8 @@ SECRET_KEY = os.environ['DJANGO_SECRET_KEY']
 
 
 # SECURITY WARNING: define the correct hosts in production!
-ALLOWED_HOSTS = ['192.168.0.4', 'localhost'] 
+ALLOWED_HOSTS = ['192.168.0.4', 'localhost', 'straussweb.pythonanywhere.com']
+
 
 # EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend' 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
