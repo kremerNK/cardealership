@@ -166,6 +166,7 @@ blockquote, dl, figure, form, ol, p, pre, table, ul {
 }
 
 @media screen and (min-width: 700px) { 
+
     .direction {
         display: flex;
         flex-direction: row;
