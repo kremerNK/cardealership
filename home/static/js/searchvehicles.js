@@ -556,6 +556,16 @@ let searchBar = document.querySelector('.searchbar');
 let searchResults = document.querySelector('.searchresults');
 let hidePagination = document.querySelector('.pagination');
 showFilter.addEventListener('click', function(){
+    let mobileSortDiv = document.querySelector('.mobile-sort-div');
+    let searchBarMargin = document.querySelector('.searchbar');
+    let displayFilter = document.querySelector('.displayFilter');
+    let leftBannerHeight = document.querySelector('.leftbanner').getBoundingClientRect().height
+    let mobilePhoneHeight = document.querySelector('.mobile-phone').getBoundingClientRect().height
+    let body = document.querySelector('.body');
+    body.style.paddingBottom = '0px';
+    displayFilter.style.marginTop = '0px';
+    searchBarMargin.style.marginTop = (leftBannerHeight + mobilePhoneHeight).toString().concat('px');
+    mobileSortDiv.style.display = 'none';
     searchResults.style.display = 'none';
     searchBar.style.display = 'flex';
     showFilter.style.display = 'none';
@@ -564,10 +574,30 @@ showFilter.addEventListener('click', function(){
 
 let hideFilter = document.querySelector('#hideFilter');
 hideFilter.addEventListener('click', function(){
+    let mobileSortDiv = document.querySelector('.mobile-sort-div');
+    let body = document.querySelector('.body');
+    let paginationDiv = document.querySelector('.pagination-container');
+    let totalMatches = document.querySelector('#totalMatches');
+    console.log(totalMatches.innerHTML[0]);
+    if (totalMatches.innerHTML[0] != '0'){
+        console.log('nonzero');
+        
+        paginationDiv.style.display = '';
+    } else {
+        console.log('zero');
+        
+        paginationDiv.style.display = 'none';
+
+    }
+    body.style.paddingBottom = '5%';
+    displayFilter.style.marginTop = (topHeight * 1.15).toString().concat('px');
+    mobileSortDiv.style.display = '';
     searchResults.style.display = 'flex';
     searchBar.style.display = 'none';
     showFilter.style.display = '';
     hidePagination.style.display = '';
+
+
 })
 
 //////sticky side search bar////////////////////
@@ -582,7 +612,7 @@ let x = window.matchMedia("(min-width: 1000px)");
 window.addEventListener('scroll', stickSearch);
 
 function stickSearch(){
-    if (window.matchMedia("(min-width: 1000px)").matches == false){console.log('mediamatch')}
+    if (window.matchMedia("(min-width: 1000px)").matches == false){}
     else if (window.pageYOffset >= stickBar){
 
         searchBarSticky.classList.add('stickBar');
@@ -827,9 +857,6 @@ function nextPage()
     
 function changePage(page, boolean)
 {
-    console.log('changepage run');
-    
-    
     if (boolean != ''){
         page = 1;
         current_page = 1;
@@ -848,10 +875,20 @@ function changePage(page, boolean)
     if (page < 1) page = 1;
     if (page > numPages()) page = numPages();
     allNodes = sortVehicles();
+    if (allNodes.length == 0){
+        let paginationDiv = document.querySelector('.pagination');
+        paginationDiv.style.display = 'none';
+    } 
+    else {
+        let paginationDiv = document.querySelector('.pagination');
+        paginationDiv.style.display = '';
+    }
     listing_table.innerHTML = "";
     let totalMatches = document.querySelectorAll('#totalMatches');
     totalMatches[0].innerHTML = allNodes.length.toString().concat(' matches')
     totalMatches[1].innerHTML = allNodes.length.toString().concat(' matches')
+    
+
     for (var i = (page-1) * records_per_page; i < (page * records_per_page); i++) {
         if (typeof allNodes[i] == 'undefined'){
        
@@ -863,6 +900,7 @@ function changePage(page, boolean)
     }
     totalPage.innerHTML = Math.ceil(allNodes.length / records_per_page);
     page_span.innerHTML = page;
+    
 
     if (page == 1) {
         btn_prev.style.visibility = "hidden";     
@@ -881,10 +919,5 @@ function numPages()
 {
     return Math.ceil(allNodes.length / records_per_page);
 }
-
-// window.onload = function() {
-//     changePage(1, '');
-// };
-
 
 
