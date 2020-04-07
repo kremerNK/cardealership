@@ -28,38 +28,27 @@ def home(request):
     context = {'randomVehicles':randomVehicles, 'vehicles':allVehicles, 'makeOptions':makeOptions}
     return render(request, 'home_page.html', context)
 
-# @csrf_exempt
-def searchVehicle(request):
 
+def searchVehicle(request):
     makeList = [x for x in set(Vehicle.objects.values_list('make', flat=True)) if x != '']
     allVehicles = Vehicle.objects.all()
     makeOptions = [x for x in set(Vehicle.objects.values_list('carType', flat=True)) if x != '']
     modelList = [x for x in set(Vehicle.objects.values_list('model', flat=True)) if x != '']
     
-  
-     
-    
     if request.method=="POST" or request.method=="GET" and request.is_ajax():
         print('ajax') 
         print(json.loads(request.body))
         allVehicles = Vehicle.objects.all()
-        context = {'vehicles':allVehicles[0]}
-
-      
+        context = {'vehicles':allVehicles[0]}      
         return render(request, 'searchvehicles.html', context)
 
-    
     context = {'makeList':makeList, 'vehicle':allVehicles, 'makeOptions':makeOptions, 'modelList':modelList}
-    
-    
- 
     return render(request, 'searchvehicles.html', context)
 
 def vehiclePage(request, slug, pk):
     obj = get_object_or_404(Vehicle, pk=int(pk), slug=str(slug))
     # obj = get_object_or_404(Vehicle, pk=int(pk))
     vehicle = Vehicle.objects.all()[2]
-    
     form = ContactForm() 
     captcha = FormWithCaptcha()
 
@@ -75,11 +64,10 @@ def vehiclePage(request, slug, pk):
         if form.is_valid(): 
             messages.success(request, 'Message successfully sent')
             subject = 'New Inquiry' 
-            sender = 'nickstrauss@yahoo.com'
+            # sender = 'nickstrauss@yahoo.com'
             nameFirst = form.cleaned_data['nameFirst']
             nameLast = form.cleaned_data['nameLast']
             contactBy = form.cleaned_data['contactBy']
-            
             if contactBy == 'phone':
                 contact = form.cleaned_data['phone']
             elif contactBy == 'email':
@@ -89,17 +77,11 @@ def vehiclePage(request, slug, pk):
                 \n\n Phone: {form.cleaned_data['phone']}\
                 \n Email: {form.cleaned_data['email']}\
                 \n\n{nameFirst} {nameLast} has asked to be contacted by {contactBy}."
-            
-        
             recipients = ['glycine775@gmail.com']
-    
             send_mail(subject, message, sender, recipients, fail_silently = False)
-
             subject = 'We received your inquiry'
             message = 'We will reply as soon as we can'
-       
             recipients = [sender]
-
             sender = 'glycine775@gmail.com'
             print(recipients)
             send_mail(subject, message, sender, recipients, fail_silently = False)

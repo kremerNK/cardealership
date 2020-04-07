@@ -5,14 +5,44 @@ let topHeight = document.querySelector('.top-banner').getBoundingClientRect().he
 displayFilter.style.marginTop = (topHeight * 1.15).toString().concat('px');
 sortDiv.style.width = document.querySelector('.vehicleCard').getBoundingClientRect().width.toString().concat('px');
 sortDiv.style.marginRight = (document.querySelector('.sort').getBoundingClientRect().left - 
-    document.querySelector('.vehicleCard').getBoundingClientRect().left).toString().concat('px');
+document.querySelector('.vehicleCard').getBoundingClientRect().left).toString().concat('px');
+
+
+/////get max price for nouislider///
+let vehicleInfo = document.querySelectorAll('.vehicle-price');
+let priceList = []
+for (i=0; i < vehicleInfo.length; i++){
+
+    priceList.push(parseInt(vehicleInfo[i].innerHTML.replace(/\D/g, '')))
+    
+}
+
+function roundNumPrice(num){
+    return Math.ceil(num / 5000) * 5000;
+}
+
+maxPrice = roundNumPrice(Math.max(...priceList));
+
+
+////get max mileage for nouislider////////
+
+let vehicleMileage = document.querySelectorAll('#mileageId');
+let mileageList = [];
+for (i=0; i < vehicleMileage.length; i++){
+    mileageList.push(parseInt(vehicleMileage[i].innerHTML.replace(/\D/g, '')))
+}
+
+function roundNumMileage(num){
+    return Math.ceil(num / 50000) * 50000;
+}
+
+maxMileage = roundNumMileage(Math.max(...mileageList));
+console.log(maxMileage)
+
 //////////////////////////model filter with session value from home page////////////////////////////////////
 
 function modelSelectChange(){
-    console.log('hit model select change');
-    
     sessionStorage.setItem('model', document.querySelector('#modelFilter').value);
-    // filterVehicles();
 }
  
 function modelSession(){
@@ -34,14 +64,14 @@ function priceMaxHandle(){
     
     if (sessionStorage.getItem('maxPrice')){
         if (sessionStorage.getItem('maxPrice') == 'any'){
-            return 40000;
+            return maxPrice;
         } else {
             return parseInt(sessionStorage.getItem('maxPrice'));
         }
         
     } else {
     
-        return 40000;
+        return maxPrice;
     }
 }
 let slideMaxValue = priceMaxHandle()
@@ -93,7 +123,7 @@ function mileageSessionMax(){
     if (sessionStorage.getItem('maxMileage')){
         return parseInt(sessionStorage.getItem('maxMileage'));
     } else {
-        return 250000;
+        return maxMileage;
     }
 }
 let mileageSessionValueMax = mileageSessionMax();
@@ -238,8 +268,6 @@ function setVehiclePPSession(){
     
 }
 
-
-
 // //////////////////type style propagate search to next page/////////////////////
 
 // function TypeSession(){
@@ -284,12 +312,12 @@ let slider = noUiSlider.create(regularSlider, {
     // tooltip for handle 1 and handle 2
     tooltips: [dollarPrefixFormat, dollarPrefixFormat],
     pips: {
-        mode: 'steps',
+        mode: 'steps', 
         density: 1,
         format: dollarPrefixFormat
     },
     // start and end point of the slider - we are going to calculate that later based on a set of items
-    range: {min: 1, max: 40000}
+    range: {min: 1, max: maxPrice}
     
 })
 
@@ -351,7 +379,7 @@ let mileage = noUiSlider.create(mileageSlider, {
         format: mileagePrefixFormat
     },
     // start and end point of the slider - we are going to calculate that later based on a set of items
-    range: {min: 1, max: 250000}
+    range: {min: 1, max: maxMileage}
 })
 
 let bottomSliderMileage = document.getElementsByClassName('noUi-tooltip')[2];
@@ -838,7 +866,7 @@ function nextPage()
     
 function changePage(page, boolean)
 {
-    console.log('changepage run');
+
     if (boolean != ''){
         page = 1;
         current_page = 1;
@@ -878,16 +906,13 @@ function changePage(page, boolean)
             pageSort = findAncestor2(bothSorts[i], val)
             // console.log(findAncestor2(bothSorts[i], '.sort-hide-mobile'));
             if (pageSort != null){
-                console.log('not null');
-                console.log(pageSort);
-                console.log(pageSort.querySelector('#sort').value);
+
                 sortValue = pageSort.querySelector('#sort').value;
             }
             
         }
     }
-    console.log(web);
-    console.log(mobile);
+
     
     if (web != 'none'){
         value = 'sort-hide-mobile';
@@ -949,15 +974,19 @@ function changePage(page, boolean)
     
 
     if (page == 1) {
-        btn_prev.style.visibility = "hidden";     
+        // btn_prev.style.visibility = "hidden";
+        btn_prev.style.display = 'none';     
     } else {
-        btn_prev.style.visibility = "visible";
+        // btn_prev.style.visibility = "visible";
+        btn_prev.style.display = '';
     }
 
     if (page == numPages()) {
-        btn_next.style.visibility = "hidden";
+        // btn_next.style.visibility = "hidden";
+        btn_next.style.display = 'none';
     } else {
-        btn_next.style.visibility = "visible"; 
+        // btn_next.style.visibility = "visible"; 
+        btn_next.style.display = '';
     }
 }
 
