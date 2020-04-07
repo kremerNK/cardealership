@@ -923,4 +923,7 @@ th {
         width: 100%;
         font-weight: bold;
     }
+    .mobile-sort-div {
+        display: none;
+    }
 }

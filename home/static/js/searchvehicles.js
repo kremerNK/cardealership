@@ -1,3 +1,4 @@
+
 let sortDiv = document.querySelector('.sort');
 let displayFilter = document.querySelector('.displayFilter');
 let topHeight = document.querySelector('.top-banner').getBoundingClientRect().height + document.querySelector('.mobile-phone').getBoundingClientRect().height
@@ -233,6 +234,8 @@ function setSortSession(){
 
 function setVehiclePPSession(){
     sessionStorage.setItem('vehiclePP', document.querySelector('#vehicle-pp').value)
+    console.log('pp session');
+    
 }
 
 
@@ -499,55 +502,51 @@ function filterVehicles(){
 //js for search carets/////////////////////
 
 function findAncestor(e1, findClass){
-    while (e1.parentNode) {
-       
-        if (e1.className == 'search'){
-            return e1
-        }
-        
-        e1 = e1.parentNode;
 
-        
-        if (e1.classList.contains('search')){
-            return e1
-        } 
+    while (e1.parentNode) {
+       //'search' for compared object
         // if (e1.className == 'search'){
+        //     console.log(e1.className);
+            
         //     return e1
         // }
+        e1 = e1.parentNode;  
+        console.log(e1)   
+        if (e1.classList.contains(findClass)){
+            return e1
+        } 
     } 
 }
 
-let testCard = document.querySelector('.vehicleCard');
+function findAncestor2(el, cls){
 
+    
+    while ((el = el.parentElement) && !el.classList.contains(cls));
+
+    
+    return el;
+}
+
+let testCard = document.querySelector('.vehicleCard');
 let caret = document.querySelectorAll('#leftcaret');
 searchSection = document.querySelectorAll('#dropDownTarget')
 
 function displaySection(){
     let section = findAncestor(this, 'search')
-
-    
     let dropDown = section.querySelector('.dropDown');
     let caret = section.querySelector('#leftcaret');
-
-    
     if (dropDown.classList.contains('display')){
-        
         dropDown.classList.toggle('display');
         dropDown.style.cursor = 'pointer';
         caret.classList.remove('fa-angle-down');
         caret.classList.add('fa-angle-left');
     } else {
         dropDown.classList.toggle('display')
-        // dropDown.style.display = 'block';
         dropDown.style.cursor = 'auto';
         caret.classList.remove('fa-angle-left');
         caret.classList.add('fa-angle-down');
-        
-        // dropDown.style.display = 'none';
-        
     }
 }
-
 searchSection.forEach(e1 => e1.addEventListener('click', displaySection));
 //////////////////////////filter vehicle cards on mobile////////////////
 
@@ -580,12 +579,8 @@ hideFilter.addEventListener('click', function(){
     let totalMatches = document.querySelector('#totalMatches');
     console.log(totalMatches.innerHTML[0]);
     if (totalMatches.innerHTML[0] != '0'){
-        console.log('nonzero');
-        
         paginationDiv.style.display = '';
     } else {
-        console.log('zero');
-        
         paginationDiv.style.display = 'none';
 
     }
@@ -596,8 +591,6 @@ hideFilter.addEventListener('click', function(){
     searchBar.style.display = 'none';
     showFilter.style.display = '';
     hidePagination.style.display = '';
-
-
 })
 
 //////sticky side search bar////////////////////
@@ -621,10 +614,6 @@ function stickSearch(){
         stickyBarWidth = searchBarSticky.offsetWidth.toString().concat('px');
         matchingVW = '3vw'
         searchResults.style.marginLeft = `calc(${stickyBarWidth} + ${matchingVW})`;
-
-
-
-        
     } else {
         searchResults.style.marginLeft = '3vw';
         searchResults.style.width = '70vw';
@@ -632,14 +621,10 @@ function stickSearch(){
     }
 }
  
-
 window.addEventListener('load', function(){
         footer = document.querySelector('.footer');
         searchBarSize = document.querySelector('.searchbar');
-        
-
 })
-
 
 document.onscroll = function(){
     let searchBound = searchBarSize.getBoundingClientRect();
@@ -647,20 +632,13 @@ document.onscroll = function(){
     let height = (window.pageYOffset + window.innerHeight) - footBound.height
     let dropDown = document.querySelector('.dropDownContainer').querySelectorAll('.search');
     let lastDropDown = dropDown[dropDown.length - 1]
-    // .querySelector('.dropDown')
- 
+
     if ((searchBound.bottom) >= footBound.top){
-
-        
         lastDropDown.style.marginBottom = (footBound.height * 1).toString().concat('px');
-        
-
     } else {
         lastDropDown.style.marginBottom = '0px';
     }
 }
-
-
 
 function cardHighlightIn(card){
     let moreInfo = card.querySelector('.moreInfo');
@@ -671,7 +649,6 @@ function cardHighlightIn(card){
     topVehicleCard.style.backgroundColor = '#2f75a338';
     card.style.transition = "border 0.1s ease";
     card.style.border = "1px solid black";
-  
 }
  
 function cardHighlightOut(card){
@@ -684,17 +661,20 @@ function cardHighlightOut(card){
     card.style.transition = "border 0.1s ease";
     card.style.border = "";
 } 
-
+ 
 ////////////////vehicle per page and sort page///////////////
-let vehiclePP = document.querySelector('#vehicle-pp');
-let sort = document.querySelector('#sort');
-vehiclePP.addEventListener('change', function(){
+let vehiclePP = document.querySelectorAll('#vehicle-pp');
+let sort = document.querySelectorAll('#sort');
+vehiclePP.forEach(e1 => e1.addEventListener('change', function(){
+    console.log('vehiclepp hit');
+    whichVehiclePP = e1;
     changePage(1, '');
-});
+}));
 
-sort.addEventListener('change', function(){
+sort.forEach(e1 => e1.addEventListener('change', function(){
+    sortVehicle = e1;
     changePage(1,'');
-});
+}));
 
 function AZ(val){
 
@@ -760,7 +740,7 @@ function LoHi(val){
     return allNodes.sort(compare);
 }
 
-function ON(val){
+function NO(val){
 
     function compare(a,b){
         var bandA = parseInt(a.querySelector('.vehicleYear').innerHTML.substring(1,5));
@@ -776,7 +756,7 @@ function ON(val){
     return allNodes.sort(compare);
 }
 
-function NO(val){
+function ON(val){
 
     function compare(a,b){
         var bandA = parseInt(a.querySelector('.vehicleYear').innerHTML.substring(1,5));
@@ -794,7 +774,8 @@ function NO(val){
 }
 
 function sortVehicles(){
-
+ 
+    
     if (allNodes.length == 0){
         return allNodes
     }
@@ -857,13 +838,74 @@ function nextPage()
     
 function changePage(page, boolean)
 {
+    console.log('changepage run');
     if (boolean != ''){
         page = 1;
         current_page = 1;
     } 
     allNodes = filterVehicles();
-    vehiclePPValue = (sessionStorage.getItem('vehiclePP') === 'default') ? 3 : parseInt(document.querySelector('#vehicle-pp').value)
-    sortValue = document.querySelector('#sort').value;
+
+    
+    if (typeof whichVehiclePP !== 'undefined'){
+        if (isNaN(whichVehiclePP.value)){
+            vehiclePPValue = 3
+        } else {
+            vehiclePPValue = parseInt(whichVehiclePP.value)
+        }
+    } else {
+        vehiclePPValue = 3;
+    }
+
+    // vehiclePPValue = (sessionStorage.getItem('vehiclePP') === 'default') ? 3 : parseInt(document.querySelector('#vehicle-pp').value)
+
+    // sortValue = document.querySelector('#sort').value;
+    test = document.querySelector('.mobile-sort-div');
+    test2 = document.querySelector('.sort-hide-mobile');
+    // console.log(test.id);
+    // console.log(test2.id);
+    
+    
+    // find ancestor to differentiate between sort divs
+    bothSorts = document.querySelectorAll('#sort');
+
+    
+    
+    let web = window.getComputedStyle(document.querySelector('.sort-hide-mobile')).display
+    let mobile = window.getComputedStyle(document.querySelector('.mobile-sort-div')).display
+    function getSortValue(val){
+        for (i=0; i < bothSorts.length; i++){
+
+            pageSort = findAncestor2(bothSorts[i], val)
+            // console.log(findAncestor2(bothSorts[i], '.sort-hide-mobile'));
+            if (pageSort != null){
+                console.log('not null');
+                console.log(pageSort);
+                console.log(pageSort.querySelector('#sort').value);
+                sortValue = pageSort.querySelector('#sort').value;
+            }
+            
+        }
+    }
+    console.log(web);
+    console.log(mobile);
+    
+    if (web != 'none'){
+        value = 'sort-hide-mobile';
+    } else if (mobile != 'none'){
+        value = 'mobile-sort-div';
+    }
+    getSortValue(value)
+    // sortValue2 = function(){
+    //     if (web.display != 'none'){
+    //         console.log('using web');
+            
+        
+    //     } else if (mobile.display != 'none'){
+    //         console.log('using mobile');
+            
+    //     }
+    // } 
+    
     records_per_page = vehiclePPValue;
     var btn_next = document.getElementById("btn_next");
     var btn_prev = document.getElementById("btn_prev");
@@ -874,7 +916,11 @@ function changePage(page, boolean)
     // Validate page 
     if (page < 1) page = 1;
     if (page > numPages()) page = numPages();
+
+    
     allNodes = sortVehicles();
+
+    
     if (allNodes.length == 0){
         let paginationDiv = document.querySelector('.pagination');
         paginationDiv.style.display = 'none';
