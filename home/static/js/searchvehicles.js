@@ -14,7 +14,7 @@ function modelSelectChange(){
     sessionStorage.setItem('model', document.querySelector('#modelFilter').value);
     // filterVehicles();
 }
-
+ 
 function modelSession(){
 
         if (sessionStorage.getItem('model')){
