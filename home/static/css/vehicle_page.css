@@ -57,9 +57,12 @@ p {
 
 .table1 table tr  th:last-child, .table2 table tr  th:last-child {
     text-align: right;
+    font-weight: normal;
 }
 
+.table1 > table > tbody > tr:last-child {
 
+}
 
 th {
     color: black;
