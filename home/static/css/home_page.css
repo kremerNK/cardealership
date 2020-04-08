@@ -308,7 +308,11 @@ p {
     margin-bottom: 3vh;
 }
 
-
+/* .blue {
+    width: 100%;
+    background-color: #2f74a3;
+    height: 10vh;
+} */
 
 @media screen and (min-width: 1024px) {
 

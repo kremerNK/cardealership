@@ -37,7 +37,6 @@ function roundNumMileage(num){
 }
 
 maxMileage = roundNumMileage(Math.max(...mileageList));
-console.log(maxMileage)
 
 //////////////////////////model filter with session value from home page////////////////////////////////////
 
@@ -60,8 +59,6 @@ modelSelection.value = modelSession()
 /////////////////////////////////price min max propagate search to next page//////////////////////////////////////////////////////////////
 
 function priceMaxHandle(){
-    // console.log('priceMaxHandle');
-    
     if (sessionStorage.getItem('maxPrice')){
         if (sessionStorage.getItem('maxPrice') == 'any'){
             return maxPrice;
@@ -151,13 +148,7 @@ function yearMinPageLoad(){
 document.querySelector('#selectYearMin').value = yearMinPageLoad();
 
 function yearSessionMax(){
-    console.log('yearsessionMax()');
-    console.log(document.querySelector('#selectYearMin').value);
-    
     sessionStorage.setItem('yearMax', document.querySelector('#selectYearMax').value)
-
-    console.log(sessionStorage.getItem('yearMax'));
-    console.log(document.querySelector('#selectYearMin').value);
     
     if (parseInt(sessionStorage.getItem('yearMax')) < parseInt(document.querySelector('#selectYearMin').value)){
         sessionStorage.setItem('yearMax', document.querySelector('#selectYearMin').value)
@@ -180,24 +171,16 @@ document.querySelector('#selectYearMax').value  = yearMaxPageLoad();
 ////////////////fuel efficiency propagate search to next page/////////////////////
 
 function fuelSession(){
-    console.log('fuelsession()');
-    
     if (sessionStorage.getItem('fuel')){
-        console.log('fuel session exists');
-        
         sessionStorage.setItem('fuel', document.querySelector('#fuelEfficiencyFilter').value)
         return sessionStorage.getItem('fuel')
     } else {
-        console.log('fuel session does not exist');
-        
         sessionStorage.setItem('fuel', document.querySelector('#fuelEfficiencyFilter').value)
         return sessionStorage.getItem('fuel');
     }
 }
 
 function fuelFilterPageLoad(){
-  
-    
     if (!sessionStorage.getItem('fuel')){
         return 'any';
     } else {
@@ -209,16 +192,10 @@ document.querySelector('#fuelEfficiencyFilter').value = fuelFilterPageLoad()
 ////////////////body style propagate search to next page/////////////////////
 
 function bodySession(){
-    console.log('bodysession()');
-    
     if (sessionStorage.getItem('type')){
-        console.log('body session exists');
-        
         sessionStorage.setItem('type', document.querySelector('#bodyStyleFilter').value)
         return sessionStorage.getItem('type')
     } else {
-        console.log('body session does not exist');
-        
         sessionStorage.setItem('type', document.querySelector('#bodyStyleFilter').value)
         return sessionStorage.getItem('type');
     }
@@ -240,9 +217,7 @@ document.querySelector('#bodyStyleFilter').value = bodyPageLoad()
 
 
 if (sessionStorage.getItem('vehiclePP')){
-
     sessionStorage.getItem('vehiclePP')
-    
     document.querySelector('#vehicle-pp').value = sessionStorage.getItem('vehiclePP');
 }
 else {
@@ -250,8 +225,6 @@ else {
 }
 
 if (sessionStorage.getItem('sort')){
-
-
     document.querySelector('#sort').value = sessionStorage.getItem('sort');
 }
 else {
@@ -264,39 +237,8 @@ function setSortSession(){
 
 function setVehiclePPSession(){
     sessionStorage.setItem('vehiclePP', document.querySelector('#vehicle-pp').value)
-    console.log('pp session');
-    
 }
 
-// //////////////////type style propagate search to next page/////////////////////
-
-// function TypeSession(){
-//     console.log('bodysession()');
-    
-//     if (sessionStorage.getItem('body')){
-//         console.log('body session exists');
-        
-//         sessionStorage.setItem('body', document.querySelector('#bodyStyleFilter').value)
-//         return sessionStorage.getItem('body')
-//     } else {
-//         console.log('body session does not exist');
-        
-//         sessionStorage.setItem('body', document.querySelector('#bodyStyleFilter').value)
-//         return sessionStorage.getItem('body');
-//     }
-// }
-
-// function bodyStylePageLoad(){
-    
-//     if (!sessionStorage.getItem('body')){
-//         return 'any';
-//     } else {
-//         return sessionStorage.getItem('body');
-//     }
-// };
-
-
-// document.querySelector('#bodyStyleFilter').value = bodyStylePageLoad()
 
 
 // wNumb is their tool to format the number. We us it to format the numbers that appear in the handles
@@ -334,19 +276,14 @@ min.value = bottomslider.innerText.substring(1, bottomslider.innerText.length);
 max.value = topslider.innerText.substring(1, topslider.innerText.length)
 
 regularSlider.noUiSlider.on('update', function(){
-
-    
     max.value = topslider.innerText.substring(1, topslider.innerText.length);
     min.value = bottomslider.innerText.substring(1, bottomslider.innerText.length);
     sessionStorage.setItem("maxPrice", max.value);
     sessionStorage.setItem("minPrice", min.value);
     changePage(1, 'currentPageAdjust');
-
 })
 
 function sliderChange(val){
-    console.log('slide change');
-    
     if (val.id == 'max'){
         if (parseInt(val.value) > parseInt(min.value)) {
             regularSlider.noUiSlider.set([null, parseInt(val.value)])
@@ -356,8 +293,6 @@ function sliderChange(val){
             regularSlider.noUiSlider.set([parseInt(val.value), null])
         }
     }
-    // filterVehicles();
-    // filter();
 }; 
 ////////////////////////////////////////////////////////////////////////////////////////
 
@@ -409,7 +344,6 @@ mileageSlider.noUiSlider.on('update', function(){
         if (parseMileage <= parseMMax) {
 
         } else {
-
         }
     }
     sessionStorage.setItem('maxMileage', parseInt(mileageMax.value));
@@ -418,27 +352,16 @@ mileageSlider.noUiSlider.on('update', function(){
 })
 
 function mileageSliderChange(val){
-    //put filter function here also
-    console.log('mileage input change slider');
-    
     if (val.id == 'mileageMax'){
-      
-        
         if (parseInt(val.value) > parseInt(mileageMin.value)) {
             mileageSlider.noUiSlider.set([null, parseInt(val.value)])
         } 
         sessionStorage.setItem('maxMileage', parseInt(val.value));
-        
     } else if (val.id == 'mileageMin'){
-   
-        console.log('mileageset');
-        
         if (parseInt(val.value) < parseInt(mileageMax.value)){
             mileageSlider.noUiSlider.set([parseInt(val.value), null])
         }
         sessionStorage.setItem('minMileage', parseInt(val.value));
-     
-        
     }
 }; 
 
@@ -455,7 +378,6 @@ for (i=0; i < hidePips.length; i++){
 function filterVehicles(){
     let searchCards = document.querySelector('.searchresults');
     if (typeof filteredVehicleCards == 'undefined'){
-       
         allVehicleCards = document.querySelectorAll('.vehicleCard');
         filteredVehicleCards = document.createElement('div');
         filteredVehicleCards.classList.add('createddiv');
@@ -473,15 +395,12 @@ function filterVehicles(){
     //specified elements to filter with
     let tooltip = document.querySelectorAll('.noUi-tooltip');
     if (tooltip.length === 4){
-        
         let makefilter = document.getElementById('makeFilter');
         let vehicleCards = document.getElementsByClassName('vehicleCard');
         //specified elements to filter with above
         let vehiclePrice = document.querySelectorAll('.vehicle-price');
         let vehicleMake =  document.getElementById('makeFilter');
-
         for (i=0; i < allVehicleCards.length; i++){
-            
             //get data from vehicle cards
             let priceFiltered = parseInt(allVehicleCards[i].querySelector('.vehicle-price').innerHTML.replace('$','').replace(',',''));
             let makeFiltered = allVehicleCards[i].querySelector('#make').getAttribute('value');
@@ -490,7 +409,6 @@ function filterVehicles(){
             let mpgFiltered = parseInt(allVehicleCards[i].querySelector('#mpg').innerHTML);
             let bodyFiltered = allVehicleCards[i].querySelector('.vehicleTitle').getAttribute('value');
             let modelFiltered = allVehicleCards[i].querySelector('#make').getAttribute('name')
-            
             // get data from search bar
             let pricemintooltip = parseInt(tooltip[0].innerHTML.replace('$','').replace(',',''));
             let pricemaxtooltip = parseInt(tooltip[1].innerHTML.replace('$','').replace(',',''));
@@ -517,10 +435,7 @@ function filterVehicles(){
        
             } else {
                 let clone = allVehicleCards[i].cloneNode(true);
-            
                 filteredVehicleCards.appendChild(clone)
-    
-                
                 allVehicleCards[i].style.display = '';
             }
         }
@@ -531,16 +446,8 @@ function filterVehicles(){
 //js for search carets/////////////////////
 
 function findAncestor(e1, findClass){
-
     while (e1.parentNode) {
-       //'search' for compared object
-        // if (e1.className == 'search'){
-        //     console.log(e1.className);
-            
-        //     return e1
-        // }
         e1 = e1.parentNode;  
-        console.log(e1)   
         if (e1.classList.contains(findClass)){
             return e1
         } 
@@ -548,11 +455,7 @@ function findAncestor(e1, findClass){
 }
 
 function findAncestor2(el, cls){
-
-    
     while ((el = el.parentElement) && !el.classList.contains(cls));
-
-    
     return el;
 }
 
@@ -607,7 +510,6 @@ function closeMobileFilter(){
     let body = document.querySelector('.body');
     let paginationDiv = document.querySelector('.pagination-container');
     let totalMatches = document.querySelector('#totalMatches');
-    console.log(totalMatches.innerHTML[0]);
     if (totalMatches.innerHTML[0] != '0'){
         paginationDiv.style.display = '';
     } else {
@@ -702,7 +604,6 @@ function cardHighlightOut(card){
 let vehiclePP = document.querySelectorAll('#vehicle-pp');
 let sort = document.querySelectorAll('#sort');
 vehiclePP.forEach(e1 => e1.addEventListener('change', function(){
-    console.log('vehiclepp hit');
     whichVehiclePP = e1;
     changePage(1, '');
 }));
@@ -848,20 +749,17 @@ function prevPage()
         current_page--;
         changePage(current_page, '');
     } else {
-        console.log('broken prev page');
     }
 }
 
 function nextPage()
 {
-    console.log(numPages(), 'numPages in nextPage()');
     
     if (current_page < numPages()) {
         current_page++;
         changePage(current_page, '');
     } 
     // else {
-    //     console.log('broke');
 
     //     current_page = 1;
     //     page = 1;
@@ -874,16 +772,11 @@ function nextPage()
     
 function changePage(page, boolean)
 {
-    // console.log('change page()');
-    
     if (boolean != ''){
         page = 1;
         current_page = 1;
     } 
     allNodes = filterVehicles();
-
-    
-    
     if (typeof whichVehiclePP !== 'undefined'){
         if (isNaN(whichVehiclePP.value)){
             vehiclePPValue = 3
@@ -920,12 +813,7 @@ function changePage(page, boolean)
     // Validate page 
     if (page < 1) page = 1;
     if (page > numPages()) page = numPages();
-
-    
     allNodes = sortVehicles();
-    console.log(allNodes);
-    
-    
     if (allNodes.length == 0){
         let paginationDiv = document.querySelector('.pagination');
         paginationDiv.style.display = 'none';
@@ -938,8 +826,6 @@ function changePage(page, boolean)
     let totalMatches = document.querySelectorAll('#totalMatches');
     totalMatches[0].innerHTML = allNodes.length.toString().concat(' matches')
     totalMatches[1].innerHTML = allNodes.length.toString().concat(' matches')
-    
-
     for (var i = (page-1) * records_per_page; i < (page * records_per_page); i++) {
         if (typeof allNodes[i] == 'undefined'){
        
@@ -951,8 +837,6 @@ function changePage(page, boolean)
     }
     totalPage.innerHTML = Math.ceil(allNodes.length / records_per_page);
     page_span.innerHTML = page;
-    
-
     if (page == 1) {
         // btn_prev.style.visibility = "hidden";
         btn_prev.style.display = 'none';     

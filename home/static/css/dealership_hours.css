@@ -132,11 +132,12 @@ blockquote, dl, figure, form, ol, p, pre, table, ul {
 }
 
 .largemap {
-    display: none; 
+    display: none;  
 }
 
 .formcard, .contactcard, .hourscard{
     border: 1px solid #333;
+
 }
 
 .formcard:hover, .contactcard:hover, .hourscard:hover {
