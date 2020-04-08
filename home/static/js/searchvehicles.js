@@ -7,7 +7,6 @@ sortDiv.style.width = document.querySelector('.vehicleCard').getBoundingClientRe
 sortDiv.style.marginRight = (document.querySelector('.sort').getBoundingClientRect().left - 
 document.querySelector('.vehicleCard').getBoundingClientRect().left).toString().concat('px');
 
-
 /////get max price for nouislider///
 let vehicleInfo = document.querySelectorAll('.vehicle-price');
 let priceList = []

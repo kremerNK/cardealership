@@ -1,5 +1,6 @@
-console.log('test');
-
+let blueBar = document.querySelector('.blue');
+let searchForm = document.querySelector('.search-form').getBoundingClientRect().height * .90;
+blueBar.style.height = searchForm.toString().concat('px');
 
 //carousel//
 
@@ -8,7 +9,7 @@ $(document).ready(function(){
         slidesToShow: 4,
         slidesToScroll: 1, 
         autoplay: true,
-        adaptiveHeight: true,
+        adaptiveHeight: true, 
         autoplaySpeed: 2000, 
         responsive: [
             {
