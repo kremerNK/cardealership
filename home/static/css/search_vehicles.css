@@ -48,7 +48,7 @@ p {
 }
 
 #filter-reset > button {
-    border: 1px solid #2f75a3a8;;
+    /* border: 1px solid #2f75a3a8;; */
     background: transparent;
     border-radius: 4px;
     /* box-shadow: 1px 1px #2f75a3a8; */
@@ -59,6 +59,7 @@ p {
 
 
 #filter-reset > button:hover {
+    border: 1px solid #2f75a3a8;
     color: #333;
     background-color: transparent;
 }
@@ -968,5 +969,6 @@ th {
 
     #reset-button {
         margin: 0 auto;
+        border: none;
     }
 } 

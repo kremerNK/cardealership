@@ -519,7 +519,8 @@ function filterVehicles(){
                 let clone = allVehicleCards[i].cloneNode(true);
             
                 filteredVehicleCards.appendChild(clone)
-             
+    
+                
                 allVehicleCards[i].style.display = '';
             }
         }
@@ -600,7 +601,8 @@ showFilter.addEventListener('click', function(){
 })
 
 let hideFilter = document.querySelector('#hideFilter');
-hideFilter.addEventListener('click', function(){
+
+function closeMobileFilter(){
     let mobileSortDiv = document.querySelector('.mobile-sort-div');
     let body = document.querySelector('.body');
     let paginationDiv = document.querySelector('.pagination-container');
@@ -619,7 +621,10 @@ hideFilter.addEventListener('click', function(){
     searchBar.style.display = 'none';
     showFilter.style.display = '';
     hidePagination.style.display = '';
-})
+}
+
+hideFilter.addEventListener('click', closeMobileFilter)
+
 
 //////sticky side search bar////////////////////
  
@@ -679,7 +684,7 @@ function cardHighlightIn(card){
     moreInfo.style.backgroundColor = '#2f75a338';
     topVehicleCard.style.backgroundColor = '#2f75a338';
     card.style.transition = "border 0.1s ease";
-    card.style.border = "1px solid black";
+    // card.style.border = "1px solid black";
 }
  
 function cardHighlightOut(card){
@@ -869,13 +874,15 @@ function nextPage()
     
 function changePage(page, boolean)
 {
-
+    // console.log('change page()');
+    
     if (boolean != ''){
         page = 1;
         current_page = 1;
     } 
     allNodes = filterVehicles();
 
+    
     
     if (typeof whichVehiclePP !== 'undefined'){
         if (isNaN(whichVehiclePP.value)){
@@ -886,10 +893,6 @@ function changePage(page, boolean)
     } else {
         vehiclePPValue = 3;
     }
-
-    // vehiclePPValue = (sessionStorage.getItem('vehiclePP') === 'default') ? 3 : parseInt(document.querySelector('#vehicle-pp').value)
-
-    // sortValue = document.querySelector('#sort').value;
     bothSorts = document.querySelectorAll('#sort');
     let web = window.getComputedStyle(document.querySelector('.sort-hide-mobile')).display
     let mobile = window.getComputedStyle(document.querySelector('.mobile-sort-div')).display
@@ -907,17 +910,6 @@ function changePage(page, boolean)
         value = 'mobile-sort-div';
     }
     getSortValue(value)
-    // sortValue2 = function(){
-    //     if (web.display != 'none'){
-    //         console.log('using web');
-            
-        
-    //     } else if (mobile.display != 'none'){
-    //         console.log('using mobile');
-            
-    //     }
-    // } 
-    
     records_per_page = vehiclePPValue;
     var btn_next = document.getElementById("btn_next");
     var btn_prev = document.getElementById("btn_prev");
@@ -931,7 +923,8 @@ function changePage(page, boolean)
 
     
     allNodes = sortVehicles();
-
+    console.log(allNodes);
+    
     
     if (allNodes.length == 0){
         let paginationDiv = document.querySelector('.pagination');
@@ -984,8 +977,6 @@ function numPages()
 
 let resetButton = document.querySelectorAll('#reset-button');
 resetButton.forEach(e1 => e1.addEventListener('click', function(){
-    //fuel, make, maxMileage, maxPrice, minMileage, minPrice, model, sort, type, vehiclePP, yearMax, yearMin
-
     //reset session values
     sessionStorage.setItem('fuel', 'any')
     sessionStorage.setItem('make', 'any')
@@ -1000,7 +991,6 @@ resetButton.forEach(e1 => e1.addEventListener('click', function(){
     sessionStorage.setItem('yearMax', '2020')
     sessionStorage.setItem('yearMin', '1995')
 
-
     //reset sliders
     regularSlider.noUiSlider.reset();
     mileageSlider.noUiSlider.reset();
@@ -1012,10 +1002,18 @@ resetButton.forEach(e1 => e1.addEventListener('click', function(){
     document.querySelector('#selectYearMax').value = '2020';
     document.querySelector('#fuelEfficiencyFilter').value = 'any';
     document.querySelector('#bodyStyleFilter').value = 'any';
-    document.querySelector('#vehicle-pp').value = 'default';
-    document.querySelector('#sort').value = 'default';
+    document.querySelectorAll('#vehicle-pp')[0].value = 'default';
+    document.querySelectorAll('#sort')[0].value = 'default';
+
+    //reset filter values specific to mobile
+    document.querySelectorAll('#vehicle-pp')[1].value = 'default';
+    document.querySelectorAll('#sort')[1].value = 'default';
 
     //reset vehicle card filter
+
+    if (window.matchMedia("(min-width: 1000px)").matches == false){
+        closeMobileFilter();
+    }
     changePage(1, '')
 }));
 
