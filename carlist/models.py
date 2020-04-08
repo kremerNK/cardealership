@@ -54,7 +54,6 @@ class Vehicle(Page):
     print('self')
     def get_url_parts(self, *args, **kwargs):
         # url_parts = super(Vehicle, self).get_url_parts(*args, **kwargs)
-
         # if url_parts is None:
         #     # in this case, the page doesn't have a well-defined URL in the first place -
         #     # for example, it's been created at the top level of the page tree
@@ -65,8 +64,6 @@ class Vehicle(Page):
         site_id = ''
         root_url = ''
         page_path = '/search-vehicles/' + self.slug.replace(' ', '-').lower() + '-' + str(self.id)
-
-        # return '/' in place of the real page path
         return (site_id, root_url, page_path)
 
     content_panels = Page.content_panels + [

@@ -52,7 +52,11 @@
                 <div class='searchBarTop'>
                     <div style='display:flex;justify-content: center;' class='practice'>
                     </div>
-                    <p style='text-align: center; font-size: 3rem; width: 90%;'>Filter Results</p>
+                    <div id='filter-reset'>
+                        <p style='text-align: center; font-size: 3rem; width: 90%;'>Filter Results</p>
+                        <button id='reset-button'>Reset Filter</button>
+                    </div>
+
                     <i style='width: 10%;' id='hideFilter' class="fas fa-window-close"></i>
                     
                 </div>
@@ -246,8 +250,11 @@
                 </div>
             </div>
             <div class='displayFilter'>
-              
+                <div id='filters'>
+                    <button id='reset-button'>Reset Filter</button>
                     <button class='showFilter'><p><i class="fas fa-filter"></i> Filter</p></button>
+                </div>
+                    
                
                 <div class='mobile-sort-div'>
                     <div class='sort'>
