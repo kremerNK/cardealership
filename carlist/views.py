@@ -30,17 +30,20 @@ def home(request):
 
 
 def searchVehicle(request):
-    makeList = [x for x in set(Vehicle.objects.values_list('make', flat=True)) if x != '']
-    print(makeList)
+    makeList = sorted([x for x in set(Vehicle.objects.values_list('make', flat=True)) if x != ''])
+
     allVehicles = Vehicle.objects.all()
-    makeOptions = [x for x in set(Vehicle.objects.values_list('carType', flat=True)) if x != '']
-    modelList = [x for x in set(Vehicle.objects.values_list('model', flat=True)) if x != '']
-    yearList = [x for x in set(Vehicle.objects.values_list('year', flat=True)) if x != '']
+    makeOptions = sorted([x for x in set(Vehicle.objects.values_list('carType', flat=True)) if x != ''])
+    
+    modelList = sorted([x for x in set(Vehicle.objects.values_list('model', flat=True)) if x != ''])
+
+    yearList = sorted([x for x in set(Vehicle.objects.values_list('year', flat=True)) if x != ''])
+    print(yearList)
     fuelList = [x for x in set(Vehicle.objects.values_list('mpg', flat=True)) if x != '']
-    print(fuelList)
+
     if request.method=="POST" or request.method=="GET" and request.is_ajax():
         print('ajax') 
-        print(json.loads(request.body))
+
         allVehicles = Vehicle.objects.all()
         context = {'vehicles':allVehicles[0]}      
         return render(request, 'searchvehicles.html', context)

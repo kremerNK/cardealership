@@ -54,7 +54,7 @@ function modelSelectChange(){
 
 function modelSession(){
     if (sessionStorage.getItem('model')){
-        let modelForm = document.querySelectorAll('#model-form');
+        let modelForm = document.querySelectorAll('.model-input');
         let modelFormArray = [];
         for (i=0; i < modelForm.length; i++){
             if (modelForm[i].checked){
@@ -77,11 +77,11 @@ function modelSession(){
         return sessionStorage.getItem('model');
     }
 }
-allModelBoxes = document.querySelectorAll('#model-form');
+allModelBoxes = document.querySelectorAll('.model-input');
 function modelFilterPageLoad(){
     modelSession()
     if (!sessionStorage.getItem('model')){
-        allModelBoxes = document.querySelectorAll('#model-form[value="any"]');
+        allModelBoxes = document.querySelectorAll('.model-input[value="any"]');
         return 'any';
     } 
     else {
@@ -122,7 +122,7 @@ let slideMinValue = priceMinHandle()
 ////////////////make filter propagate search to next page///////////////////////////////////
 function makeSession(){
     if (sessionStorage.getItem('make')){
-        let makeForm = document.querySelectorAll('#make-form');
+        let makeForm = document.querySelectorAll('.make-input');
         let makeFormArray = [];
         for (i=0; i < makeForm.length; i++){
             if (makeForm[i].checked){
@@ -146,11 +146,11 @@ function makeSession(){
     }
 }
 
-allMakeBoxes = document.querySelectorAll('#make-form');
+allMakeBoxes = document.querySelectorAll('.make-input');
 function makeFilterPageLoad(){
     makeSession()
     if (!sessionStorage.getItem('make')){
-        allMakeBoxes = document.querySelectorAll('#make-form[value="any"]');
+        allMakeBoxes = document.querySelectorAll('.make-input[value="any"]');
         return 'any';
     } 
     else {
@@ -249,7 +249,7 @@ let mileageSessionValueMax = mileageSessionMax();
 
 function yearSession(){
     if (sessionStorage.getItem('year')){
-        let yearForm = document.querySelectorAll('#year-form');
+        let yearForm = document.querySelectorAll('.year-input');
         let yearFormArray = [];
         for (i=0; i < yearForm.length; i++){
             if (yearForm[i].checked){
@@ -276,7 +276,7 @@ function yearSession(){
 function yearFilterPageLoad(){
     yearSession();
     if (!sessionStorage.getItem('year')){
-        allyearBoxes = document.querySelectorAll('#year-form[value="any"]');
+        allyearBoxes = document.querySelectorAll('.year-input[value="any"]');
         return 'any';
     } 
     else {
@@ -288,8 +288,10 @@ yearFilterPageLoad();
 ////////////////fuel efficiency propagate search to next page/////////////////////
 
 function fuelSession(){
+    console.log('fuelsession()');
+    
     if (sessionStorage.getItem('fuel')){
-        let fuelForm = document.querySelectorAll('#fuel-form');
+        let fuelForm = document.querySelectorAll('.fuel-input');
         let fuelFormArray = [];
         for (i=0; i < fuelForm.length; i++){
             if (fuelForm[i].checked){
@@ -318,7 +320,7 @@ function fuelSession(){
 function fuelFilterPageLoad(){
     fuelSession()
     if (!sessionStorage.getItem('fuel')){
-        allfuelBoxes = document.querySelectorAll('#fuel-form[value="any"]');
+        allfuelBoxes = document.querySelectorAll('.fuel-input[value="any"]');
         return 'any';
     } 
     else {
@@ -331,7 +333,7 @@ fuelFilterPageLoad();
 
 function bodySession(){
     if (sessionStorage.getItem('body')){
-        let bodyForm = document.querySelectorAll('#body-form');
+        let bodyForm = document.querySelectorAll('.body-input');
         let bodyFormArray = [];
         for (i=0; i < bodyForm.length; i++){
             if (bodyForm[i].checked){
@@ -354,11 +356,11 @@ function bodySession(){
         return sessionStorage.getItem('body');
     }
 }
-allBodyBoxes = document.querySelectorAll('#body-form');
+allBodyBoxes = document.querySelectorAll('.body-input');
 function bodyFilterPageLoad(){
     bodySession();
     if (!sessionStorage.getItem('body')){
-        allBodyBoxes = document.querySelectorAll('#body-form[value="any"]');
+        allBodyBoxes = document.querySelectorAll('.body-input[value="any"]');
         return 'any';
     } 
     else {
@@ -587,28 +589,17 @@ function filterVehicles(){
 
             // let mpgSearch = document.querySelector('#fuelEfficiencyFilter').value; //will have to replcae substrings
             let smallFuelValue = JSON.parse(sessionStorage.getItem('fuel')).map((x) =>parseInt(x));
-            console.log(Math.min(...smallFuelValue));
-            // console.log(JSON.parse(sessionStorage.getItem('fuel')));
-            
-            // console.log(fuelFiltered);
+
             //filtration expressions
             let priceEval = (priceFiltered > pricemaxtooltip || priceFiltered < pricemintooltip);
 
-            
-            // console.log(makeFiltered);
-            // console.log(makeSearch);
-            
             
             // let makeEval = (makeFiltered != makeSearch && makeSearch != 'any'); //needs to see if makeFiltered is incldued in makeSearch
             // let modelEval = (modelSearch != 'any' && modelSearch != modelFiltered)
             // let bodyEval = (bodySearch != 'any' && bodySearch != bodyFiltered);
             // let yearEval = (yearFiltered > yearMaxSearch || yearFiltered < yearMinSearch)
             // let fuelEval = (mpgSearch != 'any' && mpgFiltered < mpgSearch);
-            
-            
-            console.log(fuelFiltered);
-            
-            
+
             let fuelEval = (fuelSearch != 'any' && fuelFiltered < Math.min(...smallFuelValue));
             let bodyEval = (bodySearch!= 'any' && !bodySearch.includes(bodyFiltered));
             let modelEval = (modelSearch != 'any' && !modelSearch.includes(modelFiltered))
@@ -765,7 +756,7 @@ document.onscroll = function(){
         
     // }
     if ((searchBound.bottom) >= footBound.top){
-        lastDropDown.style.marginBottom = (footBound.height * 1).toString().concat('px');
+        lastDropDown.style.marginBottom = (footBound.height + 5).toString().concat('px');
     } else {
         lastDropDown.style.marginBottom = '0px';
     }
@@ -1057,32 +1048,33 @@ function numPages()
 let resetButton = document.querySelectorAll('#reset-button');
 resetButton.forEach(e1 => e1.addEventListener('click', function(){
     //reset session values
-    sessionStorage.setItem('fuel', 'any')
-    sessionStorage.setItem('make', 'any')
-    sessionStorage.setItem('maxMileage', maxMileage)
-    sessionStorage.setItem('maxPrice', maxPrice)
-    sessionStorage.setItem('minMileage', 1)
-    sessionStorage.setItem('minPrice', 1)
-    sessionStorage.setItem('model', 'any')
-    sessionStorage.setItem('sort', 'default')
-    sessionStorage.setItem('type', 'any')
-    sessionStorage.setItem('vehiclePP', 'default')
-    sessionStorage.setItem('yearMax', '2020')
-    sessionStorage.setItem('yearMin', '1995')
+    sessionStorage.setItem('fuel', JSON.stringify(['any']));
+    sessionStorage.setItem('make', JSON.stringify(['any']));
+    sessionStorage.setItem('maxMileage', maxMileage);
+    sessionStorage.setItem('maxPrice', maxPrice);
+    sessionStorage.setItem('minMileage', 1);
+    sessionStorage.setItem('minPrice', 1);
+    sessionStorage.setItem('model', JSON.stringify(['any']));
+    sessionStorage.setItem('sort', 'default');
+    sessionStorage.setItem('body', JSON.stringify(['any']));
+    sessionStorage.setItem('vehiclePP', 'default');
+    sessionStorage.setItem('year', JSON.stringify(['any']));
+    // sessionStorage.setItem('yearMax', '2020')
+    // sessionStorage.setItem('yearMin', '1995')
 
     //reset sliders
     regularSlider.noUiSlider.reset();
     mileageSlider.noUiSlider.reset();
 
-    //reset filter values
-    document.querySelector('#makeFilter').value = 'any';
-    document.querySelector('#modelFilter').value = 'any';
-    document.querySelector('#selectYearMin').value = '1995';
-    document.querySelector('#selectYearMax').value = '2020';
-    document.querySelector('#fuelEfficiencyFilter').value = 'any';
-    document.querySelector('#bodyStyleFilter').value = 'any';
+    //reset filter values - uncheck forms
+    document.querySelectorAll('.make-input').forEach(e1 => e1.checked = false)
+    document.querySelectorAll('.model-input').forEach(e1 => e1.checked = false)
+    document.querySelectorAll('.year-input').forEach(e1 => e1.checked = false)
+    document.querySelectorAll('.fuel-input').forEach(e1 => e1.checked = false)
+    document.querySelectorAll('.body-input').forEach(e1 => e1.checked = false)
     document.querySelectorAll('#vehicle-pp')[0].value = 'default';
     document.querySelectorAll('#sort')[0].value = 'default';
+
 
     //reset filter values specific to mobile
     document.querySelectorAll('#vehicle-pp')[1].value = 'default';

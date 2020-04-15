@@ -352,51 +352,55 @@ th {
 }
 
 .dropDown {
-    /* align-items: center;
-    text-align: center; */
     max-height: 0px;
-    /* width: 100%; */
-    /* display: none; */
-    /* margin: 0 auto;
-    padding: 0 auto; */
     overflow: hidden;
-    transition: all 0.2s ease-in
-     
+    transition: all 0.2s ease-in;
+    display: block;
+    flex-direction: column;
+    width: 100%;
+}
+
+.dropDown > form {
+    margin-bottom: 0;
+}
+
+.dropDown > form > div {
+    margin-left: 15px;
+}
+
+.dropDown > form > div > label {
+    display: inline;
+}
+
+.dropDown > form > div > input {
+
 }
 
 
-
 .dropDown.display {
-    /* display: block;
-    text-align: center;
-    align-items: center; */
     overflow: hidden;
-    
     max-height: 150vh;
     transition: all 0.2s ease-in;
-    
 }
 
 .dropDown.display > form {
     display: inline-block;
     width: 100%;
+    margin-bottom: 0;
 }
 
 .dropDown.display > form >  div {
-    display: inline-block;
-    margin-left: 1vw;
-    margin-right: 1vw;
+    /* display: inline-block; */
+    margin-left: 15px;
+
     width: auto;
 }
 
-.dropDown.display > form > div > label {
-    display: inline;
-}
+.dropDown.display > form > div > label{
 
-.dropDown.display > form > div > input {
     /* display: inline; */
+} 
 
-}
 
 .price-input > span > input {
     width: 30%;
@@ -741,7 +745,8 @@ th {
 
     .stickBar {
         position: fixed;
-        width: 25vw;
+        /* width: 25vw; */
+
         /* top: 1px; */
         /* height: auto; */
         margin-bottom: 60px;
@@ -997,4 +1002,80 @@ th {
         margin: 0 auto;
         border: none;
     }
+
+    #make-form {
+        
+    }
+
+    /* Customize the label (the container) */
+    .container {
+        display: inline-block;
+        position: relative;
+
+        padding-left: 35px;
+        margin-right: 60%;
+        margin-bottom: 12px;
+        cursor: pointer;
+        font-size: 16px;
+        font-weight: 500;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        width: auto;
+      }
+
+      /* Hide the browser's default checkbox */
+      .container input {
+        position: absolute;
+        opacity: 0;
+        cursor: pointer;
+        height: 0;
+        width: 0;
+      }
+
+      /* Create a custom checkbox */
+      .checkmark {
+        position: absolute;
+        top: 5px;
+        left: 15px;
+        height: 15px;
+        width: 15px;
+        background-color: #eee;
+      }
+
+      /* On mouse-over, add a grey background color */
+      .container:hover input ~ .checkmark {
+        background-color: #ccc;
+      }
+
+      /* When the checkbox is checked, add a blue background */
+      .container input:checked ~ .checkmark {
+        background-color: #274fa3;
+      }
+
+      /* Create the checkmark/indicator (hidden when not checked) */
+      .checkmark:after {
+        content: "";
+        position: absolute;
+        display: none;
+      }
+
+      /* Show the checkmark when checked */
+      .container input:checked ~ .checkmark:after {
+        display: block;
+      }
+
+      /* Style the checkmark/indicator */
+      .container .checkmark:after {
+        left: 5px;
+        top: 3px;
+        width: 2.5px;
+        height: 5px;
+        border: solid white;
+        border-width: 0 3px 3px 0;
+        -webkit-transform: rotate(45deg);
+        -ms-transform: rotate(45deg);
+        transform: rotate(45deg);
+      } 
 } 
