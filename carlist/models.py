@@ -51,7 +51,7 @@ class Vehicle(Page):
 
     # def child_pages(self):
     #     return ItemPage.objects.live().child_of(self)
-    print('self')
+
     def get_url_parts(self, *args, **kwargs):
         # url_parts = super(Vehicle, self).get_url_parts(*args, **kwargs)
         # if url_parts is None:

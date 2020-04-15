@@ -1,5 +1,5 @@
 let blueBar = document.querySelector('.blue');
-let searchForm = document.querySelector('.search-form').getBoundingClientRect().height * .90;
+let searchForm = document.querySelector('.search-form').getBoundingClientRect().height * .50;
 blueBar.style.height = searchForm.toString().concat('px');
 
 //carousel//

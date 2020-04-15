@@ -14,7 +14,7 @@ for (i=0; i < vehicleInfo.length; i++){
 
     priceList.push(parseInt(vehicleInfo[i].innerHTML.replace(/\D/g, '')))
     
-}
+} 
 
 function roundNumPrice(num){
     return Math.ceil(num / 5000) * 5000;
@@ -43,18 +43,55 @@ function modelSelectChange(){
     sessionStorage.setItem('model', document.querySelector('#modelFilter').value);
 }
  
+// function modelSession(){
+
+//         if (sessionStorage.getItem('model')){
+//             return sessionStorage.getItem('model')
+//         } else {
+//             return 'any'
+//         };
+// };
+
 function modelSession(){
-
-        if (sessionStorage.getItem('model')){
-            return sessionStorage.getItem('model')
+    if (sessionStorage.getItem('model')){
+        let modelForm = document.querySelectorAll('#model-form');
+        let modelFormArray = [];
+        for (i=0; i < modelForm.length; i++){
+            if (modelForm[i].checked){
+                modelFormArray.push(modelForm[i].value);
+            }
+        }
+        if (modelFormArray.length < 1){
+            modelFormArray.push('any');
+            sessionStorage.setItem('model',JSON.stringify(modelFormArray));
         } else {
-            return 'any'
-        };
-};
+            
+            sessionStorage.setItem('model', JSON.stringify(modelFormArray))
+        }
+        return sessionStorage.getItem('model')
+    } 
+    else {
+        let modelFormArray = [];
+        modelFormArray.push('any')
+        sessionStorage.setItem('model', JSON.stringify(modelFormArray));
+        return sessionStorage.getItem('model');
+    }
+}
+allModelBoxes = document.querySelectorAll('#model-form');
+function modelFilterPageLoad(){
+    modelSession()
+    if (!sessionStorage.getItem('model')){
+        allModelBoxes = document.querySelectorAll('#model-form[value="any"]');
+        return 'any';
+    } 
+    else {
+        return sessionStorage.getItem('model');
+    }
+}
 
-let modelSelection = document.querySelector('#modelFilter');
-modelSelection.value = modelSession()
-
+// let modelSelection = document.querySelector('#modelFilter');
+// modelSelection.value = modelSession()
+modelFilterPageLoad()
 /////////////////////////////////price min max propagate search to next page//////////////////////////////////////////////////////////////
 
 function priceMaxHandle(){
@@ -81,25 +118,68 @@ function priceMinHandle(){
 }
 let slideMinValue = priceMinHandle()
 
+
 ////////////////make filter propagate search to next page///////////////////////////////////
 function makeSession(){
     if (sessionStorage.getItem('make')){
-        sessionStorage.setItem('make', document.querySelector('#makeFilter').value)
+        let makeForm = document.querySelectorAll('#make-form');
+        let makeFormArray = [];
+        for (i=0; i < makeForm.length; i++){
+            if (makeForm[i].checked){
+                makeFormArray.push(makeForm[i].value);
+            }
+        }
+        if (makeFormArray.length < 1){
+            makeFormArray.push('any');
+            sessionStorage.setItem('make',JSON.stringify(makeFormArray));
+        } else {
+            
+            sessionStorage.setItem('make', JSON.stringify(makeFormArray))
+        }
         return sessionStorage.getItem('make')
-    } else {
-        sessionStorage.setItem('make', document.querySelector('#makeFilter').value)
+    } 
+    else {
+        let makeFormArray = [];
+        makeFormArray.push('any')
+        sessionStorage.setItem('make', JSON.stringify(makeFormArray));
         return sessionStorage.getItem('make');
     }
 }
 
+allMakeBoxes = document.querySelectorAll('#make-form');
 function makeFilterPageLoad(){
+    makeSession()
     if (!sessionStorage.getItem('make')){
+        allMakeBoxes = document.querySelectorAll('#make-form[value="any"]');
         return 'any';
-    } else {
+    } 
+    else {
         return sessionStorage.getItem('make');
     }
+    // console.log(typeof sessionStorage.getItem('make'));
+    
+    // console.log(JSON.parse(sessionStorage.getItem('make'))[0]);
+    // console.log(JSON.parse(sessionStorage.getItem('make')).length);
+    
+    // if (JSON.parse(sessionStorage.getItem('make').length == 1)){
+    //     console.log('nochoice');
+    //     return 
+    // }
+    // for (i=0; i < JSON.parse(sessionStorage.getItem('make')).length; i++){
+    //     let sessionValue = JSON.parse(sessionStorage.getItem('make'))[i];
+        
+    //     if (document.querySelector(`#make-form[value=${sessionValue}]`)){
+    //         console.log('true');
+    //         document.querySelector(`#make-form[value=${sessionValue}]`).checked = true;
+    //     }
+    // };
+
+    
+    // console.log(JSON.parse(sessionStorage.getItem('make')));
+    
 };
-document.querySelector('#makeFilter').value = makeFilterPageLoad()
+makeFilterPageLoad()
+// document.querySelector('#makeFilter').value = makeFilterPageLoad()
 
 ////////////////mileage min max propagate search to next page/////////////////////
 
@@ -127,89 +207,166 @@ let mileageSessionValueMax = mileageSessionMax();
 
 ////////////////year min and max propagate search to next page/////////////////////
 
-function yearSessionMin(){
-    sessionStorage.setItem('yearMin', document.querySelector('#selectYearMin').value)
+// function yearSessionMin(){
+//     sessionStorage.setItem('yearMin', document.querySelector('#selectYearMin').value)
 
-    if (parseInt(sessionStorage.getItem('yearMin')) > parseInt(document.querySelector('#selectYearMax').value)){
-        sessionStorage.setItem('yearMin', document.querySelector('#selectYearMax').value)
-        document.querySelector('#selectYearMin').value = sessionStorage.getItem('yearMin')
-    } 
-}
+//     if (parseInt(sessionStorage.getItem('yearMin')) > parseInt(document.querySelector('#selectYearMax').value)){
+//         sessionStorage.setItem('yearMin', document.querySelector('#selectYearMax').value)
+//         document.querySelector('#selectYearMin').value = sessionStorage.getItem('yearMin')
+//     } 
+// }
 
-function yearMinPageLoad(){
-    if (sessionStorage.getItem('yearMin')){
-        return sessionStorage.getItem('yearMin')
-    } else {
-        document.querySelector('#selectYearMin').value = '1995';
-        return '1995';
-    }
-}
-document.querySelector('#selectYearMin').value = yearMinPageLoad();
+// function yearMinPageLoad(){
+//     if (sessionStorage.getItem('yearMin')){
+//         return sessionStorage.getItem('yearMin')
+//     } else {
+//         document.querySelector('#selectYearMin').value = '1995';
+//         return '1995';
+//     }
+// }
+// document.querySelector('#selectYearMin').value = yearMinPageLoad();
 
-function yearSessionMax(){
-    sessionStorage.setItem('yearMax', document.querySelector('#selectYearMax').value)
+// function yearSessionMax(){
+//     sessionStorage.setItem('yearMax', document.querySelector('#selectYearMax').value)
     
-    if (parseInt(sessionStorage.getItem('yearMax')) < parseInt(document.querySelector('#selectYearMin').value)){
-        sessionStorage.setItem('yearMax', document.querySelector('#selectYearMin').value)
-        document.querySelector('#selectYearMax').value = sessionStorage.getItem('yearMax')
-    } 
-}
+//     if (parseInt(sessionStorage.getItem('yearMax')) < parseInt(document.querySelector('#selectYearMin').value)){
+//         sessionStorage.setItem('yearMax', document.querySelector('#selectYearMin').value)
+//         document.querySelector('#selectYearMax').value = sessionStorage.getItem('yearMax')
+//     } 
+// }
 
-function yearMaxPageLoad(){
+// function yearMaxPageLoad(){
   
     
-    if (sessionStorage.getItem('yearMax')){
-        return sessionStorage.getItem('yearMax')
-    } else {
-        document.querySelector('#selectYearMax').value = '2020';
-        return '2020';
+//     if (sessionStorage.getItem('yearMax')){
+//         return sessionStorage.getItem('yearMax')
+//     } else {
+//         document.querySelector('#selectYearMax').value = '2020';
+//         return '2020';
+//     }
+// }
+// document.querySelector('#selectYearMax').value  = yearMaxPageLoad();
+
+function yearSession(){
+    if (sessionStorage.getItem('year')){
+        let yearForm = document.querySelectorAll('#year-form');
+        let yearFormArray = [];
+        for (i=0; i < yearForm.length; i++){
+            if (yearForm[i].checked){
+                yearFormArray.push(yearForm[i].value);
+            }
+        }
+        if (yearFormArray.length < 1){
+            yearFormArray.push('any');
+            sessionStorage.setItem('year',JSON.stringify(yearFormArray));
+        } else {
+            
+            sessionStorage.setItem('year', JSON.stringify(yearFormArray))
+        }
+        return sessionStorage.getItem('year')
+    } 
+    else {
+        let yearFormArray = [];
+        yearFormArray.push('any')
+        sessionStorage.setItem('year', JSON.stringify(yearFormArray));
+        return sessionStorage.getItem('year');
     }
 }
-document.querySelector('#selectYearMax').value  = yearMaxPageLoad();
+
+function yearFilterPageLoad(){
+    yearSession();
+    if (!sessionStorage.getItem('year')){
+        allyearBoxes = document.querySelectorAll('#year-form[value="any"]');
+        return 'any';
+    } 
+    else {
+        return sessionStorage.getItem('year');
+    }
+}
+yearFilterPageLoad();
 
 ////////////////fuel efficiency propagate search to next page/////////////////////
 
 function fuelSession(){
     if (sessionStorage.getItem('fuel')){
-        sessionStorage.setItem('fuel', document.querySelector('#fuelEfficiencyFilter').value)
+        let fuelForm = document.querySelectorAll('#fuel-form');
+        let fuelFormArray = [];
+        for (i=0; i < fuelForm.length; i++){
+            if (fuelForm[i].checked){
+                fuelFormArray.push(fuelForm[i].value);
+            }
+        }
+        if (fuelFormArray.length < 1){
+            fuelFormArray.push('any');
+            sessionStorage.setItem('fuel',JSON.stringify(fuelFormArray));
+        } else {
+            
+            sessionStorage.setItem('fuel', JSON.stringify(fuelFormArray))
+        }
         return sessionStorage.getItem('fuel')
-    } else {
-        sessionStorage.setItem('fuel', document.querySelector('#fuelEfficiencyFilter').value)
+    } 
+    else {
+        let fuelFormArray = [];
+        fuelFormArray.push('any')
+        sessionStorage.setItem('fuel', JSON.stringify(fuelFormArray));
         return sessionStorage.getItem('fuel');
     }
 }
 
+
+
 function fuelFilterPageLoad(){
+    fuelSession()
     if (!sessionStorage.getItem('fuel')){
+        allfuelBoxes = document.querySelectorAll('#fuel-form[value="any"]');
         return 'any';
-    } else {
+    } 
+    else {
         return sessionStorage.getItem('fuel');
     }
 };
-document.querySelector('#fuelEfficiencyFilter').value = fuelFilterPageLoad()
-
+// document.querySelector('#fuelEfficiencyFilter').value = fuelFilterPageLoad()
+fuelFilterPageLoad();
 ////////////////body style propagate search to next page/////////////////////
 
 function bodySession(){
-    if (sessionStorage.getItem('type')){
-        sessionStorage.setItem('type', document.querySelector('#bodyStyleFilter').value)
-        return sessionStorage.getItem('type')
-    } else {
-        sessionStorage.setItem('type', document.querySelector('#bodyStyleFilter').value)
-        return sessionStorage.getItem('type');
+    if (sessionStorage.getItem('body')){
+        let bodyForm = document.querySelectorAll('#body-form');
+        let bodyFormArray = [];
+        for (i=0; i < bodyForm.length; i++){
+            if (bodyForm[i].checked){
+                bodyFormArray.push(bodyForm[i].value);
+            }
+        }
+        if (bodyFormArray.length < 1){
+            bodyFormArray.push('any');
+            sessionStorage.setItem('body',JSON.stringify(bodyFormArray));
+        } else {
+            
+            sessionStorage.setItem('body', JSON.stringify(bodyFormArray))
+        }
+        return sessionStorage.getItem('body')
+    } 
+    else {
+        let bodyFormArray = [];
+        bodyFormArray.push('any')
+        sessionStorage.setItem('body', JSON.stringify(bodyFormArray));
+        return sessionStorage.getItem('body');
     }
 }
-
-function bodyPageLoad(){
-    
-    if (!sessionStorage.getItem('type')){
+allBodyBoxes = document.querySelectorAll('#body-form');
+function bodyFilterPageLoad(){
+    bodySession();
+    if (!sessionStorage.getItem('body')){
+        allBodyBoxes = document.querySelectorAll('#body-form[value="any"]');
         return 'any';
-    } else {
-        return sessionStorage.getItem('type');
+    } 
+    else {
+        return sessionStorage.getItem('body');
     }
 };
-document.querySelector('#bodyStyleFilter').value = bodyPageLoad()
-
+// document.querySelector('#bodyStyleFilter').value = bodyFilterPageLoad()
+bodyFilterPageLoad();
 
 ////session of vehicle per page and sort option selections//////////
 
@@ -375,6 +532,9 @@ for (i=0; i < hidePips.length; i++){
 //////////////////////////filter function//////////////////////////////////////
 
 function filterVehicles(){
+   
+    
+    
     let searchCards = document.querySelector('.searchresults');
     if (typeof filteredVehicleCards == 'undefined'){
         allVehicleCards = document.querySelectorAll('.vehicleCard');
@@ -405,32 +565,66 @@ function filterVehicles(){
             let makeFiltered = allVehicleCards[i].querySelector('#make').getAttribute('value');
             let mileageFiltered = parseInt(allVehicleCards[i].querySelector('#mileageId').innerHTML.replace(',',''));
             let yearFiltered = parseInt(allVehicleCards[i].querySelector('.vehicleYear').innerHTML);
-            let mpgFiltered = parseInt(allVehicleCards[i].querySelector('#mpg').innerHTML);
+            // console.log(yearFiltered);
+            let fuelFiltered = parseInt(allVehicleCards[i].querySelector('#mpg').innerHTML);
             let bodyFiltered = allVehicleCards[i].querySelector('.vehicleTitle').getAttribute('value');
             let modelFiltered = allVehicleCards[i].querySelector('#make').getAttribute('name')
             // get data from search bar
             let pricemintooltip = parseInt(tooltip[0].innerHTML.replace('$','').replace(',',''));
             let pricemaxtooltip = parseInt(tooltip[1].innerHTML.replace('$','').replace(',',''));
-            let makeSearch = document.querySelector('#makeFilter').value;
+            let makeSearch = JSON.parse(sessionStorage.getItem('make'));
+            let modelSearch = JSON.parse(sessionStorage.getItem('model'));
+            let bodySearch = JSON.parse(sessionStorage.getItem('body'));
+            let yearSearch = JSON.parse(sessionStorage.getItem('year'));
+            let fuelSearch = JSON.parse(sessionStorage.getItem('fuel'));
+            // let makeSearch = document.querySelector('#makeFilter').value; //in checkbox model, this will be a list
+            // let modelSearch = document.querySelector('#modelFilter').value
+            // let bodyTypeSearch = document.querySelector('#bodyStyleFilter').value;
+            // let yearMinSearch = document.querySelector('#selectYearMin').value; //can get year from select dom with value
+            // let yearMaxSearch = document.querySelector('#selectYearMax').value;
             let mileagemintooltip = parseInt(tooltip[2].innerHTML.replace('$','').replace(',',''));
             let mileagemaxtooltip = parseInt(tooltip[3].innerHTML.replace('$','').replace(',',''));
-            let yearMinSearch = document.querySelector('#selectYearMin').value; //can get year from select dom with value
-            let yearMaxSearch = document.querySelector('#selectYearMax').value;
-            let mpgSearch = document.querySelector('#fuelEfficiencyFilter').value; //will have to replcae substrings
-            let bodyTypeSearch = document.querySelector('#bodyStyleFilter').value;
-            let modelSearch = document.querySelector('#modelFilter').value
-                
+
+            // let mpgSearch = document.querySelector('#fuelEfficiencyFilter').value; //will have to replcae substrings
+            let smallFuelValue = JSON.parse(sessionStorage.getItem('fuel')).map((x) =>parseInt(x));
+            console.log(Math.min(...smallFuelValue));
+            // console.log(JSON.parse(sessionStorage.getItem('fuel')));
+            
+            // console.log(fuelFiltered);
             //filtration expressions
             let priceEval = (priceFiltered > pricemaxtooltip || priceFiltered < pricemintooltip);
-            let makeEval = (makeFiltered != makeSearch && makeSearch != 'any');
+
+            
+            // console.log(makeFiltered);
+            // console.log(makeSearch);
+            
+            
+            // let makeEval = (makeFiltered != makeSearch && makeSearch != 'any'); //needs to see if makeFiltered is incldued in makeSearch
+            // let modelEval = (modelSearch != 'any' && modelSearch != modelFiltered)
+            // let bodyEval = (bodySearch != 'any' && bodySearch != bodyFiltered);
+            // let yearEval = (yearFiltered > yearMaxSearch || yearFiltered < yearMinSearch)
+            // let fuelEval = (mpgSearch != 'any' && mpgFiltered < mpgSearch);
+            
+            
+            console.log(fuelFiltered);
+            
+            
+            let fuelEval = (fuelSearch != 'any' && fuelFiltered < Math.min(...smallFuelValue));
+            let bodyEval = (bodySearch!= 'any' && !bodySearch.includes(bodyFiltered));
+            let modelEval = (modelSearch != 'any' && !modelSearch.includes(modelFiltered))
+            let makeEval = (!makeSearch.includes(makeFiltered) && makeSearch != 'any'); //needs to see if makeFiltered is incldued in makeSearch
+            let yearEval = (!yearSearch.includes(yearFiltered.toString()) && yearSearch != 'any');
+
             let mileageEval = (mileageFiltered > mileagemaxtooltip || mileageFiltered < mileagemintooltip);
-            let yearEval = (yearFiltered > yearMaxSearch || yearFiltered < yearMinSearch)
-            let mpgEval = (mpgSearch != 'any' && mpgFiltered < mpgSearch);
-            let bodyEval = (bodyTypeSearch != 'any' && bodyTypeSearch != bodyFiltered);
-            let modelEval = (modelSearch != 'any' && modelSearch != modelFiltered)
+       
+            
+       
+            
+            
+            
             
             if (priceEval || makeEval ||
-            mileageEval || yearEval || mpgEval || bodyEval || modelEval)  { //try just removing an operand
+            mileageEval || yearEval || fuelEval || bodyEval || modelEval)  { //try just removing an operand
        
             } else {
                 let clone = allVehicleCards[i].cloneNode(true);
@@ -771,6 +965,8 @@ function nextPage()
     
 function changePage(page, boolean)
 {
+
+    
     if (boolean != ''){
         page = 1;
         current_page = 1;
@@ -899,4 +1095,3 @@ resetButton.forEach(e1 => e1.addEventListener('click', function(){
     }
     changePage(1, '')
 }));
-

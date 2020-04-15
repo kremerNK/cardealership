@@ -31,10 +31,13 @@ def home(request):
 
 def searchVehicle(request):
     makeList = [x for x in set(Vehicle.objects.values_list('make', flat=True)) if x != '']
+    print(makeList)
     allVehicles = Vehicle.objects.all()
     makeOptions = [x for x in set(Vehicle.objects.values_list('carType', flat=True)) if x != '']
     modelList = [x for x in set(Vehicle.objects.values_list('model', flat=True)) if x != '']
-    
+    yearList = [x for x in set(Vehicle.objects.values_list('year', flat=True)) if x != '']
+    fuelList = [x for x in set(Vehicle.objects.values_list('mpg', flat=True)) if x != '']
+    print(fuelList)
     if request.method=="POST" or request.method=="GET" and request.is_ajax():
         print('ajax') 
         print(json.loads(request.body))
@@ -42,7 +45,7 @@ def searchVehicle(request):
         context = {'vehicles':allVehicles[0]}      
         return render(request, 'searchvehicles.html', context)
 
-    context = {'makeList':makeList, 'vehicle':allVehicles, 'makeOptions':makeOptions, 'modelList':modelList}
+    context = {'makeList':makeList, 'vehicle':allVehicles, 'makeOptions':makeOptions, 'modelList':modelList, 'yearList':yearList}
     return render(request, 'searchvehicles.html', context)
 
 def vehiclePage(request, slug, pk):
@@ -50,7 +53,7 @@ def vehiclePage(request, slug, pk):
     # obj = get_object_or_404(Vehicle, pk=int(pk))
     vehicle = Vehicle.objects.all()[2]
     form = ContactForm() 
-    captcha = FormWithCaptcha()
+    captcha = FormWithCaptcha() 
 
     if request.method == 'POST':
         username = 'glycine775@gmail.com'

@@ -90,17 +90,18 @@
                     </div>
                     <div class='search'>
                         <div id='dropDownTarget'>
-                            <p>Make</p> 
+                            <p>Make</p>  
                             <p><i id='leftcaret' class="fas fa-angle-left"></i></p>
                         </div>
                         <div class='dropDown'>
-                            <select name="" id="makeFilter" onchange='changePage(1, "a"); makeSession()'>
-                                <!-- took out filterVehicles() -->
-                                <option value="any">Any</option>
-                            {% for make in makeList %}
-                                <option value="{{ make }}">{{ make }}</option>
-                            {% endfor %}
-                            </select>
+                            <form  action="">
+                                <!-- <input id='make-form' value='any' type="checkbox" checked onclick='makeSession(); changePage(1, "a")'>
+                                <label for="">Any</label> -->
+                                {% for make in makeList %}
+                                    <input id='make-form' value='{{make}}' type="checkbox" onclick='makeSession(); changePage(1,"a")'>
+                                    <label for="">{{make}}</label>
+                                {% endfor %}
+                            </form>
                         </div>
                     </div>
                      
@@ -134,12 +135,14 @@
                             <p><i id='leftcaret' class="fas fa-angle-left"></i></p>
                         </div>
                         <div class='dropDown'>
-                            <select name="" id="modelFilter" onchange='modelSelectChange();changePage(1, "a"); '>
-                                <option value="any">Any</option>
-                            {% for model in modelList %}
-                                <option value="{{ model }}">{{ model }}</option>
-                            {% endfor %}
-                            </select>
+                            <form  action="">
+                                <!-- <input id='make-form' value='any' type="checkbox" checked onclick='makeSession(); changePage(1, "a")'>
+                                <label for="">Any</label> -->
+                                {% for model in modelList %}
+                                    <input id='model-form' value='{{model}}' type="checkbox" onclick='modelSession(); changePage(1,"a")'>
+                                    <label for="">{{model}}</label>
+                                {% endfor %}
+                            </form>
                         </div>
                     </div>
                     
@@ -150,7 +153,7 @@
                         </div>
                         <div class='dropDown'>
                             <div class='yearDropDown'>
-                                <select name="selectyear" id="selectYearMin" onchange='yearSessionMin();changePage(1, "a"); ' oninput='filterVehicles()'>
+                                 <!-- <select name="selectyear" id="selectYearMin" onchange='yearSessionMin();changePage(1, "a"); ' oninput='filterVehicles()'>
                             
                                     <option value="1995" selected>1995</option>
                                     <option value="1996">1996</option>
@@ -207,11 +210,18 @@
                                     <option value="2018">2018</option>
                                     <option value='2019'>2019</option>
                                     <option value="2020" selected>2020</option>
-                                </select>
-                            <!-- <input id='min' type='text'> -->
-                                <span class='textbox'>
-                            </div>
-                            
+                                </select> 
+                                 <input id='min' type='text'>
+                                <span class='textbox'> -->
+                            </div> 
+                            <form  action="">
+                                <!-- <input id='make-form' value='any' type="checkbox" checked onclick='makeSession(); changePage(1, "a")'>
+                                <label for="">Any</label> -->
+                                {% for year in yearList %}
+                                    <input id='year-form' value='{{year}}' type="checkbox" onclick='yearSession(); changePage(1,"a")'>
+                                    <label for="">{{year}}</label>
+                                {% endfor %}
+                            </form>
                         </div>
                     </div>
                     <div class='search'>
@@ -220,14 +230,39 @@
                             <p><i id='leftcaret' class="fas fa-angle-left"></i></p>
                         </div>
                         <div class='dropDown'>
-                            <select onchange='fuelSession()' name="" id="fuelEfficiencyFilter" oninput='filterVehicles();changePage(1, "a"); '>
-                                <option value="any" selected>Any</option>
-                                <option value="15">15+ MPG</option>
-                                <option value="20">20+ MPG</option>
-                                <option value="25">25+ MPG</option>
-                                <option value="30">30+ MPG</option>
+                                <form id='fuel' action="">
+                        
+                                        <!-- <div>
+                                            <input id='fuel-form' value='0' type="checkbox" onclick='fuelSession(); changePage(1,"a")'>
+                                            <label for="">0+ mpg</label>
+                                        </div> -->
+                                            
+                                        <div>
+                                            <input id='fuel-form' value='10' type="checkbox" onclick='fuelSession(); changePage(1,"a")'>
+                                            <label for="">10+ mpg</label>
+                                        </div>
+                                            
+                                        <div>
+                                            <input id='fuel-form' value='20' type="checkbox" onclick='fuelSession(); changePage(1,"a")'>
+                                            <label for="">20+ mpg</label>
+                                        </div>
+                                            
+                                        <div>
+                                            <input id='fuel-form' value='30' type="checkbox" onclick='fuelSession(); changePage(1,"a")'>
+                                            <label for="">30+ mpg</label>
+                                        </div>
+                                            
+                                        <div>
+                                            <input id='fuel-form' value='40' type="checkbox" onclick='fuelSession(); changePage(1,"a")'>
+                                            <label for="">40+ mpg</label>
+                                        </div>
+                  
+           
+                                    
+                                    
+                                </form>
+       
                             
-                            </select>
                         </div>
                     </div>
                     <div class='search'>
@@ -236,17 +271,17 @@
                             <p><i id='leftcaret' class="fas fa-angle-left"></i></p>
                         </div>
                         <div class='dropDown'>
-                            <select onchange='bodySession()' name="" id="bodyStyleFilter" oninput='filterVehicles();changePage(1, "a"); '>
-                                <option value="any" selected>Any</option>
-                                {% for make in makeOptions %}
-                                    <option value="{{make}}">{{make}}</option>
+                            <form  action="">
+                                <!-- <input id='make-form' value='any' type="checkbox" checked onclick='makeSession(); changePage(1, "a")'>
+                                <label for="">Any</label> -->
+                                {% for body in makeOptions %}
+                                    <input id='body-form' value='{{body}}' type="checkbox" onclick='bodySession(); changePage(1,"a")'>
+                                    <label for="">{{body}}</label>
                                 {% endfor %}
-                               
+                            </form>
                             
-                            </select>
                         </div>
                     </div>
-                    
                 </div>
             </div>
             <div class='displayFilter'>

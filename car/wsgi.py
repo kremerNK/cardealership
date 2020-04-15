@@ -18,6 +18,6 @@ os.environ.setdefault("DJANGO_SETTINGS_MODULE", "car.settings.dev")
 
 os.environ['test'] = 'VALUE'
 application = get_wsgi_application()
-print('testwsgi')
+
 
 # application = WSGIHandler()  
