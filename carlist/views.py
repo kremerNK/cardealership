@@ -6,6 +6,7 @@ from django.core import mail
 from django.core.mail import send_mail
 from django.contrib import messages
 from django.urls import reverse
+from django.core.validators import validate_email
 
 from .models import Vehicle
 from .forms import ContactForm, FormWithCaptcha
@@ -14,6 +15,7 @@ from .forms import ContactForm, FormWithCaptcha
 import json
 import smtplib
 import urllib
+import re
 
 
 
@@ -67,6 +69,7 @@ def vehiclePage(request, slug, pk):
         server.ehlo()
         server.login(username, password)
         form = ContactForm(request.POST) 
+        
         if form.is_valid(): 
             messages.success(request, 'Message successfully sent')
             subject = 'New Inquiry' 
@@ -113,17 +116,38 @@ def contact(request):
         server = smtplib.SMTP('smtp.gmail.com', 587)
         server.ehlo()
         server.starttls()
-        server.ehlo()
-        server.login(username, password)
+        server.ehlo() 
+        server.login(username, password) 
         form = ContactForm(request.POST) 
+        print('email')
+         
         if form.is_valid(): 
-            messages.success(request, 'Message successfully sent')
+            # try:
+    
+            try:
+                print('validate email')
+                validate_email(form.cleaned_data['email'])
+            except:
+                print('exception email')
+                messages.error(request, 'improper email')    
+                return HttpResponseRedirect(reverse('contact'))
+
+
+            #check and see if these things are actually posting. verify with email - if email hits after the except or if checkphone== none: hit, you have a problem
+            checkphone = re.search('\d\d\d\W\d\d\d\W\d\d\d\d', form.cleaned_data['phone'])
+            if checkphone == None:
+                print('phone number invalid')
+                messages.error(request, 'improper phone')
+                return HttpResponseRedirect(reverse('contact')) 
+  
+        
+            
             subject = 'New Inquiry' 
             sender = form.cleaned_data['email']
-            print(sender)
+
             nameFirst = form.cleaned_data['nameFirst']
             nameLast = form.cleaned_data['nameLast']
-            contactBy = form.cleaned_data['contactBy' ]
+            contactBy = form.cleaned_data['contactBy']
             
             if contactBy == 'phone':
                 contact = form.cleaned_data['phone']
@@ -135,23 +159,26 @@ def contact(request):
                 \n Email: {form.cleaned_data['email']}\
                 \n\n{nameFirst} {nameLast} has asked to be contacted by {contactBy}."
             
-       
+    
             recipients = ['glycine775@gmail.com']
     
             send_mail(subject, message, sender, recipients, fail_silently = False)
 
             subject = 'We received your inquiry'
             message = 'We will reply as soon as we can'
-       
+    
             recipients = [sender]
 
             sender = 'glycine775@gmail.com'
-            print(recipients)
             send_mail(subject, message, sender, recipients, fail_silently = False)
+            messages.success(request, 'Message successfully sent')
             print('everything sent')
+
             server.quit()
-   
-            return HttpResponseRedirect(reverse('contact'))
+        
+
+        return HttpResponseRedirect(reverse('contact'))
+
 
     # context = {'form':form}        
     return render(request, 'contact.html', {'form':form, 'captcha':captcha})

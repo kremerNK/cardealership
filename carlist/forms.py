@@ -1,19 +1,18 @@
 from django import forms
 from django.db import models
 from captcha.fields import ReCaptchaField
+from django.core.validators import validate_email
 
 class ContactForm(forms.Form):
-    class contactType(models.TextChoices): 
-        ##may need to alter these fields back to suv = '3', 'SUV'. 
-        sedan = 'Sedan'
-        truck = 'Truck'
-        suv = 'SUV'
-        van = 'Van'
+    
      
     contactOptions = (
         ('email', 'Email'), 
         ('phone', 'Phone'),)  
- 
+    
+    def email_validator(email):
+        pass
+
     nameFirst = forms.CharField(label='First Name', max_length = 100) #add max lengths to form itself
     nameLast = forms.CharField(label='Last Name', max_length = 100)
     email = forms.CharField(label='Email', max_length = 100)
