@@ -27,7 +27,7 @@ def home(request):
     makeOptions = [x for x in set(Vehicle.objects.values_list('carType', flat=True)) if x != '']
     context = {'randomVehicles':randomVehicles, 'vehicles':allVehicles, 'makeOptions':makeOptions}
     return render(request, 'home_page.html', context)
-
+ 
 
 def searchVehicle(request):
     makeList = sorted([x for x in set(Vehicle.objects.values_list('make', flat=True)) if x != ''])
@@ -119,10 +119,11 @@ def contact(request):
         if form.is_valid(): 
             messages.success(request, 'Message successfully sent')
             subject = 'New Inquiry' 
-            sender = 'nickstrauss@yahoo.com'
+            sender = form.cleaned_data['email']
+            print(sender)
             nameFirst = form.cleaned_data['nameFirst']
             nameLast = form.cleaned_data['nameLast']
-            contactBy = form.cleaned_data['contactBy']
+            contactBy = form.cleaned_data['contactBy' ]
             
             if contactBy == 'phone':
                 contact = form.cleaned_data['phone']

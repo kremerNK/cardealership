@@ -208,6 +208,19 @@ nav {
     
 }
 
+.leftbanner > a {
+
+    width: 50%;
+    height: 100%;
+}
+
+.leftbanner > a > img {
+    margin: 0 auto;
+    width: 100%;
+    height: 140%;
+    margin-top: -10%;
+}
+
 .leftbanner h3 {
     margin: 0;
     text-align: center;

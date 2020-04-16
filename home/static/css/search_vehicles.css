@@ -611,6 +611,7 @@ th {
     /* top: 1px; */
     /* height: auto; */
   
+
 }
 
 
@@ -703,6 +704,7 @@ th {
 
 #reset-button {
     margin-right: 3vw;
+    
 }
 
 
@@ -739,6 +741,7 @@ th {
         /* background-color: #2f75a3; */
         color: black;
         border-bottom: none;
+
        
       
     }
@@ -751,6 +754,8 @@ th {
         /* height: auto; */
         margin-bottom: 60px;
         z-index: 0;
+       
+
     }
 
     .dropDownContainer {
@@ -1001,6 +1006,8 @@ th {
     #reset-button {
         margin: 0 auto;
         border: none;
+        font-size: 12px;
+       
     }
 
     #make-form {
@@ -1069,7 +1076,7 @@ th {
       /* Style the checkmark/indicator */
       .container .checkmark:after {
         left: 5px;
-        top: 3px;
+        top: 3.3px;
         width: 2.5px;
         height: 5px;
         border: solid white;

@@ -35,7 +35,7 @@
             {# Override this in templates to add extra stylesheets #}
         {% endblock %}
     </head>
-  
+   
     <body>
     
         <div class='top-banner'>
@@ -44,7 +44,7 @@
             </span>
             <div class='leftbanner'>
                 <!-- got logo on https://www.freelogodesign.org/, see easton08 for emails + DL + info -->
-                <img src="../../media/siteImages/banner12.png" alt="">
+                <a href="{% url 'home' %}"><img src="../../media/siteImages/banner12.png" alt=""></a> 
             </div>
             <div class='rightbanner'> 
                 <p style='margin-bottom: 5px' id='address'><i class="fas fa-map-marker-alt fa-sm"></i> 123 New Franken Street </p>
@@ -78,7 +78,7 @@
         </div>  
   
         <footer class='footer'>
-            <img src="../../media/siteImages/banner13footer.png" alt="">
+            <a href="{% url 'home' %}"><img src="../../media/siteImages/banner13footer.png" alt=""></a> 
             <div id='footer-contact'>
                 
                 <p>123 New Franken Street, New Franken, GA 22222 <p id='diamond'>&#x2666</p> </p>
