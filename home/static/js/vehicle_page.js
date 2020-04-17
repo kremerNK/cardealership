@@ -48,8 +48,10 @@ slide.style.margin = '0 auto';
 
 ////////automatically insert hyphen in Phone input////////////
 const phoneInput = document.querySelector('#id_phone');
-phoneInput.value = '';
+console.log(phoneInput.value);
 
+// phoneInput.value = '';
+ 
 const phoneFormat = '{0}{1}{2}-{3}{4}{5}-{6}{7}{8}{9}';
 
 phoneInput.addEventListener('input', (event) => {

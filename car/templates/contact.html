@@ -15,17 +15,25 @@
         
           
       
-      
+       
     </head>
-    <body>
-        
+    <body> 
+         
         <!-- <div class='title'>
             <h2>Contact New Franken Automotive</h2>
         </div> -->
         <section class='mobile-margin'> 
             
         </section>
+            {% if messages %} 
+                {% for message in messages %}
+
+                    <p id='form-submission'>{{ message }}</p>
+            
+                {% endfor %}
+            {% endif %}
         <div class='body'> 
+            
             <div class='contact-form'>
                 <h2>Contact New Franken Automotive</h2>
         
@@ -45,26 +53,28 @@
                             {{ form.email }}
                         </li>
                          <li> 
-                            <label>Phone*</label>
+                            <label style='display: flex; height: auto;'>Phone* 
+                                {% if messages %} 
+                                    {% for message in messages %}
+                                        {% if message.error %}
+                                        <p style='margin-bottom: 0; padding-left: 1em; font-weight: lighter; color: red;'>{{ message }}</p>
+                                        {% endif %}
+                                    {% endfor %}
+                                {% endif %}
+                            </label>
                             {{ form.phone }}
                         </li> 
                         <li>
                             <label>Contact me by</label> 
                             {{ form.contactBy }}
                         </li>
-                    </ul> 
-                    {{ form.message }}                      
+                    </ul>  
+                    {{ form.message }}                       
                 
-                {{ captcha.captcha }}
+                <!-- {{ captcha.captcha }} -->
                 <input type="submit" value='Submit'> 
-                {% if messages %} 
-                    {% for message in messages %}
+                
 
-                        <p id='form-success'>{{ message }}</p>
-                        <p id='form-success'>{{ error }}</p>
-                    {% endfor %}
-                {% endif %}
-        
                 </form>
           
             </div> 

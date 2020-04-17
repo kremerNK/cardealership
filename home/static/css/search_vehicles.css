@@ -1016,12 +1016,13 @@ th {
 
     /* Customize the label (the container) */
     .container {
-        display: inline-block;
+        display: inline;
+        /* display: flex; */
         position: relative;
 
         padding-left: 35px;
-        margin-right: 60%;
-        margin-bottom: 12px;
+        /* margin-right: 60%; */
+        /* margin-bottom: 12px; */
         cursor: pointer;
         font-size: 16px;
         font-weight: 500;
@@ -1030,6 +1031,13 @@ th {
         -ms-user-select: none;
         user-select: none;
         width: auto;
+      }
+
+      .container p {
+          display: inline;
+          font-size: 14px;
+          font-weight: lighter;
+          font-style: italic;
       }
 
       /* Hide the browser's default checkbox */
@@ -1044,7 +1052,7 @@ th {
       /* Create a custom checkbox */
       .checkmark {
         position: absolute;
-        top: 5px;
+        top: 2.5px;
         left: 15px;
         height: 15px;
         width: 15px;
@@ -1085,4 +1093,29 @@ th {
         -ms-transform: rotate(45deg);
         transform: rotate(45deg);
       } 
+
+      .dropDown.display {
+        overflow: hidden;
+        max-height: 150vh;
+        transition: all 0.2s ease-in;
+        padding-bottom: 2vh;
+    }
+    
+    .dropDown.display > form {
+        display: inline-block;
+        width: 100%;
+        margin-bottom: 0;
+    }
+    
+    .dropDown.display > form >  div {
+        /* display: inline-block; */
+        margin-left: 15px;
+    
+        width: auto;
+    }
+    
+    .dropDown.display > form > div > label{
+    
+        /* display: inline; */
+    } 
 } 

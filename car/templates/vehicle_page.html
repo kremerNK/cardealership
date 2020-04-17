@@ -22,16 +22,15 @@
     <title>Document</title>
 </head> 
 <body> 
+    {% if messages %} 
+        {% for message in messages %}
+
+            <p id='form-submission'>{{ message }}</p>
+    
+        {% endfor %}
+    {% endif %}
     <div class='vehicle-page'>
-        <div id='message-success-div-mobile'>
-            {% if messages %} 
-                {% for message in messages %}
-
-                    <p id='form-success'>{{ message }}</p>
-                {% endfor %}
-            {% endif %}
-
-        </div>
+        
         <div class='image-details'>
             <div class='image'> 
                 <div class='vehicletitle'>
@@ -117,15 +116,7 @@
                         <a href="{% url 'searchVehicle' %}"><button>View More Vehicles</button></a>
                         <button id='form-submit'>Contact Us</button>
                     </div>
-                    <div id='message-success-div'>
-                        {% if messages %} 
-                            {% for message in messages %}
-
-                                <p id='form-success'>{{ message }}</p>
-                            {% endfor %}
-                        {% endif %}
-         
-                    </div>
+                    
                 </div>
             <div class='contact-form'>
                 <form id='contact-form' action="" method='post'>
@@ -153,7 +144,7 @@
                         </li>
                     </ul>
                     {{ form.message }}
-                    {{ captcha.captcha }} 
+                    <!-- {{ captcha.captcha }}  -->
                     <input type="submit" value='Submit'>
                     
         

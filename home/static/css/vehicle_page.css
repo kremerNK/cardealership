@@ -184,11 +184,13 @@ color: black;
     display: none
 }
 
-#message-success-div-mobile > p {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 3vh;
+#form-submission {
     color: red;
+    font-size: 18px;
+    text-align: center;
+    margin-bottom: 0;
+    margin-top: 2.5%;
+    margin-bottom: -2.5%;
 }
 
 @media screen and (min-width: 1000px) {
@@ -431,13 +433,14 @@ color: black;
         transition: all 0.3s ease-in;
         
     }
-    
-    #message-success-div > p{
-        display: flex;
-        justify-content: center;
-        margin-bottom: 3vh;
-        color: red;
-    }
   
+    #form-submission {
+        color: red;
+        font-size: 18px;
+        text-align: center;
+        margin-bottom: 0;
+        margin-top: 2.5%;
+        margin-bottom: -2.5%;
+    }
     
 } 

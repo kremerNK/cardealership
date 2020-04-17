@@ -2,6 +2,21 @@ let blueBar = document.querySelector('.blue');
 let searchForm = document.querySelector('.search-form').getBoundingClientRect().height * .50;
 blueBar.style.height = searchForm.toString().concat('px');
 
+
+let priceOptions = document.querySelectorAll('#price');
+
+
+}
+for (i=0; i < priceOptions.length; i++){
+
+    console.log(priceOptions[i].innerHTML);
+    
+    priceOptions[i].innerHTML = 'Under $' + formatNumber(priceOptions[i].value, 2).slice(0, -3);
+    console.log(priceOptions[i].value);
+    
+    
+    
+}
 //carousel//
 
 $(document).ready(function(){

@@ -17,10 +17,7 @@
     <body> 
         <div class='sort-hide-mobile'>
             <div class='sort'>
-                
                     <p id='totalMatches'>0 matches</p>
-               
-                
                 <div class='card-pp'>
        
                     <select onchange='setVehiclePPSession();' name="" id="vehicle-pp">
@@ -68,7 +65,6 @@
                             <p><i id='leftcaret' class="fas fa-angle-left"></i></p>
                         </div>
                         <div class='dropDown'> 
-                            <!-- add display:none to dropdown -->
                             <div style='margin: 4.5rem; margin-top: 7rem;' class='regular-slider'>
                     
                             </div>
@@ -78,8 +74,6 @@
                                     $
                                     <input value='' type="text" id="min" oninput='sliderChange(this);changePage(1, "a");'/>
                                 </span>
-                                - 
-                                <!-- <input id='min' type='text'> -->
                                 <span class='textbox'>
                                     $
                                     <input value='' id='max' type='text' oninput='sliderChange(this);changePage(1, "a")'/>
@@ -94,22 +88,16 @@
                         </div>
                         <div class='dropDown'>
                             <form id='make-form' action="">
-
-                                {% for make in makeList %}
-                                    <!-- <div>
-                                        <input class='make-input' id='{{make}}' value='{{make}}' type="checkbox" onclick='makeSession(); changePage(1,"a")'>
-                                        <label for="{{make}}">{{make}}</label>
-                                    </div> -->
-                                    <label class='container'>{{make}}
+                                {% for make, count in makeCounter.items %}
+                                    <label class='container'>{{make}} <p style='display: inline;'>({{count}})</p>
                                         <input class='make-input' type="checkbox" value='{{make}}' onclick='makeSession(); changePage(1,"a")'>
                                         <span class='checkmark'></span>
                                     </label>
-                                    
                                 {% endfor %}
                             </form>
                         </div>
                     </div>
-                     
+                      
                     <div class='search'>
                         <div id='dropDownTarget'>
                             <p>Mileage</p>
@@ -117,22 +105,14 @@
                         </div>
                         <div class='dropDown'>
                             <div style='margin: 4rem;margin-top: 7rem;' class='mileage-slider'>
-                             
                             </div>
                             <div class='mileageSpan'>
-                                
-                                
                                     <input type="text" id="mileageMin" oninput='mileageSliderChange(this);changePage(1, "a"); '/>
-                                
-                                -
-                                <!-- <input id='min' type='text'> -->
-               
-                                    
                                     <input id='mileageMax' type='text' oninput='mileageSliderChange(this);changePage(1, "a"); '>
                                 
                             </div>
                             
-                        </div>
+                        </div> 
                     </div>
                     <div class='search'> 
                         <div id='dropDownTarget'>
@@ -141,22 +121,17 @@
                         </div>
                         <div class='dropDown'>
                             <form id='model-form' action="">
-                                <!-- <input id='make-form' value='any' type="checkbox" checked onclick='makeSession(); changePage(1, "a")'>
-                                <label for="">Any</label> -->
-                                {% for model in modelList %}
-                                    <!-- <div>
-                                        <input class='model-input' id='{{model}}' value='{{model}}' type="checkbox" onclick='modelSession(); changePage(1,"a")'>
-                                        <label for="{{model}}">{{model}}</label>
-                                    </div> -->
-                                    <label class='container'>{{model}}
-                                        <input class='model-input' type="checkbox" value='{{model}}' onclick='modelSession(); changePage(1,"a")'>
-                                        <span class='checkmark'></span>
-                                    </label>
-                                    
-                                {% endfor %}
+              
+                                    {% for model, count in modelCounter.items %}
+                                        <label class='container'>{{model}} <p style='display: inline;'>({{count}})</p>
+                                            <input class='model-input' type="checkbox" value='{{model}}' onclick='modelSession(); changePage(1,"a")'>
+                                            <span class='checkmark'></span>
+                                        </label>
+                                    {% endfor %}
+                         
                             </form>
                         </div>
-                    </div>
+                    </div> 
                     
                     <div class='search'>
                         <div id='dropDownTarget'>
@@ -164,76 +139,10 @@
                             <p><i id='leftcaret' class="fas fa-angle-left"></i></p>
                         </div>
                         <div class='dropDown'>
-                            <!--  <div class='yearDropDown'>
-                                 <select name="selectyear" id="selectYearMin" onchange='yearSessionMin();changePage(1, "a"); ' oninput='filterVehicles()'>
-                            
-                                    <option value="1995" selected>1995</option>
-                                    <option value="1996">1996</option>
-                                    <option value="1997">1997</option>
-                                    <option value="1998">1998</option>
-                                    <option value="1999">1999</option>
-                                    <option value="2000">2000</option>
-                                    <option value="2001">2001</option>
-                                    <option value="2002">2002</option>
-                                    <option value="2003">2003</option>
-                                    <option value="2004">2004</option>
-                                    <option value="2005">2005</option> 
-                                    <option value="2006">2006</option>
-                                    <option value="2007">2007</option>
-                                    <option value="2008">2008</option>
-                                    <option value="2009">2009</option>
-                                    <option value="2010">2010</option>
-                                    <option value="2011">2011</option>
-                                    <option value="2012">2012</option>
-                                    <option value="2013">2013</option>
-                                    <option value="2014">2014</option>
-                                    <option value="2015">2015</option>
-                                    <option value="2016">2016</option>
-                                    <option value="2017">2017</option>
-                                    <option value="2018">2018</option>
-                                    <option value="2019">2019</option>
-                                    <option value="2020">2020</option>
-                                </select>
-                        - 
-                                <select name="selectyear2" id="selectYearMax" onchange = 'yearSessionMax();changePage(1, "a"); ' oninput='filterVehicles()'>
-                                    <option value="1995">1995</option>
-                                    <option value="1996">1996</option>
-                                    <option value="1997">1997</option>
-                                    <option value="1998">1998</option>
-                                    <option value="1999">1999</option>
-                                    <option value="2000">2000</option>
-                                    <option value="2001">2001</option>
-                                    <option value="2002">2002</option>
-                                    <option value="2003">2003</option>
-                                    <option value="2004">2004</option>
-                                    <option value="2005">2005</option>
-                                    <option value="2006">2006</option>
-                                    <option value="2007">2007</option>
-                                    <option value="2008">2008</option>
-                                    <option value="2009">2009</option>
-                                    <option value="2010">2010</option>
-                                    <option value="2011">2011</option>
-                                    <option value="2012">2012</option>
-                                    <option value="2013">2013</option>
-                                    <option value="2014">2014</option>
-                                    <option value="2015">2015</option>
-                                    <option value="2016">2016</option>
-                                    <option value="2017">2017</option>
-                                    <option value="2018">2018</option>
-                                    <option value='2019'>2019</option>
-                                    <option value="2020" selected>2020</option>
-                                </select> 
-                                 <input id='min' type='text'>
-                                <span class='textbox'> 
-                            </div> -->
                             <form id='year-form' action="">
 
-                                {% for year in yearList %}
-                                    <!-- <div>
-                                        <input class='year-input' id='{{year}}' value='{{year}}' type="checkbox" onclick='yearSession(); changePage(1,"a")'>
-                                        <label for="{{year}}">{{year}}</label>
-                                    </div> -->
-                                    <label class='container'>{{year}}
+                                {% for year, count in yearCounter.items %}
+                                    <label class='container'>{{year}} <p style='display: inline;'>({{count}})</p>
                                         <input class='year-input' type="checkbox" value='{{year}}' onclick='yearSession(); changePage(1,"a")'>
                                         <span class='checkmark'></span>
                                     </label>
@@ -249,48 +158,26 @@
                         </div>
                         <div class='dropDown'>
                                 <form id='fuel-input' action="">
-                                        <div>
-                                            <label class='container'>10+mpg
-                                                <input class='fuel-input' type="checkbox" value='10' onclick='fuelSession(); changePage(1,"a")'>
+                                    {% for fuel, count in fuelCounter.items %}
+                                            <label class='container'>{{fuel}}+ mpg <p style='display: inline;'>({{count}})</p>
+                                                <input class='fuel-input' type="checkbox" value='{{fuel}}' onclick='fuelSession(); changePage(1,"a")'>
                                                 <span class='checkmark'></span>
                                             </label>
-                                            <!-- <input class='fuel-input' id='10' value='10' type="checkbox" onclick='fuelSession(); changePage(1,"a")'>
-                                            <label for="10">10+ mpg</label> -->
-                                        </div>
-                                            
-                                        <div>
-                                            <label class='container'>20+mpg
+                                    {% endfor %}
+                                            <!-- <label class='container'>20+mpg
                                                 <input class='fuel-input' type="checkbox" value='20' onclick='fuelSession(); changePage(1,"a")'>
                                                 <span class='checkmark'></span>
                                             </label>
-                                            <!-- <input class='fuel-input' id='20' value='20' type="checkbox" onclick='fuelSession(); changePage(1,"a")'>
-                                            <label for="20">20+ mpg</label> -->
-                                        </div>
-                                            
-                                        <div>
+                                  
                                             <label class='container'>30+mpg
                                                 <input class='fuel-input' type="checkbox" value='30' onclick='fuelSession(); changePage(1,"a")'>
                                                 <span class='checkmark'></span>
                                             </label>
-                                            <!-- <input class='fuel-input' id='30' value='30' type="checkbox" onclick='fuelSession(); changePage(1,"a")'>
-                                            <label for="30">30+ mpg</label> -->
-                                        </div>
-                                            
-                                        <div>
                                             <label class='container'>40+mpg
                                                 <input class='fuel-input' type="checkbox" value='40' onclick='fuelSession(); changePage(1,"a")'>
                                                 <span class='checkmark'></span>
-                                            </label>
-                                            <!-- <input class='fuel-input' id='40' value='40' type="checkbox" onclick='fuelSession(); changePage(1,"a")'>
-                                            <label for="40">40+ mpg</label> -->
-                                        </div>
-                  
-           
-                                    
-                                    
+                                            </label> -->
                                 </form>
-       
-                            
                         </div>
                     </div>
                     <div class='search'>
@@ -300,14 +187,8 @@
                         </div>
                         <div class='dropDown'>
                             <form id='body-form' action="">
-                                <!-- <input id='make-form' value='any' type="checkbox" checked onclick='makeSession(); changePage(1, "a")'>
-                                <label for="">Any</label> -->
-                                {% for body in makeOptions %}
-                                <!-- <div>
-                                    <input id='body-input' value='{{body}}' type="checkbox" onclick='bodySession(); changePage(1,"a")'>
-                                    <label for="">{{body}}</label>
-                                </div> -->
-                                <label class='container'>{{body}}
+                                {% for body, count in bodyCounter.items %}
+                                <label class='container'>{{body}} <p style='display: inline;'>({{count}})</p>
                                     <input class='body-input' type="checkbox" value='{{body}}' onclick='bodySession(); changePage(1,"a")'>
                                     <span class='checkmark'></span>
                                 </label>
@@ -368,10 +249,7 @@
                                         <div value='{{ attribute.carType }}' class='vehicleTitle'>
                                             <div class='year'>
                                                 <p class='vehicleYear' id='make' name='{{attribute.model}}' value ='{{attribute.make}}'> {{attribute.title}} </p>
-                                                <!-- <p style='text-indent: 1rem;' id={{attribute.make}}> {{ attribute.make }}</p> 
-                                                <p name='{{attribute.model}}' id='model' style='text-indent: 1rem'>  {{attribute.model }}</p> -->
                                             </div>
-                                            <!-- <p>{{ attribute.carType }}</p> -->
                                             <p name='vehicle-price' class='vehicle-price' >{{ attribute.price }}</p>
                                         </div>
                                         <div class='vehicleDetails'>
@@ -428,32 +306,18 @@
                         {% endfor %}
                     </div>
                     <div class='pagination'>
-
-            
-                        <!-- <div id="listingTable"></div> -->
                             <a onclick='prevPage()' ><button id="btn_prev">&#8249; Prev </button></a>
-                            <!-- <a href="javascript:prevPage()"><button id="btn_prev">&#8249; Prev </button></a> -->
                             Page <span id="page"></span> of <span id='totalpage'></span>
                             <a onclick='nextPage()'><button id="btn_next">Next &#8250;</button></a>
-                            
                     </div>
                 </div>
-                
-            
             </div>
         </div>
-        
-        
        </div>
-   
-       
        <script src="https://unpkg.com/nouislider@10.0.0/distribute/nouislider.min.js"></script>
        <script src="https://unpkg.com/wnumb@1.1.0"></script>
        <script src="//cdnjs.cloudflare.com/ajax/libs/list.js/1.5.0/list.min.js"></script>
        <script type="text/javascript" src="{% static 'js/searchvehicles.js' %}"></script>
-       
-    
-        
     </body>
     </html>
 {% endblock %}    
