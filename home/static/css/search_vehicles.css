@@ -1213,7 +1213,7 @@ th {
     }
     
     .dropDown.display > form >  div {
-        /* display: inline-block; */
+        /* display: inline-block; */ 
         margin-left: 15px;
     
         width: auto;
@@ -1223,4 +1223,11 @@ th {
     
         /* display: inline; */
     } 
+
+    #totalMatches {
+        position: absolute;
+        left: 23.5%;
+        padding-top: 2.5vh;
+        width: auto;
+      }
 } 

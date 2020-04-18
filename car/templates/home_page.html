@@ -7,7 +7,7 @@
 {% block content %}
     <!DOCTYPE html>
     <html lang="en">
-    <head> 
+    <head>  
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" type="text/css" href="{% static 'css/home_page.css' %}">
@@ -15,7 +15,7 @@
         <link rel="stylesheet" type="text/css" href="slick/slick-theme.css"/> -->
         <link rel="stylesheet" type="text/css" href="{% static 'slick/slick/slick.css' %}"/>
         <link rel="stylesheet" type="text/css" href="{% static 'slick/slick/slick-theme.css' %}"/>
-        <!-- <title>Document</title> -->
+        <title>Welcome to New Franken Automotive!</title>
     </head>
     <body>   
         <div class='dealerbanner'>
@@ -64,19 +64,36 @@
                                 {% endfor %}
                             </select>
                         </div>
-                    
                     </form>
                 </div>
                 <div class='submit'>
                     <a href="{% url 'searchVehicle' %}"><button>Find Matches</button></a>
                 </div>
-                
             </div>
-            <!-- <div id='content'>
-                <h2 class='introtitle'>Welcome to New Franken Automotive</h2>
-            </div>  -->
-                
-          
+            <section id='slideshowcontainer'>
+                <div class='slides'> 
+                    {% for i in randomVehicles %}
+                    <div class='slide'>
+                        <div class='single-slide'>
+                            <a href="{% url 'vehiclePage' i.slug i.pk %}"><img src="../media/{{i.picture}}" style='width: 100%;' alt=""> </a>
+                            <p class='slide-price' >{{i.price}}</p>
+                            <div class='titlemiles'>
+                    
+                                <a href="{% url 'vehiclePage' i.slug i.pk %}" style='text-decoration:none;'><p class='slide-title' >{{ i.title }}</p></a>
+                                <p class='slide-miles' >{{ i.mileage }} miles</p>
+                            </div> 
+                            <div class='slide-vehicle-redirect'>
+                                <!-- <a href="search-vehicles/{{i.slug}}-{{i.pk}}"><button>View</button></a> -->
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+                <div class='view-all-button'>
+            
+                    <button><a href='{% url 'searchVehicle' %}'>View All</a></button>
+                </div>
+            </section>
             
             <div class='intro'>
      
@@ -90,9 +107,6 @@
                     <!-- ABOVE IMAGE CANNOT GO LIVE. POSSIBLE COPYRIGHT INFRINGEMENT  -->
                     <!-- ABOVE IMAGE CANNOT GO LIVE. POSSIBLE COPYRIGHT INFRINGEMENT  -->
                 </div>
-      
-
-                <!-- <h2 class='introtitle'>Welcome to New Franken Automotive</h2> -->
                 <div class='intro-text'>
                     <h2>About Us</h2>
                     <p>
@@ -111,73 +125,12 @@
                 Plus with non-commissioned sales staff, we are here to help you find the right vehicle without pressure. Gandrud West Mason Value Center  One Low Price??Always!!!
             </p> -->
             </div> 
-            
-            
         </div>
-        <div class='blue'>
-  
-        </div>
-        <section id='slideshowcontainer'>
-            <div class='slides'> 
-                <!-- <div class='slide'>
-                    <img class='test' src="../media/2014chevysilverado1500_alZgdV4.jpeg" style='width: 100%' alt="">
-                    <p>Car 2</p> 
-                </div>  -->
-                {% for i in randomVehicles %}
-                <div class='slide'>
-                    <div class='single-slide'>
-                        <a href="{% url 'vehiclePage' i.slug i.pk %}"><img src="../media/{{i.picture}}" style='width: 100%;' alt=""> </a>
-                        <p class='slide-price' >{{i.price}}</p>
-                        <div class='titlemiles'>
-                
-                            <a href="{% url 'vehiclePage' i.slug i.pk %}" style='text-decoration:none;'><p class='slide-title' >{{ i.title }}</p></a>
-                            <p class='slide-miles' >{{ i.mileage }} miles</p>
-                        </div> 
-                        <div class='slide-vehicle-redirect'>
-                            <!-- <a href="search-vehicles/{{i.slug}}-{{i.pk}}"><button>View</button></a> -->
-                        </div>
-                        
-                    </div>
-                </div>
-                {% endfor %}
-                <!-- <div class='slide'>
-                    <img class='test' src="../media/2014fordexplorer.jpg" style='width: 100%' alt="">
-                    <p>Car 2</p> 
-                </div> 
-                <div class='slide'>
-                    <img src="../media/2015hyundaielantra.jpg" style='width: 100%' alt="">
-                    <p>Car 3</p>
-                </div>
-                
-                <div class='slide'>
-                    <img src="../media/2018hyundaisantafe.jpg" style='width: 100%' alt="">
-                    <p>Car 4</p>
-                </div>
-                <div class='slide'>
-                    <img src="../media/2011dodgeram.jpg" style='width: 100%' alt="">
-                    <p>Car 5</p>
-                </div>
-                
-                <div class='slide'>
-                    <img src="../media/2012hondaaccord.jpg" style='width: 100%' alt="">
-                    <p>Car 6</p>
-                </div> -->
 
-            </div>
-            <div class='view-all-button'>
         
-                <button><a href='{% url 'searchVehicle' %}'>View All</a></button>
-            </div>
-        </section>
-
-
-         
-       
         <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
         <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
-       
         <script type="text/javascript" src="{% static 'js/home_page.js' %}"></script>
-        
         <script type="text/javascript" src="{% static 'slick/slick/slick.min.js' %}"></script>
     </body>
     </html>

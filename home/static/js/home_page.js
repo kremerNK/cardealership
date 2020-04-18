@@ -1,10 +1,10 @@
-let blueBar = document.querySelector('.blue');
+// let blueBar = document.querySelector('.blue');
 let searchForm = document.querySelector('.search-form').getBoundingClientRect().height * .50;
-if (window.matchMedia("(min-width: 1000px)").matches == false){
+// if (window.matchMedia("(min-width: 1000px)").matches == false){
 
-} else {
-    blueBar.style.height = searchForm.toString().concat('px');
-}
+// } else {
+//     blueBar.style.height = searchForm.toString().concat('px');
+// }
 
 //carousel//
 
@@ -12,7 +12,7 @@ $(document).ready(function(){
     $('#slideshowcontainer .slides').slick({
         slidesToShow: 4,
         slidesToScroll: 1, 
-        autoplay: true,
+        autoplay: false,
         adaptiveHeight: true, 
         autoplaySpeed: 2000, 
         responsive: [
