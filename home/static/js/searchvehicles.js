@@ -7,7 +7,7 @@ let leftBannerHeight = document.querySelector('.leftbanner').getBoundingClientRe
 let mobilePhoneHeight = document.querySelector('.mobile-phone').getBoundingClientRect().height
 displayFilter.style.marginTop = (leftBannerHeight + mobilePhoneHeight + 15).toString().concat('px');
 
-// displayFilter.style.marginTop = (topHeight * 0.7).toString().concat('px');
+
 sortDiv.style.width = document.querySelector('.vehicleCard').getBoundingClientRect().width.toString().concat('px');
 sortDiv.style.marginRight = (document.querySelector('.sort').getBoundingClientRect().left - 
 document.querySelector('.vehicleCard').getBoundingClientRect().left).toString().concat('px');
@@ -17,7 +17,7 @@ let labels = document.querySelectorAll('.container')
 
 console.log(labels)
 
-// labels.forEach(e1 => e1.style.paddingRight = '35px');
+
 //check boxes if user uses find matches on home_page///
 let makeForm = document.querySelectorAll('.make-input');
 
@@ -76,15 +76,6 @@ maxMileage = roundNumMileage(Math.max(...mileageList));
 function modelSelectChange(){
     sessionStorage.setItem('model', document.querySelector('#modelFilter').value);
 }
- 
-// function modelSession(){
-
-//         if (sessionStorage.getItem('model')){
-//             return sessionStorage.getItem('model')
-//         } else {
-//             return 'any'
-//         };
-// };
 
 function modelSession(){
     if (sessionStorage.getItem('model')){
@@ -122,9 +113,6 @@ function modelFilterPageLoad(){
         return sessionStorage.getItem('model');
     }
 }
-
-// let modelSelection = document.querySelector('#modelFilter');
-// modelSelection.value = modelSession()
 modelFilterPageLoad()
 /////////////////////////////////price min max propagate search to next page//////////////////////////////////////////////////////////////
 
@@ -151,7 +139,6 @@ function priceMinHandle(){
     }
 }
 let slideMinValue = priceMinHandle()
-
 
 ////////////////make filter propagate search to next page///////////////////////////////////
 function makeSession(){
@@ -192,36 +179,11 @@ function makeFilterPageLoad(){
     else {
         return sessionStorage.getItem('make');
     }
-    // console.log(typeof sessionStorage.getItem('make'));
-    
-    // console.log(JSON.parse(sessionStorage.getItem('make'))[0]);
-    // console.log(JSON.parse(sessionStorage.getItem('make')).length);
-    
-    // if (JSON.parse(sessionStorage.getItem('make').length == 1)){
-    //     console.log('nochoice');
-    //     return 
-    // }
-    // for (i=0; i < JSON.parse(sessionStorage.getItem('make')).length; i++){
-    //     let sessionValue = JSON.parse(sessionStorage.getItem('make'))[i];
-        
-    //     if (document.querySelector(`#make-form[value=${sessionValue}]`)){
-    //         console.log('true');
-    //         document.querySelector(`#make-form[value=${sessionValue}]`).checked = true;
-    //     }
-    // };
-
-    
-    // console.log(JSON.parse(sessionStorage.getItem('make')));
-    
 };
 makeFilterPageLoad()
-// document.querySelector('#makeFilter').value = makeFilterPageLoad()
-
 ////////////////mileage min max propagate search to next page/////////////////////
 
 function mileageSessionMin(){
- 
-    
     if (sessionStorage.getItem('minMileage')){
         return parseInt(sessionStorage.getItem('minMileage'));
     } else {
@@ -229,7 +191,6 @@ function mileageSessionMin(){
     }
 }
 let mileageSessionValueMin = mileageSessionMin()
-
 
 function mileageSessionMax(){
     if (sessionStorage.getItem('maxMileage')){
@@ -242,46 +203,6 @@ let mileageSessionValueMax = mileageSessionMax();
 
 
 ////////////////year min and max propagate search to next page/////////////////////
-
-// function yearSessionMin(){
-//     sessionStorage.setItem('yearMin', document.querySelector('#selectYearMin').value)
-
-//     if (parseInt(sessionStorage.getItem('yearMin')) > parseInt(document.querySelector('#selectYearMax').value)){
-//         sessionStorage.setItem('yearMin', document.querySelector('#selectYearMax').value)
-//         document.querySelector('#selectYearMin').value = sessionStorage.getItem('yearMin')
-//     } 
-// }
-
-// function yearMinPageLoad(){
-//     if (sessionStorage.getItem('yearMin')){
-//         return sessionStorage.getItem('yearMin')
-//     } else {
-//         document.querySelector('#selectYearMin').value = '1995';
-//         return '1995';
-//     }
-// }
-// document.querySelector('#selectYearMin').value = yearMinPageLoad();
-
-// function yearSessionMax(){
-//     sessionStorage.setItem('yearMax', document.querySelector('#selectYearMax').value)
-    
-//     if (parseInt(sessionStorage.getItem('yearMax')) < parseInt(document.querySelector('#selectYearMin').value)){
-//         sessionStorage.setItem('yearMax', document.querySelector('#selectYearMin').value)
-//         document.querySelector('#selectYearMax').value = sessionStorage.getItem('yearMax')
-//     } 
-// }
-
-// function yearMaxPageLoad(){
-  
-    
-//     if (sessionStorage.getItem('yearMax')){
-//         return sessionStorage.getItem('yearMax')
-//     } else {
-//         document.querySelector('#selectYearMax').value = '2020';
-//         return '2020';
-//     }
-// }
-// document.querySelector('#selectYearMax').value  = yearMaxPageLoad();
 
 function yearSession(){
     if (sessionStorage.getItem('year')){
@@ -363,7 +284,6 @@ function fuelFilterPageLoad(){
         return sessionStorage.getItem('fuel');
     }
 };
-// document.querySelector('#fuelEfficiencyFilter').value = fuelFilterPageLoad()
 fuelFilterPageLoad();
 ////////////////body style propagate search to next page/////////////////////
 
@@ -403,13 +323,9 @@ function bodyFilterPageLoad(){
         return sessionStorage.getItem('body');
     }
 };
-// document.querySelector('#bodyStyleFilter').value = bodyFilterPageLoad()
 bodyFilterPageLoad();
 
 ////session of vehicle per page and sort option selections//////////
-
-
-
 if (sessionStorage.getItem('vehiclePP')){
     sessionStorage.getItem('vehiclePP')
     document.querySelector('#vehicle-pp').value = sessionStorage.getItem('vehiclePP');
@@ -570,9 +486,6 @@ for (i=0; i < hidePips.length; i++){
 //////////////////////////filter function//////////////////////////////////////
 
 function filterVehicles(){
-   
-    
-    
     let searchCards = document.querySelector('.searchresults');
     if (typeof filteredVehicleCards == 'undefined'){
         allVehicleCards = document.querySelectorAll('.vehicleCard');
@@ -583,12 +496,6 @@ function filterVehicles(){
     } else {
         filteredVehicleCards.innerHTML = '';
     }
-
-    let testdiv = document.querySelector('.extra');
-    
-    let newtest = document.createElement('testdiv');
-
-    
     //specified elements to filter with
     let tooltip = document.querySelectorAll('.noUi-tooltip');
     if (tooltip.length === 4){
@@ -603,7 +510,6 @@ function filterVehicles(){
             let makeFiltered = allVehicleCards[i].querySelector('#make').getAttribute('value');
             let mileageFiltered = parseInt(allVehicleCards[i].querySelector('#mileageId').innerHTML.replace(',',''));
             let yearFiltered = parseInt(allVehicleCards[i].querySelector('.vehicleYear').innerHTML);
-            // console.log(yearFiltered);
             let fuelFiltered = parseInt(allVehicleCards[i].querySelector('#mpg').innerHTML);
             let bodyFiltered = allVehicleCards[i].querySelector('.vehicleTitle').getAttribute('value');
             let modelFiltered = allVehicleCards[i].querySelector('#make').getAttribute('name')
@@ -615,11 +521,6 @@ function filterVehicles(){
             let bodySearch = JSON.parse(sessionStorage.getItem('body'));
             let yearSearch = JSON.parse(sessionStorage.getItem('year'));
             let fuelSearch = JSON.parse(sessionStorage.getItem('fuel'));
-            // let makeSearch = document.querySelector('#makeFilter').value; //in checkbox model, this will be a list
-            // let modelSearch = document.querySelector('#modelFilter').value
-            // let bodyTypeSearch = document.querySelector('#bodyStyleFilter').value;
-            // let yearMinSearch = document.querySelector('#selectYearMin').value; //can get year from select dom with value
-            // let yearMaxSearch = document.querySelector('#selectYearMax').value;
             let mileagemintooltip = parseInt(tooltip[2].innerHTML.replace('$','').replace(',',''));
             let mileagemaxtooltip = parseInt(tooltip[3].innerHTML.replace('$','').replace(',',''));
 
@@ -628,31 +529,15 @@ function filterVehicles(){
 
             //filtration expressions
             let priceEval = (priceFiltered > pricemaxtooltip || priceFiltered < pricemintooltip);
-
-            
-            // let makeEval = (makeFiltered != makeSearch && makeSearch != 'any'); //needs to see if makeFiltered is incldued in makeSearch
-            // let modelEval = (modelSearch != 'any' && modelSearch != modelFiltered)
-            // let bodyEval = (bodySearch != 'any' && bodySearch != bodyFiltered);
-            // let yearEval = (yearFiltered > yearMaxSearch || yearFiltered < yearMinSearch)
-            // let fuelEval = (mpgSearch != 'any' && mpgFiltered < mpgSearch);
-
             let fuelEval = (fuelSearch != 'any' && fuelFiltered < Math.min(...smallFuelValue));
             let bodyEval = (bodySearch!= 'any' && !bodySearch.includes(bodyFiltered));
             let modelEval = (modelSearch != 'any' && !modelSearch.includes(modelFiltered))
-            let makeEval = (!makeSearch.includes(makeFiltered) && makeSearch != 'any'); //needs to see if makeFiltered is incldued in makeSearch
+            let makeEval = (!makeSearch.includes(makeFiltered) && makeSearch != 'any'); 
             let yearEval = (!yearSearch.includes(yearFiltered.toString()) && yearSearch != 'any');
-
             let mileageEval = (mileageFiltered > mileagemaxtooltip || mileageFiltered < mileagemintooltip);
-       
-            
-       
-            
-            
-            
             
             if (priceEval || makeEval ||
-            mileageEval || yearEval || fuelEval || bodyEval || modelEval)  { //try just removing an operand
-       
+            mileageEval || yearEval || fuelEval || bodyEval || modelEval)  { 
             } else {
                 let clone = allVehicleCards[i].cloneNode(true);
                 filteredVehicleCards.appendChild(clone)
@@ -765,13 +650,6 @@ let stickBar = searchBarSticky.offsetTop - navheight;
 let searchResultsLeft = searchResults.offsetLeft;
 let getCardWidth = searchResults.offsetWidth;
 let x = window.matchMedia("(min-width: 1000px)");
-// searchResults.style.marginLeft = (searchResultsLeft - searchBarSticky.offsetWidth).toString().concat('px');
-// if (window.matchMedia("(min-width: 1000px)").matches == false){
-
-// } else {
-
-// }
-
 window.addEventListener('scroll', stickSearch);
 
 function stickSearch(){
@@ -805,10 +683,6 @@ if (window.matchMedia("(min-width: 1000px)").matches == false){
         let height = (window.pageYOffset + window.innerHeight) - footBound.height
         let dropDown = document.querySelector('.dropDownContainer').querySelectorAll('.search');
         let lastDropDown = dropDown[dropDown.length - 1]
-    
-        // if (window.matchMedia("(min-width: 1000px)").matches == false){
-            
-        // }
         if ((searchBound.bottom) >= footBound.top){
             lastDropDown.style.marginBottom = (footBound.height + 5).toString().concat('px');
         } else {
@@ -816,8 +690,6 @@ if (window.matchMedia("(min-width: 1000px)").matches == false){
         }
     }
 }
-
-
 
 function cardHighlightIn(card){
     let moreInfo = card.querySelector('.moreInfo');
@@ -827,7 +699,6 @@ function cardHighlightIn(card){
     moreInfo.style.backgroundColor = '#2f75a338';
     topVehicleCard.style.backgroundColor = '#2f75a338';
     card.style.transition = "border 0.1s ease";
-    // card.style.border = "1px solid black";
 }
  
 function cardHighlightOut(card){
@@ -1122,9 +993,6 @@ resetButton.forEach(e1 => e1.addEventListener('click', function(){
     sessionStorage.setItem('body', JSON.stringify(['any']));
     sessionStorage.setItem('vehiclePP', 'default');
     sessionStorage.setItem('year', JSON.stringify(['any']));
-    // sessionStorage.setItem('yearMax', '2020')
-    // sessionStorage.setItem('yearMin', '1995')
-
     //reset sliders
     regularSlider.noUiSlider.reset();
     mileageSlider.noUiSlider.reset();

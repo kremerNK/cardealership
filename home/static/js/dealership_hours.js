@@ -1,5 +1,3 @@
-
-
 document.getElementById('userinput').value = ''; 
 
 

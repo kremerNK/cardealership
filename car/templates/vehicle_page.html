@@ -37,10 +37,6 @@
                 <div class='vehicletitle'>
                     <p>{{ vehicle.title}}</p>
                 </div>
-                <!-- <img class='slides' src="../../media/{{ vehicle.picture }}" alt=""> -->
-                <!-- <div class='vehicle-title'> -->
-                 
-                <!-- </div> -->
                 <div class='carousel-container'>
                     <div class='slides'>
                         <img class='slide-images' src="../../media/{{ vehicle.picture }}" alt="">
@@ -50,15 +46,10 @@
                             
    
                         {% endfor %}
-                        <!-- <img class='slide-images' src="../../media/{{ vehicle.picture }}" alt="">
-                        <img class='slide-images' src="../../media/{{ vehicle.picture }}" alt="">
-                        <img class='slide-images' src="../../media/{{ vehicle.picture }}" alt="">
-                        <img class='slide-images' src="../../media/{{ vehicle.picture }}" alt=""> -->
                     </div>
                     <div class='image-index' style='text-align: center; display: flex; justify-content: center;'>
                         <p style='margin-right: 0.2em'>Image <p class='current-image'>1 </p>/<p class='total-images'>3</p></p>
                     </div>
-                    
                 </div>
             </div>
             <div class='details'>
@@ -111,13 +102,11 @@
                                 
                             </table>
                         </div>
-            
                     </div>
                     <div class='search-more'>
                         <a href="{% url 'searchVehicle' %}"><button>View More Vehicles</button></a>
                         <button id='form-submit'>Contact Us</button>
                     </div>
-                    
                 </div>
             <div class='contact-form'>
                 <form id='contact-form' action="" method='post'>
@@ -147,18 +136,11 @@
                     {{ form.message }}
                     <!-- {{ captcha.captcha }}  -->
                     <input type="submit" value='Submit'>
-                    
-        
                 </form> 
             </div>    
             </div>
-            
         </div>
     </div>
-
-    
-    
-    
     <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
     <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
     <script type="text/javascript" src="{% static 'js/vehicle_page.js' %}"></script>

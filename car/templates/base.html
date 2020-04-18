@@ -22,15 +22,13 @@
         <script src="https://kit.fontawesome.com/f19908a36f.js" crossorigin="anonymous"></script>
         {# Global stylesheets #}
         <link rel="stylesheet" type="text/css" href="{% static 'css/base.css' %}">
-        <meta http-equiv="Content-Security-Policy" content="default-src *; style-src * 'unsafe-inline'; script-src * 'unsafe-inline' 'unsafe-eval'; 
-        img-src * data: 'unsafe-inline'; connect-src * 'unsafe-inline'; frame-src *;">
+
         {% block extra_css %}
             {# Override this in templates to add extra stylesheets #}
         {% endblock %}
     </head>
     
     <body>
-    
         <div class='top-banner'>
             <span class="navbar-toggle" id="js-navbar-toggle"> 
                 <i class="fas fa-bars"></i>
@@ -85,21 +83,7 @@
         </footer>
 
 
-        <!-- maybe do below for just mobile? having a link to directions would be useful  -->
 
-
-        <!-- <footer class='footer'>
-            <div class='footer-logo'>
-                <img src="../../media/banner13footer.png" alt="">
-                 
-            </div>
-            <div class='footer-location'>
-                <p><i class="fas fa-phone fa-xs"></i> 920-111-1111</p>
-                <p><i class="fas fa-map-marker-alt fa-sm"></i> 123 New Franken Street</p>
-                <p>New Franken, WI 54229</p>
-            </div>
-            
-        </footer> -->
         <!-- {# Global javascript #} -->
         <script type="text/javascript" src="{% static 'js/base.js' %}"></script>
         <script type='text/javascript' scr='/home/kremer/Documents/slick-1.8.1/slick/click.js'></script>

@@ -1,10 +1,6 @@
-// let blueBar = document.querySelector('.blue');
-let searchForm = document.querySelector('.search-form').getBoundingClientRect().height * .50;
-// if (window.matchMedia("(min-width: 1000px)").matches == false){
 
-// } else {
-//     blueBar.style.height = searchForm.toString().concat('px');
-// }
+let searchForm = document.querySelector('.search-form').getBoundingClientRect().height * .50;
+
 
 //carousel//
 
