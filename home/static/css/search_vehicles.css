@@ -10,22 +10,19 @@
 
 } 
 
+
+
 p {
     margin-bottom: 0;
-}
+} 
 
 .searchbar {
-    /* position: absolute; */
-    /* width: 80%; */
-
-
     background-color: #cecece;
-    
     display: none;
     border: 1px solid black;
     flex-direction: column;
     margin: 0 auto;
-    /* width: auto; */
+    /* margin-bottom: 5vh; */
 }
  
 .searchbar > p {
@@ -36,6 +33,10 @@ p {
     display: flex;
     flex-direction: row;
     padding: 5% 0 5% 0;
+}
+
+#navbar {
+    display: none;
 }
 
 #filter-reset {
@@ -57,6 +58,13 @@ p {
     background-color: #2f75a3a8;
 }
 
+#hideFilter {
+    position: absolute;
+    /* display: none; */
+    right: 3%;
+    padding-top: -50px;
+    width: 0;
+}
 
 #filter-reset > button:hover {
     border: 1px solid #2f75a3a8;
@@ -381,6 +389,7 @@ th {
     overflow: hidden;
     max-height: 150vh;
     transition: all 0.2s ease-in;
+    margin-bottom: 3vh;
 }
 
 .dropDown.display > form {
@@ -708,6 +717,87 @@ th {
 }
 
 
+/* Customize the label (the container) */
+.container {
+    display: inline;
+    /* margin-right: 50%; */
+
+    position: relative;
+    /* padding: 0; */
+    padding-left: 35px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 500;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    letter-spacing: 1.3px;
+  }
+
+  .container p {
+    display: inline;
+    font-size: 14px;
+    font-weight: lighter;
+    font-style: italic;
+    padding: 0 !important;
+  }
+
+  /* Hide the browser's default checkbox */
+  .container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+    padding: 0 !important;
+  }
+
+  /* Create a custom checkbox */
+  .checkmark {
+    position: absolute;
+    top: 2.5px;
+    left: 15px;
+    height: 15px;
+    width: 15px;
+    background-color: #eee;
+  }
+
+  /* On mouse-over, add a grey background color */
+  .container:hover input ~ .checkmark {
+    background-color: #ccc;
+  }
+
+  /* When the checkbox is checked, add a blue background */
+  .container input:checked ~ .checkmark {
+    background-color: #274fa3;
+  }
+
+  /* Create the checkmark/indicator (hidden when not checked) */
+  .checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+  }
+
+  /* Show the checkmark when checked */
+  .container input:checked ~ .checkmark:after {
+    display: block;
+  }
+
+  /* Style the checkmark/indicator */
+  .container .checkmark:after {
+    left: 5px;
+    top: 3.3px;
+    width: 2.5px;
+    height: 5px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+  } 
+
 @media screen and (min-width: 1000px) {
       /* filter results scroll bar */
 
@@ -741,10 +831,12 @@ th {
         /* background-color: #2f75a3; */
         color: black;
         border-bottom: none;
-
-       
-      
     }
+
+    #navbar {
+        display: flex;
+    }
+    
 
     .stickBar {
         position: fixed;

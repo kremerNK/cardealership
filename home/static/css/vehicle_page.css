@@ -2,9 +2,13 @@ p {
     margin-bottom: 0;
 }
 
+.pagebody {
+    min-height: 100%;
+}
+
 .vehicle-page {
     width: 90%;
-    margin-top: 20vh;
+    margin-top: 10vh;
     margin-left: 5%;
 } 
 
@@ -106,10 +110,14 @@ color: black;
 
 .contact-form {
     max-height: 0px;
+    overflow: hidden;
 } 
- 
+/* #contact-form {
+    max-height: 0px;
+}
+  */
 .active-form {
-    max-height: 50vh;
+    max-height: 100vh;
     display: block;
     transition: all 0.5s ease-in;
     
@@ -366,7 +374,7 @@ color: black;
         padding-bottom: 5%;
         padding-top: 5%;
     }
-
+ 
 
     .search-more > a {
         width: 35%
@@ -375,7 +383,8 @@ color: black;
     .search-more > a > button {
         background-color: #2f74a3;
         color: white;
-        width: 100%;
+        width: auto;
+        text-align: center;
     }
     .search-more > button {
         background-color: #2f74a3;

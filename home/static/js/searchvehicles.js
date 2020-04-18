@@ -2,10 +2,44 @@
 let sortDiv = document.querySelector('.sort');
 let displayFilter = document.querySelector('.displayFilter');
 let topHeight = document.querySelector('.top-banner').getBoundingClientRect().height + document.querySelector('.mobile-phone').getBoundingClientRect().height
-displayFilter.style.marginTop = (topHeight * 1.15).toString().concat('px');
+
+let leftBannerHeight = document.querySelector('.leftbanner').getBoundingClientRect().height
+let mobilePhoneHeight = document.querySelector('.mobile-phone').getBoundingClientRect().height
+displayFilter.style.marginTop = (leftBannerHeight + mobilePhoneHeight + 15).toString().concat('px');
+
+// displayFilter.style.marginTop = (topHeight * 0.7).toString().concat('px');
 sortDiv.style.width = document.querySelector('.vehicleCard').getBoundingClientRect().width.toString().concat('px');
 sortDiv.style.marginRight = (document.querySelector('.sort').getBoundingClientRect().left - 
 document.querySelector('.vehicleCard').getBoundingClientRect().left).toString().concat('px');
+
+
+let labels = document.querySelectorAll('.container')
+
+console.log(labels)
+
+// labels.forEach(e1 => e1.style.paddingRight = '35px');
+//check boxes if user uses find matches on home_page///
+let makeForm = document.querySelectorAll('.make-input');
+
+for (i=0; i < makeForm.length; i++){
+    if (makeForm[i].value == sessionStorage.getItem('make')){
+        makeForm[i].checked = true;
+    }
+}
+
+let modelForm = document.querySelectorAll('.model-input');
+for (i=0; i < modelForm.length; i++){
+    if (modelForm[i].value == sessionStorage.getItem('model')){
+        modelForm[i].checked = true;
+    }
+}
+
+let bodyForm = document.querySelectorAll('.body-input');
+for (i=0; i < bodyForm.length; i++){
+    if (bodyForm[i].value == sessionStorage.getItem('body')){
+        bodyForm[i].checked = true;
+    }
+}
 
 /////get max price for nouislider///
 let vehicleInfo = document.querySelectorAll('.vehicle-price');
@@ -121,6 +155,8 @@ let slideMinValue = priceMinHandle()
 
 ////////////////make filter propagate search to next page///////////////////////////////////
 function makeSession(){
+    
+    
     if (sessionStorage.getItem('make')){
         let makeForm = document.querySelectorAll('.make-input');
         let makeFormArray = [];
@@ -671,25 +707,33 @@ let searchBar = document.querySelector('.searchbar');
 let searchResults = document.querySelector('.searchresults');
 let hidePagination = document.querySelector('.pagination');
 showFilter.addEventListener('click', function(){
+    let resetBtn = document.querySelectorAll('#reset-button')[1];
+
     let mobileSortDiv = document.querySelector('.mobile-sort-div');
     let searchBarMargin = document.querySelector('.searchbar');
     let displayFilter = document.querySelector('.displayFilter');
+    let pagination = document.querySelector('.pagination');
     let leftBannerHeight = document.querySelector('.leftbanner').getBoundingClientRect().height
     let mobilePhoneHeight = document.querySelector('.mobile-phone').getBoundingClientRect().height
     let body = document.querySelector('.body');
+    resetBtn.style.display = 'none';
     body.style.paddingBottom = '0px';
     displayFilter.style.marginTop = '0px';
     searchBarMargin.style.marginTop = (leftBannerHeight + mobilePhoneHeight).toString().concat('px');
+    searchBarMargin.style.marginBottom = '0px';
     mobileSortDiv.style.display = 'none';
     searchResults.style.display = 'none';
     searchBar.style.display = 'flex';
     showFilter.style.display = 'none';
     hidePagination.style.display = 'none'; 
+    pagination.style.display = 'none';
+
 })
 
 let hideFilter = document.querySelector('#hideFilter');
 
 function closeMobileFilter(){
+    let resetBtn = document.querySelectorAll('#reset-button')[1];
     let mobileSortDiv = document.querySelector('.mobile-sort-div');
     let body = document.querySelector('.body');
     let paginationDiv = document.querySelector('.pagination-container');
@@ -700,6 +744,7 @@ function closeMobileFilter(){
         paginationDiv.style.display = 'none';
 
     }
+    resetBtn.style.display = '';
     body.style.paddingBottom = '5%';
     displayFilter.style.marginTop = (topHeight * 1.15).toString().concat('px');
     mobileSortDiv.style.display = '';
@@ -721,6 +766,12 @@ let searchResultsLeft = searchResults.offsetLeft;
 let getCardWidth = searchResults.offsetWidth;
 let x = window.matchMedia("(min-width: 1000px)");
 // searchResults.style.marginLeft = (searchResultsLeft - searchBarSticky.offsetWidth).toString().concat('px');
+// if (window.matchMedia("(min-width: 1000px)").matches == false){
+
+// } else {
+
+// }
+
 window.addEventListener('scroll', stickSearch);
 
 function stickSearch(){
@@ -745,22 +796,28 @@ window.addEventListener('load', function(){
         searchBarSize = document.querySelector('.searchbar');
 })
 
-document.onscroll = function(){
-    let searchBound = searchBarSize.getBoundingClientRect();
-    let footBound = footer.getBoundingClientRect()
-    let height = (window.pageYOffset + window.innerHeight) - footBound.height
-    let dropDown = document.querySelector('.dropDownContainer').querySelectorAll('.search');
-    let lastDropDown = dropDown[dropDown.length - 1]
+if (window.matchMedia("(min-width: 1000px)").matches == false){
 
-    // if (window.matchMedia("(min-width: 1000px)").matches == false){
-        
-    // }
-    if ((searchBound.bottom) >= footBound.top){
-        lastDropDown.style.marginBottom = (footBound.height + 5).toString().concat('px');
-    } else {
-        lastDropDown.style.marginBottom = '0px';
+} else {
+    document.onscroll = function(){
+        let searchBound = searchBarSize.getBoundingClientRect();
+        let footBound = footer.getBoundingClientRect()
+        let height = (window.pageYOffset + window.innerHeight) - footBound.height
+        let dropDown = document.querySelector('.dropDownContainer').querySelectorAll('.search');
+        let lastDropDown = dropDown[dropDown.length - 1]
+    
+        // if (window.matchMedia("(min-width: 1000px)").matches == false){
+            
+        // }
+        if ((searchBound.bottom) >= footBound.top){
+            lastDropDown.style.marginBottom = (footBound.height + 5).toString().concat('px');
+        } else {
+            lastDropDown.style.marginBottom = '0px';
+        }
     }
 }
+
+
 
 function cardHighlightIn(card){
     let moreInfo = card.querySelector('.moreInfo');
@@ -960,17 +1017,17 @@ function changePage(page, boolean)
     
     if (boolean != ''){
         page = 1;
-        current_page = 1;
+        current_page = 1; 
     } 
     allNodes = filterVehicles();
     if (typeof whichVehiclePP !== 'undefined'){
         if (isNaN(whichVehiclePP.value)){
-            vehiclePPValue = 3
+            vehiclePPValue = 25;
         } else {
             vehiclePPValue = parseInt(whichVehiclePP.value)
         }
     } else {
-        vehiclePPValue = 3;
+        vehiclePPValue = 25;
     }
     bothSorts = document.querySelectorAll('#sort');
     let web = window.getComputedStyle(document.querySelector('.sort-hide-mobile')).display

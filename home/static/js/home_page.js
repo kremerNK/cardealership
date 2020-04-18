@@ -1,22 +1,11 @@
 let blueBar = document.querySelector('.blue');
 let searchForm = document.querySelector('.search-form').getBoundingClientRect().height * .50;
-blueBar.style.height = searchForm.toString().concat('px');
+if (window.matchMedia("(min-width: 1000px)").matches == false){
 
-
-let priceOptions = document.querySelectorAll('#price');
-
-
+} else {
+    blueBar.style.height = searchForm.toString().concat('px');
 }
-for (i=0; i < priceOptions.length; i++){
 
-    console.log(priceOptions[i].innerHTML);
-    
-    priceOptions[i].innerHTML = 'Under $' + formatNumber(priceOptions[i].value, 2).slice(0, -3);
-    console.log(priceOptions[i].value);
-    
-    
-    
-}
 //carousel//
 
 $(document).ready(function(){
@@ -69,19 +58,19 @@ $(document).ready(function(){
             }
         ]
         
-    })
+    }) 
 }); 
 
 sessionStorage.setItem('make', document.querySelector('#makes').value);
 sessionStorage.setItem('model', document.querySelector('#models').value);
 sessionStorage.setItem('maxPrice', document.querySelector('#maxPrice').value);
-sessionStorage.setItem('type', document.querySelector('#type').value);
+sessionStorage.setItem('body', document.querySelector('#type').value);
   
 
 function makeOnChange(){
     sessionStorage.setItem('make', document.querySelector('#makes').value);
 }
-
+ 
 function modelOnChange(){
     sessionStorage.setItem('model', document.querySelector('#models').value);
 }
@@ -91,5 +80,5 @@ function priceOnChange(){
 }
 
 function typeOnChange(){
-    sessionStorage.setItem('type', document.querySelector('#type').value);
+    sessionStorage.setItem('body', document.querySelector('#type').value);
 }

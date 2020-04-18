@@ -7,6 +7,7 @@ from django.core.mail import send_mail
 from django.contrib import messages
 from django.urls import reverse
 from django.core.validators import validate_email
+from django.forms import ValidationError
 
 from .models import Vehicle
 from .forms import ContactForm, FormWithCaptcha
@@ -24,63 +25,29 @@ def home(request):
         return str(num - (num%divisor))
     randomVehicles = Vehicle.objects.all().order_by('?')[:5] 
     allVehicles = Vehicle.objects.all()
-
     makeOptions = [x for x in set(Vehicle.objects.values_list('carType', flat=True)) if x != '']
-    
     makeList = sorted([x for x in Vehicle.objects.values_list('make', flat=True) if x != ''])
     modelList = sorted([x for x in Vehicle.objects.values_list('model', flat=True) if x != ''])
     bodyList = sorted([x for x in Vehicle.objects.values_list('carType', flat=True) if x != ''])
     priceList = sorted([round_down(int(''.join(re.findall('\d', x))), 5000) for x in Vehicle.objects.values_list('price', flat=True) if x != ''])
     priceListdel = sorted([''.join(re.findall('\d', x)) for x in Vehicle.objects.values_list('price', flat=True) if x != ''])
-
     makeCounter = dict(Counter(makeList))
     modelCounter = dict(Counter(modelList))
     bodyCounter = dict(Counter(bodyList))
-
-    priceDict = {5000:0, 10000:0, 20000:0, 30000:0, 40000:0}
-
-  
-    
-   
-    priceOfOptionsTag = []
-    countOfOptionsTag = []
-    valueOfOptionsTag = []
-
+    priceDict = {5000:[0], 10000:[0], 20000:[0], 30000:[0]}
     for key, value in priceDict.items():
+        print(value)
         for i in priceList:
             if int(i) < key:
-                priceDict[key] += 1
-    
-    # print(priceList)
-    # print(priceDict[5000])
-    print(priceDict)
-    for key, value in priceDict.items():
-        priceOfOptionsTag.append(f"{key:,}")
-        valueOfOptionsTag.append(str(key))
-        countOfOptionsTag.append(value)
-    
-    print(countOfOptionsTag)
-    print(valueOfOptionsTag)
-    print(priceOfOptionsTag)
-    testlist = [['1','2','3','4'], ['1','2','3','4'], ['1','2','3','4']]
-
-    testing1 = ['1','2','3','4']
-    testing2 = ['4','3','2','1']
-    testing3 = ['4','3','2','1']
-    zipped = list(zip(valueOfOptionsTag, zip(priceOfOptionsTag, countOfOptionsTag)))
-    print(zipped)
-    # zipped = zip(valueOfOptionsTag, priceOfOptionsTag, countOfOptionsTag)
-    # print(zipped)
-    # priceCounter = {str(key):str(value) for key,value in priceDict.items()}
-    #pricecounter requires price, count, and value
+                value[0] += 1
+        priceDict[key].append(f"{key:,}")        
 
 
-    context = {'testlist':testlist, 'zipped':zipped, 'totalVehicles':str(len(allVehicles)), 
+    context = {'priceDict':priceDict, 'totalVehicles':str(len(allVehicles)), 
     'makeCounter':makeCounter, 'modelCounter':modelCounter, 'bodyCounter':bodyCounter, 
     'randomVehicles':randomVehicles, 'vehicles':allVehicles, 'makeOptions':makeOptions}
     return render(request, 'home_page.html', context)
  
-
 def searchVehicle(request):
 
     def round_down(num, divisor):
@@ -93,7 +60,6 @@ def searchVehicle(request):
     yearList = sorted([x for x in Vehicle.objects.values_list('year', flat=True) if x != ''])
     fuelList = sorted([round_down(int(x),10) for x in Vehicle.objects.values_list('mpg', flat=True) if x != ''])
 
-    print(fuelList)
     fuelDict = {0:0, 10:0, 20:0, 30:0, 40:0, 50:0}
     for key, value in fuelDict.items():
         for i in fuelList:
@@ -106,9 +72,6 @@ def searchVehicle(request):
     modelCounter = dict(Counter(modelList))
     yearCounter = dict(Counter(yearList))
     fuelCounter = {str(key):str(value) for key,value in fuelDict.items()}
-    print(fuelCounter)
-
- 
 
     if request.method=="POST" or request.method=="GET" and request.is_ajax():
         allVehicles = Vehicle.objects.all()
@@ -126,11 +89,12 @@ def vehiclePage(request, slug, pk):
     form = ContactForm() 
     captcha = FormWithCaptcha() 
     context = {'vehicle': obj, 'form': form, 'captcha':captcha}
+ 
     if request.method == 'POST':
         username = 'glycine775@gmail.com'
         password = 'knsjvowvflaoskoj'
         server = smtplib.SMTP('smtp.gmail.com', 587)
-        server.ehlo()
+        server.ehlo() 
         server.starttls()
         server.ehlo()
         server.login(username, password)
@@ -143,7 +107,7 @@ def vehiclePage(request, slug, pk):
                 return render(request, 'vehicle_page.html', {'vehicle': obj, 'form': form, 'captcha':captcha})
             checkphone = re.search('\d\d\d\W\d\d\d\W\d\d\d\d', form.cleaned_data['phone'])
             if checkphone == None:
-                print('phone number invalid')
+  
                 messages.error(request, 'Invalid phone number')
                 return render(request, 'vehicle_page.html', {'vehicle': obj, 'form': form, 'captcha':captcha})
             subject = 'New Inquiry' 

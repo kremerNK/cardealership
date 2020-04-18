@@ -312,8 +312,8 @@ p {
 .blue {
     width: 100%;
     background-color: #2f74a3;
-    height: 20vh; 
-}
+    height: 10vh; 
+} 
 
 @media screen and (min-width: 1024px) {
 

@@ -2,9 +2,16 @@ from django import forms
 from django.db import models
 from captcha.fields import ReCaptchaField
 from django.core.validators import validate_email
+from django.core.validators import EmailValidator
 
 class ContactForm(forms.Form):
-    
+    class Meta:
+     
+        fields = ['email', 'phone']
+        error_messages = {
+            'email': 'testing errors',
+        }
+ 
      
     contactOptions = (
         ('email', 'Email'), 
@@ -13,7 +20,9 @@ class ContactForm(forms.Form):
     def email_validator(email):
         pass
 
-    nameFirst = forms.CharField(label='First Name', max_length = 100) #add max lengths to form itself
+
+    
+    nameFirst = forms.CharField(label='First Name', max_length = 100, error_messages={'invalid': 'TEST'}) #add max lengths to form itself
     nameLast = forms.CharField(label='Last Name', max_length = 100)
     email = forms.CharField(label='Email', max_length = 100, widget=forms.TextInput(attrs={'placeholder': 'youraddress@domain.com'}))
     phone = forms.CharField(label='Phone',widget=forms.TextInput(attrs={'placeholder': 'XXX-XXX-XXXX'}))
@@ -23,7 +32,7 @@ class ContactForm(forms.Form):
     information is accurate to ensure a response. Fields marked with * are required.', 
     })) 
  
- 
+    
 
 class FormWithCaptcha(forms.Form):
     captcha = ReCaptchaField()
