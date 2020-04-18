@@ -89,7 +89,7 @@
                         <div class='dropDown'>
                             <form id='make-form' action="">
                                 {% for make, count in makeCounter.items %}
-                                    <label class='container'>{{make}} <p style='display: inline;'>({{count}})</p>
+                                    <label class='container'>{{make}} <p style='display: inline;; font-weight: normal'>({{count}})</p>
                                         <input class='make-input' type="checkbox" value='{{make}}' onclick='makeSession(); changePage(1,"a")'>
                                         <span class='checkmark'></span>
                                     </label>
