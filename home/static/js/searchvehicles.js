@@ -11,7 +11,7 @@ displayFilter.style.marginTop = (leftBannerHeight + mobilePhoneHeight + 15).toSt
 sortDiv.style.width = document.querySelector('.vehicleCard').getBoundingClientRect().width.toString().concat('px');
 sortDiv.style.marginRight = (document.querySelector('.sort').getBoundingClientRect().left - 
 document.querySelector('.vehicleCard').getBoundingClientRect().left).toString().concat('px');
-
+ 
 
 let labels = document.querySelectorAll('.container')
 

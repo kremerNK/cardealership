@@ -231,10 +231,12 @@ p {
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
+    padding-top: 0.5rem;
+    padding-right: 0.5rem;
     /* color: #595959; */
     font-size: 2rem;
     line-height: 1.1;
-    margin-bottom: 1.25rem;
+    margin-bottom: 1rem;
     
 }
 
@@ -646,7 +648,7 @@ th {
     color: #333;
 
 }
-
+ 
 #dropDownTarget{
      
     padding: 5px 15px 5px 15px; 
@@ -665,7 +667,7 @@ th {
     text-align: right;
     float: right;
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-end;
   
     width: 100%;
     margin-bottom: 1.5vh;
@@ -686,6 +688,7 @@ th {
     width: 40%;
     display: flex;
     align-items: flex-end;
+    margin-right: 2vw;
 }
 .card-pp > select {
     width: 100%;
@@ -756,7 +759,7 @@ th {
   /* Create a custom checkbox */
   .checkmark {
     position: absolute;
-    top: 2.5px;
+    top: 2px;
     left: 15px;
     height: 15px;
     width: 15px;
@@ -797,6 +800,16 @@ th {
     -ms-transform: rotate(45deg);
     transform: rotate(45deg);
   } 
+
+  .mobile-sort-div{
+      width: 100%;
+  }
+
+  #totalMatches {
+    position: absolute;
+    left: 5%;
+    padding-top: 2.5vh;
+  }
 
 @media screen and (min-width: 1000px) {
       /* filter results scroll bar */
@@ -1048,8 +1061,8 @@ th {
         /* margin: 8vh 0 0 0; */
         /* margin-top: 30vh; */
         margin: 0;
-        text-align: right;
-        float: right;
+        /* text-align: right;
+        float: right; */
         display: flex;
         justify-content: flex-end;
       
