@@ -13,7 +13,7 @@ from carlist import views as carlist_views
 
 urlpatterns = [
     url(r'^django-admin/', admin.site.urls),
-
+ 
     url(r'^admin/', include(wagtailadmin_urls)),
     url(r'^documents/', include(wagtaildocs_urls)),
 

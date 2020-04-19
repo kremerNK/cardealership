@@ -3,6 +3,7 @@
     padding: 0;
     box-sizing: border-box;
     margin-bottom: 0px;
+    
 
 }
 
@@ -10,10 +11,10 @@
 body {
     background-color: #cecece;
     margin: 0;  
-
+    
     
 }
-
+ 
 /* .pagebody {
     min-height: 95vh;
    

@@ -6,6 +6,9 @@ navBarToggle.addEventListener('click', function () {
     mainNav.classList.toggle('active');
 }); 
 
+// navHeight = document.querySelector('#navbar').getBoundingClientRect().height;
+// bannerHeight = document.querySelector('.leftbanner').getBoundingClientRect().height;
+
 
 window.onscroll = function () {myFunction()};
 
