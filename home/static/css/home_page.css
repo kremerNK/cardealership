@@ -670,10 +670,7 @@ p {
 
 
       
-      .intro-text > p::before {
-        display: none;
-    
-    }
+
 
 }  
  
