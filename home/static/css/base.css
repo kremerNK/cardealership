@@ -472,21 +472,14 @@ table {
         font-size: 60px;
         
     }
- 
-    .leftbanner > img {
-        width: 60%;
-        /* height: 100%; */
-        padding: 10% 0 10% 0;
-        
-    }
 
     .leftbanner > a {
         /* margin-top: -4%; */
         left: 12%;
-        top: 1.5vh;
+        top: 2%;
         margin: 0 auto;
         width: 35%;
-        height: 22vh;
+        height: 18vh;
         position: absolute;
     }
      

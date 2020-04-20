@@ -26,38 +26,72 @@ let testbg2 = document.querySelector('.mybg2').getBoundingClientRect();
 holder = 0;
 window.onload = function(){
     footer = document.querySelector('.footer').offsetTop;
-    console.log(footer);
     bg.style.height = (footer + (introBounding.offsetHeight * 0.6)).toString().concat('px');
     bg2.style.height = (footer + (introBounding.offsetHeight * 0.6)).toString().concat('px');
+
     bvavg = ((testbg.x + testbg2.x) / 2);
-    console.log(Math.abs(bvavg));
+    
+    car = document.querySelector('#svg2')
     
 
-    window.addEventListener('scroll', function(){
-        console.log('roll');
-        let car = document.querySelector('#svg2')
+    setInterval(function(){
+        car.style.height = '100px';
+        car.style.visibility = 'visible';
+        console.log('interval');
         bg.classList.add('roll');
         bg2.classList.add('roll');
         roll = document.querySelectorAll('.roll');
         roll.forEach(e1 => e1.style.maxHeight = (footer + Math.abs(testbg2.x)).toString().concat('px'));
-        console.log(footer);
-        //wait X seconds for roll animation
+        holder = 0;
         setTimeout(function(){
+            // console.log('timeout');
+            
             holder += 1;
-            console.log(holder);
-            if (holder <= 1){
-                car.style.visibility = 'hidden';
-                car.style.height = '0px';
-                // car.style.display = 'none';
+            car.style.visibility = 'hidden';
+            car.style.height = '0px'
+            roll.forEach(e1 => e1.style.maxHeight = '0px');
+            bg.classList.remove('roll');
+            bg2.classList.remove('roll');
+        },2000)
+    }, 2100)
 
-            }
-            
-        }, 10000)
-            
+  
 
+    // window.addEventListener('scroll', function(){
+    //     console.log('roll');
+    //     let car = document.querySelector('#svg2')
+    //     bg.classList.add('roll');
+    //     bg2.classList.add('roll');
+    //     roll = document.querySelectorAll('.roll');
+    //     roll.forEach(e1 => e1.style.maxHeight = (footer + Math.abs(testbg2.x)).toString().concat('px'));
+    //     console.log(footer);
+    //     //wait X seconds for roll animation
+    //     setTimeout(function(){
+    //         holder += 1;
+    //         if (holder <= 1){
+    //             car.style.visibility = 'hidden';
+    //             car.style.height = '0px';
+    //             roll.forEach(e1 => e1.style.maxHeight = (footer + Math.abs(testbg2.x)).toString().concat('px'));
+    //         }
+    //     }, 2000)
+    // })
+
+      // setInterval(function(){
+    //     holder += 1;
+    //     let car = document.querySelector('#svg2')
+    //     bg.classList.add('roll');
+    //     bg2.classList.add('roll');
+    //     roll = document.querySelectorAll('.roll');
+    //     roll.forEach(e1 => e1.style.maxHeight = (footer + Math.abs(testbg2.x)).toString().concat('px'));
+    //     if (holder <= 1){
+    //         // car.style.visibility = 'hidden';
+    //         car.style.height = '0px';
+    //         roll.forEach(e1 => e1.style.maxHeight = (footer + Math.abs(testbg2.x)).toString().concat('px'));
+    
+    
+    //     }
         
-        
-    })
+    // }, 2000)
 }
 
 //fade in divs//
