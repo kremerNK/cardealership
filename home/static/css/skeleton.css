@@ -111,28 +111,35 @@
   
   }
   
-  
+   
   /* Base Styles
   –––––––––––––––––––––––––––––––––––––––––––––––––– */
   /* NOTE
   html is set to 62.5% so that all the REM measurements throughout Skeleton
   are based on 10px sizing. So basically 1.5rem = 15px :) */
   html {
-    font-size: 62.5%; }
+    font-size: 80%; }
   body {
     font-size: 1.5em; /* currently ems cause chrome bug misinterpreting rems on body element */
     line-height: 1.6;
     font-weight: lighter;
-
+ 
 
     color: #222; }
-  /* *{
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
+  *{
+    font-family: 'Palatino','Palatino Linotype','Palatino LT STD','Book Antiqua',Georgia,serif; 
+    /* font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; */
+  }
+  
+  body {
+    font-family: 'Palatino','Palatino Linotype','Palatino LT STD','Book Antiqua',Georgia,serif; 
+    /* font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; */
   }
   
   p {
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
-  } */
+    font-family: 'Palatino','Palatino Linotype','Palatino LT STD','Book Antiqua',Georgia,serif; 
+    /* font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; */
+  }
    
   /* Typography
   –––––––––––––––––––––––––––––––––––––––––––––––––– */

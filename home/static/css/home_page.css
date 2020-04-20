@@ -51,7 +51,7 @@ p {
     justify-content: center;
     align-items: center;
     width: 99%;
-    margin: 10% 0 10vh 0;
+    margin: 10% 0 5vh 0;
    /* background-color: #2f74a3; */ 
 
 }
@@ -61,6 +61,8 @@ p {
     height: auto;
     width: 100%;
     text-align: center;
+    position: relative;
+    z-index: 1;
  
 }
 
@@ -218,27 +220,30 @@ p {
 }
 
 .intro {
-    width: 100%;
-    margin-left: -2%;
-    margin-right: -2%;
+    width: 105%;
+    /* padding: 0 7% 0 7%; */
+    /* margin-left: -5%;
+    margin-right: -5%; */
     text-align: left;
+    display: flex;
+    flex-direction: column-reverse;
+    border-top: 1px solid gray;
     /* border-bottom: 1px solid black; */
 }
 
 .intro > p {
-    width: 90%;
-    margin-left: 5%;
+    width: 100%;
+    /* margin-left: 5%; */
     margin-bottom: 10vh;
   
-}
-.intro > h2 {
-    margin-left: 5%;
-    width: 90%;
 }
 
 
 #carsale {
+    margin: 0 auto;
     margin-top: 5vh;
+    width: 90%;
+    
 }
 
 #carsale > img {
@@ -306,7 +311,9 @@ p {
 }
 
 .intro-text{
-    margin-bottom: 5vh;
+    margin-bottom: 11vh;
+    margin-top: 5vh;
+    text-indent: 40px;
 }
 
 .intro-text > h2 {
@@ -315,6 +322,12 @@ p {
     margin-bottom: 3vh;
 } 
  
+.background1 {
+    display: none;
+  }
+.background2{
+    display: none
+}
 
 
 @media screen and (min-width: 1024px) {
@@ -470,6 +483,9 @@ p {
         /* padding-bottom: 4vh; */
         /* border-bottom: 1px solid black; */
         display: flex;
+        flex-direction: row;
+        margin-top: 0;
+        border: none;
         margin-bottom: 3vh;
         /* border-bottom: 1px solid gray; */
     }
@@ -566,14 +582,6 @@ p {
     #content>:last-child:after {
         border-width: 0 0 0 0
     }
-    .mybg {
-
-        position: absolute;/*important*/
-        z-index: 3;/*important*/
-        width: 25px;
-        height: 100vh;
-        /* margin: 0 auto; */
-      }
 
       .mybg {
         background: url(https://openclipart.org/image/2400px/svg_to_png/242967/Oval-Pattern--Arvin61r58.png) repeat-y;
@@ -581,54 +589,81 @@ p {
         background-position: left;
         background-repeat: repeat-y;
         content: "";
-        background-size: 50px 50px;
-        /* bottom: 0;
-        left: 0;
-        right: 0;
-        top: 0; */
+        background-size: 25px 25px;
         opacity: 0.1; 
         z-index: 0;
-      }
-
-      .mybg2 {
-
-        position: absolute;/*important*/
-        z-index: 3;/*important*/
         width: 25px;
         height: 100vh;
-        /* margin: 0 auto; */
+        max-height: 0vh;
       }
-
+ 
       .mybg2 {
         background: url(https://openclipart.org/image/2400px/svg_to_png/242967/Oval-Pattern--Arvin61r58.png);
-        position: absolute;
+        position: relative;
         background-position: right;
         background-repeat: repeat-y;
         content: "";
-        background-size: 50px 50px;
-        /* right: 0;
-        top: 0; */
+        background-size: 25px 25px;
         opacity: 0.1;
         z-index: 0;
+        width: 25px;
+        height: 100vh;
+        max-height: 0vh;
       } 
 
       .background1 {
+        display: inline-block;
         position: absolute;
         z-index: 0;
-        left: 0;
+        left: 30px; 
         top: 0;
         height: 100vh;
         margin-left: 10px;
+        transform: rotate(-20deg);
+
       }
+
       .background2{
+          display: inline-block;
           position: absolute;
-          margin-right: 10px;
           z-index: 0;
-          right: 0;
+          left: 0;
+          left: 0;
           top: 0;
           height: 100vh;
+          transform: rotate(-20deg);
+
+      } 
+
+      .roll {
+        transition: all 10s ease-in;
+        /* max-height: 1500px; */
+
       }
-} 
+ 
+      
+      #svg2 {
+        transform: rotate(85deg);
+        position: relative;
+        left: -20px;
+        background: rgba(0, 151, 19, 0);
+        opacity: 0.8;
+        /* margin-right: 50px; */
+        height: 100px;
+        width: 120px;
+        top: 0;
+        z-index: 0;
+        border: none;
+        
+      }
+
+      .intro-text > p {
+        position: relative;
+        z-index: 1;
+      }
+      
+
+}  
  
 
 

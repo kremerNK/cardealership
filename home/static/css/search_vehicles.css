@@ -247,10 +247,11 @@ p {
     /* border: 1px solid black; */
     background-color: #2f74a3;
     color: white;
-   width: 8rem;
-   text-align: center;
+    width: 8rem;
+    text-align: center;
     margin-top: 0.3rem;
-
+    
+    
    /* font-family: "Times New Roman", Times, serif; */
 }
 
@@ -910,8 +911,11 @@ th {
     }
 
     .vehicle-price {
-        width: 8rem;
+
+        /* width: 100%; */
         margin-bottom: 2vh;
+        padding: 5px;
+        font-size: inherit;
     }
     .mobileMileageDisplay {
         display: none;
@@ -1198,7 +1202,7 @@ th {
         -ms-transform: rotate(45deg);
         transform: rotate(45deg);
       } 
-
+ 
       .dropDown.display {
         overflow: hidden;
         max-height: 150vh;
