@@ -127,18 +127,18 @@
 
     color: #222; }
   *{
-    font-family: 'Palatino','Palatino Linotype','Palatino LT STD','Book Antiqua',Georgia,serif; 
-    /* font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; */
+    /* font-family: 'Palatino','Palatino Linotype','Palatino LT STD','Book Antiqua',Georgia,serif;  */
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   }
   
   body {
-    font-family: 'Palatino','Palatino Linotype','Palatino LT STD','Book Antiqua',Georgia,serif; 
-    /* font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; */
+    /* font-family: 'Palatino','Palatino Linotype','Palatino LT STD','Book Antiqua',Georgia,serif;  */
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   }
   
   p {
-    font-family: 'Palatino','Palatino Linotype','Palatino LT STD','Book Antiqua',Georgia,serif; 
-    /* font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; */
+    /* font-family: 'Palatino','Palatino Linotype','Palatino LT STD','Book Antiqua',Georgia,serif;  */
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   }
    
   /* Typography

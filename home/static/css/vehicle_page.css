@@ -78,9 +78,11 @@ table, tr, th {
 
 tr > th:first-child {
    font-weight: bold;
+   font-size: 80%;
 }
 tr > th:last-child {
 color: black;
+font-size: 80%;
 }
 
 .image-index p {
@@ -189,7 +191,7 @@ color: black;
 }
 
 #message-success-div {
-    display: none
+    display: none 
 }
 
 #form-submission {
