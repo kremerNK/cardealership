@@ -309,7 +309,7 @@ p {
  
 
 .intro-text > p::before {
-    content: "test";
+    content: "";
     background: url("/media/siteImages/tire.svg") no-repeat;
 
     height: 50%;
@@ -329,6 +329,10 @@ p {
     /* text-indent: 40px; */
     text-align: center;
     width: 100%;
+}
+
+.intro-text > p {
+    font-weight: normal;
 }
 
 
@@ -670,7 +674,10 @@ p {
 
 
       
-
+      .intro-text > p::before {
+        display: none;
+    
+    }
 
 }  
  
