@@ -237,7 +237,7 @@ p {
 
 #carsale {
     margin: 0 auto;
-    margin-top: 5vh;
+    /* margin-top: 5vh; */
     width: 90%;
     
 }
@@ -325,7 +325,7 @@ p {
 .intro-text{
     margin: 0 auto;
     margin-bottom: 11vh;
-    margin-top: 5vh;
+    /* margin-top: 5vh; */
     /* text-indent: 40px; */
     text-align: center;
     width: 100%;
