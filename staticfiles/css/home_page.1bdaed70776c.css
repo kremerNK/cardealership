@@ -306,20 +306,19 @@ p {
     border-width: 0 0 0 0
 } 
 
- 
+
 
 .intro-text > p::before {
-    content: "test";
-    background: url(../../media/siteImages/tire.svg) repeat;
-    background-color: red;
+    content: "";
+
     height: 50%;
     width: 100%;
     left:0;
     top: 50%;
     position: absolute;
-    opacity: 0.9;
- 
+    opacity: 1;
 
+    
 }
 
 .intro-text{

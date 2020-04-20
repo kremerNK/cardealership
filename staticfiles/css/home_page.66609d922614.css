@@ -309,17 +309,16 @@ p {
  
 
 .intro-text > p::before {
-    content: "test";
-    background: url(../../media/siteImages/tire.svg) repeat;
-    background-color: red;
+    content: "";
+    background: url("../../staticfiles/media/siteImages/banner12.5af98dd0eba5.png") no-repeat;
     height: 50%;
     width: 100%;
     left:0;
     top: 50%;
     position: absolute;
-    opacity: 0.9;
+    opacity: 1;
  
-
+    
 }
 
 .intro-text{

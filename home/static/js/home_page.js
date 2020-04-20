@@ -44,6 +44,10 @@ window.onload = function(){
         roll.forEach(e1 => e1.style.maxHeight = (footer + Math.abs(testbg2.x)).toString().concat('px'));
         holder = 0;
         setTimeout(function(){
+            car.style.visibility = 'hidden';
+            car.style.height = '0px'
+        },2000)
+        setTimeout(function(){
             // console.log('timeout');
             
             holder += 1;
@@ -52,8 +56,8 @@ window.onload = function(){
             roll.forEach(e1 => e1.style.maxHeight = '0px');
             bg.classList.remove('roll');
             bg2.classList.remove('roll');
-        },2000)
-    }, 2100)
+        },2800)
+    }, 3000)
 
   
 
