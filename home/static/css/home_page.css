@@ -27,8 +27,8 @@ p {
 }
 
 .body {
-    margin-left: 5%;
-    margin-right: 5%;
+    /* margin-left: 5%; */
+    /* margin-right: 5%; */
     text-align: center;
     display: flex;
     flex-direction: column;
@@ -220,7 +220,7 @@ p {
 }
 
 .intro {
-    width: 105%;
+    width: 100%;
     /* padding: 0 7% 0 7%; */
     /* margin-left: -5%;
     margin-right: -5%; */
@@ -237,7 +237,7 @@ p {
 
 #carsale {
     margin: 0 auto;
-    margin-top: 5vh;
+    margin-top: 8vh;
     width: 90%;
     
 }
@@ -245,7 +245,7 @@ p {
 #carsale > img {
     width: 100%;
     height: 100%;
-    /* margin-bottom: 5vh; */
+    /* margin-bottom: 8vh; */
     position: relative;
     z-index: 1;
 }
@@ -308,31 +308,45 @@ p {
 
  
 
-.intro-text > p::before {
+/* .intro-text > p::before {
     content: "";
     background: url("/media/siteImages/tire.svg") no-repeat;
-
     height: 50%;
     width: 100%;
-    left:0;
+    left:50%;
     top: 50%;
     position: absolute;
     opacity: 0.1;
- 
+} */
 
+.wheel-bg {
+    content: "";
+    background: url("/media/siteImages/tire.svg") no-repeat;
+    height: 50%;
+    width: 50%;
+    left:50%;
+    margin-left: -25%;
+    top: 50%;
+    /* margin-top: -25%; */
+    position: absolute;
+    opacity: 0.08;
+    z-index: 0;
 }
 
 .intro-text{
     margin: 0 auto;
     margin-bottom: 11vh;
+    margin-top: 8vh;
     /* margin-top: 5vh; */
     /* text-indent: 40px; */
-    text-align: center;
+    /* text-align: center; */
     width: 100%;
 }
 
 .intro-text > p {
     font-weight: normal;
+    
+    text-align: center;
 }
 
 
@@ -344,6 +358,28 @@ p {
     display: none
 }
 
+
+@media screen and (min-width: 500px){
+    .wheel-bg {
+        top: 60%;
+    }
+}
+@media screen and (min-width: 600px){
+    .wheel-bg {
+        top: 65%;
+    }
+}
+@media screen and (min-width: 700px){
+    .wheel-bg {
+        top: 60%;
+    }
+}
+
+@media screen and (min-width: 850px){
+    .wheel-bg {
+        top: 60%;
+    }
+}
 
 @media screen and (min-width: 1024px) {
 
