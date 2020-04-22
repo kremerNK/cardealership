@@ -8,7 +8,7 @@ from .base import *
 
 
 try:
-
+ 
     DEBUG = False
  
     # SECURITY WARNING: keep the secret key used in production secret!
