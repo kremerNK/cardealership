@@ -33,7 +33,7 @@ window.onload = function(){
     
     car = document.querySelector('#svg2')
     
-
+ 
     setInterval(function(){
         car.style.height = '100px';
         car.style.visibility = 'visible';
@@ -46,7 +46,7 @@ window.onload = function(){
         setTimeout(function(){
             car.style.visibility = 'hidden';
             car.style.height = '0px'
-        },2000)
+        },4000)
         setTimeout(function(){
             // console.log('timeout');
             
@@ -56,8 +56,8 @@ window.onload = function(){
             roll.forEach(e1 => e1.style.maxHeight = '0px');
             bg.classList.remove('roll');
             bg2.classList.remove('roll');
-        },2800)
-    }, 3000)
+        },5600)
+    }, 6000)
 
   
 

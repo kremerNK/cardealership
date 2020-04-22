@@ -546,12 +546,10 @@ table {
 
     #nav-space {
         width: 100%;
+        display: flex;
+        flex-direction: row;
     }
     
-    .navleft {
-
- 
-    }
     
     .navleft > li {
         display: inline-block;
@@ -596,13 +594,60 @@ table {
     
     .navleft > li > a:hover {
         color: black;
-        /* background-color: #ebe9e9; */
-        /* height: 100%;
-        width: 100%;
-        padding-left: 15px;
-        padding-right: 15px; */
     }
 
+    .navright {
+        width: 6%;
+        height: 100%;
+
+        text-decoration: none;
+        color: black;
+        list-style: none;
+        margin-right: 5%;
+        font-size: 1em;
+        text-align: center;
+        position: relative;
+        padding-left: -50px;
+    }
+    
+    .navright > li > a > i {
+        color: #333;
+        
+    }
+
+    .navright > li > a {
+        text-decoration: none;
+        color: #333;
+        display: flex;
+        flex-direction: column;
+ 
+    }
+
+    .navright > li > p {
+        position: absolute;
+        right: 0;
+        top: 0;
+        background-color: #32CD32;
+        width: 1.9em;
+        height: 1.5em;
+        margin-top: 0.5vh;
+        color: white;
+        font-weight: bold;
+ 
+   
+    }
+
+    .navright > li {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        align-items: flex-start;
+        padding-left: -50px;
+        
+    } 
+ 
     .navbar-toggle {
         display: none;
     } 
@@ -615,11 +660,6 @@ table {
         background-color: #ebe9e9;
         /* background-color: gray; */
     }
-    
-    /* .sticky + .pagebody {
-        padding-top: 60px;
-
-    } */
 
     .pagebody {
         min-height: 100vh; 

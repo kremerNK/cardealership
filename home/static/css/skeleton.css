@@ -118,14 +118,14 @@
   html is set to 62.5% so that all the REM measurements throughout Skeleton
   are based on 10px sizing. So basically 1.5rem = 15px :) */
   html {
-    font-size: 80%; }
-  body {
-    font-size: 1.5em; /* currently ems cause chrome bug misinterpreting rems on body element */
+    font-size: 70%; }
+  /* body {
+    font-size: 1.5em; 
     line-height: 1.6;
     font-weight: lighter;
  
 
-    color: #222; }
+    color: #222; } */
   *{
     /* font-family: 'Palatino','Palatino Linotype','Palatino LT STD','Book Antiqua',Georgia,serif;  */
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
@@ -144,8 +144,8 @@
   /* Typography
   –––––––––––––––––––––––––––––––––––––––––––––––––– */
   h1, h2, h3, h4, h5, h6 {
-    margin-top: 0;
-    margin-bottom: 2rem;
+
+
     font-weight: 300; }
   h1 { font-size: 4.0rem; line-height: 1.2;  letter-spacing: -.1rem;}
   h2 { font-size: 3.6rem; line-height: 1.25; letter-spacing: -.1rem; }
@@ -166,15 +166,7 @@
   
   p {
     margin-top: 0; }
-  
-  
-  /* Links
-  –––––––––––––––––––––––––––––––––––––––––––––––––– */
-  a {
-    color: #1EAEDB; }
-  a:hover {
-    color: #0FA0CE; }
-  
+
   
   /* Buttons
   –––––––––––––––––––––––––––––––––––––––––––––––––– */
@@ -284,7 +276,7 @@
   label,
   legend {
     display: block;
-    margin-bottom: .5rem;
+
     font-weight: 600; }
   fieldset {
     padding: 0;
@@ -314,7 +306,7 @@
     margin: 1.5rem 0 1.5rem 3rem;
     font-size: 90%; }
   li {
-    margin-bottom: 1rem; }
+
   
   
   /* Code
@@ -350,7 +342,7 @@
   
   /* Spacing
   –––––––––––––––––––––––––––––––––––––––––––––––––– */
-  button,
+  /* button,
   .button {
     margin-bottom: 1rem; }
   input,
@@ -367,7 +359,7 @@
   ul,
   ol,
   form {
-    margin-bottom: 2.5rem; }
+    margin-bottom: 2.5rem; } */
   
   
   /* Utilities
@@ -388,7 +380,7 @@
   –––––––––––––––––––––––––––––––––––––––––––––––––– */
   hr {
     margin-top: 3rem;
-    margin-bottom: 3.5rem;
+
     border-width: 0;
     border-top: 1px solid #E1E1E1; }
   

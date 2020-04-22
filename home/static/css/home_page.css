@@ -119,11 +119,8 @@ p {
     background-color: #333333;
     color: white;
     padding: 12px; 
-    
-
- 
 }
-
+ 
 .titlemiles > a:first-child {
     max-width: 98%;
     text-transform: uppercase;
@@ -413,7 +410,7 @@ p {
         display: flex;
         justify-content: center;
         width: 99%;
-        margin: 0 0 5vh 0;
+        margin: 0;
         /* background-color: #2f74a3; */
        
         border-bottom: 1px solid gray;
@@ -547,7 +544,7 @@ p {
         border: none;
         font-size: 18px;
     }
-
+  
     .intro {
         width: 99%;
         margin-left: 1.5%;
@@ -555,10 +552,10 @@ p {
         /* padding-bottom: 4vh; */
         /* border-bottom: 1px solid black; */
         display: flex;
-        flex-direction: row;
+        flex-direction: row; 
         margin-top: 0;
         border: none;
-        margin-bottom: 3vh;
+        margin-bottom: 5vh;
         margin-top: 5vh;
         /* border-bottom: 1px solid gray; */
     }
@@ -572,6 +569,7 @@ p {
         font-size: 18px;
         margin-top: 0;
         padding: 0;
+        position: relative;
         
     }
 
@@ -716,7 +714,7 @@ p {
       } 
 
       .roll {
-        transition: all 2s ease-in;
+        transition: all 4s ease-in;
         /* max-height: 1500px; */
 
       }
@@ -738,7 +736,18 @@ p {
       }
 
     .wheel-bg {
-        display: none;
+        content: "";
+        background: url("/media/siteImages/tire.svg") no-repeat;
+        height: 100%;
+        width: 50%;
+        left: 50%;
+        top: 15%;
+        right: 0;
+        /* margin-left: 25%; */
+        position: absolute;
+        opacity: 0.08;
+        z-index: 0;
+}
     }
 
 }  

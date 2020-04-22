@@ -108,19 +108,13 @@ p {
 }
 
 .price-input {
-    text-align: center;
-  
     width: 100%;    
-    margin-bottom: 4vh;
-
+    text-align: center;
+    padding-top: 2vh;
+    margin-bottom: 2vh;
 }
 
-.mileageSpan {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    height: 100%;
-}
+
 
 .mileageSpan p {
     display: flex;
@@ -205,7 +199,7 @@ p {
 
 .vehicleImg {
     width: 40%;
-    height: 80%;
+    height: auto;
     margin-right: 15px;
     display: flex;
     justify-content: center;
@@ -234,7 +228,7 @@ p {
     padding-top: 0.5rem;
     padding-right: 0.5rem;
     /* color: #595959; */
-    font-size: 2rem;
+    font-size: 1.8rem;
     line-height: 1.1;
     margin-bottom: 1rem;
     
@@ -242,7 +236,7 @@ p {
 
 
 .vehicle-price {
-    font-size: 2rem;
+    font-size: 1.5rem;
     text-align: left;
     /* border: 1px solid black; */
     background-color: #2f74a3;
@@ -250,6 +244,7 @@ p {
     width: 8rem;
     text-align: center;
     margin-top: 0.3rem;
+    margin-bottom: 1vh;
     
     
    /* font-family: "Times New Roman", Times, serif; */
@@ -263,6 +258,9 @@ p {
     width: 100%;
     /* height: 60%; */
     color: black;
+    margin-bottom: 2vh;
+    font-size: 15px;
+    font-weight: lighter;
 }
 
 .vehicleTable1, .vehicleTable2{
@@ -392,7 +390,7 @@ th {
     overflow: hidden;
     max-height: 150vh;
     transition: all 0.2s ease-in;
-    margin-bottom: 3vh;
+    margin-bottom: 1vh;
 }
 
 .dropDown.display > form {
@@ -408,12 +406,6 @@ th {
     width: auto;
 }
 
-.dropDown.display > form > div > label{
-
-    /* display: inline; */
-} 
-
-
 .price-input > span > input {
     width: 30%;
     margin-bottom: 0;
@@ -424,19 +416,21 @@ th {
     margin-top: 2vh;
     margin-bottom: 4vh;
 }
-
+ 
 .mileageSpan {
     display: flex;
-    flex-direction: row !important;
+    flex-direction: row;
     align-items: center;
-    /* margin-bottom: 3rem; */
-    line-height: 25px;
-    height: auto;
+    justify-content: center;
+    /* margin-bottom: 2vh; */
+    margin: 0 0 2vh 0;
+    padding-top: 2vh;
+ 
 }
 
 .mileageSpan > input {
-    margin: 2vh 1vh 4vh 1vh;
-    width: 25%;
+    margin: 0 1vh 0 1vh;
+    width: 35%;
 }
 
 
@@ -533,7 +527,7 @@ th {
 
 .displayFilter {
     width: 90%;
-    text-align: right;
+    /* text-align: right; */
     display: flex;
     flex-direction: column;
     align-items: flex-end;
@@ -665,11 +659,10 @@ th {
     /* margin-top: 30vh; */
 
     margin: 0;
-    text-align: right;
-    float: right;
+
     display: flex;
     justify-content: flex-end;
-  
+    align-items: flex-end;
     width: 100%;
     margin-bottom: 1.5vh;
 }
@@ -677,27 +670,25 @@ th {
 
 
 .sort > p {
-    width: auto;
-    display: flex;
-    justify-content: flex-start;
-    align-items: flex-end;
+
     font-weight: bold;
+    
  
 }
 
 .card-pp {
-    width: 40%;
-    display: flex;
-    align-items: flex-end;
-    margin-right: 2vw;
+    width: 37%;
+    margin-right: 1vw;
 }
 .card-pp > select {
     width: 100%;
     margin: 0;
+    text-overflow: ellipsis;
+
 }
 
 .sortdiv {
-    width: 25%;
+    width: 37%;
 }
 
 .sortdiv > select {
@@ -742,7 +733,7 @@ th {
   .container p {
     display: inline;
     font-size: 14px;
-    font-weight: lighter;
+    font-weight: lighter !important;
     font-style: italic;
     padding: 0 !important;
   }
@@ -809,7 +800,7 @@ th {
   #totalMatches {
     position: absolute;
     left: 5%;
-    padding-top: 2.5vh;
+    font-size: 12px;
   }
 
 @media screen and (min-width: 1000px) {
@@ -827,7 +818,6 @@ th {
         border-radius: 15px;
 
       } 
-
 
 
     .searchbar {
@@ -982,6 +972,8 @@ th {
 
     .year > p{
         color: #333;
+        font-size: 70%;
+
     }
 
     .pagination {
@@ -1065,12 +1057,10 @@ th {
         /* margin: 8vh 0 0 0; */
         /* margin-top: 30vh; */
         margin: 0;
-        /* text-align: right;
-        float: right; */
-        display: flex;
-        justify-content: flex-end;
-      
-        width: 100%;
+        float: right;
+        /* width: 100%; */
+        padding-right: 6.5%;
+        width: 70vw;
         margin-bottom: 1.5vh;
     }
     
@@ -1088,9 +1078,9 @@ th {
         display: flex;
         align-items: flex-end;
         margin-right: 3vh;
-    }
+    } 
     .card-pp > select {
-        width: auto;
+        width: 100%;
         margin: 0;
     }
     
@@ -1099,15 +1089,11 @@ th {
     }
     
     .sortdiv > select {
-        width: auto;
+        width: 100%;
         margin: 0;
     }
     
-    #totalMatches {
-        float: left !important;
-        width: 100%;
-        font-weight: bold;
-    }
+   
     .mobile-sort-div {
         display: none;
     }
@@ -1207,7 +1193,6 @@ th {
         overflow: hidden;
         max-height: 150vh;
         transition: all 0.2s ease-in;
-        padding-bottom: 2vh;
     }
     
     .dropDown.display > form {
@@ -1222,16 +1207,12 @@ th {
     
         width: auto;
     }
-    
-    .dropDown.display > form > div > label{
-    
-        /* display: inline; */
-    } 
- 
     #totalMatches {
         position: absolute;
+        font-size: 16px;
         left: 23.5%;
-        padding-top: 2.5vh;
-        width: auto;
+    
+        /* font-weight: bold; */
+ 
       }
 }  

@@ -382,7 +382,7 @@ font-size: 80%;
         width: 35%
     }
 
-    .search-more > a > button {
+    .search-more > button {
         background-color: #2f74a3;
         color: white;
         width: auto;

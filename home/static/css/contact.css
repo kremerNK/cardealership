@@ -1,12 +1,12 @@
 .body {
     margin-bottom: 5%;
-    margin: 0 1% 5% 1%;
+    margin: 0 1% 25% 1%;
     padding: 5%;
     padding-top: 0;
 
     display: flex;
     flex-direction: column;
-    border-bottom: 1px solid #757575;
+    /* border-bottom: 1px solid #757575; */
 }
 h2 {
     margin: 5% 5% 5% 5%; 
@@ -83,6 +83,8 @@ h2 {
     height: 25vh;
     text-align: left;
     border: 1px solid black;
+    margin-top: 2vh;
+    margin-bottom: 3vh;
 }
 
 .contact-form > form > input {
@@ -95,7 +97,7 @@ h2 {
 
 .cards {
     width:100%;
-    
+
 }
 
 .cards p {
@@ -109,13 +111,15 @@ h2 {
     /* box-shadow: 1px 1px black; */
     border-radius: 5px;
 
-
-
-}
-
-.related-links > table { 
+    
 
 }
+
+.cards p {
+    font-size: 10px;
+}
+
+
 
 .address > p, .phone > p {
     text-align: center;
@@ -187,6 +191,7 @@ h2 {
     border: 1px solid black;
     border-radius: 5px;
     padding-top: 2vh;
+    margin-bottom: 4vh;
 
 }
 
@@ -200,6 +205,7 @@ h2 {
 
 #get-directions-button {
     width: auto;
+    margin: 2vh 0 2vh 0;
 }
  
 .g-recaptcha {
@@ -221,7 +227,7 @@ h2 {
     margin-bottom: -2.5%;
 }
 
-   
+    
 @media screen and (min-width: 1024px) {
     
     .mobile-margin {
@@ -231,6 +237,8 @@ h2 {
     .body {
         padding-top: 5%;
         flex-direction: row; 
+        margin-bottom: 0;
+        padding-bottom: 2%;
     }
 
     .contact-form {
@@ -270,6 +278,7 @@ h2 {
     .contact-form > form {
         display: flex;
         flex-direction: column;
+        align-items: center;
     }
 
     .contact-form > form > ul {
@@ -304,6 +313,8 @@ h2 {
     .contact-form > form > textarea {
         height: 25vh;
         text-align: left;
+        width: 100%;
+        margin-top: 2vh;
     }
 
     .contact-form > form > input:last-child {
@@ -312,12 +323,13 @@ h2 {
         background-color: #2f74a3;
         color: white;
         border: none;
-
+        margin: 2vh 0 2vh 0;
+        text-align: center;
     }
 
     .cards {
         width:35%;
-        
+  
     }
 
  
@@ -325,6 +337,7 @@ h2 {
     .cards p {
         color: black;
         font-weight: bold;
+        font-size: 11px;
     }
 
     .related-links {
@@ -376,6 +389,7 @@ h2 {
         font-size: 1.5rem;
         font-weight: normal;
         border-bottom: 1px dotted black;
+        
 
     }
 
@@ -403,7 +417,12 @@ h2 {
     .address > p, .phone > p {
         text-align: left;
         display: block;
+        margin-bottom: 1.5vh;
     } 
+
+    .address > p {
+        margin-bottom: 4vh;
+    }
 
     #form-submission {
         color: red;
@@ -413,5 +432,10 @@ h2 {
         margin-top: 2.5%;
         margin-bottom: -2.5%;
     }
+
+    #userinput {
+        width: 90%;
+    }
+    
 
 }
