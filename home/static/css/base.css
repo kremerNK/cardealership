@@ -413,7 +413,9 @@ table {
     text-align: right;
 }
 
-
+.navright {
+    display: none;
+}
 
 
 @media screen and (min-width: 1000px) {
@@ -597,22 +599,25 @@ table {
     }
 
     .navright {
-        width: 6%;
-        height: 100%;
+        width: 80px;
+        height: 7vh;
 
         text-decoration: none;
         color: black;
         list-style: none;
         margin-right: 5%;
         font-size: 1em;
-        text-align: center;
-        position: relative;
-        padding-left: -50px;
+        position: absolute;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        align-items: center;
     }
     
     .navright > li > a > i {
         color: #333;
-        
+        text-align: center;
     }
 
     .navright > li > a {
@@ -623,28 +628,54 @@ table {
  
     }
 
+    .navright > li {
+        position: absolute;
+        width: auto;
+    }
+
+    #test {
+        position: absolute;
+        color: red;
+        background-color: black;
+        top: 50px;
+        width: 50px;
+        height: 50px;
+        z-index: 15;
+    }
+
+    #test > p {
+        color: purple;
+        background-color: yellow;
+    }
+
+    .navright:hover {
+        background-color: #2f75a338
+    }
+
     .navright > li > p {
         position: absolute;
         right: 0;
         top: 0;
+        text-align: center;
         background-color: #32CD32;
         width: 1.9em;
         height: 1.5em;
         margin-top: 0.5vh;
+        margin-right: 0.5vh;
         color: white;
         font-weight: bold;
- 
+        border-radius: 5px;
    
     }
 
     .navright > li {
-        width: 100%;
-        height: 100%;
+        width: auto;
+        height: auto;
         display: flex;
         flex-direction: column;
         justify-content: flex-end;
-        align-items: flex-start;
-        padding-left: -50px;
+
+  
         
     } 
  

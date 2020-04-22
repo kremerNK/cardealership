@@ -189,4 +189,7 @@ def contact(request):
     #add back in 'captcha':captcha to context
     return render(request, 'contact.html', {'form':form})
 
-  
+def comparePage(request):
+
+    context = {} 
+    return render(request, 'comparePage.html', context)  
