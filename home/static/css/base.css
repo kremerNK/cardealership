@@ -594,7 +594,7 @@ table {
         color: inherit;
     }
     
-    .navleft > li > a:hover {
+    .navleft > li > p:hover {
         color: black;
     }
 
@@ -608,19 +608,20 @@ table {
         margin-right: 5%;
         font-size: 1em;
         position: absolute;
-
+        right: 0;
         display: flex;
         flex-direction: column;
         justify-content: flex-end;
         align-items: center;
+        
     }
     
-    .navright > li > a > i {
+    .navright > li > p > i {
         color: #333;
         text-align: center;
     }
 
-    .navright > li > a {
+    .navright > li > p {
         text-decoration: none;
         color: #333;
         display: flex;
@@ -630,29 +631,44 @@ table {
 
     .navright > li {
         position: absolute;
-        width: auto;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        cursor: pointer;
+  
     }
 
-    #test {
+    .navright > li:hover {
+        background-color: #2f75a338; 
+    }
+
+    #viewed-popup {
         position: absolute;
-        color: red;
-        background-color: black;
-        top: 50px;
-        width: 50px;
-        height: 50px;
-        z-index: 15;
+        background-color: #ebe9e9;
+        top: 100%;
+        right: -50%;
+        display: none;
+        /* width: 40vw;
+        height: 50vh; */
+        /* change height once you get vehicle cards inside */
+        max-height: 60vh;
+        box-shadow: 0 5px 5px rgba(0, 0, 0, 0.5);
+        overflow-y: scroll;
+ 
     }
-
-    #test > p {
+ 
+    #viewed-popup > p {  
         color: purple;
         background-color: yellow;
     }
 
-    .navright:hover {
+    /* .navright:hover {
         background-color: #2f75a338
-    }
+    } */
 
-    .navright > li > p {
+    .navright > li > p:first-child {
         position: absolute;
         right: 0;
         top: 0;
@@ -668,16 +684,87 @@ table {
    
     }
 
-    .navright > li {
-        width: auto;
-        height: auto;
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-end;
+    #carCardPopup{
 
+        background-color: #ebe9e9;
+        display: flex;
+        /* margin-bottom: 1vh; */
+        position: relative;
+        border-bottom: 1px solid gray;
+        /* width: 100%; */
+        width: 40vw;
+        height: 25vh;
+    }
+
+    #carCardPopup:first-child {
+        border-top: 1px solid gray;
   
-        
-    } 
+    }
+
+    #carCardPopup:last-child{
+        margin-bottom: 3px;
+    }
+
+    #carCardPopup:hover {
+        background-color: #d3d1d1;
+    }
+
+    #carPicPopup > img {
+        width: 12vw;
+        height: 24vh;
+    }
+
+    #viewBtn {
+        background-color: #2f74a3;
+    }
+
+    #carInfoDivPopup {
+        margin-left: 1vw;
+        margin-top: 1vh;
+    }
+
+    #carInfoDivPopup > h2 {
+        color: #333;
+        font-size: 22px;
+        margin-bottom: 1vh;
+        font-weight: 600;
+    }
+
+    #carInfoDivPopup > p {
+        color: #333;
+        margin: 1vh 0 1vw 0;
+        font-size: 20px;
+    }
+
+    #carInfoDivPopup > p:last-child {
+        font-size: 14px;
+        padding-top: 10%;
+    }
+
+    #carPicPopup > img {
+        height: 85%;
+        padding-top: 6%;
+        padding-left: 6%;
+    }
+
+    #carPricePopup {
+        display: inline;
+        font-size: 18px;
+        /* background-color: #2f74a3; */
+        /* color: white !important; */
+        padding: 2px;
+    }
+
+    #viewBtn {
+        font-size: 16px;
+        color: #ebe9e9;
+
+        position: absolute;
+        right: 1vw;
+        bottom: 1vh;
+
+    }
+
  
     .navbar-toggle {
         display: none;
@@ -813,5 +900,6 @@ table {
     .footer > div > p {
         margin-bottom: 0;
     }
+
 }
  

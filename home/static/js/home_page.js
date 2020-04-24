@@ -37,7 +37,6 @@ window.onload = function(){
     setInterval(function(){
         car.style.height = '100px';
         car.style.visibility = 'visible';
-        console.log('interval');
         bg.classList.add('roll');
         bg2.classList.add('roll');
         roll = document.querySelectorAll('.roll');

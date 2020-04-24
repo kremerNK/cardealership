@@ -48,7 +48,7 @@ slide.style.margin = '0 auto';
 
 ////////automatically insert hyphen in Phone input////////////
 const phoneInput = document.querySelector('#id_phone');
-console.log(phoneInput.value);
+
 
 // phoneInput.value = '';
  
@@ -109,3 +109,46 @@ const formatPhoneInput = (inputNumber) => {
 
   return formattedInput;
 }
+
+
+
+/////////add vehicle info to localStorage///////////
+
+
+
+ 
+window.onload = function(){
+  let carDetails = {};
+  carDetails['carTitle'] = document.querySelector('.vehicletitle').getElementsByTagName('p')[0].innerHTML;
+  carDetails['carPrice'] = document.querySelector('#price').innerHTML;
+  carDetails['carMiles'] = document.querySelector('#vehicle-mileage').innerHTML;
+  carDetails['carURL'] = window.location.href;
+
+  
+  // carDetails['carCondition'] = 'used'; 
+  carDetails['carPic'] = document.querySelector('.slick-track').children[1].getAttribute('src');
+
+  if (localStorage.getItem('viewedCars')){
+    let parsedStorage = JSON.parse(localStorage.getItem('viewedCars'));
+    picExists = false;
+    parsedStorage.forEach(e1 => {
+      if (e1['carPic'].indexOf(carDetails['carPic']) != -1){
+        picExists = true;
+      }
+    });
+
+    if (picExists == false){
+      parsedStorage.push(carDetails)
+      localStorage.setItem('viewedCars', JSON.stringify(parsedStorage));
+    } 
+
+  } 
+  else {
+    let storageArray = [];
+    storageArray.push(carDetails);
+    localStorage.setItem('viewedCars', JSON.stringify(storageArray));
+  }
+
+}
+
+
