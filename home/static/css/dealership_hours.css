@@ -81,13 +81,18 @@ blockquote, dl, figure, form, ol, p, pre, table, ul {
 .formcard {
     display: none;
 
-}
+} 
 
 #directionform > input {
     /* background-color: #cecece; */
     border: 1px solid gray;
+    
 }
 
+#directionform > label {
+    margin-bottom: 1vh;
+}
+ 
 .directioncards{
     display: flex;
     flex-direction: column;

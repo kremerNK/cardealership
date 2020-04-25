@@ -137,6 +137,7 @@ nav {
     margin: 0;
     text-align: center;
     width: 100%;
+    margin-bottom: 1vh;
 }  
 
 .nav-links {
@@ -150,12 +151,12 @@ nav {
 .active {
     display: block;
     margin-bottom: 0;
-}
+} 
 
 .mobile-phone.hidephone {
     z-index: 0;
-
-}
+    padding-bottom: 1vh;
+} 
 
 .mobile-phone {
     position: fixed;
@@ -586,7 +587,7 @@ table {
     .navleft > li:hover {
         transition: 0.5s background-color ease;
         background-color: #2f75a338; 
-        color: white;
+        color: #333;
     
     }
 
@@ -606,15 +607,17 @@ table {
         color: black;
         list-style: none;
         margin-right: 5%;
-        font-size: 1em;
+        /* font-size: 1em; */
         position: absolute;
         right: 0;
         display: flex;
         flex-direction: column;
         justify-content: flex-end;
         align-items: center;
-        
+        font-size: 70%;
     }
+
+
     
     .navright > li > p > i {
         color: #333;
@@ -641,7 +644,9 @@ table {
     }
 
     .navright > li:hover {
+        transition: 0.5s background-color ease;
         background-color: #2f75a338; 
+        color: #333;
     }
 
     #viewed-popup {
@@ -673,7 +678,6 @@ table {
         right: 0;
         top: 0;
         text-align: center;
-        background-color: #32CD32;
         width: 1.9em;
         height: 1.5em;
         margin-top: 0.5vh;
@@ -682,6 +686,15 @@ table {
         font-weight: bold;
         border-radius: 5px;
    
+    } 
+
+    .navright > li > p:last-child {
+     
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
     }
 
     #carCardPopup{
@@ -693,7 +706,19 @@ table {
         border-bottom: 1px solid gray;
         /* width: 100%; */
         width: 40vw;
-        height: 25vh;
+        height: auto;
+    }
+
+    #carCardPopup > i {
+    
+        /* width: 2vw; */
+        height: 5vh;
+        color: gray;
+        /* background-color: green; */
+        position: absolute;
+        right: 10px;
+        top: 5px;
+        cursor: pointer;
     }
 
     #carCardPopup:first-child {
@@ -723,11 +748,16 @@ table {
         margin-top: 1vh;
     }
 
+    /* #totalViewed {
+        background-color: #ff0000;
+    } */
+
     #carInfoDivPopup > h2 {
         color: #333;
         font-size: 22px;
         margin-bottom: 1vh;
         font-weight: 600;
+        width: 90%;
     }
 
     #carInfoDivPopup > p {

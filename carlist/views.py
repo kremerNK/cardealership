@@ -140,7 +140,7 @@ def hours(request):
     return render(request, 'dealership_hours.html')
 
 def contact(request):
-    # captcha = FormWithCaptcha()
+    captcha = FormWithCaptcha()
     if request.method == 'POST':
         username = 'glycine775@gmail.com'
         password = 'knsjvowvflaoskoj'
@@ -151,7 +151,7 @@ def contact(request):
         server.login(username, password) 
         form = ContactForm(request.POST) 
         if form.is_valid(): 
-            try:
+            try: 
                 validate_email(form.cleaned_data['email'])
             except:
                 messages.error(request, 'Invalid email')    
@@ -186,8 +186,8 @@ def contact(request):
             server.quit()
         return HttpResponseRedirect(reverse('contact'))   
     form = ContactForm()   
-    #add back in 'captcha':captcha to context
-    return render(request, 'contact.html', {'form':form})
+
+    return render(request, 'contact.html', {'form':form, 'captcha':captcha})
 
 def comparePage(request):
 

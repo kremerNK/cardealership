@@ -1,6 +1,6 @@
 .body {
     margin-bottom: 5%;
-    margin: 0 1% 25% 1%;
+    margin: 0 1% 5% 1%;
     padding: 5%;
     padding-top: 0;
 
@@ -8,7 +8,7 @@
     flex-direction: column;
     /* border-bottom: 1px solid #757575; */
 }
-h2 {
+h2 { 
     margin: 5% 5% 5% 5%; 
     padding-bottom: 1%;
         
@@ -56,11 +56,13 @@ h2 {
 .contact-form > form > ul > li {
     width: 100%;
     display: inline-block;
+    margin-bottom: 1vh;
 }
 .contact-form > form > ul > li > input {
     background-color: white;
     border:1px solid black;
     color: black;
+    margin-bottom: 2vh;
 }
 
 .contact-form > form > ul > li > select {
@@ -129,7 +131,7 @@ h2 {
 .hours-tbody > tr  th {
     color: black;
     border-bottom: 1px dotted black;
-    font-size: 1.5rem;
+    font-size: 100%;
     font-weight: normal;
 }
 
@@ -163,7 +165,7 @@ h2 {
 }
 
 .address > p, .address > i, .phone > p, .phone > i{
-    font-size: 1.5rem;
+
     font-weight: normal;
     border-bottom: 1px dotted black;
 
@@ -193,10 +195,10 @@ h2 {
     padding-top: 2vh;
     margin-bottom: 4vh;
 
-}
+} 
 
 #directionform > label {
-   
+   margin-bottom: 1vh;
 }
 
 #userinput {
@@ -258,7 +260,7 @@ h2 {
     .contact-form:hover {
         transition: background-color 0.2s ease 0s;
         background-color: #2f75a338;
-    }
+    } 
 
     .contact-form > h2 {
         
@@ -323,7 +325,7 @@ h2 {
         background-color: #2f74a3;
         color: white;
         border: none;
-        margin: 2vh 0 2vh 0;
+        margin: 0 0 2vh 0;
         text-align: center;
     }
 
@@ -337,7 +339,7 @@ h2 {
     .cards p {
         color: black;
         font-weight: bold;
-        font-size: 11px;
+        font-size: 100%;
     }
 
     .related-links {
@@ -357,7 +359,7 @@ h2 {
     .hours-tbody > tr > th {
         color: black;
         border-bottom: 1px dotted black;
-        font-size: 1.5rem;
+
     }
 
 
@@ -386,7 +388,7 @@ h2 {
     }
 
     .address > p, .address > i, .phone > p, .phone > i{
-        font-size: 1.5rem;
+
         font-weight: normal;
         border-bottom: 1px dotted black;
         

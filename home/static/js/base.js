@@ -42,14 +42,10 @@ const topbannerBound = topbanner.getBoundingClientRect();
 
 carInfo = JSON.parse(localStorage.getItem('viewedCars'));
 if (carInfo != null){
-    console.log(carInfo);
-    var popup = document.querySelector('#viewed-popup');
+    let popup = document.querySelector('#viewed-popup');
     for (i=0; i < carInfo.length; i++){
-        console.log(i);
         
         let index = i;
-        
-        console.log(carInfo[i]);
         let card = document.createElement('div');
         card.setAttribute('id', 'carCardPopup')
         popup.appendChild(card)
@@ -82,25 +78,67 @@ if (carInfo != null){
 
         let viewBtn = document.createElement('button');
         viewBtn.onclick = function(){
-            console.log(carInfo[index]['carURL']);
             window.location = carInfo[index]['carURL'];
         }
         viewBtn.setAttribute('id', 'viewBtn')
         card.appendChild(viewBtn);
         viewBtn.textContent = 'View';
         
-
+        let closeBtn = document.createElement('i');
+        closeBtn.classList.add('fas');
+        closeBtn.classList.add('fa-times');
+        closeBtn.classList.add('fa-2x');
+        card.appendChild(closeBtn);
+        closeBtn.onclick = function(){
+            let removedCarName = this.parentElement.querySelector('#carInfoDivPopup').getElementsByTagName('h2')[0].textContent;
+            for (i=0; i < carInfo.length; i++){
+                if (carInfo[i]['carTitle'] == removedCarName){
+                    getIndex = i;
+                }
+            }
+            carInfo.splice(getIndex, 1)
+            localStorage.setItem('viewedCars', JSON.stringify(carInfo));
+            totalViewedCount();
+            popup.removeChild(card);
+            if (popup.children.length == 0){
+                popup.style.visibility = 'hidden';
+            }
+        }
         };
-}
+} 
 
+////////click to make pop up appear////////
 let popupClick = document.querySelector('#click-popup');
 popupClick.addEventListener('click', function(){
-    let popup = document.querySelector('#viewed-popup')
-    if (popup.style.display == ''){
+    let popup = document.querySelector('#viewed-popup');
+    let totalViewed = document.querySelector('#total-viewed');
+    console.log(document.querySelector('#carCardPopup'));
+    
+    if (popup.style.display == '' &&
+    JSON.parse(localStorage.getItem('viewedCars')).length > 0 &&
+    document.querySelector('#carCardPopup') !== null){
         popup.style.display = 'block';
     } else {
         popup.style.display = '';
     }
-    
 })
 
+//////////change number of viewed according to amount in localstorage//////
+let totalViewed = document.querySelector('#total-viewed');
+function totalViewedCount(){
+    if (JSON.parse(localStorage.getItem('viewedCars')).length == 0){
+        totalViewed.style.visibility = 'hidden';
+    } else {
+      totalViewed.style.visibility = 'visible';
+    }
+    if (JSON.parse(localStorage.getItem('viewedCars')) === null){
+        totalViewed.style.display = 'none';
+    } else {
+        let total = JSON.parse(localStorage.getItem('viewedCars')).length;
+        totalViewed.textContent = total.toString();
+        // totalViewed.style.backgroundColor = '#2db82d';
+        totalViewed.style.backgroundColor = '#ff0000';
+        totalViewed.style.display = 'inline';
+    }
+}
+totalViewedCount();

@@ -10,8 +10,6 @@
 
 } 
 
-
-
 p {
     margin-bottom: 0;
 } 
@@ -186,8 +184,6 @@ p {
     width: 90%;
     margin-bottom: 4vh;
     height: auto;
-    
-
 }
 
 .vehicleInfo{
@@ -199,7 +195,7 @@ p {
 
 .vehicleImg {
     width: 40%;
-    height: auto;
+    height: 95%;
     margin-right: 15px;
     display: flex;
     justify-content: center;
@@ -228,25 +224,27 @@ p {
     padding-top: 0.5rem;
     padding-right: 0.5rem;
     /* color: #595959; */
-    font-size: 1.8rem;
     line-height: 1.1;
     margin-bottom: 1rem;
     
 }
 
+.year > p{
+    font-size: 1.3rem;
+    font-weight: bold;
+}
 
 .vehicle-price {
-    font-size: 1.5rem;
-    text-align: left;
-    /* border: 1px solid black; */
+    font-size: 1rem;
+    font-weight: bold;
     background-color: #2f74a3;
     color: white;
-    width: 8rem;
+    width: 7rem;
     text-align: center;
     margin-top: 0.3rem;
     margin-bottom: 1vh;
-    
-    
+    padding: 2px 0 2px 0;
+     
    /* font-family: "Times New Roman", Times, serif; */
 }
 
@@ -258,7 +256,7 @@ p {
     width: 100%;
     /* height: 60%; */
     color: black;
-    margin-bottom: 2vh;
+    margin-bottom: 1vh;
     font-size: 15px;
     font-weight: lighter;
 }
@@ -394,16 +392,29 @@ th {
 }
 
 .dropDown.display > form {
-    display: inline-block;
+    /* display: inline-block;
     width: 100%;
-    margin-bottom: 0;
+    margin-bottom: 0; */
 }
 
 .dropDown.display > form >  div {
-    /* display: inline-block; */
+
     margin-left: 15px;
 
     width: auto;
+}
+
+
+.regular-slider, .mileage-slider {
+    /* margin-top: 3rem !important;
+    margin-right: 4.5rem !important */
+    margin: 3rem 2.5rem 3.5rem 2.5rem !important;
+
+}
+
+.noUi-value.noUi-value-horizontal.noUi-value-large {
+    padding-top: 0.5rem;
+
 }
 
 .price-input > span > input {
@@ -453,6 +464,10 @@ th {
 .mobileMileageDisplay {
     /* margin-top: 1.5rem; */
     margin-bottom: 0.1rem;
+}
+
+.mobileMileageDisplay > p {
+    font-size: 0.9rem;
 }
 
 .moreInfo {
@@ -714,11 +729,9 @@ th {
 
 /* Customize the label (the container) */
 .container {
-    display: inline;
-    /* margin-right: 50%; */
-
+    /* display: inline;
+    margin-right: 50%; */
     position: relative;
-    /* padding: 0; */
     padding-left: 35px;
     cursor: pointer;
     font-size: 16px;
@@ -730,16 +743,59 @@ th {
     letter-spacing: 1.3px;
   }
 
-  .container p {
-    display: inline;
+.container p {
+    /* display: inline; */
+
     font-size: 14px;
     font-weight: lighter !important;
     font-style: italic;
     padding: 0 !important;
+
   }
 
+
+
+.container {
+    margin-bottom: 1vh;
+}
+
+.container > input {
+    display: none;
+}
+
+#make-form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+#model-form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+#year-form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+#fuel-input {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+/* 
+#body-form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+} */
+
+
   /* Hide the browser's default checkbox */
-  .container input {
+.container input {
     position: absolute;
     opacity: 0;
     cursor: pointer;
@@ -749,7 +805,7 @@ th {
   }
 
   /* Create a custom checkbox */
-  .checkmark {
+.checkmark {
     position: absolute;
     top: 2px;
     left: 15px;
@@ -759,29 +815,29 @@ th {
   }
 
   /* On mouse-over, add a grey background color */
-  .container:hover input ~ .checkmark {
+.container:hover input ~ .checkmark {
     background-color: #ccc;
   }
 
   /* When the checkbox is checked, add a blue background */
-  .container input:checked ~ .checkmark {
+.container input:checked ~ .checkmark {
     background-color: #274fa3;
   }
 
   /* Create the checkmark/indicator (hidden when not checked) */
-  .checkmark:after {
+.checkmark:after {
     content: "";
     position: absolute;
     display: none;
   }
 
   /* Show the checkmark when checked */
-  .container input:checked ~ .checkmark:after {
+.container input:checked ~ .checkmark:after {
     display: block;
   }
 
   /* Style the checkmark/indicator */
-  .container .checkmark:after {
+.container .checkmark:after {
     left: 5px;
     top: 3.3px;
     width: 2.5px;
@@ -793,11 +849,11 @@ th {
     transform: rotate(45deg);
   } 
 
-  .mobile-sort-div{
+.mobile-sort-div{
       width: 100%;
   }
 
-  #totalMatches {
+#totalMatches {
     position: absolute;
     left: 5%;
     font-size: 12px;
@@ -883,6 +939,7 @@ th {
         display: block;
     }
 
+
     .vehicleCard {
         height: 100%;
         width: 100%;
@@ -894,6 +951,22 @@ th {
  
     }
 
+    .vehicleDetails {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        height: 100%;
+        color: black;
+        margin-bottom: 1vh;
+        font-size: 15px;
+        font-weight: lighter;
+    }
+
+    .vehicleTitle {
+        width: 100%;
+        height: 40%;
+        
+    }
     
     .topVehicleCard {
         display: flex;
@@ -907,9 +980,43 @@ th {
         padding: 5px;
         font-size: inherit;
     }
+
+    .vehicleImg {
+        width: 40%;
+        height: 40%;
+        margin-right: 15px;
+        display: flex;
+        justify-content: flex-start;
+        /* align-self: center; */
+    }
+    
+    .vehicleImg > img {
+        width: 100%;
+        height: 100%;
+    }
+
+    .vehicleInfo{
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        height: auto;
+    }
+
     .mobileMileageDisplay {
         display: none;
     }
+
+    .vehicleTable1 > table > tbody > tr > th:first-child, 
+    .vehicleTable2 > table > tbody > tr > th:first-child {
+        text-align: left;
+    }
+    .vehicleTable1 > table > tbody > tr > th, 
+    .vehicleTable2 > table > tbody > tr > th {
+        padding-top: 1.5vh;
+
+    }
+
+
 
     .displayFilter {
         display: none;
@@ -966,14 +1073,14 @@ th {
 
     .year {
         line-height: normal;
-        font-size: 3.5rem;
+        font-size: 2rem;
         margin-bottom: 2vh;
     }
 
     .year > p{
         color: #333;
         font-size: 70%;
-
+        letter-spacing: 0.7px;
     }
 
     .pagination {

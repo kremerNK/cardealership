@@ -78,11 +78,11 @@ table, tr, th {
 
 tr > th:first-child {
    font-weight: bold;
-   font-size: 80%;
+    text-align: left;
 }
 tr > th:last-child {
 color: black;
-font-size: 80%;
+
 }
 
 .image-index p {
@@ -140,10 +140,19 @@ font-size: 80%;
 
 .contact-form > form > ul > li > input, .contact-form > form > ul > li > select {
     border: 1px solid #333;
+    margin-bottom: 2vh;
 }
 
 .contact-form > form > ul > li > * {
     width: 100%;
+}
+
+.contact-form > form > input:last-child {
+    margin-bottom: 2vh;
+}
+
+.contact-form > form > textarea {
+    margin-bottom: 3vh;
 }
 
 .contact-form > form > textarea {
@@ -158,6 +167,7 @@ font-size: 80%;
     color: white;
     width: 40%;
 }
+
 
 .contact-form > form {
     display: flex;
@@ -203,6 +213,8 @@ font-size: 80%;
     margin-bottom: -2.5%;
 }
 
+
+
 @media screen and (min-width: 1000px) {
 
      .vehicle-page {
@@ -244,17 +256,19 @@ font-size: 80%;
     }
 
     .slides {
-        width: 100%;
+        width: 80%;
 
-        height: 100%;
+        height: 80%;
         display: inline-block;
 
     }
 
     .slides > img {
-        width: 100%;
-        height: 100%;
-        display: inline-block;
+    }
+
+    .contact-form > form > ul > li > input, .contact-form > form > ul > li > select {
+        border: 1px solid #333;
+        margin-bottom: 3vh;
     }
 
     .image > p {
