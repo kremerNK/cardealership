@@ -147,7 +147,7 @@ nav {
     letter-spacing: 1px;
 
 }
-
+ 
 .active {
     display: block;
     margin-bottom: 0;
@@ -650,16 +650,13 @@ table {
     }
 
     #viewed-popup {
-        position: absolute;
+        /* position: absolute; */
         background-color: #ebe9e9;
-        top: 100%;
-        right: -50%;
-        display: none;
-        /* width: 40vw;
-        height: 50vh; */
-        /* change height once you get vehicle cards inside */
+        /* top: 100%;
+        right: -50%; */
+        /* display: none; */
         max-height: 60vh;
-        box-shadow: 0 5px 5px rgba(0, 0, 0, 0.5);
+
         overflow-y: scroll;
  
     }
@@ -704,9 +701,10 @@ table {
         /* margin-bottom: 1vh; */
         position: relative;
         border-bottom: 1px solid gray;
-        /* width: 100%; */
-        width: 40vw;
+        width: 100%;
+        /* width: 40vw; */
         height: auto;
+        padding-left: 2.5vw;
     }
 
     #carCardPopup > i {
@@ -727,20 +725,55 @@ table {
     }
 
     #carCardPopup:last-child{
-        margin-bottom: 3px;
+        margin-bottom: 0px;
     }
 
     #carCardPopup:hover {
         background-color: #d3d1d1;
     }
 
+    #carCardPopup > form {
+        position: absolute;
+        left: 0;
+        top: 38.5%;
+    }
+
     #carPicPopup > img {
+
         width: 12vw;
         height: 24vh;
+     
     }
 
     #viewBtn {
         background-color: #2f74a3;
+    }
+
+    #compare-div {
+        position: relative;
+        width: 100%;
+        height: 60px;
+        bottom: 0;
+        background-color: #d3d1d1;
+    }
+
+    #popup-container {
+        /* display: none; */
+        position: absolute;
+        background-color: #ebe9e9;
+        top: 100%;
+        right: -50%;
+        width: 40vw;
+        box-shadow: 0 5px 5px rgba(0, 0, 0, 0.5);
+    }
+    #compare-btn {
+        position: absolute;
+        background-color: #ebe9e9;
+        border: 1px solid #2f74a3;
+        color: #333;
+
+        top: 11px;
+        left: 1vw;
     }
 
     #carInfoDivPopup {
@@ -784,7 +817,7 @@ table {
         /* color: white !important; */
         padding: 2px;
     }
-
+ 
     #viewBtn {
         font-size: 16px;
         color: #ebe9e9;
@@ -795,6 +828,98 @@ table {
 
     }
 
+    #compare-form {
+        position: absolute;
+        left: 1.25vw;
+        height: 15px;
+        width: 15px;
+        top: 42.5%;
+    }
+
+    .compare-form-label {
+        display: inline;
+        /* display: flex; */
+        position: relative;
+
+        padding-left: 35px;
+        /* margin-right: 60%; */
+        /* margin-bottom: 12px; */
+        cursor: pointer;
+        font-size: 16px;
+        font-weight: 500;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        width: auto;
+      }
+
+      .compare-form-label p {
+          display: inline;
+          font-size: 14px;
+          font-weight: lighter;
+          font-style: italic;
+      }
+
+      /* Hide the browser's default checkbox */
+      .compare-form-label input {
+        position: absolute;
+        opacity: 0;
+        cursor: pointer;
+        height: 0;
+        width: 0;
+      }  
+
+      /* Create a custom checkbox */
+      .compare-form-checkmark {
+        position: absolute;
+        top: 2.5px;
+        left: 15px;
+        height: 15px;
+        width: 15px;
+        background-color: #eee;
+        border: 1px solid gray;
+        border-radius: 3px;
+      }
+
+      /* On mouse-over, add a grey background color */
+      .compare-form-label:hover input ~ .compare-form-checkmark {
+        background-color: #eee;
+        border-color: #2f74a3;
+        box-shadow: 0 0 10px #2f74a3;
+
+      }
+
+      /* When the checkbox is checked, add a blue background */
+      .compare-form-label input:checked ~ .compare-form-checkmark {
+        background-color: #2f74a3;
+        border: none;
+      }
+
+      /* Create the compare-form-checkmark/indicator (hidden when not checked) */
+      .compare-form-checkmark:after {
+        content: "";
+        position: absolute;
+        display: none;
+      }
+
+      /* Show the compare-form-checkmark when checked */
+      .compare-form-label input:checked ~ .compare-form-checkmark:after {
+        display: block;
+      }
+
+      /* Style the compare-form-checkmark/indicator */
+      .compare-form-label .compare-form-checkmark:after {
+        left: 5px;
+        top: 3.3px;
+        width: 2.5px;
+        height: 5px;
+        border: solid white;
+        border-width: 0 3px 3px 0;
+        -webkit-transform: rotate(45deg);
+        -ms-transform: rotate(45deg);
+        transform: rotate(45deg);
+      } 
  
     .navbar-toggle {
         display: none;

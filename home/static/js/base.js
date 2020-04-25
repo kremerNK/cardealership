@@ -42,6 +42,8 @@ const topbannerBound = topbanner.getBoundingClientRect();
 
 carInfo = JSON.parse(localStorage.getItem('viewedCars'));
 if (carInfo != null){
+    let popupContainer = document.createElement('section');
+
     let popup = document.querySelector('#viewed-popup');
     for (i=0; i < carInfo.length; i++){
         
@@ -79,10 +81,32 @@ if (carInfo != null){
         let viewBtn = document.createElement('button');
         viewBtn.onclick = function(){
             window.location = carInfo[index]['carURL'];
-        }
+        } 
         viewBtn.setAttribute('id', 'viewBtn')
         card.appendChild(viewBtn);
         viewBtn.textContent = 'View';
+
+        let compareInputForm = document.createElement('form');
+        // compareInputForm.setAttribute('id', 'compare-form');
+        compareInputForm.action = "";
+        card.appendChild(compareInputForm);
+        let compareFormLabel = document.createElement('label');
+        compareFormLabel.setAttribute('class', 'compare-form-label');
+        compareInputForm.appendChild(compareFormLabel)
+        let compareFormInput = document.createElement('input');
+        // compareFormInput.setAttribute('id', 'compare-form-input');
+        compareFormInput.type = 'checkbox';
+        compareFormLabel.appendChild(compareFormInput);
+        let compareFormSpan = document.createElement('span');
+        compareFormSpan.setAttribute('class', 'compare-form-checkmark');
+        compareFormLabel.appendChild(compareFormSpan)
+
+        // let compareInput = document.createElement('input');
+        // compareInput.setAttribute('id', 'compare-input');
+        // compareInput.type = 'checkbox';
+        // compareInputForm.appendChild(compareInput);
+
+        
         
         let closeBtn = document.createElement('i');
         closeBtn.classList.add('fas');
@@ -105,6 +129,16 @@ if (carInfo != null){
             }
         }
         };
+    let compareDiv = document.createElement('div');
+    compareDiv.setAttribute('id', 'compare-div');
+    document.querySelector('#popup-container').appendChild(compareDiv);
+    let compareBtn = document.createElement('button');
+    compareBtn.textContent = 'Compare';
+    compareBtn.setAttribute('id', 'compare-btn');
+    compareDiv.appendChild(compareBtn);
+
+    
+
 } 
 
 ////////click to make pop up appear////////
