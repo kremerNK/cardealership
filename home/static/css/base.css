@@ -755,10 +755,11 @@ table {
         height: 60px;
         bottom: 0;
         background-color: #d3d1d1;
+        display: none;
     }
 
     #popup-container {
-        /* display: none; */
+        display: none;
         position: absolute;
         background-color: #ebe9e9;
         top: 100%;

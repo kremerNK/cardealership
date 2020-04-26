@@ -87,26 +87,19 @@ if (carInfo != null){
         viewBtn.textContent = 'View';
 
         let compareInputForm = document.createElement('form');
-        // compareInputForm.setAttribute('id', 'compare-form');
+        compareInputForm.setAttribute('id', 'compare-form');
         compareInputForm.action = "";
         card.appendChild(compareInputForm);
         let compareFormLabel = document.createElement('label');
         compareFormLabel.setAttribute('class', 'compare-form-label');
         compareInputForm.appendChild(compareFormLabel)
         let compareFormInput = document.createElement('input');
-        // compareFormInput.setAttribute('id', 'compare-form-input');
+        compareFormInput.setAttribute('id', 'compare-form-input');
         compareFormInput.type = 'checkbox';
         compareFormLabel.appendChild(compareFormInput);
         let compareFormSpan = document.createElement('span');
         compareFormSpan.setAttribute('class', 'compare-form-checkmark');
-        compareFormLabel.appendChild(compareFormSpan)
-
-        // let compareInput = document.createElement('input');
-        // compareInput.setAttribute('id', 'compare-input');
-        // compareInput.type = 'checkbox';
-        // compareInputForm.appendChild(compareInput);
-
-        
+        compareFormLabel.appendChild(compareFormSpan)        
         
         let closeBtn = document.createElement('i');
         closeBtn.classList.add('fas');
@@ -132,12 +125,16 @@ if (carInfo != null){
     let compareDiv = document.createElement('div');
     compareDiv.setAttribute('id', 'compare-div');
     document.querySelector('#popup-container').appendChild(compareDiv);
+    let buttonAnchor = document.createElement('a');
+    buttonAnchor.href = '/compare';
+    compareDiv.appendChild(buttonAnchor);
     let compareBtn = document.createElement('button');
+    
     compareBtn.textContent = 'Compare';
     compareBtn.setAttribute('id', 'compare-btn');
-    compareDiv.appendChild(compareBtn);
+    buttonAnchor.appendChild(compareBtn);
 
-    
+     
 
 } 
 
@@ -145,6 +142,7 @@ if (carInfo != null){
 let popupClick = document.querySelector('#click-popup');
 popupClick.addEventListener('click', function(){
     let popup = document.querySelector('#viewed-popup');
+    let compareDiv = document.querySelector('#compare-div');
     let totalViewed = document.querySelector('#total-viewed');
     console.log(document.querySelector('#carCardPopup'));
     
@@ -152,8 +150,10 @@ popupClick.addEventListener('click', function(){
     JSON.parse(localStorage.getItem('viewedCars')).length > 0 &&
     document.querySelector('#carCardPopup') !== null){
         popup.style.display = 'block';
+        compareDiv.style.display = 'block';
     } else {
         popup.style.display = '';
+        compareDiv.style.display = '';
     }
 })
 
@@ -176,3 +176,82 @@ function totalViewedCount(){
     }
 }
 totalViewedCount();
+
+
+/////////session Storage for compared vehicles/////
+//////might need to check the localstorage viewedCars on the compare page///
+///to verify that the car is still in the viewed list/////
+let compareCheckmarks = document.querySelectorAll('#compare-form-input');
+
+
+function findAncestorById (el, eleid) {
+    while ((el = el.parentElement) && !el.id.includes(eleid));
+    return el;
+}
+
+function getPictureName(str){
+    console.log(str);
+    
+    var splitString = str.split("");
+    var reverseArray = splitString.reverse();
+    var joinArray = reverseArray.join("");
+    var sliceStr = joinArray.split('/')
+    var splitString = sliceStr[0].split('');
+    var reverseArray = splitString.reverse();
+    var joinArray = reverseArray.join('');
+
+    return joinArray;
+}
+
+// compareCheckmarks.forEach(e1 => e1.addEventListener('click', function(){
+//     console.log(e1.id);
+//     let parentCard = findAncestorById(e1, 'carCardPopup')
+//     console.log(parentCard);
+//     let sortPicture = parentCard.querySelector('#carPicPopup').getElementsByTagName('img')[0].src;
+//     let sortTitle = parentCard.querySelector('#carInfoDivPopup').getElementsByTagName('h2')[0];
+//     console.log(getPictureName(sortPicture), sortTitle.textContent);
+//     ///care compare session and then send it to django with ajax
+//     let compareArray = [];
+//     let compareDict = {}
+//     if (sessionStorage.getItem('toCompare') !== null){
+//         console.log('storage exists');
+//         let compareArray = JSON.parse(sessionStorage.getItem('toCompare'));
+//         compareDict['sortPic'] = sortPicture;
+//         compareDict['sortTitle'] = sortTitle;
+//         compareArray.push(compareDict);
+//         sessionStorage.setItem('toCompare', JSON.stringify(compareArray))
+//         console.log(JSON.parse(sessionStorage.getItem('toCompare')));
+        
+//     } else {
+//         console.log('storage does not exist');
+//         compareDict['sortPic'] = sortPicture;
+//         compareDict['sortTitle'] = sortTitle;
+//         compareArray.push(compareDict);
+//         sessionStorage.setItem('toCompare', JSON.stringify(compareArray));
+//         console.log(JSON.parse(sessionStorage.getItem('toCompare')));
+//     }
+    
+// }));
+
+let compareBtn = document.querySelector('#compare-btn');
+compareBtn.addEventListener('click', function(){
+    sessionStorage.removeItem('toCompare');
+    console.log(compareCheckmarks);
+    let compareArray = [];
+    
+    compareCheckmarks.forEach(e1 => {
+        let compareDict = {}
+        console.log(e1.checked);
+        if (e1.checked === true){
+            let parentCard = findAncestorById(e1, 'carCardPopup')
+            console.log(parentCard);
+            let sortPicture = parentCard.querySelector('#carPicPopup').getElementsByTagName('img')[0].src;
+            let sortTitle = parentCard.querySelector('#carInfoDivPopup').getElementsByTagName('h2')[0].textContent;
+            compareDict['sortPicture'] = sortPicture;
+            compareDict['sortTitle'] = sortTitle;
+            compareArray.push(compareDict);
+        }
+        
+    });    
+    sessionStorage.setItem('toCompare', JSON.stringify(compareArray));
+});

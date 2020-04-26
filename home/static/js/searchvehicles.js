@@ -15,7 +15,6 @@ displayFilter.style.marginTop = (leftBannerHeight + mobilePhoneHeight + 15).toSt
 
 let labels = document.querySelectorAll('.container')
 
-console.log(labels)
 
 
 //check boxes if user uses find matches on home_page///
@@ -245,7 +244,7 @@ yearFilterPageLoad();
 ////////////////fuel efficiency propagate search to next page/////////////////////
 
 function fuelSession(){
-    console.log('fuelsession()');
+
     
     if (sessionStorage.getItem('fuel')){
         let fuelForm = document.querySelectorAll('.fuel-input');

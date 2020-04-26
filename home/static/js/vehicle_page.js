@@ -114,7 +114,70 @@ const formatPhoneInput = (inputNumber) => {
 
 /////////add vehicle info to localStorage///////////
 
+function makeComparisonStorage(){
 
+  if (sessionStorage.getItem('viewedVehicles') !== null){
+    console.log('not null');
+    pictureExists = false;
+    let sessionArray = JSON.parse(sessionStorage.getItem('viewedVehicles'))
+    let newDict = {}
+    console.log(sessionArray);
+
+    for (i=0; i < sessionArray.length; i++){
+      console.log(sessionArray[i]['vehiclePic']);
+      if (sessionArray[i]['vehiclePic'] == document.querySelector('.slick-track').children[1].getAttribute('src')){
+            console.log('true, do not add this vehicle');
+            
+            pictureExists = true;
+          }
+    };
+    console.log(pictureExists);
+    
+    if (pictureExists == false){
+      newDict['vehicleTitle'] = document.querySelector('.vehicletitle').getElementsByTagName('p')[0].textContent;
+      newDict['vehiclePrice'] = document.querySelector('.price').getElementsByTagName('div')[0].querySelector('#price').textContent;
+      newDict['vehicleMileage'] = document.querySelector('.price').getElementsByTagName('div')[1].querySelector('#vehicle-mileage').textContent;
+      newDict['vehicleMPG'] = document.querySelector('#mpg').textContent;
+      newDict['exteriorColor'] = document.querySelector('#exterior-color').textContent;
+      newDict['interiorColor'] = document.querySelector('#interior-color').textContent;
+      newDict['vehicleTransmission'] = document.querySelector('#vehicle-transmission').textContent;
+      newDict['vehicleEngine'] = document.querySelector('#vehicle-engine').textContent;
+      newDict['vehicleDriveLine'] = document.querySelector('#vehicle-driveline').textContent;
+      newDict['vehicleStockNumber'] = document.querySelector('#vehicle-stocknumber').textContent;
+      newDict['vehicleVIN'] = document.querySelector('#vehicle-vin').textContent;
+      newDict['vehiclePic'] = document.querySelector('.slick-track').children[1].getAttribute('src')
+      console.log(newDict);
+      sessionArray.push(newDict);
+      sessionStorage.setItem('viewedVehicles', JSON.stringify(sessionArray));
+      console.log(JSON.parse(sessionStorage.getItem('viewedVehicles')));
+    }
+
+    
+
+  } else {
+    console.log('does not yet exist, crease session');
+    //gather all attributes of vehicle to store in session, to access in compare
+    
+    // console.log(vehicleTitle, vehiclePrice, vehicleMileage, vehicleMPG, exteriorColor, interiorColor, vehicleTransmission, 
+    //   vehicleEngine, vehicleDriveLine, vehicleStockNumber, vehicleVIN);
+    let sessionArray = [];
+    let sessionDict = {};
+    sessionDict['vehicleTitle'] = document.querySelector('.vehicletitle').getElementsByTagName('p')[0].textContent;
+    sessionDict['vehiclePrice'] = document.querySelector('.price').getElementsByTagName('div')[0].querySelector('#price').textContent;
+    sessionDict['vehicleMileage'] = document.querySelector('.price').getElementsByTagName('div')[1].querySelector('#vehicle-mileage').textContent;
+    sessionDict['vehicleMPG'] = document.querySelector('#mpg').textContent;
+    sessionDict['exteriorColor'] = document.querySelector('#exterior-color').textContent;
+    sessionDict['interiorColor'] = document.querySelector('#interior-color').textContent;
+    sessionDict['vehicleTransmission'] = document.querySelector('#vehicle-transmission').textContent;
+    sessionDict['vehicleEngine'] = document.querySelector('#vehicle-engine').textContent;
+    sessionDict['vehicleDriveLine'] = document.querySelector('#vehicle-driveline').textContent;
+    sessionDict['vehicleStockNumber'] = document.querySelector('#vehicle-stocknumber').textContent;
+    sessionDict['vehicleVIN'] = document.querySelector('#vehicle-vin').textContent;
+    sessionDict['vehiclePic'] = document.querySelector('.slick-track').children[1].getAttribute('src');
+    sessionArray.push(sessionDict)
+    sessionStorage.setItem('viewedVehicles', JSON.stringify(sessionArray));
+  } 
+};
 
  
 window.onload = function(){
@@ -149,6 +212,6 @@ window.onload = function(){
     localStorage.setItem('viewedCars', JSON.stringify(storageArray));
   }
 
-}
-
-
+  /////make the sessionStorage for comparison page////
+  makeComparisonStorage();
+}; 
