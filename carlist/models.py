@@ -42,7 +42,8 @@ class Vehicle(Page):
     stock_number = models.CharField(max_length=200, default='V220031')
     vin = models.CharField(max_length=200, default='1')
     picture = models.ImageField(default='')
-
+    doors = models.CharField(max_length=200, default='4', null=True)
+ 
 
     # print(vars(object))
     # @property
@@ -76,6 +77,7 @@ class Vehicle(Page):
         FieldPanel('mileage'),
         FieldPanel('mpg'),
         FieldPanel('engine'),
+        FieldPanel('doors'),
         FieldPanel('bodyColor'),
         FieldPanel('type'),
         FieldPanel('transmission'),

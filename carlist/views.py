@@ -85,7 +85,8 @@ def searchVehicle(request):
 
 def vehiclePage(request, slug, pk):
     obj = get_object_or_404(Vehicle, pk=int(pk), slug=str(slug))
-    vehicle = Vehicle.objects.all()[2]
+    # vehicle = Vehicle.objects.all()[2]
+    print(obj) 
     form = ContactForm() 
     captcha = FormWithCaptcha() 
     context = {'vehicle': obj, 'form': form, 'captcha':captcha}

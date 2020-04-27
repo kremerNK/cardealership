@@ -35,7 +35,14 @@
         <div class='image-details'>
             <div class='image'> 
                 <div class='vehicletitle'>
-                    <p>{{ vehicle.title}}</p>
+                    <p>{{ vehicle.title}}</p> 
+                    <div style='display: flex;' id='vehicleTitle'>
+                        <p id='vmake' style='display:none;'>{{ vehicle.make}}</p>
+                        <p id='vmodel' style='display:none;'>{{vehicle.model}}</p>
+                        <p id='vyear' style='display:none;'>{{vehicle.year}}</p>
+         
+                    </div>
+                    
                 </div>
                 <div class='carousel-container'>
                     <div class='slides'>
@@ -80,6 +87,10 @@
                                     <th id='interior-color'>{{vehicle.interior_color}}</th>
                                 </tr> 
                                 <tr>
+                                    <th>Doors</th>
+                                    <th id='vehicle-doors'>{{vehicle.doors}}</th>
+                                </tr>
+                                <tr>
                                     <th>Transmission</th>
                                     <th id='vehicle-transmission'>{{vehicle.transmission}}</th>
                                 </tr>
@@ -99,6 +110,8 @@
                                     <th>VIN</th>
                                     <th id='vehicle-vin'>1M8GDM9A_KP042788</th>
                                 </tr>
+                                
+                                
                                 
                             </table>
                         </div>

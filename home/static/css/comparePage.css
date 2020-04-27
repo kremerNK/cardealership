@@ -1,12 +1,49 @@
-h2 {
-    background-color: #c3c3c3;
-    color: #3a3a3a;
-    padding: 5vh;
-    padding-left: 10vh;
+@media screen and (max-width: 999px){
+
 }
 
-section {
-    display: flex;
-    flex-direction: column;
-    width: 95%;
-}   
+
+@media screen and (min-width: 1000px){
+    #page-header {
+        background-color: #c3c3c3;
+        color: #3a3a3a;
+        padding: 5vh;
+        padding-left: 10vh;
+        font-size: 25px;
+        margin-bottom: 5vh;
+    }
+    
+    #compared-table {
+        color: #333;
+        width: auto;
+        margin-left: 5vh;
+    }
+
+    .compare-section {
+        margin-bottom: 10vh;
+    }
+
+    #table-pic > td > img {
+        height: 300px;
+        width: 300px;
+        padding-right: 20px;
+    }
+
+    th {
+        border: none;
+    }
+
+    tr {
+        border-bottom: 1px solid gray;
+    }
+
+    tr > th:first-child {
+        font-weight: bold;
+    }
+
+    #tViewDetails > td {
+
+        padding: 7px 0 7px 0;
+    }
+
+}

@@ -135,6 +135,9 @@ function makeComparisonStorage(){
     
     if (pictureExists == false){
       newDict['vehicleTitle'] = document.querySelector('.vehicletitle').getElementsByTagName('p')[0].textContent;
+      newDict['vehicleMake'] = document.querySelector('#vmake').textContent;
+      newDict['vehicleModel'] = document.querySelector('#vmodel').textContent;
+      newDict['vehicleYear'] = document.querySelector('#vyear').textContent;
       newDict['vehiclePrice'] = document.querySelector('.price').getElementsByTagName('div')[0].querySelector('#price').textContent;
       newDict['vehicleMileage'] = document.querySelector('.price').getElementsByTagName('div')[1].querySelector('#vehicle-mileage').textContent;
       newDict['vehicleMPG'] = document.querySelector('#mpg').textContent;
@@ -146,11 +149,13 @@ function makeComparisonStorage(){
       newDict['vehicleStockNumber'] = document.querySelector('#vehicle-stocknumber').textContent;
       newDict['vehicleVIN'] = document.querySelector('#vehicle-vin').textContent;
       newDict['vehiclePic'] = document.querySelector('.slick-track').children[1].getAttribute('src')
+      newDict['vehicleLink'] = window.location.toString();
+      newDict['vehicleDoors'] = document.querySelector('#vehicle-doors').textContent;
       console.log(newDict);
       sessionArray.push(newDict);
       sessionStorage.setItem('viewedVehicles', JSON.stringify(sessionArray));
       console.log(JSON.parse(sessionStorage.getItem('viewedVehicles')));
-    }
+    } 
 
     
 
@@ -163,6 +168,9 @@ function makeComparisonStorage(){
     let sessionArray = [];
     let sessionDict = {};
     sessionDict['vehicleTitle'] = document.querySelector('.vehicletitle').getElementsByTagName('p')[0].textContent;
+    sessionDict['vehicleMake'] = document.querySelector('#vmake').textContent;
+    sessionDict['vehicleModel'] = document.querySelector('#vmodel').textContent;
+    sessionDict['vehicleYear'] = document.querySelector('#vyear').textContent;
     sessionDict['vehiclePrice'] = document.querySelector('.price').getElementsByTagName('div')[0].querySelector('#price').textContent;
     sessionDict['vehicleMileage'] = document.querySelector('.price').getElementsByTagName('div')[1].querySelector('#vehicle-mileage').textContent;
     sessionDict['vehicleMPG'] = document.querySelector('#mpg').textContent;
@@ -174,10 +182,12 @@ function makeComparisonStorage(){
     sessionDict['vehicleStockNumber'] = document.querySelector('#vehicle-stocknumber').textContent;
     sessionDict['vehicleVIN'] = document.querySelector('#vehicle-vin').textContent;
     sessionDict['vehiclePic'] = document.querySelector('.slick-track').children[1].getAttribute('src');
+    sessionDict['vehicleLink'] = window.location.toString();
+    sessionDict['vehicleDoors'] = document.querySelector('#vehicle-doors').textContent;
     sessionArray.push(sessionDict)
     sessionStorage.setItem('viewedVehicles', JSON.stringify(sessionArray));
   } 
-};
+}; 
 
  
 window.onload = function(){
