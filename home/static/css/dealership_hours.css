@@ -211,6 +211,11 @@ blockquote, dl, figure, form, ol, p, pre, table, ul {
 
 @media screen and (min-width: 700px) { 
 
+    #navbar {
+        height: 7vh;
+        width: 100%;
+    }
+
     .direction {
         display: flex;
         flex-direction: row;
@@ -314,5 +319,9 @@ blockquote, dl, figure, form, ol, p, pre, table, ul {
         font-size: 25px;
         /* margin-bottom: 5vh; */
     } 
+
+    #h2-header-mobile{
+        display: none;
+    }
 }
 

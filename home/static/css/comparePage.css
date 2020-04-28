@@ -12,6 +12,17 @@
         font-size: 25px;
         margin-bottom: 5vh;
     }
+
+
+    #h2-header {
+        display: block;
+        background-color: #c3c3c3;
+        color: #3a3a3a;
+        padding: 5vh;
+        padding-left: 10vh;
+        font-size: 25px;
+        margin-bottom: 5vh;
+    }
     
     #compared-table {
         color: #333;
@@ -31,6 +42,7 @@
 
     th {
         border: none;
+        padding: 10px 10px 10px 0 !important;
     }
 
     tr {
@@ -39,6 +51,10 @@
 
     tr > th:first-child {
         font-weight: bold;
+    }
+
+    tr > td:first-child {
+        padding-left: 15px;
     }
 
     #tViewDetails > td {

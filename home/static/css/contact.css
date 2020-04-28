@@ -248,6 +248,11 @@
 
     
 @media screen and (min-width: 1024px) {
+
+    #navbar {
+        height: 7vh;
+        width: 100%;
+    } 
     
     .mobile-margin {
         display: none;
@@ -464,6 +469,10 @@
         padding-left: 10vh;
         font-size: 25px;
         /* margin-bottom: 5vh; */
+    }
+
+    #h2-header-mobile {
+        display: none;
     }
 
 }

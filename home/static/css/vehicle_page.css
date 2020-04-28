@@ -239,6 +239,11 @@ color: black;
 
 @media screen and (min-width: 1000px) {
 
+    #navbar {
+        height: 7vh;
+        width: 100%;
+    }
+
      .vehicle-page {
         width: 100%;
         display: flex;
