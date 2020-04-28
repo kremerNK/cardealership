@@ -187,6 +187,28 @@ blockquote, dl, figure, form, ol, p, pre, table, ul {
     font-size: 15px;
 }
 
+#h2-header {
+    display: none; 
+}
+
+#h2-header-mobile {
+    text-align: center;
+    display: block;
+    background-color: #c3c3c3;
+    color: #3a3a3a;
+    padding: 2.5vh;
+    /* padding-left: 5vh; */ 
+    font-size: 25px;
+    margin-bottom: 5vh;
+    
+    /* margin-top: 110px; */
+}
+
+#navbar {
+    height: 0px;
+    width: 0;
+}
+
 @media screen and (min-width: 700px) { 
 
     .direction {
@@ -282,5 +304,15 @@ blockquote, dl, figure, form, ol, p, pre, table, ul {
         color: white;
         margin-top: 2vh;
     }
+
+    #h2-header {
+        display: block;
+        background-color: #c3c3c3;
+        color: #3a3a3a;
+        padding: 5vh;
+        padding-left: 10vh;
+        font-size: 25px;
+        /* margin-bottom: 5vh; */
+    } 
 }
 

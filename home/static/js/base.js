@@ -56,7 +56,7 @@ document.addEventListener('click', function(){
         popupContainer.style.display = '';
     } else {
         console.log('inside');
-   
+    
     }
 }, true);
 

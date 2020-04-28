@@ -1,12 +1,16 @@
+////set margins//
+
 let bannerHeight = document.querySelector('.top-banner').offsetHeight;
 let phoneHeight = document.querySelector('.mobile-phone').offsetHeight;
 let marginTop = bannerHeight + phoneHeight;
-let body = document.querySelector('.mobile-margin');
-body.style.marginTop = ((marginTop * 0.7).toString() + 'px'); 
+
+let h2headermobile = document.querySelector('#h2-header-mobile');
+let topHeight = document.querySelector('.top-banner').getBoundingClientRect().height + document.querySelector('.mobile-phone').getBoundingClientRect().height;
+h2headermobile.style.marginTop = (topHeight).toString().concat('px');
 
 ////////automatically insert hyphen in Phone input////////////
 const phoneInput = document.querySelector('#id_phone');
-
+ 
  
 
 const phoneFormat = '{0}{1}{2}-{3}{4}{5}-{6}{7}{8}{9}'; 

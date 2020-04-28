@@ -29,34 +29,37 @@
     </head>
     
     <body>
-        <div class='top-banner'>
-            <span class="navbar-toggle" id="js-navbar-toggle"> 
-                <i class="fas fa-bars"></i>
-            </span>
-            <div class='leftbanner'>
-                <!-- got logo on https://www.freelogodesign.org/, see easton08 for emails + DL + info -->
-                <a href="{% url 'home' %}"><img src="../../media/siteImages/banner12new.png" alt=""></a> 
+       
+            <div class='top-banner'>
+                <span class="navbar-toggle" id="js-navbar-toggle"> 
+                    <i class="fas fa-bars"></i>
+                </span>
+                <div class='leftbanner'>
+                    <!-- got logo on https://www.freelogodesign.org/, see easton08 for emails + DL + info -->
+                    <a href="{% url 'home' %}"><img src="../../media/siteImages/banner12new.png" alt=""></a> 
+                </div>
+                <div class='rightbanner'> 
+                    <p style='margin-bottom: 5px' id='address'><i class="fas fa-map-marker-alt fa-sm"></i> 123 New Franken Street </p>
+                    <p >New Franken, GA 55555</p>
+                    <p id='phonenumber'><i height='10px' class="fas fa-phone fa-xs"></i> 111-111-1111</p>
+                </div>
+                <ul class='main-nav' id='js-menu'>
+                    <li><a href="/" class='nav-links'>Home</a></li>
+                    <li><a href="/search-vehicles" class='nav-links'>Search Vehicles</a></li>
+                    <li><a href="/dealership-hours" class='nav-links'>Location</a></li>
+                    <li><a href="/contact" class='nav-links'>Contact</a></li>
+                </ul>
+                <div class='mobile-phone'>
+                    <a href="tel:111-111-1111"><i height='15px' class="fas fa-phone fa-xs"></i> 111-111-1111</a>
+                </div>
             </div>
-            <div class='rightbanner'> 
-                <p style='margin-bottom: 5px' id='address'><i class="fas fa-map-marker-alt fa-sm"></i> 123 New Franken Street </p>
-                <p >New Franken, GA 55555</p>
-                <p id='phonenumber'><i height='10px' class="fas fa-phone fa-xs"></i> 111-111-1111</p>
-            </div>
-            <ul class='main-nav' id='js-menu'>
-                <li><a href="/" class='nav-links'>Home</a></li>
-                <li><a href="/search-vehicles" class='nav-links'>Search Inventory</a></li>
-                <li><a href="/dealership-hours" class='nav-links'>Location</a></li>
-                <li><a href="/contact" class='nav-links'>Contact</a></li>
-            </ul>
-            <div class='mobile-phone'>
-                <a href="tel:111-111-1111"><i height='15px' class="fas fa-phone fa-xs"></i> 111-111-1111</a>
-            </div>
-        </div> 
+     
+         
             <nav id='navbar'>
                     <div id='nav-space'>
                         <ul class='navleft'>
                             <li><a href="/">Home</a></li>
-                            <li><a href="/search-vehicles">Search Inventory</a></li>
+                            <li><a href="/search-vehicles">Search Vehicles</a></li>
                             <li><a href="/dealership-hours">Location</a></li>
                             <li><a href="/contact">Contact</a></li>
                         </ul>

@@ -1,11 +1,12 @@
 
 let sortDiv = document.querySelector('.sort');
 let displayFilter = document.querySelector('.displayFilter');
+let h2headermobile = document.querySelector('#h2-header-mobile')
 let topHeight = document.querySelector('.top-banner').getBoundingClientRect().height + document.querySelector('.mobile-phone').getBoundingClientRect().height
 
 let leftBannerHeight = document.querySelector('.leftbanner').getBoundingClientRect().height
 let mobilePhoneHeight = document.querySelector('.mobile-phone').getBoundingClientRect().height
-displayFilter.style.marginTop = (leftBannerHeight + mobilePhoneHeight + 15).toString().concat('px');
+h2headermobile.style.marginTop = (leftBannerHeight + mobilePhoneHeight + 0).toString().concat('px');
 
 
 // sortDiv.style.width = document.querySelector('.vehicleCard').getBoundingClientRect().width.toString().concat('px');
@@ -15,7 +16,7 @@ displayFilter.style.marginTop = (leftBannerHeight + mobilePhoneHeight + 15).toSt
 
 let labels = document.querySelectorAll('.container')
 
-
+ 
 
 //check boxes if user uses find matches on home_page///
 let makeForm = document.querySelectorAll('.make-input');
@@ -597,12 +598,13 @@ showFilter.addEventListener('click', function(){
     let searchBarMargin = document.querySelector('.searchbar');
     let displayFilter = document.querySelector('.displayFilter');
     let pagination = document.querySelector('.pagination');
+    let h2headermobile = document.querySelector("h2-header-mobile");
     let leftBannerHeight = document.querySelector('.leftbanner').getBoundingClientRect().height
     let mobilePhoneHeight = document.querySelector('.mobile-phone').getBoundingClientRect().height
     let body = document.querySelector('.body');
     resetBtn.style.display = 'none';
     body.style.paddingBottom = '0px';
-    displayFilter.style.marginTop = '0px';
+    h2headermobile.style.marginTop = '0px';
     searchBarMargin.style.marginTop = (leftBannerHeight + mobilePhoneHeight).toString().concat('px');
     searchBarMargin.style.marginBottom = '0px';
     mobileSortDiv.style.display = 'none';
@@ -622,6 +624,7 @@ function closeMobileFilter(){
     let body = document.querySelector('.body');
     let paginationDiv = document.querySelector('.pagination-container');
     let totalMatches = document.querySelector('#totalMatches');
+    let h2header = document.querySelector('#h2-header-mobile');
     if (totalMatches.innerHTML[0] != '0'){
         paginationDiv.style.display = '';
     } else {
@@ -630,7 +633,7 @@ function closeMobileFilter(){
     }
     resetBtn.style.display = '';
     body.style.paddingBottom = '5%';
-    displayFilter.style.marginTop = (topHeight * 1.15).toString().concat('px');
+    h2header.style.marginTop = (topHeight * 1.15).toString().concat('px');
     mobileSortDiv.style.display = '';
     searchResults.style.display = 'flex';
     searchBar.style.display = 'none';

@@ -52,7 +52,7 @@ p {
     border-radius: 4px;
     /* box-shadow: 1px 1px #2f75a3a8; */
 
-    color: white;
+    color: white; 
     background-color: #2f75a3a8;
 }
 
@@ -553,8 +553,8 @@ th {
 }
 
 .displayFilter button {
-    width: 35%;
-
+    /* width: 35%; */
+    font-size: 11px;
     /* background-color: #C23939; */
     /* border: 1px solid #C23939; */
     border: 1px solid #333;
@@ -862,7 +862,29 @@ th {
     position: absolute;
     left: 5%;
     font-size: 12px;
-  }
+}
+ 
+#filter-reset > h2 {
+    font-size: 2rem;
+    width: 90%;
+    text-align: center;
+}
+
+#h2-header {
+    display: none;
+}
+ 
+#h2-header-mobile {
+    text-align: center;
+    display: block;
+    background-color: #c3c3c3;
+    color: #3a3a3a;
+    padding: 2.5vh;
+    /* padding-left: 5vh; */
+    font-size: 25px;
+    margin-bottom: 5vh;
+    /* margin-top: 110px; */
+}
 
 @media screen and (min-width: 1000px) {
       /* filter results scroll bar */
@@ -1042,6 +1064,13 @@ th {
         
     }
 
+    #filter-reset > h2 {
+        font-size: 2rem;
+        width: 90%;
+        text-align: center;
+        margin-bottom: 2vh;
+    }
+
     .searchBarTop > p {
         width: 100%;
         color: #333;
@@ -1163,7 +1192,7 @@ th {
     .sort-hide-mobile {
         height: auto;
         display: block;
-        margin-top: 10vh;
+        margin-top: 5vh;
     }
     .sort {
         /* margin: 8vh 0 0 0; */
@@ -1208,18 +1237,20 @@ th {
    
     .mobile-sort-div {
         display: none;
-    }
+    } 
 
     #reset-button {
         margin: 0 auto;
+        /* height: 5px;
+        width: 5px; */
         border: none;
         font-size: 12px;
-       
+        text-align: center;
+        display: inline-block;
+       padding: 0 10px;
     }
 
-    #make-form {
-         
-    }
+    
 
     /* Customize the label (the container) */
     .container {
@@ -1327,5 +1358,20 @@ th {
     
         /* font-weight: bold; */
  
-      }
+    }
+
+    #h2-header {
+        display: block;
+        background-color: #c3c3c3;
+        color: #3a3a3a;
+        padding: 5vh;
+        padding-left: 10vh;
+        font-size: 25px;
+        /* margin-bottom: 5vh; */
+    } 
+
+    #h2-header-mobile {
+        display: none;
+    }
+      
 }  

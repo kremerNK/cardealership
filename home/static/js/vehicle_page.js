@@ -1,3 +1,10 @@
+///set a few margins here////
+
+let topHeight = document.querySelector('.top-banner').getBoundingClientRect().height + document.querySelector('.mobile-phone').getBoundingClientRect().height
+let h2HeaderMobile = document.querySelector('#h2-header-mobile')
+h2HeaderMobile.style.marginTop = topHeight.toString().concat('px');
+
+
 $(document).ready(function(){
     $('.carousel-container .slides').slick({
         slidesToShow: 1,
