@@ -341,15 +341,12 @@ p {
     width: 100%;
     padding: 0 5% 0 5%;
     z-index: 2;
-
 }
 
-.intro-text > p > * {
+.intro-text > p {
     font-weight: normal;
     /* margin-top: 6vh; */
     text-align: center;
-    position: relative;
-    z-index: 2;
 }
 
 
