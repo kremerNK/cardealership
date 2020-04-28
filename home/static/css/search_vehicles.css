@@ -468,6 +468,7 @@ th {
 
 .mobileMileageDisplay > p {
     font-size: 0.9rem;
+    font-weight: normal;
 }
 
 .moreInfo {
@@ -988,6 +989,8 @@ th {
         font-size: 15px;
         font-weight: lighter;
     }
+
+    
 
     .vehicleTitle {
         width: 100%;
