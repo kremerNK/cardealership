@@ -344,7 +344,7 @@ p {
 
 .intro-text > p {
     font-weight: normal;
-    
+    margin-top: 3vh;
     text-align: center;
 }
 
